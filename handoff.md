@@ -1,4 +1,167 @@
-# START HERE (2026-11-03): 2b-3c2b (aimed shots + TC -1 bug) DONE, next 2b-3c3 (EI on the sheet)
+# START HERE (2026-11-04): 2-4 done (BV1 force rules), next round 3 (vehicle BV1)
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
+- 2-4 DONE in 093cb1b8d: beta = master = origin, deployed to beta, news line (home.tsx Nov 3). Unit tests, lint, typecheck
+  green (3935 passed, 7 skipped in beta; the count includes 6 gitignored `src/zz-local` files, master has fewer). BV survey
+  before and after: 6,400 units, no differences. `e2e/vehicle-roster.spec.ts` passes (Chromium), but no e2e exercises BV1
+  force totals; unit tests cover them. `npm run build:bundled` report not run: per-unit BV code did not change.
+- Built: `master-rules` and `master-rules-revised` records in `BV_FORCE_RULES` (Arrow IV homing + TAG +200, C3 35% of
+  weapons in a complete network); Max Tech semi-guided LRM x6 beside real TAG and command console +200 per side.
+  Details: "2-4 DONE" in the plan. No issue tracks 2-4 itself, so no progress comment was posted.
+- For the user's later review: 5 more book-silent calls added to #621 (fighting group = force, bonuses before skill, two
+  masters incomplete, no rear swap in the 35%, enhanced LRM semi-guided x6). Leave as built until ruled.
+- New #622: satellite uplink and field/mobile HQ have no catalog item, so their per-side BV is not built. When they land,
+  `getBattleValueText`'s console line becomes the single side bonus (uplink stacks with console, HQ does not).
+- Tip: the survey needs a before and after: `BV_SURVEY_OUT=<file>` on `src/classes/bv-survey.generator.test.ts` with
+  `--testTimeout=550000`; detach `C:/repo/battletech-tools` at the old commit for the before run, then check out master.
+- The ArtVee TRO hold still stands: do not touch `docs/lore/artvee-tro.md` or the readout without checking first.
+- NEXT: round 3, vehicle BV1 (plan "Rounds" item 3, findings in "Segment 3"). Carry over: vehicle semi-guided x6 and the
+  `tagged` run, as `BattleMech.getBattleValueTagShare` does. Split data/BV/tests from UI/e2e. Round cleanup each time:
+  commit, push beta, `git deploy-beta`, ff master in `C:/repo/battletech-tools` and push, comment/close the issue.
+
+# EARLIER (2026-11-04): 2b-5b done, Round 2b complete, 2-4 since done
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
+- 2b-5b jump pack sheet and play DONE in 16aed99f0: beta = master = origin, deployed to beta, progress comment on #612,
+  news line (home.tsx Nov 3). 3940 unit tests, lint, typecheck green; 14 e2e pass (mech-rules-edition,
+  industrialmech-play, Chromium). Details and book-silent calls: "2b-5b DONE" in the plan.
+- #612 stays open: its body also lists ProtoMech jump packs and battle armor EI implants, neither built.
+- User ruling 2026-11-04: the jump pack takes no slots. All other book-silent calls and the ArtVee name and introduction
+  checks are listed for the user's later review in #621; leave them as built until then. The user is editing the
+  ArtVee TRO now: do not touch `docs/lore/artvee-tro.md` or the readout without checking first.
+- Fixed in passing: reopening Set Movement reset the turn's Jumping MP to 0.
+- Tip: `InputNumeric` renders a select in the Set Movement dialog, and that dialog has two Save buttons (e2e `.first()`).
+- NEXT: 2-4 BV1 force rules in `BV_FORCE_RULES` (Arrow IV homing + TAG +200; C3 +35% of weapons, rear halved; satellite
+  uplink and command console +200 per side, semi-guided LRM; plan lines 427-432), then round 3. Round cleanup each time:
+  commit, push beta, `git deploy-beta`, ff master in `C:/repo/battletech-tools` and push, comment/close the issue.
+
+# EARLIER (2026-11-04): 2b-5a done, ArtVee readout in TRO format shipped, 2b-5b since done
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
+- 2b-5a jump pack DONE (b0a142bb8): data, builder, cost, BV1, save, TRO. #612 commented. Findings and the 2b-5b
+  additions are in `docs/superpowers/plans/2026-11-03-edition-aware-bv.md`.
+- AWAITING USER RULING: Max Tech pp.85-86 print Crit. `4*` for the pack; the entry (pp.80-81), the cargo rules (BMR(R)
+  p.77) and the p.118 master table give no slots. Built with no slots until the user rules. Book-silent calls to review:
+  BMR(R) floors fractional MP, half-ton steps under BMR(R), price through the tonnage multiplier, pack allowed beside
+  jets, LAM bar from TW on only, Clan carry-over before 3083.
+- ArtVee readout DONE (7dde04cb9, deployed, beta = master = origin): TRO order and voice, about grade 7, signed Vance
+  introduction, SLDF / Clan / Inner Sphere sections, spec lines, stat pages, three Falconet plates
+  (`docs/lore/artvee-falconet.svg`, image block in `ReadoutText`). Unit headings must keep their exact sample names (tests).
+  New homebrew names awaiting the user's read: engine brands, comms and targeting systems in the spec lines. The signed
+  introduction restores the Vance and St. Jamais facts from the removed Framing list; user to confirm or cut it.
+- Follow-up, user ruling: ArtVees run on four split track pods on hinged arms; in Siege Mode they swing into an X from above and an Iron Knee drops a spade at each corner (the turret fires any way). Plates redrawn, side and from above; text updated. Script kept only in the session scratchpad.
+- 3918 unit tests, lint, `e2e/artvee.spec.ts` green after that follow-up.
+- Library: `sort_unsorted.py` finished: 1,160 proposals in `unsorted/_proposal.jsonl` (804 move, 221 review, 135 duplicate), nothing moved; this run's log `unsorted/_sort-2026-11-04.log` has 877 of them and 6 MuPDF lines. Prior
+  proposals saved as `_proposal-2026-10-25.jsonl`. User reads proposals before any --apply. The JBTIICRework git changes
+  are `unsorted/` churn plus `errata-2025/`, whose 12 sheets all moved to `errata/`: no rulebook was lost. BV v4.1 is at
+  `errata/100_TechManual-Battle-Value-v4.1.pdf`; the old path below is out of date.
+- Library rulebook sort DONE 2026-11-04 (user request): 96 steps, log `unsorted/_rulebook-sort-2026-11-04.json`, also in
+  `_moves.json`. `unsorted/Rulebook`, `Box Set`, `MechWarrior RPG` are empty and removed. 54 new files placed (4 replace a
+  library copy), 8 refiled (translations to `languages/`, Mercenary's Handbooks to `rpg/`), 34 copies set aside plus the 4
+  replaced ones: 1.15 GB in `unsorted/_duplicates/rulebooks-2026-11-04/`, nothing deleted; user decides when to delete.
+  Text, offsets, hashes, INDEX.md and search rebuilt; all hashes and 18 citations verified. Library changes NOT committed.
+  `unsorted/_proposal.jsonl` still lists these rulebooks at their old paths, so re-run or filter it before any --apply.
+  Open for the user: (1) library `BattleMech Manual (Corrected 6th Printing, 2021).pdf` and the new `(Corrected 6th
+  Printing, Oct 2022)` both stamp sixth but differ on 11 pages; the library one is almost word for word the 5th. Both
+  kept. (2) Kept both copies, each has something the other lacks: BattleTech Manual, BattleForce 2, CityTech 1st, Max Tech
+  Revised, AeroTech 2 Revised, MechWarrior Companion, Mercenary's Handbook, Guide to the Clans (146p and 144p scans).
+  (3) `rulebooks/` still holds non-rulebooks: Master Unit List, product list, Alpha Strike special abilities, tournament
+  rules. (4) Max Tech (FanPro, scan) 126p set aside: printed-page cites stand, but a pdf-index cite to that file needs the
+  132p scan. Library tools still name `errata-2025`: #620.
+- NEXT: 2b-5b jump pack sheet, play, e2e. Round cleanup each time: commit, push beta, `git deploy-beta`, ff master in
+  `C:/repo/battletech-tools` and push, comment/close the issue (#612).
+
+# EARLIER (2026-11-03, night): ArtVee readout shipped, library intake still running, then 2b-5a
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
+- ArtVee DONE: the 3085 readout is `docs/lore/artvee-tro.md` (skeleton folded in, Design Notes added). The page
+  `/classic-battletech/artvee-readout` renders that file; it is on the Classic BattleTech menu and linked from the
+  Vehicle Creator's sample list. beta = master = origin, deployed. #180 closed. 3895 unit tests, lint, typecheck green;
+  the readout e2e passes (Chromium). Each stat block's mass and BV are tested against its sample design. The readout was
+  deployed on the user's order; `artveeTRO.md` here is now a stale copy, safe to delete once the user agrees.
+- New: #618 (samples' own TRO step lacks the readout text and makers), #619 bug (beta buttons push the logo off the page
+  at phone width, every page; fix in `inject-issues-button.cjs`).
+- Fixed: `index.html` dropped the hash on direct links through the GitHub Pages redirect.
+- e2e tip: port 4173 was taken by another project (`testingUtility` preview, not ours). Playwright then fails to start
+  its web server. Leave that process alone; wait, or serve the build with `npx vite preview --port 4199 --strictPort`.
+- Library intake DONE 2026-11-04 01:03: blacklist clean. 1,080 of the new files logged "Defender: not available", so a
+  one-shot folder scan runs first (`unsorted/_defender-scan.log`, remediation off). `verify_unsorted.py` now walks
+  subfolders and skips `scrapes/` (uncommitted, with the watcher and hash edits). Evidence and OCR passes follow in the
+  same background chain; `--judge` runs next (report: `unsorted/_verify-report-2026-11-04.txt`). Defender: no threats in all of unsorted. Then `sort_unsorted.py` proposals for the user to read before any
+  --apply. `sort_unsorted.py` now sends subfolder PDFs to the model too (uncommitted); run it after `--judge` ends, as both use Ollama.
+  The items below on re-copies still stand.
+- NEXT: 2b-5a jump pack: data, builder, cost, BV1, save, TRO. Then 2b-5b: sheet, play, e2e. Split like 2b-4. Page images
+  read 2026-11-03 and they match the plan: Max Tech pp.80-81, TO:AUE p.105. Max Tech p.92 is rendered but NOT yet read.
+  Nothing coded yet. Round cleanup each time: commit, push beta, `git deploy-beta`, ff master in
+  `C:/repo/battletech-tools` and push, comment/close the issue (#612).
+
+# EARLIER (2026-11-03, late): library intake and ArtVee fluff, ArtVee since done
+
+- Library drop (1,927 files after 5 empty PDFs were deleted): full intake queued from the scratchpad, waits for the
+  watcher's slow check_blacklist step. Check `unsorted/_intake.log`. NEXT: `verify_unsorted.py`, then
+  `sort_unsorted.py` proposals for the user to read before any --apply.
+- `watch_unsorted.py` now walks subfolders (it saw top-level files only); `hash_library.py --check` ignores unsorted/.
+  Both edits are uncommitted. The running watcher still has the old code until restarted (next logon).
+- Re-copy needed (they arrived empty, now deleted): CO errata v4.0, Djinn of Despair ch.8, Strange Bedfellows,
+  Combat Equipment (35017; not found in sourcebooks/, check elsewhere). Field Manual: Draconis Combine is already held.
+- Keep the empty files in `text/_ocr_cache` (blank-page markers) and the .lock files.
+- ArtVee: clean TRO draft at `C:/repo/JBTToolsSupportFiles/artveeTRO.md`, dated 3085, awaiting user read. After that,
+  fold into `docs/lore/artvee-tro-skeleton.md`. Superheavy Bricole (Hailstorm combo) notes on #178.
+- ArtVee lore checked against Sarna and the library, and user rulings applied: IrTech MAPs are a rebel-cell project,
+  Archerfish at Cuan, Tormentum to Benet III, 3085 production table and Clan spread added (Horses, Stone Lion, Sharks,
+  Wolf-in-Exile), and 12 St. Jamais margin notes (nothing past 3072). Homebrew with no canon source: Bureau of
+  Technology, Republic Archives, Republic Armored Corps.
+
+# EARLIER (2026-11-03): 2b-4 armless complete and #616 fixed, next 2b-5 jump pack
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. Plan: `C:/repo/battletech-tools-master/docs/superpowers/plans/2026-11-03-edition-aware-bv.md`,
+  "2b-4b DONE" and the "2b-5 Jump pack" entry under it. USER: smaller chunks, stop well before a compact. Reuse/extend,
+  no new files.
+- 2b-4b and #616 DONE in 03a4d214f: beta = master = origin, deployed to beta, #616 closed, comment on #612, news lines
+  (home.tsx Nov 3). 3884 unit tests, lint, typecheck green; 12 e2e pass (mech-rules-edition, industrialmech-play, Chromium).
+- New enhancement #617: Level 2 armless, FrankenMech arm donors, armless flag surviving a quad round trip.
+- 27 of 34 printed costs still differ after #616; the cause is not looked at yet. Check before calling costs right.
+- Full unit runs lose a few tests to 5s and 30s timeouts, a different set each run; they pass alone (the Ares "flake"
+  is one of these). Rerun the failures alone before chasing them.
+- Tip: the Bash hook blocks any heredoc with an apostrophe, even inside Python: write scripts with the Write tool.
+- NEXT: 2b-5 jump pack, one per session. Round cleanup each time: commit, push beta, `git deploy-beta`, ff
+  master in `C:/repo/battletech-tools` and push, comment/close the issue (#612).
+
+# EARLIER (2026-11-03): 2b-4a (armless builder, cost, BV1, save) DONE, 2b-4b and #616 since done
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. Plan: `C:/repo/battletech-tools-master/docs/superpowers/plans/2026-11-03-edition-aware-bv.md`,
+  "2b-4a DONE" under the 2b-4 entry. USER: smaller chunks, stop well before a compact. Reuse/extend,
+  no new files.
+- 2b-4a DONE in aa693b338: beta = master = origin, deployed to beta, progress comment on #612, news line (home.tsx
+  Nov 3). Rule read from the page images (Max Tech pp.62-63, 92). `isArmless()` is the one gate; `setArmless()` re-runs
+  `setTonnage`. 3881 unit tests, lint, typecheck green; "offers armless 'Mechs" e2e passes (Chromium).
+
+# EARLIER (2026-11-03): 2b-3c3 (EI on the sheet) DONE, 2b-3 complete, 2b-4a since done
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. Plan: `C:/repo/battletech-tools-master/docs/superpowers/plans/2026-11-03-edition-aware-bv.md`,
+  "2b-3c3 DONE" and the "2b-4 Armless" entry under it. USER: smaller chunks, stop well before a compact. Reuse/extend,
+  no new files.
+- 2b-3c3 DONE in 30e94d091: beta = master = origin, deployed to beta, progress comment on #612, news line (home.tsx
+  Nov 3, the play-mode item). Warrior Data box (battlemech-svg.tsx), left of Piloting / Gunnery: "EI", an On box
+  (`data-testid="ei-box"`; blank on paper, marked in play while `isEnhancedImagingActive()`) and the feedback reminder.
+  `getEnhancedImagingFeedback()` is the one wording for the sheet and `takeDamage`. Unit tests in
+  armored-components-record-sheet.test.tsx. 3870 unit tests, lint, typecheck green; "EI implants" e2e passes
+  (Chromium). Layout checked from a screenshot.
+- Open gaps from 2b-3 (in the plan): rapid-fire multi-shot aim not blocked; BTC / BTC:RoW TC-aimed hit rules not read;
+  aim is per target, not per weapon; torso cockpit both-head +4 to physical attacks.
+- Tip: the Bash hook blocks any heredoc with an apostrophe, even inside Python: write scripts with the Write tool.
+- NEXT: 2b-4 armless (builder + sheet + play + BV: split in two sessions, per small-rounds), then 2b-5 jump pack, one
+  per session. Round cleanup each time: commit, push beta, `git deploy-beta`, ff master in `C:/repo/battletech-tools`
+  and push, comment/close the issue (#612).
+
+# EARLIER (2026-11-03): 2b-3c2b (aimed shots + TC -1 bug) DONE, 2b-3c3 since done
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. Plan: `C:/repo/battletech-tools-master/docs/superpowers/plans/2026-11-03-edition-aware-bv.md`,
