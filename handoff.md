@@ -1,4 +1,27 @@
-# START HERE (2026-11-04): TRO - JBT, ArtVee rules and Home rework done, next round 3 (vehicle BV1)
+# START HERE (2026-11-04): 3-1 done (vehicle BV1 data and math), next 3-2 (vehicle BV1 UI check and e2e)
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
+- 3-1 DONE in 96c2c72b4: beta = master = origin, deployed to beta, news line (home.tsx). 3960 unit tests, lint, typecheck
+  green; `e2e/vehicle-roster.spec.ts` passes (Chromium) but reads no BV1 text. `npm run build:bundled` report not run.
+  Details: "3-1 DONE" in the plan.
+- Built: `Vehicle._calcBattleValue1`, both vehicle records entered, Level 3 in `MAX_TECH.vehicleItems` / `vehicleChassis` /
+  `vehicleCrew`. Carry-over done: vehicle semi-guided x6 and the `tagged` run, through `getBattleValueTagShare`'s `taggedGain`.
+- BV survey, 6,400 units: BV2 and 'Mech BV1 unchanged; only vehicle BV1 moved. The survey now covers combat vehicles
+  (it silently skipped them before) and takes `BV_SURVEY_EDITIONS=master-rules,master-rules-revised` for BV1 columns.
+- Against Max Tech's vehicle table: 54 of 106 parsed rows exact, 35 within 5, 15 further off, 2 unmatched (nearest
+  MegaMek design of that name and tonnage). pp.96 and 98 are column-split in the extract and were not parsed. Rommel and
+  Schrek back-solve to different armor totals than the MegaMek files; the era sheets were not checked.
+- OPEN, on #621 for the user: VTOL rows run 1-4 BV above the printed figures. Built with the +1 the book states; no
+  single reading fits every row. Also on #621: VTOL Flank MP counted twice, and the other book-silent calls. Leave as built.
+- New #624: Level 3 vehicle items BV1 prices but the builder cannot make (minesweeper, coolant system, additional crew,
+  snowmobile, trailer rig MP, items not offered under BV1 editions).
+- Deploy with `git deploy-beta` only.
+- NEXT: 3-2, an e2e that shows a vehicle's BV1 in the UI (creator, sheet, roster total), then round 4 (fighter, small
+  craft, capital ship; AT2 / AT2R). Round cleanup each time: commit, push beta, `git deploy-beta`, ff master in
+  `C:/repo/battletech-tools` and push, comment/close the issue.
+
+# EARLIER (2026-11-04): TRO - JBT, ArtVee rules and Home rework done, 3-1 since done
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
