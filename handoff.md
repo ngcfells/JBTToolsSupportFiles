@@ -2,7 +2,7 @@
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
-- DONE in abba22214: beta = master = origin, deployed to beta, #623 closed. 3948 unit tests, lint, typecheck green;
+- DONE in abba22214 and 0f7eaf13f: beta = master = origin, deployed and live, #623 closed. At abba22214, 3948 unit tests, lint, typecheck green;
   e2e artvee, smoke, accessibility green in Chromium.
 - Built: TRO - JBT on the top menu after Game Management (`/classic-battletech/tro-jbt`, `tro-jbt.tsx`): landing page,
   a card per document in `TRO_DOCUMENTS`, paged reader, Markdown download. A new document needs its slug in `_router.tsx`.
@@ -17,6 +17,10 @@
 - RULED by the user, done in 0f7eaf13f: tucked pods stay (custom hand drawn art comes later); the drill is typically
   three volleys, sometimes two, never four; the equipment is now ComboGun, old spelling kept in `altNames`;
   `artveeTRO.md` deleted. 3949 unit tests, lint, typecheck green; e2e artvee green in Chromium.
+- Deploy with `git deploy-beta` only. `npm run deploy-dev` hits the same fork gh-pages but skips the beta injection.
+- NEXT: round 3, vehicle BV1 (plan "Rounds" item 3, findings in "Segment 3"). Carry over: vehicle semi-guided x6 and the
+  `tagged` run, as `BattleMech.getBattleValueTagShare` does. Split data/BV/tests from UI/e2e. Round cleanup each time:
+  commit, push beta, `git deploy-beta`, ff master in `C:/repo/battletech-tools` and push, comment/close the issue.
 
 # EARLIER (2026-11-04): 2-4 done (BV1 force rules), next round 3 (vehicle BV1)
 
