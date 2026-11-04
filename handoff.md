@@ -1,4 +1,24 @@
-# START HERE (2026-11-04): 2-4 done (BV1 force rules), next round 3 (vehicle BV1)
+# START HERE (2026-11-04): TRO - JBT, ArtVee rules and Home rework done, next round 3 (vehicle BV1)
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
+- DONE in abba22214: beta = master = origin, deployed to beta, #623 closed. 3948 unit tests, lint, typecheck green;
+  e2e artvee, smoke, accessibility green in Chromium.
+- Built: TRO - JBT on the top menu after Game Management (`/classic-battletech/tro-jbt`, `tro-jbt.tsx`): landing page,
+  a card per document in `TRO_DOCUMENTS`, paged reader, Markdown download. A new document needs its slug in `_router.tsx`.
+  Lore is in `docs/lore`: `tro-jbt.md` (Explanation), `artvee-tro.md`, `ammunition-tro.md` (moved out of TRO.md).
+- Built: Bishop Move and fouled spades in Play Mode, numbers in `ARTVEE_PLAY_RULES` (rules-editions.ts). My calls are
+  listed on #621 for review. Not on the record sheet, no Alpha Strike version.
+- Home: Status page gone (`/dev-status` redirects Home), Status and Plans row at the bottom, Why moved to About,
+  Available Tools and News share `.home-scroll`. About: maintainers reordered, NGCFells text added.
+- Beta script (`.git/beta/inject-issues-button.cjs`, untracked): Ko-fi is now a small Tip link beside the NGCFells name,
+  and tracked HeySporky issue links are swapped for the fork's at deploy. Keep the fork issues URL out of tracked files.
+- The ArtVee TRO hold is lifted for the work above; still check before large rewrites of the user's text.
+- OPEN for the user: pods tucked under the hull (`artvee-tro.md` step 1) vs the X in the art; St. Jamais "Three volleys"
+  vs "two to three" in the drill; the app's equipment name is still "Combo Gun" while the lore says ComboGun;
+  `artveeTRO.md` in this repo is stale, delete once the user agrees.
+
+# EARLIER (2026-11-04): 2-4 done (BV1 force rules), next round 3 (vehicle BV1)
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
