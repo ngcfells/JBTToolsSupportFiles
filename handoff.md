@@ -14,9 +14,9 @@
 - Beta script (`.git/beta/inject-issues-button.cjs`, untracked): Ko-fi is now a small Tip link beside the NGCFells name,
   and tracked HeySporky issue links are swapped for the fork's at deploy. Keep the fork issues URL out of tracked files.
 - The ArtVee TRO hold is lifted for the work above; still check before large rewrites of the user's text.
-- OPEN for the user: pods tucked under the hull (`artvee-tro.md` step 1) vs the X in the art; St. Jamais "Three volleys"
-  vs "two to three" in the drill; the app's equipment name is still "Combo Gun" while the lore says ComboGun;
-  `artveeTRO.md` in this repo is stale, delete once the user agrees.
+- RULED by the user, done in 0f7eaf13f: tucked pods stay (custom hand drawn art comes later); the drill is typically
+  three volleys, sometimes two, never four; the equipment is now ComboGun, old spelling kept in `altNames`;
+  `artveeTRO.md` deleted. 3949 unit tests, lint, typecheck green; e2e artvee green in Chromium.
 
 # EARLIER (2026-11-04): 2-4 done (BV1 force rules), next round 3 (vehicle BV1)
 
