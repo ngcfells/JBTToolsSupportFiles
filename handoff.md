@@ -1,4 +1,27 @@
-# START HERE (2026-11-04): bugs clear, #621 acted on. Next round pivots to Scott's mordel work
+# START HERE (2026-11-04): mordel /units tested, feedback drafted for Scott, single-unit endpoints next
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
+- Scott sent API docs for the sandbox. New: `GET /units` (type, created_since, updated_since, limit, cursor). His next
+  task is endpoints for all the information on a single unit. The scraper account is on the sandbox after his refresh.
+- Key: `C:/repo/JBTToolsSupportFiles/.env.mordel` (gitignored). `. ./.env.mordel` gives `$MORDEL_API_KEY`. Each refresh
+  kills it: get a new one from Profile, API Key, and replace it there.
+- Tested 2026-11-04, all as documented: 56,043 units (49,611 bm, 5,437 cv, 582 im, 413 pm), 57 pages at limit 1000, about
+  2.5 minutes, no duplicates, order right, every error code right, updated_since and created_since exact and inclusive.
+- Open with Scott, in the feedback the user sends: `rules_level` "Unavailable" (549 units, not in the 1-8 list, meaning
+  unknown); no canon/custom field though the site menu has both lists; conflicting cache headers; omni_base_id cannot
+  tell a non-Omni unit from a variant with a hidden base; whether a recalculated BV or cost bumps `updated`.
+- Our side, once he answers: map "Unavailable" in the level mapping; `name` is chassis and model in one string, with
+  `[BASE]` inside it; designer = Catalyst Game Labs (5,414 units) is only a stand-in for canon until a real field exists.
+- Removed units: a full listing is cheap enough to diff ids weekly, so tombstones are not urgent.
+- Site unit pages answer 406 to curl's default client string; a descriptive User-Agent works.
+- NEXT: ask the user whether Scott replied. Then (a) point `mordel_match.py` at a local `/units` copy instead of the
+  site search, which unblocks the `custom-units-wait-on-mordel` check, and (b) build the sync client. Ask which first.
+- PARKED behind mordel: 3-2 (e2e showing a vehicle BV1 in creator, sheet, roster total; confirm with the user, who said
+  "I think"), then #625 or round 4. #621 still has the mechanical jump booster question for the user.
+- `arrayPlan.md` in this repo is the working draft of the user: leave it alone. Deploy with `git deploy-beta` only.
+
+# EARLIER (2026-11-04): bugs clear, #621 acted on, mordel pivot since started
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
