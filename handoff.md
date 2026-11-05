@@ -13,7 +13,7 @@
   chapters and unit names, which is why. Tier A = product code also matches. Tier B = mostly fiction: publisher and year are model
   guesses, renames later cost no upload. Held rows and `review` rows wait for the user.
   After sorting, rebuild as usual: extract, `page_offsets.py text`, hash, index, search. INDEX is not rebuilt yet.
-  PROGRESS: 3 batches pushed, 25 files, 1043 MB; library main 3d14dacf.
+  PROGRESS: 4 batches pushed, 31 files, 1361 MB; library main de662086. PAUSED by the user when tokens ran out, not by LFS. Resume with the Method above: tier A first, then B.
 - USER'S NEXT STEPS: review the Solaris7 verdicts on origin, and decide whether to pay for LFS (see the allowance note below).
   Review link, private repo, logged in: https://github.com/ngcfells/JBTIICRework/blob/solaris7-review/unsorted/scrapes/solaris7.com/_mordel_matches.md
 
