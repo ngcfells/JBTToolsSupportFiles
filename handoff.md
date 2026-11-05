@@ -1,4 +1,26 @@
-# START HERE (2026-11-04): #619 fixed. Priority: kill bugs (#626, #627), then review #621, then 3-2
+# START HERE (2026-11-04): bugs clear, #621 acted on. Confirm 3-2 with the user, then build
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
+- No open bugs when this was written: #626 (6607f7337), #627 (eb53a7063) and #620 (JBTIICRework c1b7834f) are closed.
+  Run `gh issue list --label bug` first anyway. beta = master = origin at 224052f67, deployed.
+- #627 is live, so `?v=` cache busters are safe again on the live site.
+- #621 acted on: 224052f67 bars the jump pack beside jets, on every LAM and with partial wings, in every edition
+  (`canCarryJumpPack()`); the `jumpPackJumping` flag and use-pack box are gone. VTOL +1 and rotor structure confirmed
+  from the BMR(R) p.154 image; no VTOL entry in the Battle Value section of the BMR errata, and no Maximum Tech errata in the library.
+- #621 stays open on one question for the user: may a 'Mech with mechanical jump boosters carry a pack? Allowed as built.
+- New enhancements: #628 (combat drop step), #629 (ArtVee make and model names, all equipment; the user rewrote the
+  readout, so read it first and check before large rewrites).
+- Tip: Playwright can serve a stale `build/`. If an e2e shows old text, run `npm run build` first and rerun.
+- 3965 unit tests, lint, typecheck green; smoke, mech-rules-edition and industrialmech-play e2e green in Chromium.
+- INDEX.md's hand-written errata lines are edited but uncommitted, with the rest of the library sort churn.
+- `arrayPlan.md` in this repo is the user's untracked working draft: leave it alone.
+- Deploy with `git deploy-beta` only.
+- NEXT: confirm 3-2 with the user (they said "I think"), then 3-2 (e2e showing a vehicle's BV1 in creator, sheet, roster
+  total), then #625 or round 4. Round cleanup each time: commit, push beta, `git deploy-beta`, ff master in
+  `C:/repo/battletech-tools` and push, comment/close the issue.
+
+# EARLIER (2026-11-04): #619 fixed, #626, #627 and the #621 review since done
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
