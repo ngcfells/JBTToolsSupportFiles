@@ -1,4 +1,4 @@
-# START HERE (2026-11-04): Solaris7 matcher rebuilt, BLOCKED on a new sandbox key
+# START HERE (2026-11-04): Solaris7 re-match done, waiting on the user's review of the verdicts
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
@@ -15,23 +15,19 @@
   `[BASE]` inside it; designer = Catalyst Game Labs (5,414 units) is only a stand-in for canon until a real field exists.
 - Removed units: a full listing is cheap enough to diff ids weekly, so tombstones are not urgent.
 - Site unit pages answer 406 to curl's default client string; a descriptive User-Agent works.
-- BLOCKED: the sandbox key died mid-pull on 2026-11-04. `/key` passed, then 401 "Invalid API key" within 5 minutes; `/ping` is
-  fine. Cause unknown (a refresh, or a limit on the key). USER: put a new key in `.env.mordel`. If it dies again in a full pull,
-  ask Scott whether a usage limit kills keys. The earlier full pull in the same day ran clean.
+- Keys: one key went invalid mid-pull and the next the user made was refused too (cause unknown); the third works and is in
+  `.env.mordel`. If keys keep dying, ask Scott whether a refresh was running or a limit applies.
 - NEXT, USER: finalize the Solaris7 work (#301). The designs are held by `custom-units-wait-on-mordel`; equipment is done.
-  Inputs: `C:/repo/JBTIICRework/unsorted/scrapes/solaris7.com` (`_mordel_matches.md/.json`, `_inventory`, `_review`).
-  Step 1 CODE DONE, RUN NOT: `~/.claude/ollama/mordel_match.py` now reads a local `/units` pull, saved page by page (it resumes
-  from `mordel_units.part.json`), and rescores the saved model lists, so no Ollama run. Run, from a neutral folder:
-  `set -a; . C:/repo/JBTToolsSupportFiles/.env.mordel; set +a; python -I ~/.claude/ollama/mordel_match.py <solaris7 folder> --refresh`
-  `_mordel_matches.*` on disk are STILL the old 2026-11-02 verdicts (same design 6, likely same 44, name only 76, none 145, not a
-  mordel unit type 56, unsearchable 58): do not review those. The old search matched substrings ("Mk I" hit "Mk IV").
-  New scoring compares whole words and adds `same chassis` (the chassis is on mordel, this model is not). Dry run on the 1,424
-  cached records only: same design 6, likely same 33, same chassis 34, name only 77, none 165, unsearchable 12, not a mordel type
-  58. Those are not results; the full list will move units out of none. Model-listed names are still unchecked.
-  After the run: compare old match ids with the pull to confirm sandbox ids equal live ones (the script writes www URLs), then
-  delete `_mordel_cache` (gitignored, now unused). Step 2: user reviews the verdicts. Step 3: designs NOT on mordel go in
-  `units/<unit type>/<chassis> <model>.json` in this repo, in the `exportJSON()` format, crediting designer and thread.
-  Designs on mordel wait for the single-unit endpoints.
+  Step 1 DONE: `C:/repo/JBTIICRework/unsorted/scrapes/solaris7.com/_mordel_matches.md/.json` are rescored against the full pull
+  (56,043 units, saved at `~/.claude/ollama/mordel_units.json`). 385 units, 104 threads: same design 15, likely same 37, same
+  chassis 67, name only 73, none 123, unsearchable 12, not a mordel unit type 58. `same chassis` is new: the chassis is on mordel,
+  this model is not. Sandbox ids equal live ones (464 of 464 old matches), so the links are www URLs. `_mordel_cache` deleted.
+  `mordel_match.py` reads the pull, resumes a broken one, and rescores saved model lists; `--refresh` pulls again.
+  Step 2 WAITING: user reviews the verdicts. Known weak spots: the list came from the model, unchecked, and holds non-designs
+  (weapons, armor notes); its tonnages can be wrong, so `name only` may hide real matches; 13 `likely same` rows have no model
+  and matched on chassis alone; 12 `unsearchable` rows are bare letters (Perun and Obsidian Idol configs, mostly);
+  3 threads listed no units. Step 3: designs NOT on mordel go in `units/<unit type>/<chassis> <model>.json` in this repo, in the
+  `exportJSON()` format, crediting designer and thread. Designs on mordel wait for the single-unit endpoints.
 - AFTER Solaris7: check for a reply from Scott, then build the sync client.
 - PARKED behind mordel: 3-2 (e2e showing a vehicle BV1 in creator, sheet, roster total; confirm with the user, who said
   "I think"), then #625 or round 4. #621 still has the mechanical jump booster question for the user.
