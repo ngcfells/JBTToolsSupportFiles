@@ -1,4 +1,4 @@
-# START HERE (2026-11-04): bugs clear, #621 acted on. Confirm 3-2 with the user, then build
+# START HERE (2026-11-04): bugs clear, #621 acted on. Next round pivots to Scott's mordel work
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
@@ -16,9 +16,14 @@
 - INDEX.md's hand-written errata lines are edited but uncommitted, with the rest of the library sort churn.
 - `arrayPlan.md` in this repo is the user's untracked working draft: leave it alone.
 - Deploy with `git deploy-beta` only.
-- NEXT: confirm 3-2 with the user (they said "I think"), then 3-2 (e2e showing a vehicle's BV1 in creator, sheet, roster
-  total), then #625 or round 4. Round cleanup each time: commit, push beta, `git deploy-beta`, ff master in
-  `C:/repo/battletech-tools` and push, comment/close the issue.
+- NEXT, USER PIVOT: the next round is the new work from Scott at mordel. The details were not given before this handoff, so
+  ASK the user what Scott sent or wants before starting. Background: `mordel-api-decisions` and `custom-units-wait-on-mordel`
+  memories, and `docs/superpowers/plans/2026-11-01-mordel-data-pipeline.md` (untracked, in `C:/repo/battletech-tools`).
+  Those notes date from 2026-11-02, so check them against what Scott sent. Sandbox keys are wiped on refresh and never stored.
+- PARKED behind mordel: 3-2 (e2e showing a vehicle's BV1 in creator, sheet, roster total; confirm with the user, who said
+  "I think"), then #625 or round 4.
+- Round cleanup each time: commit, push beta, `git deploy-beta`, ff master in `C:/repo/battletech-tools` and push,
+  comment/close the issue.
 
 # EARLIER (2026-11-04): #619 fixed, #626, #627 and the #621 review since done
 
