@@ -1,4 +1,23 @@
-# START HERE (2026-11-04): 3-1 done (vehicle BV1 data and math), next 3-2 (vehicle BV1 UI check and e2e)
+# START HERE (2026-11-04): #619 fixed, bugs first: #626 and #627, then 3-2
+
+- FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
+  and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
+- USER RULING: bugs go first, ahead of the NEXT item and enhancements. Priority now: #626, #627, 3-2, then #625 or round 4.
+- #619 DONE and closed: fix is in `.git/beta/inject-issues-button.cjs` (untracked, in the main repo `C:/repo/battletech-tools`,
+  because `battletech-tools-master` is a worktree). Deployed. The page ran to 1456 px at every width below that, not only on phones.
+  Header now wraps below 1600 px; drawer top padding 7.5rem below 768 px. Five pages x six widths checked live, no sideways scroll.
+- New #626 (bug, tracked code): menu and logo overflow from 768 to about 1045 px without the beta buttons. Beta hides it
+  through the #619 wrap, so measure with those styles removed. After the tracked fix, remove any wrap rule it makes unnecessary.
+- New #627 (bug, tracked code): any direct link with a query string, except on Home, shows the in-app 404. `public/404.html`
+  packs `&q=`; the `index.html` decoder never unpacks it.
+- Tip: until #627 lands, do not add `?v=` cache busters when checking the live site. They load the 404 page, not the page named.
+- #625 (MUL search terms, enhancement) waits behind 3-2. Commit 9f55e3222 (Home: Available Tools) came after the 3-1 notes.
+- `arrayPlan.md` in this repo is the user's untracked working draft: leave it alone.
+- Deploy with `git deploy-beta` only.
+- NEXT: #626, then #627, then 3-2 (details in the section below). Round cleanup each time: commit, push beta,
+  `git deploy-beta`, ff master in `C:/repo/battletech-tools` and push, comment/close the issue.
+
+# EARLIER (2026-11-04): 3-1 done (vehicle BV1 data and math), next 3-2 (vehicle BV1 UI check and e2e)
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
