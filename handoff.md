@@ -5,12 +5,15 @@
 - ACTIVE TASK, USER 2026-11-05: "sort in small batches until we are out of LFS for the month". The user may switch accounts mid-task, so
   update this note and push it after every batch. Library main = origin at 9cc342b5 (the 23 deletions are done; every one had an exact
   local copy). LFS credit: 6,432 of 7,440 GB-hours used at 14:12 UTC. Check: `gh api "users/ngcfells/settings/billing/usage/summary"`.
-  Method: `unsorted/_proposal.jsonl` has 560 live moves (3.96 GB, all LFS types; 244 more are stale, their sources gone). `sort_unsorted.py
-  --apply` moves everything at once, so batch it. Commit only each batch's paths, plus `unsorted/_moves.json`, and push. STOP when a push
-  is refused for LFS: undo that commit with `git reset --soft HEAD~1`, say so, and do not work around it. Never `git add .` here.
-  Skip for now: rulebooks, rulebooks-legacy, alpha-strike (targets not trusted for rulebooks), magazines (the model's names drop the issue
-  number, so Shrapnel issues collide on one target), any target two rows share, and any name crediting Topps, WizKids or Microsoft as publisher.
-  After sorting, rebuild as usual: extract, `page_offsets.py text`, hash, index, search. `review` rows wait for the user.
+  Method, from the library root: `python sort_batch.py list`, then `python sort_batch.py run A 350` (tier, max MB per batch; about 150 s).
+  It moves only rows it trusts, confirms every file is LFS, stages exact paths, commits and pushes. Exit 3 means the push was refused: it
+  undoes the commit and the files stay staged at their new paths. STOP there, say so, and do not work around it. Never `git add .` here.
+  Trusted rows: target keeps every source title word; not rulebooks, rulebooks-legacy, alpha-strike or magazines; no shared target; no
+  Topps, WizKids or Microsoft as publisher; no impossible date; no BattleCorps item outside fiction. Sampled targets lost issue numbers,
+  chapters and unit names, which is why. Tier A = product code also matches. Tier B = mostly fiction: publisher and year are model
+  guesses, renames later cost no upload. Held rows and `review` rows wait for the user.
+  After sorting, rebuild as usual: extract, `page_offsets.py text`, hash, index, search. INDEX is not rebuilt yet.
+  PROGRESS: Tier A first batch pushed (4a11444d, 16 files, 348 MB).
 - USER'S NEXT STEPS: review the Solaris7 verdicts on origin, and decide whether to pay for LFS (see the allowance note below).
   Review link, private repo, logged in: https://github.com/ngcfells/JBTIICRework/blob/solaris7-review/unsorted/scrapes/solaris7.com/_mordel_matches.md
 
