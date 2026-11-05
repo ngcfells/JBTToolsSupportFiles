@@ -23,6 +23,7 @@
   chassis 67, name only 73, none 123, unsearchable 12, not a mordel unit type 58. `same chassis` is new: the chassis is on mordel,
   this model is not. Sandbox ids equal live ones (464 of 464 old matches), so the links are www URLs. `_mordel_cache` deleted.
   `mordel_match.py` reads the pull, resumes a broken one, and rescores saved model lists; `--refresh` pulls again.
+  USER RULING: `same chassis` is not the same design, so those 67 count as NOT on mordel.
   Step 2 WAITING: user reviews the verdicts. Known weak spots: the list came from the model, unchecked, and holds non-designs
   (weapons, armor notes); its tonnages can be wrong, so `name only` may hide real matches; 13 `likely same` rows have no model
   and matched on chassis alone; 12 `unsearchable` rows are bare letters (Perun and Obsidian Idol configs, mostly);
