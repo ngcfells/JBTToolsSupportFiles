@@ -1,5 +1,8 @@
 # START HERE (2026-11-05): Solaris7 review waits on the user; LFS allowance decision open
 
+- PARKED, USER 2026-11-05 (latest): the next session goes back to the cert trainer in `C:\repo\testingUtility` (AutoOps+
+  domain 4; its HANDOFF.md). When the user returns here: ask whether the reply to Scott went out and whether he answered,
+  and how far the Solaris7 verdict review got, then follow the order below.
 - PIVOT, USER 2026-11-05 (late): the next session does Scott/mordel FIRST, then the library sort. Order:
   1. Ask the user whether Scott has replied to the five points sent 2026-11-04 (list below), and whether the Solaris7
      verdicts are reviewed (Step 2 under "NEXT, USER: finalize the Solaris7 work").
