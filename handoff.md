@@ -1,4 +1,4 @@
-# START HERE (2026-11-04): #619 fixed, bugs first: #626 and #627, then 3-2
+# START HERE (2026-11-04): #619 fixed. Priority: kill bugs (#626, #627), then review #621, then 3-2
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
@@ -14,7 +14,7 @@
 - #625 (MUL search terms, enhancement) waits behind 3-2. Commit 9f55e3222 (Home: Available Tools) came after the 3-1 notes.
 - `arrayPlan.md` in this repo is the user's untracked working draft: leave it alone.
 - Deploy with `git deploy-beta` only.
-- NEXT: #626, then #627, then 3-2 (details in the section below). Round cleanup each time: commit, push beta,
+- NEXT: #626, then #627, then the #621 review, then 3-2 (details in the section below). Round cleanup each time: commit, push beta,
   `git deploy-beta`, ff master in `C:/repo/battletech-tools` and push, comment/close the issue.
 
 # EARLIER (2026-11-04): 3-1 done (vehicle BV1 data and math), next 3-2 (vehicle BV1 UI check and e2e)
