@@ -1,4 +1,4 @@
-# START HERE (2026-11-04): mordel /units tested, feedback drafted for Scott, single-unit endpoints next
+# START HERE (2026-11-04): mordel feedback sent to Scott, next finalize the Solaris7 designs
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
@@ -8,15 +8,22 @@
   kills it: get a new one from Profile, API Key, and replace it there.
 - Tested 2026-11-04, all as documented: 56,043 units (49,611 bm, 5,437 cv, 582 im, 413 pm), 57 pages at limit 1000, about
   2.5 minutes, no duplicates, order right, every error code right, updated_since and created_since exact and inclusive.
-- Open with Scott, in the feedback the user sends: `rules_level` "Unavailable" (549 units, not in the 1-8 list, meaning
+- SENT to Scott 2026-11-04, awaiting his reply: `rules_level` "Unavailable" (549 units, not in the 1-8 list, meaning
   unknown); no canon/custom field though the site menu has both lists; conflicting cache headers; omni_base_id cannot
   tell a non-Omni unit from a variant with a hidden base; whether a recalculated BV or cost bumps `updated`.
 - Our side, once he answers: map "Unavailable" in the level mapping; `name` is chassis and model in one string, with
   `[BASE]` inside it; designer = Catalyst Game Labs (5,414 units) is only a stand-in for canon until a real field exists.
 - Removed units: a full listing is cheap enough to diff ids weekly, so tombstones are not urgent.
 - Site unit pages answer 406 to curl's default client string; a descriptive User-Agent works.
-- NEXT: ask the user whether Scott replied. Then (a) point `mordel_match.py` at a local `/units` copy instead of the
-  site search, which unblocks the `custom-units-wait-on-mordel` check, and (b) build the sync client. Ask which first.
+- NEXT, USER: finalize the Solaris7 work (#301). The designs are held by `custom-units-wait-on-mordel`; equipment is done.
+  Inputs: `C:/repo/JBTIICRework/unsorted/scrapes/solaris7.com` (`_mordel_matches.md/.json`, `_inventory`, `_review`) and
+  `~/.claude/ollama/mordel_match.py`. The 2026-11-02 run, through the site search (first 15 hits only): same design 6,
+  likely same 44, name only 76, none 145, not a mordel unit type 56, unsearchable 58. Model-listed names are unchecked.
+  Step 1: re-match against a full local `/units` pull (56,043 units; paging loop and `.env.mordel` above) in place of
+  `mordel_search()`, using sandbox URLs or live ones as the user prefers. Step 2: user reviews the verdicts. Step 3: designs
+  NOT on mordel go in `units/<unit type>/<chassis> <model>.json` in this repo, in the `exportJSON()` format, crediting designer
+  and thread. Designs on mordel wait for the single-unit endpoints. The session scratchpad scripts are gone after a clear.
+- AFTER Solaris7: check for a reply from Scott, then build the sync client.
 - PARKED behind mordel: 3-2 (e2e showing a vehicle BV1 in creator, sheet, roster total; confirm with the user, who said
   "I think"), then #625 or round 4. #621 still has the mechanical jump booster question for the user.
 - `arrayPlan.md` in this repo is the working draft of the user: leave it alone. Deploy with `git deploy-beta` only.
