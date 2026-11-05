@@ -34,11 +34,21 @@
   kills it: get a new one from Profile, API Key, and replace it there.
 - Tested 2026-11-04, all as documented: 56,043 units (49,611 bm, 5,437 cv, 582 im, 413 pm), 57 pages at limit 1000, about
   2.5 minutes, no duplicates, order right, every error code right, updated_since and created_since exact and inclusive.
-- SENT to Scott 2026-11-04, awaiting his reply: `rules_level` "Unavailable" (549 units, not in the 1-8 list, meaning
-  unknown); no canon/custom field though the site menu has both lists; conflicting cache headers; omni_base_id cannot
-  tell a non-Omni unit from a variant with a hidden base; whether a recalculated BV or cost bumps `updated`.
-- Our side, once he answers: map "Unavailable" in the level mapping; `name` is chassis and model in one string, with
-  `[BASE]` inside it; designer = Catalyst Game Labs (5,414 units) is only a stand-in for canon until a real field exists.
+- SCOTT REPLIED 2026-11-05 (user pasted it; our reply drafted, user sends it):
+  - `rules_level` "Unavailable" = his designer could not work out a level (era and rules approach can disagree). It stays
+    possible; he will add a warning on save. OUR SIDE: map it to unknown and work the level out from the equipment.
+  - Any recalculation that changes unit information bumps `updated`, so `updated_since` syncs are safe.
+  - Coming: a canon/custom field (he may add a third "official but not CGL canon" marker, maybe an Apocryphal filter), an
+    Omni flag, and name/name2/model in the single-unit pulls. Looking into: cache headers, Hammer HMR-5M cost 0, the
+    leading non-breaking space. "Untitled" is a default users can keep. [BASE] oddities are users building Omnis wrong.
+  - Single-unit endpoints will return construction, equipment, source and designer. NO quirks (he has none yet). BV, PV,
+    weight, cost, TRO, record sheet, AS card and MegaMek come later as text or PDF from
+    `/api/v1/units/{type}/{id}/files/{format}`, not JSON.
+  - He asked: is limit 1000 right, is 2.5 minutes fine, do we pause between requests (we do not: 57 back to back, about
+    2.6 s each), and why document created_since plus updated_since (answer: it is AND; doc that, and say whether a new
+    unit's `updated` equals `created`, since then `updated_since` alone is the sync).
+- Our side: `name` is chassis and model in one string, with `[BASE]` inside it, until name2/model arrive; designer =
+  Catalyst Game Labs (5,414 units) stands in for canon until his field exists. Add a pause between pages in the sync client.
 - Removed units: a full listing is cheap enough to diff ids weekly, so tombstones are not urgent.
 - Site unit pages answer 406 to curl's default client string; a descriptive User-Agent works.
 - Review copy for the user: branch `solaris7-review` on JBTIICRework origin (private; start at `_mordel_matches.md`, one
@@ -62,7 +72,10 @@
   `_mordel_matches.md` now holds a side by side for 327 units (Solaris post beside the mordel page; open with Markdown preview).
   Pictures: `_mordel_shots/` (143 pages, 30 MB, gitignored), from `mordel_match.py --shots`, which skips pictures it has.
   The readout loads by AJAX after the page: check picture sizes, not the failure count (a first run saved 143 logos).
-  Step 2 WAITING: user reviews the verdicts. Known weak spots: the list came from the model, unchecked, and holds non-designs
+  USER 2026-11-05: the 2-part Design Contest (28 units) is HELD for a separate review later. `HELD_THREADS` in
+  `mordel_match.py` keeps it out of the main table, totals and verdict pages; it has its own section at the end of the
+  summary and `_mordel_pairs_held.md`. Pushed to `solaris7-review` (d2254c58). Totals now: 357 units in the main table.
+  Step 2 IN PROGRESS: the user has reviewed some verdicts. Known weak spots: the list came from the model, unchecked, and holds non-designs
   (weapons, armor notes); its tonnages can be wrong, so `name only` may hide real matches; 13 `likely same` rows have no model
   and matched on chassis alone; 12 `unsearchable` rows are bare letters (Perun and Obsidian Idol configs, mostly);
   3 threads listed no units. Step 3: designs NOT on mordel go in `units/<unit type>/<chassis> <model>.json` in this repo, in the
