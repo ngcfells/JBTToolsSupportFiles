@@ -1,4 +1,4 @@
-# START HERE (2026-11-04): Solaris7 re-match done, waiting on the user's review of the verdicts
+# START HERE (2026-11-04): Solaris7 side by side built, waiting on the user's review (planned 2026-11-05)
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
@@ -24,6 +24,9 @@
   this model is not. Sandbox ids equal live ones (464 of 464 old matches), so the links are www URLs. `_mordel_cache` deleted.
   `mordel_match.py` reads the pull, resumes a broken one, and rescores saved model lists; `--refresh` pulls again.
   USER RULING: `same chassis` is not the same design, so those 67 count as NOT on mordel.
+  `_mordel_matches.md` now holds a side by side for 327 units (Solaris post beside the mordel page; open with Markdown preview).
+  Pictures: `_mordel_shots/` (143 pages, 30 MB, gitignored), from `mordel_match.py --shots`, which skips pictures it has.
+  The readout loads by AJAX after the page: check picture sizes, not the failure count (a first run saved 143 logos).
   Step 2 WAITING: user reviews the verdicts. Known weak spots: the list came from the model, unchecked, and holds non-designs
   (weapons, armor notes); its tonnages can be wrong, so `name only` may hide real matches; 13 `likely same` rows have no model
   and matched on chassis alone; 12 `unsearchable` rows are bare letters (Perun and Obsidian Idol configs, mostly);
