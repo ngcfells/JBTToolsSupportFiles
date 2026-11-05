@@ -1,5 +1,14 @@
 # START HERE (2026-11-05): Solaris7 review waits on the user; LFS allowance decision open
 
+- PIVOT, USER 2026-11-05 (late): the next session does Scott/mordel FIRST, then the library sort. Order:
+  1. Ask the user whether Scott has replied to the five points sent 2026-11-04 (list below), and whether the Solaris7
+     verdicts are reviewed (Step 2 under "NEXT, USER: finalize the Solaris7 work").
+  2. If the verdicts are reviewed: Step 3, designs NOT on mordel to `units/<unit type>/<chassis> <model>.json`.
+     If Scott replied: map "Unavailable" and his other answers, then build the sync client. His model wins over our wish list.
+  3. Only then resume the ACTIVE TASK sort batches (tier A, then B). Re-check the LFS credit first: November's was due to
+     run out about 2026-11-06 07:00 UTC, so an exit 3 (push refused) is likely. Stop there, as the Method says.
+  The AutoOps+ work in `C:\repo\testingUtility` is parked at a clean point (domains 1 to 3 shipped).
+
 - Any session can read this file at https://raw.githubusercontent.com/ngcfells/JBTToolsSupportFiles/main/handoff.md (public repo:
   never put a key here). `.env.mordel`, the scrape folder, `~/.claude/ollama/` and the memory folders exist only on the user's PC.
 - ACTIVE TASK, USER 2026-11-05: "sort in small batches until we are out of LFS for the month". The user may switch accounts mid-task, so
