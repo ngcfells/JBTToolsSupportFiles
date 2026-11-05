@@ -1,4 +1,9 @@
-# START HERE (2026-11-04): Solaris7 side by side built, waiting on the user's review (planned 2026-11-05)
+# START HERE (2026-11-05): Solaris7 review waits on the user; LFS allowance decision open
+
+- Any session can read this file at https://raw.githubusercontent.com/ngcfells/JBTToolsSupportFiles/main/handoff.md (public repo:
+  never put a key here). `.env.mordel`, the scrape folder, `~/.claude/ollama/` and the memory folders exist only on the user's PC.
+- USER'S NEXT STEPS: review the Solaris7 verdicts on origin, and decide whether to pay for LFS (see the allowance note below).
+  Review link, private repo, logged in: https://github.com/ngcfells/JBTIICRework/blob/solaris7-review/unsorted/scrapes/solaris7.com/_mordel_matches.md
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
@@ -17,12 +22,13 @@
 - Site unit pages answer 406 to curl's default client string; a descriptive User-Agent works.
 - Review copy for the user: branch `solaris7-review` on JBTIICRework origin (private; start at `_mordel_matches.md`, one
   `_mordel_pairs_<verdict>.md` page per verdict). It is a deliberate exception to scrapes staying local; do not merge it to main.
-- Library pushed 2026-11-05: main at 327745e0 (non-LFS sync, mordel_custom_units removed on purpose: the API replaces them, LFS
-  samples). LFS uploads work: 20 files in two pushes; only 5 objects (7.6 MB + 47 KB) really uploaded, because moved or repeated
-  content is already on the server. Three of the second batch read back identical. Still local: 955 LFS files (about 14.94 GB, an
-  upper bound for the same reason), 28 LFS deletions, and 102 ebooks and videos (933 MB) with no LFS rule, two over GitHub's 100 MB
-  limit. main holds 41.11 GB of LFS, though the user recalls 10 GB free: quota unread (`gh` lacks the `user` scope). USER decides on more.
-- LFS allowance (read from GitHub billing 2026-11-05): free plan, billed by GB-hours at $0.000094086 each. The free credit is $0.70 a month = 7,440 GB-hours (10 GB for a 31-day month), not 10 GB of space. The repo stores 58.4 GB (main references 41.11 GB; the rest is old objects), so the month's credit lasts about 5.3 days. October hit exactly 7,440 on Oct 15 and metering then stopped, which fits the lockout the user saw. November's runs out about 2026-11-06 07:00 UTC; the credit should reset on the 1st. Staying paid costs about $3.26 a month at 58.4 GB. `gh` now has the `user` scope: `gh api "users/ngcfells/settings/billing/usage?year=Y&month=M"`.
+- Library pushed 2026-11-05: main at a2dbfbdd = origin. In: non-LFS sync; `unsorted/mordel_custom_units` removed on purpose (the API
+  replaces it); every new LFS file in the sorted folders (71). Read back byte-identical, including the largest. Moved or repeated
+  content needs no upload. STILL LOCAL: 900 new files in `unsorted/` (13.1 GB, an upper bound), 4 modified PDFs (`battleforce/`, `rpg/`,
+  `rulebooks-legacy/`, `rulebooks/`), and 23 LFS deletions, whose new copies are not pushed yet: do not push a deletion before its copy.
+  `unsorted/` also holds 102 `.mobi`, `.azw`, `.mp4` files (933 MB) with no LFS rule, two over GitHub's 100 MB limit: never add them
+  as plain git. Push more LFS only when the user asks.
+- LFS allowance (read from GitHub billing 2026-11-05): free plan, billed by GB-hours at $0.000094086 each. The free credit is $0.70 a month = 7,440 GB-hours (10 GB for a 31-day month), not 10 GB of space. The repo stores 58.4 GB (main references 41.11 GB; the rest is old objects), so the month's credit lasts about 5.3 days. October hit exactly 7,440 on Oct 15 and metering then stopped, which fits the lockout the user saw. November's runs out about 2026-11-06 07:00 UTC; the credit should reset on the 1st; the 1.6 GB pushed after this reading brings that forward slightly. The lockout is inferred from October, and the budget setting could not be read. USER DECIDES: pay about $3.26 a month at 58.4 GB (about $4.27 with everything), which needs a payment method and an LFS budget, or stay free and get about 5 days of LFS a month. A trim cannot reach free: main alone is about 43 GB. `gh` now has the `user` scope: `gh api "users/ngcfells/settings/billing/usage?year=Y&month=M"`.
 - Keys: one key went invalid mid-pull and the next the user made was refused too (cause unknown); the third works and is in
   `.env.mordel`. If keys keep dying, ask Scott whether a refresh was running or a limit applies.
 - NEXT, USER: finalize the Solaris7 work (#301). The designs are held by `custom-units-wait-on-mordel`; equipment is done.
