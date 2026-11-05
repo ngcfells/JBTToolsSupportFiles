@@ -17,9 +17,11 @@
 - Site unit pages answer 406 to curl's default client string; a descriptive User-Agent works.
 - Review copy for the user: branch `solaris7-review` on JBTIICRework origin (private; start at `_mordel_matches.md`, one
   `_mordel_pairs_<verdict>.md` page per verdict). It is a deliberate exception to scrapes staying local; do not merge it to main.
-- Library pushed 2026-11-05: main at 16876e53 (non-LFS sync, one LFS test file, mordel_custom_units removed on purpose: the API
-  replaces them). LFS uploads work again: a 47 KB PDF went up and read back identical. Still local: 974 LFS files (14.96 GB) and
-  102 ebooks and videos (933 MB) with no LFS rule, two over GitHub's 100 MB limit. USER is weighing a trim first; main holds 41.11 GB of LFS.
+- Library pushed 2026-11-05: main at 327745e0 (non-LFS sync, mordel_custom_units removed on purpose: the API replaces them, LFS
+  samples). LFS uploads work: 20 files in two pushes; only 5 objects (7.6 MB + 47 KB) really uploaded, because moved or repeated
+  content is already on the server. Three of the second batch read back identical. Still local: 955 LFS files (about 14.94 GB, an
+  upper bound for the same reason), 28 LFS deletions, and 102 ebooks and videos (933 MB) with no LFS rule, two over GitHub's 100 MB
+  limit. main holds 41.11 GB of LFS, though the user recalls 10 GB free: quota unread (`gh` lacks the `user` scope). USER decides on more.
 - Keys: one key went invalid mid-pull and the next the user made was refused too (cause unknown); the third works and is in
   `.env.mordel`. If keys keep dying, ask Scott whether a refresh was running or a limit applies.
 - NEXT, USER: finalize the Solaris7 work (#301). The designs are held by `custom-units-wait-on-mordel`; equipment is done.
