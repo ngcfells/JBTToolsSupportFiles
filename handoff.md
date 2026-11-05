@@ -22,6 +22,7 @@
   content is already on the server. Three of the second batch read back identical. Still local: 955 LFS files (about 14.94 GB, an
   upper bound for the same reason), 28 LFS deletions, and 102 ebooks and videos (933 MB) with no LFS rule, two over GitHub's 100 MB
   limit. main holds 41.11 GB of LFS, though the user recalls 10 GB free: quota unread (`gh` lacks the `user` scope). USER decides on more.
+- LFS allowance (read from GitHub billing 2026-11-05): free plan, billed by GB-hours at $0.000094086 each. The free credit is $0.70 a month = 7,440 GB-hours (10 GB for a 31-day month), not 10 GB of space. The repo stores 58.4 GB (main references 41.11 GB; the rest is old objects), so the month's credit lasts about 5.3 days. October hit exactly 7,440 on Oct 15 and metering then stopped, which fits the lockout the user saw. November's runs out about 2026-11-06 07:00 UTC; the credit should reset on the 1st. Staying paid costs about $3.26 a month at 58.4 GB. `gh` now has the `user` scope: `gh api "users/ngcfells/settings/billing/usage?year=Y&month=M"`.
 - Keys: one key went invalid mid-pull and the next the user made was refused too (cause unknown); the third works and is in
   `.env.mordel`. If keys keep dying, ask Scott whether a refresh was running or a limit applies.
 - NEXT, USER: finalize the Solaris7 work (#301). The designs are held by `custom-units-wait-on-mordel`; equipment is done.
