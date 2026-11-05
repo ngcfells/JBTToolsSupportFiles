@@ -2,6 +2,15 @@
 
 - Any session can read this file at https://raw.githubusercontent.com/ngcfells/JBTToolsSupportFiles/main/handoff.md (public repo:
   never put a key here). `.env.mordel`, the scrape folder, `~/.claude/ollama/` and the memory folders exist only on the user's PC.
+- ACTIVE TASK, USER 2026-11-05: "sort in small batches until we are out of LFS for the month". The user may switch accounts mid-task, so
+  update this note and push it after every batch. Library main = origin at 9cc342b5 (the 23 deletions are done; every one had an exact
+  local copy). LFS credit: 6,432 of 7,440 GB-hours used at 14:12 UTC. Check: `gh api "users/ngcfells/settings/billing/usage/summary"`.
+  Method: `unsorted/_proposal.jsonl` has 560 live moves (3.96 GB, all LFS types; 244 more are stale, their sources gone). `sort_unsorted.py
+  --apply` moves everything at once, so batch it. Commit only each batch's paths, plus `unsorted/_moves.json`, and push. STOP when a push
+  is refused for LFS: undo that commit with `git reset --soft HEAD~1`, say so, and do not work around it. Never `git add .` here.
+  Skip for now: rulebooks, rulebooks-legacy, alpha-strike (targets not trusted for rulebooks), magazines (the model's names drop the issue
+  number, so Shrapnel issues collide on one target), any target two rows share, and any name crediting Topps, WizKids or Microsoft as publisher.
+  After sorting, rebuild as usual: extract, `page_offsets.py text`, hash, index, search. `review` rows wait for the user.
 - USER'S NEXT STEPS: review the Solaris7 verdicts on origin, and decide whether to pay for LFS (see the allowance note below).
   Review link, private repo, logged in: https://github.com/ngcfells/JBTIICRework/blob/solaris7-review/unsorted/scrapes/solaris7.com/_mordel_matches.md
 
@@ -22,10 +31,10 @@
 - Site unit pages answer 406 to curl's default client string; a descriptive User-Agent works.
 - Review copy for the user: branch `solaris7-review` on JBTIICRework origin (private; start at `_mordel_matches.md`, one
   `_mordel_pairs_<verdict>.md` page per verdict). It is a deliberate exception to scrapes staying local; do not merge it to main.
-- Library pushed 2026-11-05: main at a2dbfbdd = origin. In: non-LFS sync; `unsorted/mordel_custom_units` removed on purpose (the API
+- Library pushed 2026-11-05: main at 9cc342b5 = origin (see ACTIVE TASK for anything newer). In: non-LFS sync; `unsorted/mordel_custom_units` removed on purpose (the API
   replaces it); every new LFS file in the sorted folders (71). Read back byte-identical, including the largest. Moved or repeated
   content needs no upload. STILL LOCAL: 900 new files in `unsorted/` (13.1 GB, an upper bound), 4 modified PDFs (`battleforce/`, `rpg/`,
-  `rulebooks-legacy/`, `rulebooks/`), and 23 LFS deletions, whose new copies are not pushed yet: do not push a deletion before its copy.
+  `rulebooks-legacy/`, `rulebooks/`). The 23 LFS deletions are pushed.
   `unsorted/` also holds 102 `.mobi`, `.azw`, `.mp4` files (933 MB) with no LFS rule, two over GitHub's 100 MB limit: never add them
   as plain git. Push more LFS only when the user asks.
 - LFS allowance (read from GitHub billing 2026-11-05): free plan, billed by GB-hours at $0.000094086 each. The free credit is $0.70 a month = 7,440 GB-hours (10 GB for a 31-day month), not 10 GB of space. The repo stores 58.4 GB (main references 41.11 GB; the rest is old objects), so the month's credit lasts about 5.3 days. October hit exactly 7,440 on Oct 15 and metering then stopped, which fits the lockout the user saw. November's runs out about 2026-11-06 07:00 UTC; the credit should reset on the 1st; the 1.6 GB pushed after this reading brings that forward slightly. The lockout is inferred from October, and the budget setting could not be read. USER DECIDES: pay about $3.26 a month at 58.4 GB (about $4.27 with everything), which needs a payment method and an LFS budget, or stay free and get about 5 days of LFS a month. A trim cannot reach free: main alone is about 43 GB. `gh` now has the `user` scope: `gh api "users/ngcfells/settings/billing/usage?year=Y&month=M"`.
