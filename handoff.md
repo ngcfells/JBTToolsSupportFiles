@@ -2,7 +2,10 @@
 
 - FIRST, review the standing rules in MEMORY.md (both battletech-tools folders plus c--repo-JBTToolsSupportFiles)
   and the library tools. USER: smaller chunks, stop well before a compact. Reuse/extend, no new files.
-- USER RULING: bugs go first, ahead of the NEXT item and enhancements. Priority now: #626, #627, 3-2, then #625 or round 4.
+- USER RULING: killing bugs is the priority, ahead of the NEXT item and enhancements. Order now: open bugs (#626, #627), then
+  review #621 (the user answered by EDITING the issue body and all 3 comments, no new replies: read each in full and act on it),
+  then probably 3-2 (user said "I think",
+  so confirm), then #625 or round 4.
 - #619 DONE and closed: fix is in `.git/beta/inject-issues-button.cjs` (untracked, in the main repo `C:/repo/battletech-tools`,
   because `battletech-tools-master` is a worktree). Deployed. The page ran to 1456 px at every width below that, not only on phones.
   Header now wraps below 1600 px; drawer top padding 7.5rem below 768 px. Five pages x six widths checked live, no sideways scroll.
