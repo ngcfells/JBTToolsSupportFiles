@@ -1,4 +1,28 @@
-# START HERE (2026-11-06, latest): split done; next, the Solaris7 verdicts, then Scott's API update
+# START HERE (2026-11-06, latest): split reviewed and fixed; mordel sync client built on a branch
+
+- SPLIT FINAL REVIEW DONE: no Critical, 1 Important, 6 Minor; Important and Minors 1-5 fixed test-first (ledger:
+  ResourceLibrary `.superpowers/sdd/2026-11-05-resource-library-split/progress.md`, "Final" lines). The Important one:
+  the `~/.claude/ollama` scrape tools now save native downloads (PDFs, archives, media) and the VirusTotal quarantine
+  under `JBTIICRework/unsorted/scrapes/`, never into tracked `ResourceLibrary/scrapes/` (`.bak2` copies kept; tests in
+  `~/.claude/ollama/tests/test_native_downloads.py`), plus backstop ignore rules in ResourceLibrary. Minor 6 (a 4.26 GB
+  review diff in that SDD workspace) is left in place per the keep-SDD-ledgers rule.
+- NOT PUSHED, waiting on the user: ResourceLibrary a897274c1 (fix pass, suite 19/19) and JBTIICRework 9257bb7d
+  (`.vt_api_key` ignore guard). The `solaris7-review` branch delete still waits for a yes.
+- MORDEL: Scott's API update mapped against the wish list in battletech-tools
+  `docs/superpowers/plans/2026-11-06-mordel-api-mapping.md` (untracked in the main checkout); the reply to Scott is
+  drafted in its section 4, for the user to send.
+- MORDEL SYNC CLIENT: worktree `C:/repo/battletech-tools-mordel-sync`, branch `mordel-sync`, commit 97ef7cfd7, not
+  pushed. `npm run mordel:sync` (flags `--max-detail N` default 100, `--full`, `--dry-run`); code in
+  `tools/mordel-sync/`, tests in `src/utils/mordelSync.test.ts` (26). Changes-only lists via `updated_since`, a full
+  list weekly to notice removals, details capped per run, 401 stops, 503/429 retried. The mirror
+  (`tools/mordel-sync/.mirror/`, member designs) is git-ignored: the repo is public. Smoke run on the sandbox: 56,043
+  units listed, 3 details fetched, key absent from all output. Full `npm test` green (3986). Typecheck shows only 2
+  older errors: `tesseract.js` is missing from the shared `node_modules` (needs `npm install`).
+- RULING: no full detail pull (about 56k requests) without the user's OK; the default batch is 100 a run.
+- STILL OPEN: the Solaris7 verdicts in `C:/repo/ResourceLibrary/reviews/solaris7/` (see below), sorting the 370
+  native files in JBTIICRework `unsorted/scrapes/`, and tier B (waits on JBTIICRework's LFS reset).
+
+# EARLIER (2026-11-06): split done; next, the Solaris7 verdicts, then Scott's API update
 
 - SPLIT DONE 2026-11-05/06 (plan Tasks 1 to 6; final review pending): JBTIICRework is native files only (main
   be437c50 = origin, no LFS spent). Everything we made is in `C:/repo/ResourceLibrary` (main 41222c6a2 = origin): scripts,
