@@ -7,9 +7,11 @@ started (below).
 
 Work in this order, no check-ins between steps (user: "get to work"):
 
-1. SCOTT'S REPLY FIRST. The user is reading `battletech-tools/docs/superpowers/plans/2026-11-06-mordel-api-mapping.md`
-   (section 4 is the draft reply) on the phone. Take the user's edits, finalize the reply text, and hand it over
-   ready to paste. The user sends it, not us. Commit the mapping doc (and the untracked
+1. SCOTT'S REPLY FIRST. The draft is section 4 of
+   `battletech-tools/docs/superpowers/plans/2026-11-06-mordel-api-mapping.md` (the user has it on the phone). The
+   user's plan (2026-11-06): "we are going to mod that after we get back before I send it". So open the session by
+   showing the draft and editing it WITH the user until they approve it. Then give the final text ready to paste,
+   and save it in the doc. The user sends it, not us. Commit the mapping doc (and the untracked
    `2026-11-01-mordel-data-pipeline.md`) to battletech-tools master, checking first that the key is not in them.
 2. FULL MORDEL PULL (running since 2026-11-06 07:39, detached, about 20 h at 1 request/s): the script is
    `battletech-tools/tools/mordel-sync/.mirror/full-pull.sh` (batches of 1000, store saved after each, resumes from
@@ -50,10 +52,12 @@ Work in this order, no check-ins between steps (user: "get to work"):
      chunk8-dataplus-bank, chunk9-legal-branding-deploy, dataplus-length-tell, math-engine, study-tips,
      ui-exam-cards. Delete those merged into main (`git branch --merged main`) locally and on origin. Push or merge
      the rest only after checking (chunk11-secai has 34 unpushed commits).
-   - SDD workspaces (`.superpowers/sdd/*`, in testingUtility, battletech-tools-master and ResourceLibrary). The owner
-     memory rule `keep-sdd-ledgers` says never delete them until every CompTIA exam is in, and the 2026-11-06 "clean up
-     old workspaces" may or may not override it. Ask the user once before deleting any. The 4.26 GB review diff in
-     ResourceLibrary's split workspace is the big one.
+   - SDD workspaces (user ruling 2026-11-06): LEAVE testingUtility's (cert tester) alone. DELETE the stale ones
+     elsewhere: ResourceLibrary `.superpowers/sdd/2026-11-05-resource-library-split` (the split is finished; it holds
+     the 4.26 GB review diff) and battletech-tools-master `.superpowers/sdd/2026-10-20-artvee` and
+     `2026-10-21-catalogs-editions`. First, check each plan is finished (its ledger) and copy anything still needed
+     out of it, such as `scrapes_native.tsv` for step 3. Copy that one into ResourceLibrary `records/` before the
+     delete. The memory rule `keep-sdd-ledgers` now covers only the cert tester.
    - Scratchpad leftovers from the old session (mordel probe fixtures with member designs, smoke mirror) are in the
      old session's temp scratchpad: delete them.
 6. Update this handoff, push JBTToolsSupportFiles.
