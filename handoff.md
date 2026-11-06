@@ -1,6 +1,28 @@
-# START HERE (2026-11-05): Solaris7 review waits on the user; LFS allowance decision open
+# START HERE (2026-11-05, latest): execute the ResourceLibrary split plan, NATIVE
 
-- PARKED, USER 2026-11-05 (latest): the next session goes back to the cert trainer in `C:\repo\testingUtility` (AutoOps+
+- ACTIVE TASK, USER 2026-11-05 (latest, overrides the blocks below): JBTIICRework becomes native files only. Everything
+  we made from them (text extracts, scripts, reports, records, Solaris7 review pages, scrapes) moves to
+  `C:/repo/ResourceLibrary` (<https://github.com/NGCFells2/ResourceLibrary>, private, NGCFells2's account, its own LFS).
+  - Spec (approved): `C:/repo/ResourceLibrary/docs/superpowers/specs/2026-11-05-resource-library-split-design.md`
+  - Plan: `C:/repo/ResourceLibrary/docs/superpowers/plans/2026-11-05-resource-library-split.md` (6 tasks).
+  - User chose NATIVE execution: use superpowers:executing-plans, do every task in-session, then one fresh reviewer on
+    the most capable model checks the whole thing at the end. Read spec and plan first; start at Task 1.
+  - ResourceLibrary local main has 2 commits (spec, plan), NOT pushed yet; Task 4 Step 6 pushes.
+  - User rulings: no more JBTIICRework LFS spend (not paying). ResourceLibrary LFS only for files that fit its purpose
+    (images in reviews/ and scrapes/, files over 100 MB); never `search.sqlite`; never native sources. Rebuilding search
+    on a fresh machine is fine. Raw scrapes move too (replaces the 2026-10-27 "this PC only" ruling).
+  - State at handoff: all repos pulled from origin 2026-11-05. JBTIICRework main = origin (pulled with
+    GIT_LFS_SKIP_SMUDGE=1; Birth of the King restored from local LFS cache). 4 PDFs show locally modified (BattleForce
+    FASA, A Time of War Companion, Tactical Handbook 4th printing, Beginner-Box Quick-Start): leave them alone.
+  - Solaris7 verdicts: the user has edited 3 rows so far on `solaris7-review` (commits 20886a79, 302a92f9, a3aa4fc2):
+    Atlas AS7-D3 NOT the same, add a 2 to the end of the Solaris one; Chihuahua NOT the same (Solaris is an OmniMech,
+    mordel's a BattleMech; note covers all Chihuahua rows); Dire Wooly Dire O has no mech on Solaris, only a request for
+    info, so rerun the content verification. Acting on them is the task AFTER the split, in `ResourceLibrary/reviews/solaris7/`.
+  - Tier B library sort waits for JBTIICRework's LFS reset (native files belong there).
+
+## Earlier (2026-11-05): Solaris7 review waits on the user; LFS allowance decision open
+
+- PARKED, USER 2026-11-05: the next session goes back to the cert trainer in `C:\repo\testingUtility` (AutoOps+
   domain 4; its HANDOFF.md). Our reply to Scott WENT OUT 2026-11-05. When the user returns here: ask whether he answered,
   and how far the Solaris7 verdict review got, then follow the order below.
 - PIVOT, USER 2026-11-05 (late): the next session does Scott/mordel FIRST, then the library sort. Order:
