@@ -29,13 +29,15 @@ Work in this order, no check-ins between steps (user: "get to work"):
    rename guidance in memory `library-rename-project.md` and `library-best-copy-rule.md`
    (`~/.claude-battletech/projects/c--repo-battletech-tools-master/memory/` and `.../c--repo-JBTToolsSupportFiles/memory/`).
    Use `ResourceLibrary/rename_library.py` and `sort_batch.py`, with the records in ResourceLibrary.
-   OPEN CONFLICT, ask before committing: an earlier user ruling says "no more JBTIICRework LFS spend (not paying)",
-   and committing these native files to JBTIICRework spends LFS. The moves can be made in the working tree; ask the
-   user whether to commit and push them now or hold them until the LFS reset.
+   USER RULING 2026-11-06: NO JBTIICRework commits or pushes until 2026-12-02. Until then, make the moves and renames
+   in the working tree only. Note each one as pending in ResourceLibrary `records/jbtiicrework-pending.md` (what moved
+   or was renamed, from where to where, and why). On 2026-12-02, commit and push them all, then clear that list.
+   This applies to every JBTIICRework change, not only these files.
 4. THEN THE WHOLE LIBRARY: go through JBTIICRework and make every file name follow the rename guidance. As each file
    is checked, read its text extract in ResourceLibrary `text/`. If the text is garbled or unusable, fix it there
    (memory `correct-garbled-library-text.md`: re-OCR or correct, then rebuild INDEX/search). Done by the session, not
-   by ollama. Commit ResourceLibrary in batches and push (it is the user's private repo).
+   by ollama. Commit ResourceLibrary in batches and push (it is the user's private repo). The JBTIICRework renames
+   stay uncommitted and go on the pending list (step 3 ruling, until 2026-12-02).
 5. CLEANUP, MERGE, ORIGIN (user: "clean up stale workspaces and worktrees, everything that can be at origin is
    there, merge branches when possible, trim if no longer needed"). Inventory at the clear:
    - battletech-tools: master ahead 1 (the mordel-sync ff), so push it. Check the e2e and deploy rules in the
