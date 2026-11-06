@@ -1,4 +1,67 @@
-# START HERE (2026-11-06, latest): split reviewed and fixed; mordel sync client built on a branch
+# START HERE (2026-11-06, after /clear): Scott's reply first, then sort + rename, then repo cleanup
+
+Done before the clear (user yeses 2026-11-06): ResourceLibrary a897274c1 and JBTIICRework 9257bb7d pushed;
+`solaris7-review` deleted on JBTIICRework origin; the mapping doc sent to the user's phone; battletech-tools master
+fast-forwarded LOCALLY to `mordel-sync` (97ef7cfd7, master is now ahead 1 of origin, not pushed); full mordel pull
+started (below).
+
+Work in this order, no check-ins between steps (user: "get to work"):
+
+1. SCOTT'S REPLY FIRST. The user is reading `battletech-tools/docs/superpowers/plans/2026-11-06-mordel-api-mapping.md`
+   (section 4 is the draft reply) on the phone. Take the user's edits, finalize the reply text, and hand it over
+   ready to paste. The user sends it, not us. Commit the mapping doc (and the untracked
+   `2026-11-01-mordel-data-pipeline.md`) to battletech-tools master, checking first that the key is not in them.
+2. FULL MORDEL PULL (running since 2026-11-06 07:39, detached, about 20 h at 1 request/s): the script is
+   `battletech-tools/tools/mordel-sync/.mirror/full-pull.sh` (batches of 1000, store saved after each, resumes from
+   `store.json` if started again). Log: `.mirror/full-pull.log` ("done" line at the end). Mirror: `.mirror/units/<type>/<id>.json`,
+   git-ignored (member designs, public repo). Check the log; if it stopped, start the script again with
+   `bash tools/mordel-sync/.mirror/full-pull.sh`, run detached.
+   When done, measure: total size (`du -sh`), gzip size, count per type, size per type. Early estimate from 3 details:
+   about 11 KB each, so about 600 MB raw for 56k units, plus a 7.3 MB index. Then write the user a short decision memo
+   on three options: (a) ship with the app, (b) an optional pack fetched from storage when asked for, (c) each user
+   enters their own mordel.net key in the app and fetches only what they want (needs Scott's agreement). Give the
+   sizes, the CORS and key-handling question for (c), and a recommendation.
+3. SORT THE 370 NATIVE FILES YOURSELF (user: "don't leave that to ollama"): JBTIICRework `unsorted/scrapes/`, list in
+   ResourceLibrary `.superpowers/sdd/2026-11-05-resource-library-split/scrapes_native.tsv` (168 pdf, 163 zip, 3 doc, 6
+   PDFs without an extension, 30 podcast m4a = 1.1 GB). Move each into its JBTIICRework category folder. Follow the
+   rename guidance in memory `library-rename-project.md` and `library-best-copy-rule.md`
+   (`~/.claude-battletech/projects/c--repo-battletech-tools-master/memory/` and `.../c--repo-JBTToolsSupportFiles/memory/`).
+   Use `ResourceLibrary/rename_library.py` and `sort_batch.py`, with the records in ResourceLibrary.
+   OPEN CONFLICT, ask before committing: an earlier user ruling says "no more JBTIICRework LFS spend (not paying)",
+   and committing these native files to JBTIICRework spends LFS. The moves can be made in the working tree; ask the
+   user whether to commit and push them now or hold them until the LFS reset.
+4. THEN THE WHOLE LIBRARY: go through JBTIICRework and make every file name follow the rename guidance. As each file
+   is checked, read its text extract in ResourceLibrary `text/`. If the text is garbled or unusable, fix it there
+   (memory `correct-garbled-library-text.md`: re-OCR or correct, then rebuild INDEX/search). Done by the session, not
+   by ollama. Commit ResourceLibrary in batches and push (it is the user's private repo).
+5. CLEANUP, MERGE, ORIGIN (user: "clean up stale workspaces and worktrees, everything that can be at origin is
+   there, merge branches when possible, trim if no longer needed"). Inventory at the clear:
+   - battletech-tools: master ahead 1 (the mordel-sync ff), so push it. Check the e2e and deploy rules in the
+     battletech-tools memory first, because master pushes may deploy. Worktree `C:/repo/battletech-tools-mordel-sync`
+     is merged, so remove it and delete the `mordel-sync` branch. Local `layers` has no upstream: check whether it is
+     merged, then merge or delete. `gh-pages` (ahead 773, behind 237) is the deploy branch, leave it. Worktree
+     `C:/repo/battletech-tools-master` is on `beta` (= origin/beta at 224052f67): keep it, it is the main beta
+     checkout. Remote branches on origin (`CustomMUL`, `bundle/unit-builders-and-catalogs`, `feature/clan-eras`,
+     `modernize-tooling`): check each one's merged state with `git branch -r --merged origin/master`, and ask before
+     deleting any that are not merged. `upstream/*` is Jeff's repo: never touch it.
+   - JBTIICRework: local `backup/pre-lfs-strip` is a safety backup from the LFS strip: ask before deleting.
+   - testingUtility (CompTIA trainer, different project): local branches answer-marks, chunk10-harvester,
+     chunk11-secai (ahead 34 of origin), chunk12-autoops, chunk6-question-adder, chunk7-acronym-tester,
+     chunk8-dataplus-bank, chunk9-legal-branding-deploy, dataplus-length-tell, math-engine, study-tips,
+     ui-exam-cards. Delete those merged into main (`git branch --merged main`) locally and on origin. Push or merge
+     the rest only after checking (chunk11-secai has 34 unpushed commits).
+   - SDD workspaces (`.superpowers/sdd/*`, in testingUtility, battletech-tools-master and ResourceLibrary). The owner
+     memory rule `keep-sdd-ledgers` says never delete them until every CompTIA exam is in, and the 2026-11-06 "clean up
+     old workspaces" may or may not override it. Ask the user once before deleting any. The 4.26 GB review diff in
+     ResourceLibrary's split workspace is the big one.
+   - Scratchpad leftovers from the old session (mordel probe fixtures with member designs, smoke mirror) are in the
+     old session's temp scratchpad: delete them.
+6. Update this handoff, push JBTToolsSupportFiles.
+
+Security, still: the mordel key is in `.env.mordel` (git-ignored). Never print it or put it in a commit, memory note
+or this file. Scripts read it by regex and scrub it from saved output.
+
+# EARLIER (2026-11-06): split reviewed and fixed; mordel sync client built on a branch
 
 - SPLIT FINAL REVIEW DONE: no Critical, 1 Important, 6 Minor; Important and Minors 1-5 fixed test-first (ledger:
   ResourceLibrary `.superpowers/sdd/2026-11-05-resource-library-split/progress.md`, "Final" lines). The Important one:
