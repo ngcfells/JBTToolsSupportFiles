@@ -1,6 +1,25 @@
-# START HERE (2026-11-05, latest): execute the ResourceLibrary split plan, NATIVE
+# START HERE (2026-11-06, latest): split done; next, the Solaris7 verdicts, then Scott's API update
 
-- ACTIVE TASK, USER 2026-11-05 (latest, overrides the blocks below): JBTIICRework becomes native files only. Everything
+- SPLIT DONE 2026-11-05/06 (plan Tasks 1 to 6; final review pending): JBTIICRework is native files only (main
+  be437c50 = origin, no LFS spent). Everything we made is in `C:/repo/ResourceLibrary` (main 41222c6a2 = origin): scripts,
+  `text/`, `INDEX.md`, `records/`, `scrapes/` (raw lead scrapes, `scrapes/reddit`), `reviews/solaris7/` (the review
+  pages with the user's 3 edits from `solaris7-review`, pictures in LFS). Run scripts from ResourceLibrary as
+  `py -3.11 <script>.py C:/repo/JBTIICRework ...`; `library_search.py build` makes the local search index (never commit
+  `search.sqlite`). The intake watcher Run entry now starts `ResourceLibrary/watch_unsorted.py`. The `~/.claude/ollama`
+  scrape and mordel tools write to ResourceLibrary (`.bak` copies of the old ones kept).
+- WAITS ON THE USER: (1) confirm the review pages in ResourceLibrary, then the `solaris7-review` branch on JBTIICRework
+  origin can be deleted; (2) sort 370 files left in JBTIICRework `unsorted/scrapes/` (native PDFs, ZIPs, DOCs and 30
+  podcast m4a, 1.1 GB; list in the plan workspace `scrapes_native.tsv`). They are native, so they go to JBTIICRework
+  category folders, which needs its LFS.
+- NEXT TASK: act on the Solaris7 verdicts in `C:/repo/ResourceLibrary/reviews/solaris7/` (rows below). Note
+  `mordel_match.py` now writes there and a rerun overwrites hand edits: use `--out` for a scratch run.
+- THEN: Scott's API update (`Mordel.Net API update for testers.md`, pasted 2026-11-05): map it against our wish list,
+  then build the sync client. New key is in `.env.mordel` (never here).
+- Tier B library sort waits for JBTIICRework's LFS reset (native files belong there).
+
+## Earlier (2026-11-05): execute the ResourceLibrary split plan, NATIVE (done, see above)
+
+- ACTIVE TASK, USER 2026-11-05 (superseded by the block above): JBTIICRework becomes native files only. Everything
   we made from them (text extracts, scripts, reports, records, Solaris7 review pages, scrapes) moves to
   `C:/repo/ResourceLibrary` (<https://github.com/NGCFells2/ResourceLibrary>, private, NGCFells2's account, its own LFS).
   - Spec (approved): `C:/repo/ResourceLibrary/docs/superpowers/specs/2026-11-05-resource-library-split-design.md`
