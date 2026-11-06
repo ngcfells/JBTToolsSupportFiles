@@ -25,7 +25,8 @@
   chapters and unit names, which is why. Tier A = product code also matches. Tier B = mostly fiction: publisher and year are model
   guesses, renames later cost no upload. Held rows and `review` rows wait for the user.
   After sorting, rebuild as usual: extract, `page_offsets.py text`, hash, index, search. INDEX is not rebuilt yet.
-  PROGRESS: 4 batches pushed, 31 files, 1361 MB; library main de662086. PAUSED by the user when tokens ran out, not by LFS. Resume with the Method above: tier A first, then B.
+  PROGRESS: 4 batches pushed, 31 files, 1361 MB; library main de662086. PAUSED by the user when tokens ran out, not by LFS. Tier A is empty: resume with `python sort_batch.py run B 350`. Update this line by hand after each batch.
+- New repo 2026-11-05: `C:/repo/ResourceLibrary` = https://github.com/NGCFells2/ResourceLibrary (private, owned by NGCFells2, ngcfells has push). Empty so far; purpose not stated yet.
 - USER'S NEXT STEPS: review the Solaris7 verdicts on origin, and decide whether to pay for LFS (see the allowance note below).
   Review link, private repo, logged in: https://github.com/ngcfells/JBTIICRework/blob/solaris7-review/unsorted/scrapes/solaris7.com/_mordel_matches.md
 
