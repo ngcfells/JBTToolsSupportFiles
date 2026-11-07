@@ -144,6 +144,20 @@ Scott answered (2026-11-06 evening), and the user sent two replies. Both are sav
   gzipped).
 - The user is away at a conference in Utah the week of 2026-11-09 and may be fully offline.
 
+**Mordel user keys: BUILT 2026-11-07 overnight, not pushed.** Worktree `C:/repo/battletech-tools-mordel-key`,
+branch `mordel-user-key` (last commits 039cd2bb7 review fixes, 51e889a36 docs). `npm run check` passes.
+- The key is saved in Settings. A Mordel units panel sits in the Classic and Alpha Strike rosters and the 'Mech
+  designer. Tabs: search the list, "My Mordel designs", or paste a link. Details are pulled with the user's key and
+  converted (MTF for 'Mechs, BLK for vehicles and ProtoMechs), with a warning when our BV differs from mordel.net's.
+- The list chunks hold member designs. They are git-ignored and load only in dev with `VITE_MORDEL_LIST=local`
+  (in the worktree's `.env.development.local`). A production build has no list; with a key it tops up daily.
+- Owner decisions needed: memo `docs/superpowers/plans/2026-11-07-mordel-storage-memo.md` (where the list comes
+  from, and the 334 canon mismatches). New questions for Scott are at the end of
+  `docs/superpowers/specs/2026-11-06-mordel-user-key-design.md`. Nothing sent.
+- Once the full pull ends: `node tools/mordel-sync/build-mordel-list.mjs` in the worktree, then update the memo's
+  counts (the mismatch report was built with 10,043 details missing).
+- Merge, push and deploy wait for the owner's OK.
+
 Steps, in order:
 
 1. **Mordel full pull (running).** At 12:05, batch 13 was done and 43,043 of 56,043 units were waiting. It does
