@@ -154,8 +154,8 @@ branch `mordel-user-key` (last commits 039cd2bb7 review fixes, 51e889a36 docs). 
 - Owner decisions needed: memo `docs/superpowers/plans/2026-11-07-mordel-storage-memo.md` (where the list comes
   from, and the 334 canon mismatches). New questions for Scott are at the end of
   `docs/superpowers/specs/2026-11-06-mordel-user-key-design.md`. Nothing sent.
-- Once the full pull ends: `node tools/mordel-sync/build-mordel-list.mjs` in the worktree, then update the memo's
-  counts (the mismatch report was built with 10,043 details missing).
+- The full pull ended at 02:50 on 2026-11-07, with 56,043 units and none missing. The list and the mismatch report are
+  rebuilt, and the memo has the final counts (2b35ec7f6): 381 canon mismatches, 4,317 canon units dropped.
 - Merge, push and deploy wait for the owner's OK.
 
 Steps, in order:
