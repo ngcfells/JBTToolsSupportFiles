@@ -7,14 +7,45 @@ Every session: run `gh issue list` in testingUtility first. Bugs come before eve
 file issues from the app (label `from-app`), so check for those too. At the end of 2026-11-06 the open issues were
 #11, #6 and #5, all enhancements.
 
-NEXT SESSION (written 2026-11-06, end of day):
+NEXT SESSION (written 2026-11-06, evening):
 
 1. `gh issue list`. Any bug, or any `from-app` issue, comes first.
-2. testingUtility: the command primer, issue #5 (Bash and PowerShell side by side, assume zero experience). The spec
-   is approved and committed: `docs/superpowers/specs/2026-11-06-command-primer-design.md`. There is no plan yet.
-   Write it with superpowers:writing-plans, get the owner to review it, then build it the standing way: native,
-   test-first with a ledger, one Opus whole-branch review, fix every finding (minors too), merge, push,
-   `npm run deploy`.
+2. testingUtility: the command primer, issue #5, branch `command-primer` (not merged). The plan is approved:
+   `docs/superpowers/plans/2026-11-06-command-primer.md`. Ledger: `.superpowers/sdd/2026-11-06-command-primer/progress.md`
+   (keep it). Tasks 1 to 11 are done and green (Task 11, the files group, is the
+   `content(primer): files topics` commit). Next is **Task 12, the services group** (`systemctl` topic: aliases
+   systemctl, journalctl, Get-Service, Start-Service, Stop-Service, Restart-Service; bank words `systemctl start`,
+   `systemctl restart`). Run it with
+   superpowers:executing-plans and resume from the ledger. The content tasks (10 to 14) go one group per session: a
+   Sonnet drafter, a Haiku copy check, an accuracy review in the main session, then shrink `PENDING` in
+   `src/primer/coverage.test.ts`, commit, update this block, and `/clear`.
+   - The skill's task-start/task-done scripts cannot find content tasks (the plan heading is "Tasks 8 to 14"). Read
+     the plan section "Tasks 8 to 14" and ledger by hand in the same format.
+   - Listing the bank steps for a group: a throwaway vitest file in `src/primer/` that imports the three bank item
+     files and `commandWords` and writes matching steps to the ledger folder (Task 9 wrote `t9-steps.md`). Delete it
+     after.
+   - Bank tests (`npx vitest run src/banks`) hold the primer acronym check. It also reads example `line` fields, so
+     capital words in sample output (`PANIC`, `NR`) trip it; the drafter picked other samples.
+   - Accuracy review that paid off in Task 9: run every Bash example in Git Bash and every PowerShell form in pwsh
+     (both are on this machine). It caught a PowerShell `-replace` paired with a first-match-only `sed`, a false
+     "No close equivalent." (`Measure-Object -Sum`), and a Bash `&&` line offered as the PowerShell form.
+   - Linux tools for that review (set up 2026-11-06 at the owner's request): WSL Ubuntu now runs (its Windows
+     service was Disabled; now Manual), with dnsutils and netcat added. Run a Bash file there with
+     `wsl -d Ubuntu -u root -- bash -c "tr -d '\r' < /mnt/c/<path>.sh | bash"`. dig is also on Windows (winget
+     ISC.Bind). Put a `timeout` on anything that may not stop (Task 10 hung on Linux `ping -n`).
+   - Drafters copy the bank's own scenario (Task 10: the same TTL, addresses and JSON bodies). Swap in new values.
+   - A new acronym in a topic must go in the acronym list of every exam the topic shows for (`meta.ts`); the Data+
+     meta test pins its community count (now 27).
+   - The copy checker (Haiku) tends to re-define "PowerShell" and "Bash" in every topic and can garble cross-reference
+     titles; check every "see <title>" against the real topic titles.
+   - Primer e2e: `tests/e2e/primer.spec.ts` (fixture) and `primer.responsive.spec.ts` (phone, tablet), helper in
+     `tests/e2e/primerUtil.ts`. Run: `npm run build:e2e`, then `npx playwright test tests/e2e/primer.spec.ts
+     tests/e2e/primer.responsive.spec.ts --project=fixture --project=phone --project=tablet` (7 tests).
+   - From Task 11: www.gnu.org did not answer from this machine at commit time (it gave 200 earlier that
+     session); the Task 15 link check must confirm the three coreutils links. `NET` (as in .NET) is now on
+     NOT_ACRONYMS in `src/acronyms/extract.ts` as a product name.
+   - Task 15: release. Empty `PENDING`, get the owner to approve the links, `npm run check`, one Opus whole-branch
+     review, fix every finding (minors too), merge, push, `npm run deploy`, close #5.
 3. Between primer tasks and while tests run: the tools work (section B in
    `C:/repo/JBTToolsSupportFiles/handoff.md`).
 
