@@ -1,3 +1,42 @@
+# 2026-11-10 (late): review patch pushed, beta deployed, Scott's API docs are done; sandbox key saved
+
+Next session model: **Sonnet** (the Mordel check is mechanical; use Opus only for a whole-branch review).
+This block supersedes the "ACES #630: NOT pushed" block below: #630 is closed and live.
+
+State now:
+- battletech-tools `master` = `beta` = `origin/*` at `00f97f37d`. That holds: Scott's answers (docs), the review patch
+  `e4b9262b7` (17 files; review notes in `~/Documents/battletech-tools-review.md`) and two plan files. `npm run check`
+  passed before the push. `git deploy-beta` ran from master at `e4b9262b7`, so the beta site has the fixes (the plans
+  after it are docs only). `deploy-prod` points at the upstream heysporky repo: NOT run, the owner decides.
+- JBTToolsSupportFiles: arrayPlan.md committed, everything pushed.
+- Key: the sandbox key is saved in `C:/repo/JBTToolsSupportFiles/.env.mordel` (git-ignored; `. ./.env.mordel` gives
+  `$MORDEL_API_KEY`). `GET /api/v1/key` = 200. A sandbox refresh wipes it. Never print it or write it elsewhere.
+  It was pasted in chat once, so replace it when convenient.
+- Scott (2026-11-10): REST API v1 docs are done
+  (`https://sandbox.mordel.net/documentation.php?a=api&s=start`, `s=endpoints`, `s=reference`).
+  Base `https://sandbox.mordel.net/api/v1`, GET only, `X-API-Key` (keys in the URL are 400), CORS `*`, 120 points per
+  60 s (`/units` page 1, `/units/ids` 2, record sheet 4, Alpha Strike card PDF 10), cursor paging (limit 1-1000, default
+  500), `owner=me` lists your own units at every privacy level, the summary has `name_parts`, `mul_id`, `role`,
+  `designer`, `omni_base_id`; the detail has `alpha_strike`, `equipment`, `locations`, `files` (megamek .mtf/.blk,
+  texts, PDFs). NOT there: a removals feed (diff `/units/ids`), an original-designer field, import or push endpoints.
+  Texts can change without `updated` changing. 503 during site releases.
+
+Next steps, in order:
+1. `gh issue list` in testingUtility and battletech-tools first (bugs beat everything).
+2. Review the `mordel-user-key` branch (worktree `C:/repo/battletech-tools-mordel-key`, plan
+   `docs/superpowers/plans/2026-11-07-mordel-next.md`) against Scott's docs. List the gaps in sections 5 and 6 of
+   `docs/superpowers/plans/2026-11-06-mordel-api-mapping.md`. Test with the key (read-only calls only, mind the
+   120-point budget). Draft a short reply to Scott for the owner to send (thanks; the original-designer field, a
+   removals feed and file import were asked for and are not in v1).
+3. Owner checks: the two review-patch fixes that rest on memory of the rules (low-skill PV `ceil` over 104 PV;
+   Strategic Command Star accepts `AF`), against the ASCE book. Review section 3 lists 11 not-fixed items (TSM TMM,
+   MUL sync cap 900/800/700, fork identity, the `-1` no-shot to-hit); the owner picks. Section 4 lists canon items that
+   should each have an issue: compare with `gh issue list` and file the missing ones.
+4. testingUtility: #16 (font size on phones), #17 (install as an app / offline), then #11, #6.
+5. Still open for the owner: hand-check the Aces auto-answer on beta; the VERIFY items (Weapon Hit 50 vs 25 percent);
+   the `mordel-user-key` merge.
+- JBTIICRework working tree: the pending rename (#601, LFS budget). Leave it.
+
 # BACK ON THE HOME MACHINE (2026-11-09)
 
 The home machine is on again, and local `C:/repo` is the main copy. Cloud work is pulled in: battletech-tools
