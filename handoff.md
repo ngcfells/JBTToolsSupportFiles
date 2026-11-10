@@ -1,3 +1,14 @@
+# 2026-11-10 (night): API fixes built on mordel-user-key, rerun clean; owner decisions pending
+
+Next session model: **Sonnet**. On `mordel-user-key` (worktree C:/repo/battletech-tools-mordel-key, NOT pushed, NOT
+merged): commit 152009764 builds the fixes from Scott's API v1 docs (owner=me, cursor resume, /units/ids removals,
+Retry-After, GET /key, proxies gone); `npm run check` green; 535c1185e is the sandbox rerun (sections 7 and 8 of
+`docs/superpowers/plans/2026-11-06-mordel-api-mapping.md`). Nothing wrong found in the sandbox API.
+Owner decides: (1) production `https://mordel.net/api/v1` answers 404, so the app should default to the sandbox until
+Scott opens it; (2) send or change the drafted reply to Scott (section 7); (3) the optional features (MegaMek export
+cross-check, BV breakdown text); (4) merge `mordel-user-key`. Test `owner=me` once the owner makes private units.
+Move the two untracked zz-*.test.ts out of src/ before any commit.
+
 # 2026-11-10 (late): review patch pushed, beta deployed, Scott's API docs are done; sandbox key saved
 
 Next session model: **Sonnet** (the Mordel check is mechanical; use Opus only for a whole-branch review).
