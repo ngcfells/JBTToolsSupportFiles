@@ -1,11 +1,22 @@
+# BACK ON THE HOME MACHINE (2026-11-09)
+
+The home machine is on again, and local `C:/repo` is the main copy. Cloud work is pulled in: battletech-tools
+`master` (rebased; one local docs commit, bf2c594c8 rebased, not pushed), `mordel-user-key` fast-forwarded to
+13e645064 (section 2 WIP, see `docs/superpowers/plans/2026-11-07-mordel-next.md`), `beta` at origin, testingUtility
+`command-primer` same as origin. ResourceLibrary pulled. The CLOUD block below is history.
+
+Open issues (2026-11-09): cert-exam-trainer has no bugs; new `from-app` requests #16 (font size setting for phones)
+and #17 (install as an app / work offline), both enhancements, plus #11, #6, #5. battletech-tools: the only bug is
+#630 (Aces playtest, plan below). JBTIICRework, TechFoundry: no issues. JBTIICRework's working tree has 37 deleted,
+11 changed and 154 new library files: that is the pending rename (#601, waits on the LFS budget). Leave it.
+
 # ACES #630 (2026-11-09): Rekikire playtest fixes, not started in code
 
 Issue: https://github.com/ngcfells/battletech-tools/issues/630 (points 1 to 5 filed). Points 6 and 7 below came in
 later and are NOT on the issue yet: add them to #630 first. Work on branch `beta` in the worktree
 `C:/repo/battletech-tools-master` (clean, nothing written yet). Test first; prove each regression test fails before
 the fix. Round cleanup: commit, push beta, `git deploy-beta`, fast-forward master, push, update #630.
-Master in `C:/repo/battletech-tools` also has unpushed commits (bf2c594c8 docs: Scott's 2026-11-08 answers, plus 3
-earlier).
+Master in `C:/repo/battletech-tools` has one unpushed docs commit (Scott's 2026-11-08 answers), rebased on origin.
 
 Plan per point (files: `src/classes/aces-game.ts`, `src/classes/aces-engine.ts`,
 `src/ui/pages/alpha-strike/aces/game.tsx`, `src/ui/pages/alpha-strike/aces/_card-reader.tsx`):
