@@ -1,3 +1,48 @@
+# ACES #630 (2026-11-09): Rekikire playtest fixes, not started in code
+
+Issue: https://github.com/ngcfells/battletech-tools/issues/630 (points 1 to 5 filed). Points 6 and 7 below came in
+later and are NOT on the issue yet: add them to #630 first. Work on branch `beta` in the worktree
+`C:/repo/battletech-tools-master` (clean, nothing written yet). Test first; prove each regression test fails before
+the fix. Round cleanup: commit, push beta, `git deploy-beta`, fast-forward master, push, update #630.
+Master in `C:/repo/battletech-tools` also has unpushed commits (bf2c594c8 docs: Scott's 2026-11-08 answers, plus 3
+earlier).
+
+Plan per point (files: `src/classes/aces-game.ts`, `src/classes/aces-engine.ts`,
+`src/ui/pages/alpha-strike/aces/game.tsx`, `src/ui/pages/alpha-strike/aces/_card-reader.tsx`):
+
+1. **Player units able to move defaulted to 4** (should be 6). `playerUnitsAbleToMove` is a saved number (default
+   0), never synced to the roster; 4 was likely a stale value. Fix: add `AcesGame.setPlayerUnitsFromForce(force)`
+   (live, not immobile units) and call it when the phase bar enters Movement (`_renderPhaseBar`, game.tsx ~504).
+   Keep the field editable.
+2. **Ideal RED/YELLOW/BLUE not shown.** Add an engine helper that runs `narrowAcesCandidates` over the player units
+   with each colour list of the Command card; show the ideal unit per colour in the reader. Auto-answer behavior
+   conditions where the data is there: the phrases are listed in `src/data/aces-card-phrases.ts`
+   (acesConditionPhrases): "any [moved] enemies in N\"", "no [moved]/[notmoved] enemies in N\"", "at least K enemies
+   in [los] and N\"", "ideal [c] is [moved] (and in N\")", "this unit is crippled". "unit can move ..." parts stay
+   a question, but a not-moved ideal answers False. Unknown distance means ask. Player "moved" state: keep it per
+   turn in the game (new saved list, reset in `nextTurn`) so ticking it once carries to the next automated unit.
+3. **Damage at this range** is typed by hand. Add current S/M/L damage to `IAcesReaderUnit`; default the field from
+   the target's entered distance (S 0-6\", M >6-24\", L >24-42\"); typing overrides.
+4. **Move First token not given automatically** on Command card B. Add `AcesGame.applyCommandTokens(card)` using
+   `chooseAcesTokenUnit` (aces-game already imports aces-engine). Call it when the card changes (strategy button
+   ~line 800, card select ~556) and at each new Initiative phase. Only assigns when the choice is not tied.
+5. **Crit table not built in.** `rollAcesCriticalHit` returns "use-asce-table" for 'Mechs etc. Build the ASCE
+   critical hit tables in `src/data/aces-rules.ts` and apply via `applyAcesCriticalToUnit`. VERIFY the table rows
+   against the ASCE book in ResourceLibrary (`python library_search.py`) or the astech agent; do not write it from
+   memory. Ammo/crew results the card can't track: say "mark by hand".
+6. **(new, bug) Combat skips the RED list: "No Command card: skipped the red list"** while a Command card is
+   active. The engine passes the card through (`identifyAcesCombatTarget` -> `narrowAcesCandidates`), so
+   `game.tsx _commandCard()` (line 134) returned null. Likely cause: the deck name match is exact
+   (`card.deck.toLowerCase() === game.commandDeck`), or `commandCardId` points at another letter, so a sortie's
+   deck name that differs from the library's (spacing, "deck" suffix, faction) finds nothing. Reproduce with a test
+   first (systematic-debugging). Fix the lookup (trim/normalise, fall back to the only deck with that letter) and
+   show a warning when a Command deck is set but no library card matches. Points 2 and 4 depend on this lookup too.
+7. **(new) Duplicate units can't be told apart** (two Fulcrum Heavy Hovertanks): lists re-sort by priority each
+   turn, so it is unclear which one moved first or took damage. Fix: number duplicate names in `unitName` for the
+   automated force, e.g. "Fulcrum Heavy Hovertank (1)" / "(2)", stable by force order (works for infantry and
+   Elementals too). Rekikire also suggested a fixed list order; numbering is the smaller change. Use the same
+   label in the unit table, queue, reader, log and crit messages. Also check the player side (`_enemies`).
+
 # CLOUD (2026-11-07): the home machine is off, possibly for a week or more
 
 Work continues in Claude Code cloud sessions. Everything that was only on the home machine (unpushed branches,
