@@ -10,9 +10,44 @@ and #17 (install as an app / work offline), both enhancements, plus #11, #6, #5.
 #630 (Aces playtest, plan below). JBTIICRework, TechFoundry: no issues. JBTIICRework's working tree has 37 deleted,
 11 changed and 154 new library files: that is the pending rename (#601, waits on the LFS budget). Leave it.
 
-# ACES #630 (2026-11-09): Rekikire playtest fixes, not started in code
+# ACES #630 (2026-11-10): 5 of 7 points built on `beta`, NOT pushed, NOT deployed
 
-Next session model: Sonnet. The plan below is laid out point by point and test-first. Use the `astech` agent
+Next session model: **Sonnet** (the rest is code plus tests; the crit tables are already verified).
+
+State: worktree `C:/repo/battletech-tools-master`, branch `beta`, 7 local commits ahead of origin (one per point,
+messages end "(#630 point N)"). `tsc` is clean; the Aces unit and page tests pass (1234 passed, 4 skipped). The full
+`npm run check`/lint was NOT run on battletech-tools. Points 6 and 7 are already added to #630 as a comment.
+
+Done: 1 (player move count follows the roster at Movement, `setPlayerUnitsFromForce`), 3 (damage at range from the
+unit S/M/L and the entered distance, typing overrides, `getAcesDamageAtDistance`), 4 (`applyCommandTokens`, run on card
+change, scenario load and each new Initiative phase), 5 (ASCE crit tables in `src/data/aces-rules.ts`, checked by the
+astech agent against the 5th printing and Errata v7.02; notes at the end of this block), 6 (`findAcesCommandCard`
+matches "Deck, Faction"; a warning shows when no card matches), 7 (`getAcesUnitLabels`, duplicates numbered in force
+order on both sides), and the DISPLAY half of 2 (`getAcesIdealTargets` plus `_ideal-targets.tsx`).
+
+OWNER RULING (2026-11-10): this session's job is to FINISH #630 end to end: build the rest of point 2, check,
+commit, push `beta` (push is approved), `git deploy-beta`, fast-forward master and push, comment on #630 with what
+changed and how to replay it, and CLOSE #630. Only after that, go to testingUtility bug #18 (see
+`C:/repo/testingUtility/HANDOFF.md`, top block). If a part of point 2 cannot be done from known data, ask the owner
+before closing; do not close with a point silently dropped.
+
+NOT done:
+- Point 2, the auto-answer half: answer the card conditions from known data ("any [moved] enemies in N\"", "no
+  [moved]/[notmoved] enemies in N\"", "at least K enemies in [los] and N\"", "ideal [c] is [moved]", "this unit is
+  crippled"), with a per-turn "player unit moved" list saved in the game and reset in `nextTurn`. Unknown distance
+  means ask. See the plan below.
+- Round cleanup: run `npm run check` (or the repo lint plus tests), push `beta`, `git deploy-beta`, fast-forward
+  master, push, update #630 (tick the points, say what is left). Rekikire should replay the playtest on beta.
+- Possible follow-ups from the astech report: IndustrialMech rolls twice (built in as `also`); ammo, crew, destroyed and
+  the aerospace effects are "mark by hand" (the card has no box). VERIFY items: the book prints Weapon Hit on
+  multi-attack units as 50 percent on p.50 and 25 percent on p.184 (errata edits only p.184); no table exists for
+  JumpShips, WarShips, space stations or buildings (they still say "look it up"); Turret Locked is never defined.
+  The astech report is at `C:/Users/chris/AppData/Local/Temp/claude/b9dfea8c969aa7cc/2796b0fd-1910-4ca6-8569-e3bd0359266d/scratchpad/asce-crit-tables.md`
+  (may be gone; the rows are in aces-rules.ts with page cites).
+
+The original plan (kept for point 2):
+
+Earlier note: Sonnet. The plan below is laid out point by point and test-first. Use the `astech` agent
 (or the ResourceLibrary search) for the point 5 crit tables. Opus only if point 6 will not reproduce.
 
 Issue: https://github.com/ngcfells/battletech-tools/issues/630 (points 1 to 5 filed). Points 6 and 7 below came in
