@@ -12,6 +12,9 @@ and #17 (install as an app / work offline), both enhancements, plus #11, #6, #5.
 
 # ACES #630 (2026-11-09): Rekikire playtest fixes, not started in code
 
+Next session model: Sonnet. The plan below is laid out point by point and test-first. Use the `astech` agent
+(or the ResourceLibrary search) for the point 5 crit tables. Opus only if point 6 will not reproduce.
+
 Issue: https://github.com/ngcfells/battletech-tools/issues/630 (points 1 to 5 filed). Points 6 and 7 below came in
 later and are NOT on the issue yet: add them to #630 first. Work on branch `beta` in the worktree
 `C:/repo/battletech-tools-master` (clean, nothing written yet). Test first; prove each regression test fails before
