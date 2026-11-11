@@ -1,3 +1,55 @@
+# START HERE (2026-11-10, late): cited Battle Value (#599), Tasks 1-3 of 12 done and live on beta
+
+Next session model: **Fable (or Opus)** for Task 4 and Task 6 (they read the rules and decide what the app claims).
+Tasks 8, 9 and 10 run fine on **Sonnet**. The owner's plan: `/clear`, then small chunks; a timer at 23:00 resumes.
+
+What this is: every unit gets a step-by-step Battle Value and C-bill cost breakdown, per rules edition, each step
+citing the page it was read on, plus a public record of where our BV and the MUL differ. Catalyst sources only.
+Owner rulings (2026-11-10): the math is key; transparency (misses shown); BV by edition is the headline; cost is in
+scope; no `astech` agent: the session itself or Claude subagents on a named model; a missing source is reported to
+the owner, who adds it to the library.
+
+Read, in this order (all in battletech-tools, on `beta` = `master` = origin at `89e3e473b`):
+1. `docs/superpowers/plans/2026-11-10-cited-bv-and-cost-mechs.md` (the plan: 12 tasks, 'Mechs only).
+2. `docs/superpowers/specs/2026-11-10-cited-bv-and-cost-design.md` (the design it argues from).
+3. `docs/superpowers/plans/2026-11-10-cited-bv-ledger.md` (what was read on each page, the worked examples, 14 findings).
+4. The run ledger: `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md`
+   (git-ignored; Tasks 1 to 3 have `complete` lines, plus the rulings made).
+
+How to resume: worktree `C:/repo/battletech-tools-master`, branch `beta`. Use superpowers:executing-plans with the
+plan above; it resumes from the run ledger at **Task 4** ('Mech BV1 step definitions read on the page: Master Rules
+pp.139-145 with the FanPro errata, Master Rules Revised pp.152-159, Maximum Tech pp.90-92). First list those books
+with their printings from `C:/repo/ResourceLibrary/INDEX.md`; any not held is a report to the owner, and Tasks 6-7
+(cost) go before Task 5. Then 5 (BV1 emits steps, editions with no BV), 6-7 (cost), 8 (the breakdown view with the
+edition switch; it must show the pilot-adjusted BV again), 9-10 (accuracy data, verdicts, the public page; remove the
+MegaMek audit), 11 (work the 248 'Mech misses), 12 (one Opus whole-branch review).
+
+Done and deployed to beta (no Battle Value changed; `npm run check` 4,074 passed):
+- `src/data/calc-steps.ts`, `calc-sources.ts`: the step and citation model, the renderer.
+- `src/data/calc-steps-mech-bv2.ts`: 61 'Mech BV2 step definitions, each read on its page.
+- `BattleMech._calcBattleValue` records steps; `calcLogBV` renders them; `getBattleValueBreakdown()` returns them.
+- `src/classes/battlemech-bv-examples.test.ts`: TechManual's Mongoose (758), Thunderbolt (2,008) and DemolitionMech
+  (380), checked at every number the book prints.
+- #599 has a comment with all of this and the findings.
+
+How the reading is done (it worked well):
+- `cd C:/repo/ResourceLibrary`, then `python library_search.py --page <extract name> <pdf page>`. Offsets: TechManual
+  pdf = page + 2 (`BattleTech-TechManual`); TO:AUE pdf = page + 1 (`BattleTech-Tactical-Operations-Advanced-Units-and-Equipment`);
+  IO:AE pdf = page + 2 (`BattleTech-Interstellar-Operations-Alternate-Eras`); Total Warfare pdf = page + 1.
+- `text/100-TechManual-Battle-Value-v4-1.txt` is the whole BV chapter in one clean column: much easier to read than
+  the two-column book pages, and it holds the Thunderbolt example the sixth printing's extract drops.
+- Tables lose their columns in the extracts. Crop the page image and look: a small pymupdf crop script (pdf, page
+  index, fractions of the page, dpi 140-150) against `C:/repo/JBTIICRework/rulebooks/<book>.pdf`, then Read the PNG.
+- Never grep `src/data/equipment-*.ts` without `| cut -c1-200`: one line is thousands of characters.
+
+Open for the owner (nothing blocks the work):
+- The findings in the ledger. Likely our bug: prototype CASE (IO:AE p.189: ammunition slots count 8, we count 0).
+  Three steps follow MegaMek/SSW/the MUL and not the page (IS XL with CASE in an arm; an armored gyro; signature
+  system heat): they show as provisional. Two are the book contradicting itself (Dark Age armor multipliers, IO:AE
+  p.185 against p.190; radical heat sinks): questions for Catalyst.
+- The conversion subagent ran `taskkill` on `node.exe` once on 2026-11-10: restart any dev server that was running.
+- Still pending from before: the four Mordel decisions in the block below.
+
 # 2026-11-10 (night): API fixes built on mordel-user-key, rerun clean; owner decisions pending
 
 Next session model: **Sonnet**. On `mordel-user-key` (worktree C:/repo/battletech-tools-mordel-key, NOT pushed, NOT
