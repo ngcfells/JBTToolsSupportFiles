@@ -1,53 +1,83 @@
-# START HERE (2026-11-11, night, after /clear): #599 'Mech plan done and deployed; next is the 90 open 'Mechs
+# START HERE (2026-11-11, late): #599 open 'Mechs round 2 pushed, not deployed; 57 'Mechs still open
 
 Next session model: **Fable** (root-cause reading against rule pages). Sonnet is enough for a bundle rebuild check.
 
 ## State
 
-- Worktree `C:/repo/battletech-tools-master`, branch `beta`, working tree clean. origin/beta = local = `72103128a`.
-- Deployed to the beta site from `ff5ca5245`; `master` = origin/master = `ff5ca5245`; the #599 round comment is
-  posted (issuecomment-6803790823).
-- `72103128a` (Awesome AWS-11V verdict restored, data only) is pushed to `beta` but NOT deployed and `master` is not
-  moved. **Ask the owner before the next deploy, master fast-forward or #599 comment.**
-- `npm run check` exit 0 at `72103128a` (4143 passed, 6 skipped).
-- The plan `docs/superpowers/plans/2026-11-10-cited-bv-and-cost-mechs.md` is finished (Tasks 1-12, final opus review
-  done, fixes committed). Its workspace is kept because the ledger holds the open units' leads:
-  `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md` (git-ignored).
+- Worktree `C:/repo/battletech-tools-master`, branch `beta`, working tree clean. origin/beta = local = `590244641`.
+- Deployed to the beta site from `ff5ca5245`; `master` = origin/master = `ff5ca5245`; the last #599 comment is
+  issuecomment-6803790823.
+- `72103128a` and `590244641` are pushed to `beta` but NOT deployed and `master` is not moved.
+  **Ask the owner before the next deploy, master fast-forward or #599 comment.**
+- `npm run check` exit 0 before the commit (4147 passed, 6 skipped); one lint-only edit after it, with tsc, eslint
+  and the `src/data` + `src/utils` unit suites rerun and passing.
+- Ledger with the open units' leads (git-ignored):
+  `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md`.
+  **The `probe/` folder there is from before this round's fixes; rebuild the probe before trusting a file in it for
+  a design with machine gun arrays, two launcher sizes of one family, or torpedo launchers.**
 
 ## Counts ('Mechs)
 
-3,924 match the Master Unit List, 119 differ, 369 not compared (123 import failures, 246 with no list entry).
-Of the 119: 29 are recorded "Master Unit List questioned" with a citation in `src/data/bv-verdicts.ts`; **90 are
-open**. No calculation changed while writing verdicts, so `MECH_MATCHED_FLOOR` is still 3924.
+3,939 match the Master Unit List, 104 differ, 369 not compared (123 import failures, 246 with no list entry).
+Of the 104: 47 are recorded "Master Unit List questioned" with a citation in `src/data/bv-verdicts.ts`; **57 are
+open**. `MECH_MATCHED_FLOOR` is 3939; the bundle keeps 3,700 designs (pinned in `src/data/bundled-mechs.test.ts`).
 
-## Next step (owner chose this): work the 90 open 'Mechs
+## What round 2 did (commit `590244641`)
 
-No plan file exists for this; it continues Task 11 of the finished plan under issue #599. Method that worked:
+Faults of ours fixed, test first (15 designs now match):
+- MegaMek's Clan heavy machine gun array resolved to the Inner Sphere array on a mixed-tech lookup (alt name moved).
+- Several machine gun arrays in one location each counted the same guns (TM p.228). **The same fault is in
+  `src/classes/vehicle.ts` near line 3137, left for the Combat Vehicle plan.**
+- The MegaMek file converter lost which launcher size a ton of ammunition was for (TM p.303): the converter now
+  writes `feeds="<tag>"` and the import reads it.
+- Torpedo launchers with Artemis IV had no catalog record. Owner's ruling during the round: **"Torpedos use the same
+  rules as the correct sized missile launchers."** 14 records are derived at the end of
+  `src/data/equipment-missile.ts` (TM p.207, p.230).
+- Three designs not on the list changed BV because of the launcher-size fix (Corsair COR-6R 1630 to 1636, Sun
+  Spider C 2525 to 2541, Sun Spider Vanguard 2030 to 2044). I did not stop for the owner on these; say if you
+  want them looked at.
+
+18 new verdicts (list figure the rules do not support): Skinwalker B, D, Prime and Parash 3 (gyroless interface
+cockpit, ioae 187); Seraph x3 (TSM blade damage, tm 317 + toaue 195); Raider JL-3B (tm 303); Triskelion (ioae 188);
+Pwwka, Waneta, Screamer LAM (ioae 186); Alpha Wolf A (coolant pod, toaue 193); Grand Dragon Emory and Hunchback
+Shakir (prototype weapon values, ioae 186 + 189); Super Griffin GRF-2N-X (prototype improved jump jet heat,
+ioae 97); Cataphract George (prototype double heat sinks, ioae 65 + 189); Osprey OSP-36 (XL engine modifier,
+tm 302 + 315).
+
+## Next step: the 57 open 'Mechs (same method)
+
 1. `node scripts/bv-miss-groups.mjs` prints the groups (needs the MegaMek, SSW and mordel design folders).
-2. For a unit, get the steps: load the design file and call `getBattleValueBreakdown("total-warfare")`. The scratch
-   probe test that dumped all 119 was deleted; its output is still in the workspace `probe/` folder (one file per
-   unit, plus `_leads.txt`: single changes that land exactly on the list's value). Rebuild the probe if a
-   calculation changes.
-3. Read the rule on the page (ResourceLibrary, `python library_search.py`, run from `C:/repo/ResourceLibrary`; the
-   text extracts are in `text/`; TechManual PDF page = printed + 2, TO:AUE = printed + 1). No citation from memory.
-4. Decide: list's fault (`mul-suspect`, needs `cites`), our bug (`our-bug`, needs `issue`; fix test-first), or an
-   import fault (`import`). The owner's ruling for close calls: **the page means what it says**; confirm against
-   other printings and errata where the library has them.
-5. A fix of ours: failing test first, `npx vitest run --project unit src/classes src/data` (from PowerShell),
+2. For a unit, get the steps: load the design file and call `getBattleValueBreakdown("total-warfare")`.
+3. Read the rule on the page (ResourceLibrary, `python library_search.py`, run from `C:/repo/ResourceLibrary`;
+   TechManual PDF page = printed + 2, TO:AUE = printed + 1, IO:AE = printed + 2). The `text/*.raw.txt` files keep
+   table rows in order; the other extracts jumble tables. No citation from memory.
+4. Decide: `mul-suspect` (needs `cites`), `our-bug` (needs `issue`; fix test-first), or `import`. The owner's ruling
+   for close calls: **the page means what it says**; confirm against other printings and errata.
+5. A fix of ours: failing test first, `npx vitest run --project unit src/classes src/data src/utils` (PowerShell),
    `npm run build:bundled` (about 22 minutes), the match count must rise and no kept design's BV or record sheet
-   value may change, else stop for the owner. Raise `MECH_MATCHED_FLOOR`. Then `npm run check`, commit, push `beta`.
+   value may change, else stop for the owner. Raise `MECH_MATCHED_FLOOR` and the pinned design count. Then
+   `npm run check`, commit, push `beta`. A new equipment record also needs its tag in
+   `src/data/__fixtures__/tech-lists.json`.
 
-Groups to start with (about 25 units, probably one cause each):
-- Skinwalker XP x5, Gestalt D2X-G, Parash 3: interface cockpit, no gyro (three Skinwalkers are exactly +50).
-- Seraph x3, Raider JL-3B, Grand Titan: Triple-Strength Myomer with a retractable blade or sword. Halving the
-  weapon (the list's habit on older designs) does not fit these.
-- Triskelion TRK-4V (list = ours x 1.05) and Poseidon PSD-V2 (-320): tripods; no rule found yet for 1.05.
-- Pwwka, Screamer, Waneta: LAMs.
-- Mist Lynx G, Viper F, Ice Ferret J, Linebacker I, Black Lanner F: Clan machine gun arrays.
-Other leads: Commando COM-1AK, Gladiator GLD-1R (Keller), Wolfhound WLF-2X (list = ours without the gyro; two
-carry capacitor PPCs); Alpha Wolf A (stealth armor + coolant pod; the list halves the medium pulse lasers);
-Starterbook designs with prototype gear (Black Knight Ian's second row, Cataphract George, Grand Dragon Emory);
-SSW 'Mech Mortar designs (Antlion, Woodsman D); many units 1 to 10 points off with only an explosive-slot lead.
+The 57 (ours minus the list): Gestalt D2X-G -63; Antlion LK-3D -5; Anzu ZU-G60 +17; Archangel Comminus -4;
+Archer ARC-5R -2; Bandersnatch Horus -3; BattleMaster Rogers +1; Buccaneer 'Pan' -106; Celerity 'Rajah' -6;
+Commando COM-1AK +16; Crossbow D -10; Deep Lord -2; Demeter MOD +5; Emperor EMP-6A-EC +45; Fennec FEC-5CM +53;
+Gargoyle T +3; Gladiator Keller +36; Goshawk II RISC +2; Grand Crusader GRN-D-01-X -26; Grand Titan -20;
+Griffin GRF-1RG -26; Hercules +1; Hierofalcon A -10; Ice Ferret J -32; Jackalope +8; Kraken XR +161;
+Lumberjack LM4/C +25; Malak Caelestis -4; Merlin MLN-1P +1; Pariah US -10; Patron LoaderMech -24;
+Poseidon PSD-V2 -320; Prey Seeker +18; Regent A +7; Rhino -68; Savage Coyote Z -54; Savage Wolf Prime -100;
+Scarecrow -41; Schwerer Gustav -153; Shogun SHG-3E -10; Skinwalker A +138 and C +132; Starslayer STY-2C-EC +12;
+Stealth STH-5X -85; Temax Cat Ninjabolt +6; Templar III TLR2-OB +1; Thug Jose +52; Thunderbolt IIC 2 +3;
+Trebuchet 'Merida' -4; Trebuchet TBT-K7R +7; Turkina U +42; Valkyrie VLK-QW5 -12; Vision Quest +221;
+Warhammer 'The Lich' -22; Wolfhound WLF-2X +25; Woodsman D -6; Xanthos XNT-6O +20.
+
+Leads, none settled: Kraken XR (list = ours less one Rotary AC/2; both files have four); Commando COM-1AK,
+Gladiator Keller, Wolfhound WLF-2X (list = ours without the gyro; no rule found); Grand Crusader and Savage
+Coyote Z (list halves one fewer weapon); Vision Quest (about half the Improved Gauss); Fennec and Thug Jose (no
+single-step fit); Turkina U (carries a coolant pod; no clean fit); Skinwalker A and C (not the plain gyro case);
+the 1 to 10 point units mostly have only an explosive-slot or CASE lead.
+
+After the open 'Mechs: Combat Vehicles under a new plan, then Rekikire's Aces feedback.
 
 ## Open question for the owner
 
