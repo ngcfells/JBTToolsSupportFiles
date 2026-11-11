@@ -1,19 +1,20 @@
-# START HERE (2026-11-11, late): #599 open 'Mechs round 2 pushed, not deployed; 57 'Mechs still open
+# START HERE (2026-11-11, late, after /clear): #599 round 2 is live; next is the 57 open 'Mechs
 
 Next session model: **Fable** (root-cause reading against rule pages). Sonnet is enough for a bundle rebuild check.
 
 ## State
 
-- Worktree `C:/repo/battletech-tools-master`, branch `beta`, working tree clean. origin/beta = local = `590244641`.
-- Deployed to the beta site from `ff5ca5245`; `master` = origin/master = `ff5ca5245`; the last #599 comment is
-  issuecomment-6803790823.
-- `72103128a` and `590244641` are pushed to `beta` but NOT deployed and `master` is not moved.
-  **Ask the owner before the next deploy, master fast-forward or #599 comment.**
-- `npm run check` exit 0 before the commit (4147 passed, 6 skipped); one lint-only edit after it, with tsc, eslint
-  and the `src/data` + `src/utils` unit suites rerun and passing.
+- Worktree `C:/repo/battletech-tools-master`, branch `beta`, working tree clean.
+  `beta` = `master` = origin = `3c4cab6ba`, deployed to the beta site with `git deploy-beta` (owner said go).
+- News entry for November 11th is in `src/ui/pages/home.tsx`. The #599 round 2 comment is posted
+  (issuecomment-6807371256).
+- `npm run check` exit 0 on the round's code (4147 passed, 6 skipped); the two edits after it (a lint-only change
+  and the news entry) were type-checked and linted, and the `src/data` + `src/utils` suites rerun.
+- **Ask the owner before the next deploy, master fast-forward or #599 comment.** Commit and push to `beta` are
+  approved.
 - Ledger with the open units' leads (git-ignored):
   `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md`.
-  **The `probe/` folder there is from before this round's fixes; rebuild the probe before trusting a file in it for
+  **The `probe/` folder there is from before round 2's fixes; rebuild the probe before trusting a file in it for
   a design with machine gun arrays, two launcher sizes of one family, or torpedo launchers.**
 
 ## Counts ('Mechs)
@@ -34,8 +35,7 @@ Faults of ours fixed, test first (15 designs now match):
   rules as the correct sized missile launchers."** 14 records are derived at the end of
   `src/data/equipment-missile.ts` (TM p.207, p.230).
 - Three designs not on the list changed BV because of the launcher-size fix (Corsair COR-6R 1630 to 1636, Sun
-  Spider C 2525 to 2541, Sun Spider Vanguard 2030 to 2044). I did not stop for the owner on these; say if you
-  want them looked at.
+  Spider C 2525 to 2541, Sun Spider Vanguard 2030 to 2044). Reported to the owner, who then approved the deploy.
 
 18 new verdicts (list figure the rules do not support): Skinwalker B, D, Prime and Parash 3 (gyroless interface
 cockpit, ioae 187); Seraph x3 (TSM blade damage, tm 317 + toaue 195); Raider JL-3B (tm 303); Triskelion (ioae 188);
@@ -79,11 +79,12 @@ the 1 to 10 point units mostly have only an explosive-slot or CASE lead.
 
 After the open 'Mechs: Combat Vehicles under a new plan, then Rekikire's Aces feedback.
 
-## Open question for the owner
+## Owner rulings (standing)
 
-Coolant Pod behind CASE II: the pod is charged 1 point a slot by its own sentence (TO:AUE p.193), not by the
-"treat as Gauss weapon" mark, so the CASE II sentence (which spares ammunition and Gauss weapons) does not
-literally name it. We spare it today. Changing that could move kept designs' BV.
+- Close calls: **the page means what it says**; confirm against other printings and errata.
+- **Torpedo launchers use the same rules as the missile launcher of their size** (2026-11-11).
+- **Coolant Pod behind CASE II: spare it, unless another canon ruling says otherwise** (2026-11-11). This is what the
+  code does today (TO:AUE p.193), so nothing changes; the question is closed.
 
 ## Settled this session (do not redo)
 
