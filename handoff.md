@@ -1,4 +1,88 @@
-# START HERE (2026-11-11, later): #599 Tasks 1-7 and 9 complete and pushed; next is Task 8
+# START HERE (2026-11-11, night, after /clear): #599 'Mech plan done and deployed; next is the 90 open 'Mechs
+
+Next session model: **Fable** (root-cause reading against rule pages). Sonnet is enough for a bundle rebuild check.
+
+## State
+
+- Worktree `C:/repo/battletech-tools-master`, branch `beta`, working tree clean. origin/beta = local = `72103128a`.
+- Deployed to the beta site from `ff5ca5245`; `master` = origin/master = `ff5ca5245`; the #599 round comment is
+  posted (issuecomment-6803790823).
+- `72103128a` (Awesome AWS-11V verdict restored, data only) is pushed to `beta` but NOT deployed and `master` is not
+  moved. **Ask the owner before the next deploy, master fast-forward or #599 comment.**
+- `npm run check` exit 0 at `72103128a` (4143 passed, 6 skipped).
+- The plan `docs/superpowers/plans/2026-11-10-cited-bv-and-cost-mechs.md` is finished (Tasks 1-12, final opus review
+  done, fixes committed). Its workspace is kept because the ledger holds the open units' leads:
+  `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md` (git-ignored).
+
+## Counts ('Mechs)
+
+3,924 match the Master Unit List, 119 differ, 369 not compared (123 import failures, 246 with no list entry).
+Of the 119: 29 are recorded "Master Unit List questioned" with a citation in `src/data/bv-verdicts.ts`; **90 are
+open**. No calculation changed while writing verdicts, so `MECH_MATCHED_FLOOR` is still 3924.
+
+## Next step (owner chose this): work the 90 open 'Mechs
+
+No plan file exists for this; it continues Task 11 of the finished plan under issue #599. Method that worked:
+1. `node scripts/bv-miss-groups.mjs` prints the groups (needs the MegaMek, SSW and mordel design folders).
+2. For a unit, get the steps: load the design file and call `getBattleValueBreakdown("total-warfare")`. The scratch
+   probe test that dumped all 119 was deleted; its output is still in the workspace `probe/` folder (one file per
+   unit, plus `_leads.txt`: single changes that land exactly on the list's value). Rebuild the probe if a
+   calculation changes.
+3. Read the rule on the page (ResourceLibrary, `python library_search.py`, run from `C:/repo/ResourceLibrary`; the
+   text extracts are in `text/`; TechManual PDF page = printed + 2, TO:AUE = printed + 1). No citation from memory.
+4. Decide: list's fault (`mul-suspect`, needs `cites`), our bug (`our-bug`, needs `issue`; fix test-first), or an
+   import fault (`import`). The owner's ruling for close calls: **the page means what it says**; confirm against
+   other printings and errata where the library has them.
+5. A fix of ours: failing test first, `npx vitest run --project unit src/classes src/data` (from PowerShell),
+   `npm run build:bundled` (about 22 minutes), the match count must rise and no kept design's BV or record sheet
+   value may change, else stop for the owner. Raise `MECH_MATCHED_FLOOR`. Then `npm run check`, commit, push `beta`.
+
+Groups to start with (about 25 units, probably one cause each):
+- Skinwalker XP x5, Gestalt D2X-G, Parash 3: interface cockpit, no gyro (three Skinwalkers are exactly +50).
+- Seraph x3, Raider JL-3B, Grand Titan: Triple-Strength Myomer with a retractable blade or sword. Halving the
+  weapon (the list's habit on older designs) does not fit these.
+- Triskelion TRK-4V (list = ours x 1.05) and Poseidon PSD-V2 (-320): tripods; no rule found yet for 1.05.
+- Pwwka, Screamer, Waneta: LAMs.
+- Mist Lynx G, Viper F, Ice Ferret J, Linebacker I, Black Lanner F: Clan machine gun arrays.
+Other leads: Commando COM-1AK, Gladiator GLD-1R (Keller), Wolfhound WLF-2X (list = ours without the gyro; two
+carry capacitor PPCs); Alpha Wolf A (stealth armor + coolant pod; the list halves the medium pulse lasers);
+Starterbook designs with prototype gear (Black Knight Ian's second row, Cataphract George, Grand Dragon Emory);
+SSW 'Mech Mortar designs (Antlion, Woodsman D); many units 1 to 10 points off with only an explosive-slot lead.
+
+## Open question for the owner
+
+Coolant Pod behind CASE II: the pod is charged 1 point a slot by its own sentence (TO:AUE p.193), not by the
+"treat as Gauss weapon" mark, so the CASE II sentence (which spares ammunition and Gauss weapons) does not
+literally name it. We spare it today. Changing that could move kept designs' BV.
+
+## Settled this session (do not redo)
+
+- The 29 verdicts and their pages: M-Pod x7 and Chaff Pod x1 (toaue 195), B-Pod x3 (tm 317), split Heavy Gauss x7
+  and Improved Gauss x2 (tm 302-303), physical weapon with TSM x5 (tm 317 footnote, toaue 195), heat efficiency
+  of zero or less x2 (tm 303-304), Smart Robotic Control x1 (ioae 187), Awesome AWS-11V (toaue 193-194: a PPC with
+  a capacitor is marked "treat as Gauss weapon", and CASE II spares Gauss weapons; same in the 2008 printing, the
+  2019 errata and the 7th printing).
+- Final review's deferred minors are in the ledger ("Final: minor"); none is fixed. Worth a small issue or a
+  cleanup pass: raw floats in step text, the stale sentence at `step1.tsx:262`, the unused Artemis and Apollo
+  citations.
+- Missing sources: the IO:AE p.189-190 tables are jumbled in the text extract; page images are needed to confirm
+  the Dark Age armor multipliers and the Improved Gauss row.
+
+## After the open 'Mechs
+
+Combat Vehicles under a new plan (same design spec), then Rekikire's Aces feedback (file or extend an issue before
+building).
+
+## Standing rules
+
+- BattleTech only: do not review, report on or change `C:/repo/testingUtility`.
+- No Ollama or other local-model offload; Claude subagents on a named model only; the `astech` agent is not used.
+- Do not run `taskkill` on `node.exe`. GitHub MCP fails to connect: use `gh` (repo `ngcfells/battletech-tools`).
+- Run vitest and `npm run check` from PowerShell, not Git Bash. A Bash heredoc with an apostrophe is blocked by a
+  hook: write the script with the Write tool and run it.
+- Public repo: no rulebook text beyond short labels, no MegaMek, SSW or mordel numbers. `upstream/*` never touched.
+
+# EARLIER (2026-11-11, later): #599 Tasks 1-7 and 9 complete and pushed; next is Task 8
 
 Owner chose option (a) (keep the cited fix). Done: `npm run build:bundled` (about 22 minutes, 7,677 files
 re-prepared), checked, committed, `npm run check` green, pushed. origin/beta = local `beta` = `3f42a7383`, working
