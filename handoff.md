@@ -12,8 +12,9 @@ tree clean.
   nowhere in the accuracy file. Task 10 decides whether the public page says so.
 - `2b380a725`: the "keeps Best Guess..." armor test timed out again in `npm run check`; it now has a 30 s timeout.
 
-STILL NOT DONE (owner's call): `git deploy-beta`, fast-forward `master`, and the #599 round comment (it must list
-the one-C-bill cost change). Ask before deploying.
+Owner said go (2026-11-11): `git deploy-beta` ran from `3f42a7383` (beta site is current), `master` fast-forwarded
+and pushed (`beta` = `master` = origin), and the #599 round comment is posted (it lists the one-C-bill cost change).
+Ask again before the next deploy.
 
 Next: Task 8 (breakdown view; `getBattleValueBreakdown(edition)` and `getCostBreakdown()` are ready; it must show
 the pilot-adjusted BV again), then 10, 11, 12. Sonnet for 8 and 10, Fable for 11. The notes and tips in the block
