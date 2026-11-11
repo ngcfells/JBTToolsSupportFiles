@@ -43,7 +43,11 @@ How the reading is done (it worked well):
 - Never grep `src/data/equipment-*.ts` without `| cut -c1-200`: one line is thousands of characters.
 
 Open for the owner (nothing blocks the work):
-- The findings in the ledger. Likely our bug: prototype CASE (IO:AE p.189: ammunition slots count 8, we count 0).
+- The findings in the ledger. Prototype CASE (Finding 2) is FIXED and live on beta (56672e08a, 2026-11-10): BV2
+  ammo slots behind it cost 8, step `bv2.def.explosive.prototype-case`. Finding 4 (AES on tripod legs, 0.3) FIXED
+  (63d707094). Finding 3 DECIDED by the owner: keep IO:AE p.190 (the MUL and record sheets compute with it; p.185
+  moved all 30 bundled designs off), 36e8265bf. `beta` = `master` = origin at 36e8265bf, deployed to beta.
+  Next findings: 1, 5, 6, 7, 8 (rules vs MUL/MegaMek; check MUL matches before changing, as Finding 3 showed).
   Three steps follow MegaMek/SSW/the MUL and not the page (IS XL with CASE in an arm; an armored gyro; signature
   system heat): they show as provisional. Two are the book contradicting itself (Dark Age armor multipliers, IO:AE
   p.185 against p.190; radical heat sinks): questions for Catalyst.
