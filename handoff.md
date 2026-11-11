@@ -1,4 +1,134 @@
-# START HERE (2026-11-10, late): cited Battle Value (#599), Tasks 1-3 of 12 done and live on beta
+# START HERE (2026-11-11, later): #599 Tasks 1-7 and 9 complete and pushed; next is Task 8
+
+Owner chose option (a) (keep the cited fix). Done: `npm run build:bundled` (about 22 minutes, 7,677 files
+re-prepared), checked, committed, `npm run check` green, pushed. origin/beta = local `beta` = `3f42a7383`, working
+tree clean.
+- Rebuild check: 3,686 designs kept before and after; no BV, tonnage or other field changed; cost moved by exactly
+  one C-bill on 1,096 designs (690 down, 406 up). The bundled-mechs test passes.
+- `src/data/bundled/mechs-accuracy.json` (new): 3,924 MUL entries matched, 119 differ (one row each), not compared:
+  123 import failures, 246 with no MUL entry. It agrees with `mechs-report.md` (which did not change): the 248 lines
+  are 236 MUL comparisons, of which 117 are a second file for the same MUL entry or an entry a kept design matches.
+  The other 12 are OmniMech configurations checked against the file's own BV (no MUL entry): they are counted
+  nowhere in the accuracy file. Task 10 decides whether the public page says so.
+- `2b380a725`: the "keeps Best Guess..." armor test timed out again in `npm run check`; it now has a 30 s timeout.
+
+STILL NOT DONE (owner's call): `git deploy-beta`, fast-forward `master`, and the #599 round comment (it must list
+the one-C-bill cost change). Ask before deploying.
+
+Next: Task 8 (breakdown view; `getBattleValueBreakdown(edition)` and `getCostBreakdown()` are ready; it must show
+the pilot-adjusted BV again), then 10, 11, 12. Sonnet for 8 and 10, Fable for 11. The notes and tips in the block
+below still hold; its "owner decision" is answered.
+
+# EARLIER (2026-11-11, handoff at /clear): #599 Tasks 4-7 and 9 committed; one owner decision, then a bundle rebuild
+
+Next session model: **Sonnet** is enough for the rebuild check and Tasks 8 and 10; **Fable** for Task 11 (root causes).
+
+State: worktree `C:/repo/battletech-tools-master`, branch `beta`, working tree clean. origin/beta = `c9ce06c60`
+(Tasks 4, 5 and both findings). Local, NOT pushed: `7c65a6ebe` (Task 6, cost step definitions), `b9336ff53`
+(Task 7, cost emits steps), `84910874e` (Task 9, the bundle build returns and writes accuracy data). NOT deployed
+to beta, `master` NOT fast-forwarded, the #599 round comment NOT posted: ask the owner before `git deploy-beta`.
+Issue #631 filed (cost under older editions follows the current rules).
+
+`npm run check` has ONE failing test, and it is expected: `src/data/bundled-mechs.test.ts` "load at the Battle Value,
+cost and tonnage they were built with" (106 of the every-10th sample). Cause: Task 7 stopped rounding the engine
+cost early (TechManual p.274: no cost is rounded before the end; the book's Mongoose example keeps 333,333.333), so
+a design's cost can move by a C-bill or two, and the bundled index still holds the old costs.
+
+OWNER DECISION needed first (asked at the end of the 2026-11-11 session, not answered):
+- (a) Keep the cited fix: run `npm run build:bundled` (the cache is invalidated, every file is re-prepared; needs
+  `C:/repo/megamek`, the SSW data and `C:/repo/mordel-units`). Then check: no kept design's BV changed, the kept
+  count is unchanged, cost deltas in `mechs-index.json` are a C-bill or two, the test above passes, and the totals in
+  the new `src/data/bundled/mechs-accuracy.json` agree with `mechs-report.md` (200 "BV differs from the MUL" + 47
+  configuration + 1 every-configuration, less any MUL entry that also has a kept design). Commit the regenerated
+  data, `npm run check`, push, list the cost change in the #599 comment.
+- (b) Keep early rounding: put `Math.round` back on the engine cost in `_calcCBillCost`, make the Mongoose test
+  expect 333,333 with a note, mark `cost.engine` provisional (ledger Finding 20). `npm run build:bundled` is still
+  needed once, for `mechs-accuracy.json`.
+The session's recommendation is (a).
+
+After that: Task 8 (breakdown view; `getBattleValueBreakdown(edition)` and `getCostBreakdown()` are ready; it must
+show the pilot-adjusted BV again), 10 (verdicts, public page, remove the MegaMek audit), 11, 12.
+
+Notes for whoever continues:
+- Task 7's conversion was done by a Sonnet subagent to tests written first; 643 tests in the 7 files it touched
+  pass. The old cost-log assertions were rewritten onto steps. One thing it dropped: the log no longer says
+  "IO p.186" for LAMs and "p.187" for QuadVees; both cite the IO:AE table (pp.215, 218). Task 12's reviewer should
+  look at that diff.
+- "keeps Best Guess within every location's armor cap" (battlemech.test.ts) timed out once at 5 s inside
+  `npm run check` while the slow build tests ran; it passes alone. If it recurs, give it a longer timeout.
+- The run ledger (`.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md`) has `complete` lines for Tasks
+  1-6 and both findings, every ruling, and "NOT complete" notes for Tasks 7 and 9 (they wait on the rebuild).
+
+Done today (run ledger has the detail and every ruling):
+- Task 4 `b9146e179`: `src/data/calc-steps-mech-bv1.ts`, one cited step table per BV1 edition.
+- Finding A `b4ff5db44`: under master-rules only CASE inward excuses arm ammunition (`armCaseInwardOnly`). The
+  designer needed nothing: both books allow Inner Sphere CASE only in a torso and it already refuses an arm.
+- Finding B `8e6eadfa5`: the FASA Maximum Tech (corrected 2nd printing, 1999) IS held. It prints the same Level 3
+  tables as the Revised: Grenade Launcher BV 1, Inner Sphere and Clan (the code's 4 is now 1). master-rules now reads
+  Level 3 from it, so a design with Level 3 gear has the same BV1 under both Master Rules editions. The owner's "15"
+  is in neither printing held; the 1997 first printing is not in the library (a source to add, nothing waits on it).
+- Task 5 `c9ce06c60`: `getBattleValueBreakdown(edition)` gives BV2, BV1 or "no Battle Value" steps; the Goshawk
+  example (BMR p.145, BMR(R) p.159) is checked step by step.
+
+- Task 6 `7c65a6ebe`: `src/data/calc-steps-mech-cost.ts`. A component price is cited only where its table row was
+  read (`READ_ROWS`); the rest read a provisional "from our records" step.
+
+After #599's tasks: Rekikire's Aces feedback
+(owner, 2026-11-11): (1) add 'Mechs or vehicles to the automated force part way through a game, by searching the MUL;
+(2) two screenshots of the Aces End Phase and card reader on beta (Command card Mechwarrior D, "Ideal RED: needs
+your answer", a bare "None." bullet under the ideal list; the reader asking "Which of these match: Starting Armor"
+for Star Adder Prime and Victor VTR-9Ka, which the app could answer from the unit cards). The owner will put
+Rekikire's zip files in a folder (no Gmail access from this session). File or extend an issue before building.
+
+Tips: run vitest from PowerShell (`Set-Location C:\repo\battletech-tools-master`); from Git Bash `cd /c/...` every
+suite fails with "reading 'config'" (drive-letter case). A Bash heredoc with an apostrophe is blocked: write a script
+file. BMR(R) and BMR page images: front matter is extract index = page + 1 (BMR(R)) or = page (BMR); the BV chapter
+is index = page + 9 (BMR(R)) or page + 8 (BMR). Max Tech (both): index = page (FASA), page + 1 (Revised).
+
+# EARLIER (2026-11-11, morning): finish cited Battle Value (#599). Task 4 half done: reading finished, no code yet
+
+Today's job (owner, 2026-11-11): **finish #599**, Tasks 4 to 12 of the plan. Model: **Fable** for Tasks 4 and 6
+(Sonnet subagents are fine for 8, 9, 10). Usage was at 8% at the start; the window resets at 10:10 AM.
+
+Rules for this session:
+- **Do NOT use Ollama** (owner, 2026-11-11: it may have caused last night's crash). No local-model offload at all;
+  this overrides the older "offload to Ollama" memories. Claude subagents on a named model only.
+- **BattleTech only.** Leave `C:/repo/testingUtility` alone: another account's agent works there.
+- Do not rely on a timer. The 23:00 job of 2026-11-10 never fired: it was session-scoped and the session ended at
+  about 21:30. Nothing ran overnight; nothing was lost. Do not run `taskkill` on `node.exe`.
+- The GitHub MCP server fails to connect (bad Authorization header); use the `gh` CLI.
+
+State (checked 2026-11-11 05:20): battletech-tools `beta` = `master` = origin at `36e8265bf`, worktree
+`C:/repo/battletech-tools-master` clean, deployed to beta. No commit since 20:25 on 2026-11-10.
+
+Resume, in this order:
+1. Read the run ledger FIRST: `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md`
+   (git-ignored). Its Task 4 lines hold everything read so far, the page offsets for the BV1 books, and three owner
+   rulings. Do not re-read the pages it lists as read and agreeing. Then the Task 4 brief beside it, and the plan
+   `docs/superpowers/plans/2026-11-10-cited-bv-and-cost-mechs.md` (use superpowers:executing-plans).
+2. Finish Task 4: confirm the BMR(R) TMM table (pp.30-31, an image: re-render it, last night's scratchpad is gone)
+   against `getMovementModifier` capped at 4; read TC note D (BMR(R) p.158, BMR p.144); then ledger rows, failing
+   tests, the tables in `src/data/calc-steps-mech-bv1.ts` (the master-rules table also carries the light-engine and
+   stealth steps as provisional), commit.
+3. Finding A (owner ruling): its own commit after the Task 4 tables, red test first. Per edition, in BV1 AND in the
+   designer's ammo/CASE placement check: under master-rules (errata p.12) arm ammo is protected only by CASE in the
+   next location inward; under master-rules-revised (p.153) CASE in the arm or inward counts.
+4. Finding B (owner ruling): edition dependent. Look in `C:/repo/ResourceLibrary/INDEX.md` and `rulebooks-legacy`
+   for the original FASA Maximum Tech (1997, or a 1998 printing; the owner recalls IS Grenade Launcher BV1 = 15 in
+   one of them). If held: master-rules gets its own whole Level 3 table read from it. If not held: tell the owner it
+   is a source to add, and master-rules stays without Level 3. The FanPro Revised prints 1; the code's 4 matches no
+   page: fix it for master-rules-revised.
+5. Then Task 5 (BV1 emits steps; all BV1 sources are held, so 5 goes before 6-7), 6-7 (cost), 8 (breakdown view with
+   the edition switch; it must show the pilot-adjusted BV again), 9-10 (accuracy data, verdicts, public page; remove
+   the MegaMek audit), 11 (the 248 'Mech misses), 12 (one whole-branch review). `npm run check` before each push;
+   ask before deploying. Add `complete` lines to the run ledger as each task ends, and update this block.
+
+Last night's transcripts, if needed: `C:/Users/chris/.claude-battletech/projects/c--repo-testingUtility/`
+(6096effc... and 66388735...; the session was started in that folder).
+
+The block below is last night's handoff: its reading method, offsets and open owner items still hold.
+
+# EARLIER (2026-11-10, late): cited Battle Value (#599), Tasks 1-3 of 12 done and live on beta
 
 Next session model: **Fable (or Opus)** for Task 4 and Task 6 (they read the rules and decide what the app claims).
 Tasks 8, 9 and 10 run fine on **Sonnet**. The owner's plan: `/clear`, then small chunks; a timer at 23:00 resumes.
