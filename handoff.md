@@ -1,20 +1,23 @@
-# START HERE (2026-11-11, night): round 3 is live; record-sheet verdicts pushed to beta (not deployed); one question waits
+# START HERE (2026-11-12): round 3b pushed to beta (not deployed); 29 'Mechs open
 
 Next session model: **Fable** (root-cause reading against rule pages).
 
 ## State
 
-- Worktree C:/repo/battletech-tools-master, branch beta, clean. beta = origin/beta = 54679aba0 (record-sheet
-  verdicts, pushed, NOT deployed). master = 178efc0f8, which is what the beta site was deployed from.
-- npm run check exit 0 on 54679aba0. The news entry carries the counts as of 54679aba0.
-- Owner ruling (2026-11-11): a published record sheet that prints our value may stand as the citation for a
-  "list questioned" verdict. 17 written, with 13 record sheet sources in src/data/calc-sources.ts. Deep Lord
-  RCL-Z1M left open: its 2012 sheet prints ours, the 2021 TRO Irregulars sheet prints a third value.
-- The owner is reading the pages for the two readings in C:/repo/JBTToolsSupportFiles/pages-for-ruling/
-  (untracked): Improved Gauss Rifle (IO:AE pp.189, 191; TM pp.302-303) and Hercules Blue Shield beside CASE II
-  (TO:AUE p.193).
+- Worktree C:/repo/battletech-tools-master, branch beta, clean. beta = origin/beta = f61af6e8c (round 3b verdicts,
+  pushed, NOT deployed; neither is 54679aba0 before it). master = 178efc0f8, which the beta site was deployed from.
+- npm run check exit 0 on f61af6e8c. The news entry carries the counts as of f61af6e8c.
+- Owner rulings (2026-11-11 and 12): a published record sheet (or the publication's write-up) that prints our value
+  may stand as the citation for a "list questioned" verdict; match sheets by edition and go with the 2022 printing.
+  The Improved Gauss Rifle is explosive because the Clan Gauss Rifle is (TM p.302, TW p.135): no change. CASE II
+  covers the Blue Shield because a hit on it is an explosion (TO:AUE p.108): no change, Hercules verdict written.
+- Round 3b wrote nine verdicts: Hercules HRC-LS-9004, Buccaneer BCN-6PX 'Pan', Kraken XR, Savage Coyote Z,
+  Gladiator GLD-1R (Keller), Wolfhound WLF-2X, Turkina U, Xanthos XNT-6O, Malak C-MK-OS Caelestis.
+  Deep Lord RCL-Z1M stays open (no 2022 sheet; 2012 prints ours, 2011 the list's, 2020 a third value).
+- The accuracy page describes "list questioned" as the rule read on the page; 18 verdicts rest on a record sheet
+  or write-up instead. Flagged to the owner, not changed.
 - **Ask the owner before the next deploy, master fast-forward or #599 comment.**
-- Ledger (git-ignored), section "Round 3" has every lead and page reference:
+- Ledger (git-ignored), sections "Round 3" and "Round 3b" have every lead and page reference:
   `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md`.
   `probe2/` beside it is the current probe of the open units.
 - Local tools in `src/zz-local/` (git-ignored, skipped unless their environment variable is set):
@@ -23,7 +26,7 @@ Next session model: **Fable** (root-cause reading against rule pages).
 ## Counts ('Mechs)
 
 3,940 match the Master Unit List, 103 differ, 366 not compared (120 import failures, 246 with no list entry).
-Of the 103: 64 "Master Unit List questioned" (47 by rule, 17 by record sheet), 1 import fault (Griffin GRF-1RG), **38 open**.
+Of the 103: 73 "Master Unit List questioned" (55 by rule, 18 by record sheet or write-up), 1 import fault (Griffin GRF-1RG), **29 open**.
 `MECH_MATCHED_FLOOR` is 3940; the bundle keeps 3,701 designs.
 
 ## What round 3 did (commit `fa8c60dc2`)
@@ -37,22 +40,29 @@ Of the 103: 64 "Master Unit List questioned" (47 by rule, 17 by record sheet), 1
 
 ## Questions for the owner
 
-1. Answered: the seven cost changes (Archer ARC-1A, Phoenix PX-1KC/KL/KR/KT, Reconquista, Rook NH-1X; oversized
-   engines corrected, BV unchanged) were accepted; pushed, deployed, master fast-forwarded.
-2. **Record sheets as evidence.** For 18 open units a published record sheet prints our value where the list
-   differs (list in the ledger: Poseidon PSD-V2, Vision Quest VQ-1NC, Savage Wolf Prime and others). A
-   "list questioned" verdict has needed one rule-supported change; may a record sheet stand as the citation
-   (it needs record sheet entries in `src/data/calc-sources.ts`)?
-3. **Two page readings.** (a) IO:AE p.189 prints the Improved Gauss Rifle with no explosive mark and marks its
-   ammunition "not counted as explosive"; we charge the rifle 1 a slot and two verdicts rest on that. (b) Hercules
-   HRC-LS-9004: a Blue Shield slot in the arm next to a CASE II torso: we spare it, the list and the sheet charge it
-   (TO:AUE p.193 words the CASE II rule for ammunition and Gauss weapons).
+All earlier questions are answered (rulings under State). Two things wait for the owner:
+
+1. **Deploy.** beta holds two commits the beta site does not: 54679aba0 (17 record sheet verdicts) and f61af6e8c
+   (nine more). Ask before `git deploy-beta`, the master fast-forward, or a #599 comment.
+2. **Accuracy page wording** (flagged, not asked for): "list questioned" is described as the rule read on the page
+   cited, while 18 verdicts cite a record sheet or write-up.
 
 ## Next step
 
-After the answers: the 55 open 'Mechs, same method. Best leads first (ledger): Buccaneer 'Pan' (a possible fault
-of ours in the partial wing jump MP), Thunderbolt IIC 2, Antlion LK-3D with Woodsman D ('Mech Mortar), Prey Seeker
-PY-SR30, Trebuchet TBT-K7R. Then Combat Vehicles under a new plan, then Rekikire's Aces feedback.
+The 29 open 'Mechs, same method (`node scripts/bv-miss-groups.mjs`; the ledger's "Round 3b" lists what was tried
+on each). Record sheets are exhausted: `rs-open2.py` found no further sheet or write-up printing our value. Leads:
+
+- Clan 'Mech Mortar ammunition: Antlion LK-3D, Woodsman D, Crossbow D all sit a few points under the list; no rule
+  found. Likeliest common cause, possibly ours.
+- Thunderbolt IIC 2 (list = ours with the improved heavy large laser's 3 slots charged; mixed Clan chassis).
+- Starslayer STY-2C-EC (list = ours without the 7 of Streak ammunition) and Emperor EMP-6A-EC (diff 45, no fit).
+- Skinwalker A and C (138 and 132 over, Machina Domini cockpit x1.3, gyroless, TSM).
+- Small ones with two fits each: BattleMaster BLR-3M (Rogers) 1, Goshawk II RISC 2 (is the RISC Emergency Coolant
+  System explosive? read IO:AE p.190), Trebuchet 'Merida' 4.
+- No fit yet: Celerity 'Rajah' (list = our sum x 0.97), Patron LoaderMech (ours / 0.75), Fennec FEC-5CM, Thug
+  (Jose), Valkyrie VLK-QW5, Grand Titan N13M, Stealth STH-5X, Prey Seeker, Trebuchet TBT-K7R, the FrankenMechs.
+
+Then Combat Vehicles under a new plan, then Rekikire's Aces feedback (file or extend an issue before building).
 
 ---
 
