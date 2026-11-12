@@ -1,12 +1,16 @@
-# START HERE (2026-11-12): round 3b pushed to beta (not deployed); 29 'Mechs open
+# START HERE (2026-11-12): beta = master = 84078ba80, pushed, NOT deployed; 29 'Mechs open
 
 Next session model: **Fable** (root-cause reading against rule pages).
 
 ## State
 
-- Worktree C:/repo/battletech-tools-master, branch beta, clean. beta = origin/beta = f61af6e8c (round 3b verdicts,
-  pushed, NOT deployed; neither is 54679aba0 before it). master = 178efc0f8, which the beta site was deployed from.
-- npm run check exit 0 on f61af6e8c. The news entry carries the counts as of f61af6e8c.
+- Worktree C:/repo/battletech-tools-master, branch beta, clean. beta = master = origin = 84078ba80 (news entry
+  for November 12th on top of f61af6e8c, the nine round 3b verdicts). The owner asked for commit, push, news,
+  master fast-forward and a #599 comment; all done. **The beta site is NOT deployed**: it still serves 178efc0f8.
+  Deploy was not in that request, so ask.
+- npm run check exit 0 on 84078ba80. News: November 11th carries that day's counts, November 12th today's. The
+  days between the November 4th and 10th entries were checked against the commit log; nothing was missing.
+- #599 comment posted 2026-11-12 (issuecomment-6825970632). Issue #632 (Primitive engine) is fixed but still open.
 - Owner rulings (2026-11-11 and 12): a published record sheet (or the publication's write-up) that prints our value
   may stand as the citation for a "list questioned" verdict; match sheets by edition and go with the 2022 printing.
   The Improved Gauss Rifle is explosive because the Clan Gauss Rifle is (TM p.302, TW p.135): no change. CASE II
@@ -42,8 +46,8 @@ Of the 103: 73 "Master Unit List questioned" (55 by rule, 18 by record sheet or 
 
 All earlier questions are answered (rulings under State). Two things wait for the owner:
 
-1. **Deploy.** beta holds two commits the beta site does not: 54679aba0 (17 record sheet verdicts) and f61af6e8c
-   (nine more). Ask before `git deploy-beta`, the master fast-forward, or a #599 comment.
+1. **Deploy.** The beta site does not have 54679aba0, f61af6e8c or 84078ba80. Ask before `git deploy-beta`, and
+   before any later master fast-forward or #599 comment.
 2. **Accuracy page wording** (flagged, not asked for): "list questioned" is described as the rule read on the page
    cited, while 18 verdicts cite a record sheet or write-up.
 
