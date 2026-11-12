@@ -1,13 +1,18 @@
-# START HERE (2026-11-11, night): round 3 is live; two questions wait for the owner
+# START HERE (2026-11-11, night): round 3 is live; record-sheet verdicts pushed to beta (not deployed); one question waits
 
 Next session model: **Fable** (root-cause reading against rule pages).
 
 ## State
 
-- Worktree C:/repo/battletech-tools-master, branch beta, clean. beta = master = origin = 178efc0f8, deployed to
-  the beta site with git deploy-beta (owner said: push, commit, deploy, fast forward, add news).
-- The November 11th news entry in src/ui/pages/home.tsx carries the new counts and the Primitive engine fix.
-- npm run check exit 0 on 178efc0f8.
+- Worktree C:/repo/battletech-tools-master, branch beta, clean. beta = origin/beta = 54679aba0 (record-sheet
+  verdicts, pushed, NOT deployed). master = 178efc0f8, which is what the beta site was deployed from.
+- npm run check exit 0 on 54679aba0. The news entry carries the counts as of 54679aba0.
+- Owner ruling (2026-11-11): a published record sheet that prints our value may stand as the citation for a
+  "list questioned" verdict. 17 written, with 13 record sheet sources in src/data/calc-sources.ts. Deep Lord
+  RCL-Z1M left open: its 2012 sheet prints ours, the 2021 TRO Irregulars sheet prints a third value.
+- The owner is reading the pages for the two readings in C:/repo/JBTToolsSupportFiles/pages-for-ruling/
+  (untracked): Improved Gauss Rifle (IO:AE pp.189, 191; TM pp.302-303) and Hercules Blue Shield beside CASE II
+  (TO:AUE p.193).
 - **Ask the owner before the next deploy, master fast-forward or #599 comment.**
 - Ledger (git-ignored), section "Round 3" has every lead and page reference:
   `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md`.
@@ -18,7 +23,7 @@ Next session model: **Fable** (root-cause reading against rule pages).
 ## Counts ('Mechs)
 
 3,940 match the Master Unit List, 103 differ, 366 not compared (120 import failures, 246 with no list entry).
-Of the 103: 47 "Master Unit List questioned", 1 import fault (Griffin GRF-1RG), **55 open**.
+Of the 103: 64 "Master Unit List questioned" (47 by rule, 17 by record sheet), 1 import fault (Griffin GRF-1RG), **38 open**.
 `MECH_MATCHED_FLOOR` is 3940; the bundle keeps 3,701 designs.
 
 ## What round 3 did (commit `fa8c60dc2`)
