@@ -1,4 +1,58 @@
-# START HERE (2026-11-11, late, after /clear): #599 round 2 is live; next is the 57 open 'Mechs
+# START HERE (2026-11-11, night): round 3 committed locally, NOT pushed; three questions wait for the owner
+
+Next session model: **Fable** (root-cause reading against rule pages).
+
+## State
+
+- Worktree `C:/repo/battletech-tools-master`, branch `beta`, clean. Local `beta` = `fa8c60dc2`, one commit ahead of
+  origin and `master` (`3c4cab6ba`). **Not pushed**: the rebuild changed the cost of seven kept designs, and the
+  rule is to stop for the owner when a kept design's record sheet value moves (see question 1).
+- `npm run check` exit 0 on `fa8c60dc2`.
+- **Ask the owner before the next deploy, master fast-forward or #599 comment.**
+- Ledger (git-ignored), section "Round 3" has every lead and page reference:
+  `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md`.
+  `probe2/` beside it is the current probe of the open units.
+- Local tools in `src/zz-local/` (git-ignored, skipped unless their environment variable is set):
+  `bv-probe.test.ts` (`PROBE_OUT`, optional `PROBE_ONLY`), `one.test.ts` (`ONE_FILE`, `ONE_OUT`).
+
+## Counts ('Mechs)
+
+3,940 match the Master Unit List, 103 differ, 366 not compared (120 import failures, 246 with no list entry).
+Of the 103: 47 "Master Unit List questioned", 1 import fault (Griffin GRF-1RG), **55 open**.
+`MECH_MATCHED_FLOOR` is 3940; the bundle keeps 3,701 designs.
+
+## What round 3 did (commit `fa8c60dc2`)
+
+- Fault of ours fixed test-first, issue #632: a Primitive 'Mech's MegaMek file gives the engine installed (1.2 times
+  the movement rating, IO:AE p.117); the converter passed it as the movement rating. Commando COM-1AK now matches
+  the list and joins the bundle. Three Primitive files stopped failing to import (Mackie MSK-5S, MSK-6S, Banshee
+  BNC-1E; all three duplicate a kept design).
+- Verdict: Griffin GRF-1RG `import` (the file has fewer armor points than the published record sheet).
+- New evidence source: the library's record sheets print BV and are searchable (method in the ledger).
+
+## Questions for the owner
+
+1. **Seven kept designs changed cost, none changed BV** (Archer ARC-1A, Phoenix PX-1KC, PX-1KL, PX-1KR, PX-1KT,
+   Reconquista, Rook NH-1X): each had an oversized engine from the fault above and now carries the engine its file
+   states (checked: Archer 255, Phoenix 240, Reconquista 180, Rook 200). Push `beta`?
+2. **Record sheets as evidence.** For 18 open units a published record sheet prints our value where the list
+   differs (list in the ledger: Poseidon PSD-V2, Vision Quest VQ-1NC, Savage Wolf Prime and others). A
+   "list questioned" verdict has needed one rule-supported change; may a record sheet stand as the citation
+   (it needs record sheet entries in `src/data/calc-sources.ts`)?
+3. **Two page readings.** (a) IO:AE p.189 prints the Improved Gauss Rifle with no explosive mark and marks its
+   ammunition "not counted as explosive"; we charge the rifle 1 a slot and two verdicts rest on that. (b) Hercules
+   HRC-LS-9004: a Blue Shield slot in the arm next to a CASE II torso: we spare it, the list and the sheet charge it
+   (TO:AUE p.193 words the CASE II rule for ammunition and Gauss weapons).
+
+## Next step
+
+After the answers: the 55 open 'Mechs, same method. Best leads first (ledger): Buccaneer 'Pan' (a possible fault
+of ours in the partial wing jump MP), Thunderbolt IIC 2, Antlion LK-3D with Woodsman D ('Mech Mortar), Prey Seeker
+PY-SR30, Trebuchet TBT-K7R. Then Combat Vehicles under a new plan, then Rekikire's Aces feedback.
+
+---
+
+# EARLIER BLOCK (2026-11-11, late): #599 round 2 is live; next is the 57 open 'Mechs
 
 Next session model: **Fable** (root-cause reading against rule pages). Sonnet is enough for a bundle rebuild check.
 
