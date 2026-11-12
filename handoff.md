@@ -1,13 +1,13 @@
-# START HERE (2026-11-11, night): round 3 committed locally, NOT pushed; three questions wait for the owner
+# START HERE (2026-11-11, night): round 3 is live; two questions wait for the owner
 
 Next session model: **Fable** (root-cause reading against rule pages).
 
 ## State
 
-- Worktree `C:/repo/battletech-tools-master`, branch `beta`, clean. Local `beta` = `fa8c60dc2`, one commit ahead of
-  origin and `master` (`3c4cab6ba`). **Not pushed**: the rebuild changed the cost of seven kept designs, and the
-  rule is to stop for the owner when a kept design's record sheet value moves (see question 1).
-- `npm run check` exit 0 on `fa8c60dc2`.
+- Worktree C:/repo/battletech-tools-master, branch beta, clean. beta = master = origin = 178efc0f8, deployed to
+  the beta site with git deploy-beta (owner said: push, commit, deploy, fast forward, add news).
+- The November 11th news entry in src/ui/pages/home.tsx carries the new counts and the Primitive engine fix.
+- npm run check exit 0 on 178efc0f8.
 - **Ask the owner before the next deploy, master fast-forward or #599 comment.**
 - Ledger (git-ignored), section "Round 3" has every lead and page reference:
   `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md`.
@@ -32,9 +32,8 @@ Of the 103: 47 "Master Unit List questioned", 1 import fault (Griffin GRF-1RG), 
 
 ## Questions for the owner
 
-1. **Seven kept designs changed cost, none changed BV** (Archer ARC-1A, Phoenix PX-1KC, PX-1KL, PX-1KR, PX-1KT,
-   Reconquista, Rook NH-1X): each had an oversized engine from the fault above and now carries the engine its file
-   states (checked: Archer 255, Phoenix 240, Reconquista 180, Rook 200). Push `beta`?
+1. Answered: the seven cost changes (Archer ARC-1A, Phoenix PX-1KC/KL/KR/KT, Reconquista, Rook NH-1X; oversized
+   engines corrected, BV unchanged) were accepted; pushed, deployed, master fast-forwarded.
 2. **Record sheets as evidence.** For 18 open units a published record sheet prints our value where the list
    differs (list in the ledger: Poseidon PSD-V2, Vision Quest VQ-1NC, Savage Wolf Prime and others). A
    "list questioned" verdict has needed one rule-supported change; may a record sheet stand as the citation
