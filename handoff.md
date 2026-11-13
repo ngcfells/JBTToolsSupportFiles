@@ -1,28 +1,26 @@
-# START HERE (2026-11-13, cloud session, later): Chunk 5 done (Compact 'Mech plan), BLOCKED on six owner questions
+# START HERE (2026-11-13, cloud session, latest): Chunk 5 done, owner rulings in, three plans ready
 
-Batch Chunk 5 (#172) is written: `battletech-tools/docs/superpowers/plans/2026-11-13-compact-mechs.md`. No code. Ledger
-addendum: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-chunk5.md`
-(append to the home `progress.md` after the Chunk 4 addendum). All on branch `ccr-a9f89a38-ormt9v`, needs merging.
+The owner answered all six Chunk 5 questions (2026-11-13): Flint's "Alternate Rules for Building Mechs" IS #172; walkers
+are a unit type of their own, planned now; the two printings (*Future Wars* #11 and the Best-of) are editions; any
+equipment that makes sense; bring in everything else in the fanzine; bring in the HMP designs too.
 
-What was found:
-- **No article called "Compact 'Mechs" exists in the *Best of Future Wars*** (nor in any held *Future Wars* issue).
-  The only 'Mech construction rules there are Clell Flint's "Alternate Rules for Building Mechs in BattleTech"
-  (printed pp.35-38; first printed in *Future Wars* #11). It sizes slots, head, cockpit, engine and gyro by weight
-  class, and adds four-legged "walkers". The plan assumes that is #172 and makes it a Special Ruleset (#324).
-- The twelve HMP files (eleven designs plus `Mech.lst`) are ordinary designs from FW #33 and #32, not Compact 'Mechs.
-  The app has no HMP importer.
-- In the cloud, `git lfs pull --include="<path>"` in JBTIICRework fetches a PDF. The Best-of has no text layer;
-  pages were read as images (`pdftoppm`). Page mapping is in the plan.
+Plans (battletech-tools, branch `ccr-a9f89a38-ormt9v`, needs merging into `beta`; no code yet):
+- `docs/superpowers/plans/2026-11-13-compact-mechs.md`: the construction ruleset (two rulesets, one per edition). A-E.
+- `docs/superpowers/plans/2026-11-13-future-wars-walkers.md`: Walker unit type. A-H. Its A needs Compact B first.
+- `docs/superpowers/plans/2026-11-13-best-of-future-wars.md`: equipment, play-rule rulesets, Power Armor and DropShip
+  (read-and-plan chunks), a Game Management "Future Wars" section, the #33 and #32 designs. A-L.
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-chunk5.md`
+(append to the home `progress.md` after the Chunk 4 addendum). Every call that was ours is listed there.
 
-**Owner questions (top of the plan, one message):** (1) is Flint's article what #172 means? (2) walkers: a 'Mech type,
-a unit type, or later as their own issue (recommended: later); (3) #11 and the Best-of as two versions, or the Best-of only
-(recommended: Best-of); (4) later tech under the ruleset (recommended: allowed); (5) which other fanzine items to
-bring in (21 listed with pages; recommended: the nine equipment items first); (6) the HMP designs as a separate issue
-(recommended).
+Found on the #11 page images: its zero is a slashed "Ø" that looks like 8. The anti-infantry to-hit is 0 in #11 and 8
+in the Best-of; the assault walker control section is 16 in #11 and 14 in the Best-of. Both are edition rules.
+In a cloud clone, `git lfs pull --include="<path>"` in JBTIICRework fetches a PDF.
 
-Next: answer question 1, then the Compact plan's Chunk A (Opus 5.5, a no-change slot-count refactor). The Micro-Mech
-plan's Chunk A (Opus 5.5) is also unblocked; the owner picks which goes first. Chunk 6 still waits for the Reddit saves.
-Nothing tested in the cloud: run `npm run check` after merging (only the 2026-11-13 news change touches code).
+Next, in batch order (one chunk per session):
+- **Compact plan Chunk A (Opus 5.5)**: the no-change slot-count refactor. Or the Micro-Mech plan's Chunk A (Opus 5.5);
+  the owner picks the order. Fanzine plan Chunks A, D, F, G, H and J can go any time (models in that plan).
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 (rebuild and verify) after.
+Nothing was tested in the cloud: run `npm run check` after merging (only the 2026-11-13 news change touches code).
 
 # EARLIER (2026-11-13, cloud session): Custom Homebrew batch, Chunk 4 done (Micro-Mech plan, owner rulings in)
 
