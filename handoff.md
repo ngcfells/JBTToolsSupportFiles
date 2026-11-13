@@ -1,4 +1,37 @@
-# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk B done (equipment table, #173)
+# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk C done (cost and Battle Value, #173)
+
+Micro-Mech plan Chunk C is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `1707b8b`
+(needs merging into `beta`, with Chunks A and B): `src/data/calc-steps-micro-mech.ts` (cited step tables for cost,
+the document's Battle Value and our provisional BV2), and on `MicroMech`: `getCostBreakdown`, `getCBillCost`,
+`getBattleValueBreakdown(edition)`, `getBattleValue(edition)`, `isBattleValueProvisional`. A BV1 edition gets the
+document's figure, a BV2 edition ours. `npm run check` green in the cloud (282 unit files / 4,312 tests passed,
+5 skipped; build).
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-c.md`
+(append after the Chunk B addendum; the folder is git-ignored, so `git add -f`). 17 calls were ours, and the BV2
+conversions are listed one by one there.
+
+**Two things for the owner (nothing is blocked on them):**
+- **Cost rounding.** All three sound samples come to their printed cost (Storm 695,853; Hillman 852,898; Slayer
+  1,073,387), but only when each fraction is rounded up and the ammunition carried is counted. Neither text says
+  either. Rounding to the nearest would put the Storm one C-bill under. Confirm, or rule otherwise.
+- **Battle Value of two samples.** The Slayer comes to its printed 531. The Storm comes to 223 (printed 217) and the
+  Hillman to 339 (printed 352). Nothing was tuned. Both carry ammunition and the figures part at the ammunition
+  steps; the Hillman's readout also prints 27 structure points where the document's table gives 31. No one reading
+  of the appendix gives both printed figures. The breakdown shows "The document prints N" beside ours. Keep the
+  rules text (as now), or rule otherwise.
+
+Also to know:
+- The calculation was written before its tests this time, not test-first.
+- Not built: special munitions costs; C3 and TAG force values and the skill multiplier (roster, Chunk E).
+- TechManual pages were not re-read for the BV2 steps: they cite what the #599 ledger records.
+
+Next, one chunk per session:
+- **Micro-Mech Chunk D (Sonnet 5.5)**: creator pages, saves, menus. Read the Chunk A to C ledger entries first. In a
+  cloud session `npm ci` first if `node_modules` is missing.
+- Then the Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
+
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk B done (equipment table, #173)
 
 Micro-Mech plan Chunk B is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v` (needs merging
 into `beta`, with Chunk A): `src/data/micro-mech-equipment-custom.ts` (the 6.1.0.2 table: 119 rows, 94 ammunition
