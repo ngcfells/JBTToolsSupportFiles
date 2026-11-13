@@ -1,4 +1,30 @@
-# START HERE (2026-11-13, cloud session): Custom Homebrew batch, Chunk 4 done (Micro-Mech plan, owner rulings in)
+# START HERE (2026-11-13, cloud session, later): Chunk 5 done (Compact 'Mech plan), BLOCKED on six owner questions
+
+Batch Chunk 5 (#172) is written: `battletech-tools/docs/superpowers/plans/2026-11-13-compact-mechs.md`. No code. Ledger
+addendum: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-chunk5.md`
+(append to the home `progress.md` after the Chunk 4 addendum). All on branch `ccr-a9f89a38-ormt9v`, needs merging.
+
+What was found:
+- **No article called "Compact 'Mechs" exists in the *Best of Future Wars*** (nor in any held *Future Wars* issue).
+  The only 'Mech construction rules there are Clell Flint's "Alternate Rules for Building Mechs in BattleTech"
+  (printed pp.35-38; first printed in *Future Wars* #11). It sizes slots, head, cockpit, engine and gyro by weight
+  class, and adds four-legged "walkers". The plan assumes that is #172 and makes it a Special Ruleset (#324).
+- The twelve HMP files (eleven designs plus `Mech.lst`) are ordinary designs from FW #33 and #32, not Compact 'Mechs.
+  The app has no HMP importer.
+- In the cloud, `git lfs pull --include="<path>"` in JBTIICRework fetches a PDF. The Best-of has no text layer;
+  pages were read as images (`pdftoppm`). Page mapping is in the plan.
+
+**Owner questions (top of the plan, one message):** (1) is Flint's article what #172 means? (2) walkers: a 'Mech type,
+a unit type, or later as their own issue (recommended: later); (3) #11 and the Best-of as two versions, or the Best-of only
+(recommended: Best-of); (4) later tech under the ruleset (recommended: allowed); (5) which other fanzine items to
+bring in (21 listed with pages; recommended: the nine equipment items first); (6) the HMP designs as a separate issue
+(recommended).
+
+Next: answer question 1, then the Compact plan's Chunk A (Opus 5.5, a no-change slot-count refactor). The Micro-Mech
+plan's Chunk A (Opus 5.5) is also unblocked; the owner picks which goes first. Chunk 6 still waits for the Reddit saves.
+Nothing tested in the cloud: run `npm run check` after merging (only the 2026-11-13 news change touches code).
+
+# EARLIER (2026-11-13, cloud session): Custom Homebrew batch, Chunk 4 done (Micro-Mech plan, owner rulings in)
 
 **This block was written in a cloud session. The home machine's copy of this file may be newer for 2026-11-12
 (Chunks 1 to 3 of the batch): if so, keep that block too and put this one above it.** The block below this one is
