@@ -1,4 +1,28 @@
-# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk C done (cost and Battle Value, #173)
+# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk D done (creator, saves, menus, #173)
+
+Micro-Mech plan Chunk D is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `b0b6b55`
+(needs merging into `beta`, with Chunks A to C): the creator pages in `src/ui/pages/classic-battletech/micro-mech-creator/`
+(home with saves, chassis, equipment, summary; the summary shows the cost and Battle Value breakdowns and the document's
+printed figures), `microMechSaves` / `currentMicroMech` in `dataSaves.ts` and the app globals (backup, restore with a
+message per cleaned value), and the menu links. `npm run check` green in the cloud (285 unit files / 4,333 tests passed,
+5 skipped; build). The Storm was also built by hand in a real browser through the pages: 10,975 kg, 25 of 26 slots,
+legal, 695,853 C-bills, saved and reopened at the Standard level.
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-d.md`
+(append after the Chunk C addendum; the folder is git-ignored, so `git add -f`). 9 calls were ours; the ones to glance at:
+- The menu link (top menu, Classic BattleTech home) shows at Custom Homebrew or above, **or when the user holds a saved
+  Micro-Mech**, so their design stays reachable below the level. The routes open at every level.
+- A new ammunition lot goes beside its weapon if a slot is free, else the torso (as the Storm's readout has it); each lot
+  has a location select.
+- Not built, to keep to the plan: no Technical Readout step, no MegaMek/BLK import (plan constraint), no record sheet
+  or Alpha Strike page. Nothing waits on the owner.
+
+Next, one chunk per session:
+- **Micro-Mech Chunk E (Sonnet 5.5)**: record sheet, print, roster. Read the Chunk A to D ledger entries first. In a
+  cloud session `npm ci` first if `node_modules` is missing.
+- Then the Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
+
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk C done (cost and Battle Value, #173)
 
 Micro-Mech plan Chunk C is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `1707b8b`
 (needs merging into `beta`, with Chunks A and B): `src/data/calc-steps-micro-mech.ts` (cited step tables for cost,
