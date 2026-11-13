@@ -10,7 +10,10 @@ Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.sup
 (append after the Chunk B addendum; the folder is git-ignored, so `git add -f`). 17 calls were ours, and the BV2
 conversions are listed one by one there.
 
-**Two things for the owner (nothing is blocked on them):**
+**Both owner questions below were answered on 2026-11-13: (1) yes, round up and count the ammunition; (2) keep the
+rules text, and our BV2 stays as built. They are rulings 9 and 10 in the Micro-Mech plan. Nothing waits on the owner.**
+
+The two questions, as asked:
 - **Cost rounding.** All three sound samples come to their printed cost (Storm 695,853; Hillman 852,898; Slayer
   1,073,387), but only when each fraction is rounded up and the ammunition carried is counted. Neither text says
   either. Rounding to the nearest would put the Storm one C-bill under. Confirm, or rule otherwise.
