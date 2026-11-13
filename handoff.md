@@ -1,4 +1,32 @@
-# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk E done (record sheet, print, roster, #173)
+# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk F done (play mode, #173)
+
+Micro-Mech plan Chunk F is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `4d77bef`
+(needs merging into `beta`, with Chunks A to E). `npm run check` green in the cloud (290 unit files / 4,386 tests
+passed, 5 skipped; build).
+- `MicroMech` in-play state saved with the roster (`inPlay`): damage with transfer to the torso and the cockpit (half
+  under 6.1.0.2, all under 2019), critical slots and rolls, ammunition explosions with CASE, engine / gyro / sensor /
+  arm / leg effects on movement, Piloting and to-hit, pilot hits, shots per lot, destroyed. Gunnery and Piloting on the
+  unit; the roster BV takes the 'Mech skill multiplier.
+- `roster/_microMechPlay.tsx` (the panel), wired in `roster/play.tsx`; skill selects in `_microMechGroupTable.tsx`.
+  Jump jets are now placed in slots (legs first, then torso) on the sheet, the creator and in play.
+- Played in Chromium: a Storm through a lost leg (Walk 1, Run 0, Jump 5, Piloting +4) and two engine hits (destroyed,
+  kept after a reload). No console errors.
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-f.md`
+(append after the Chunk E addendum; git-ignored folder, `git add -f`). 14 calls were ours, all listed there.
+
+**Two owner questions (nothing waits on them; built as below):**
+1. Upper Leg Actuator hit on Piloting: the critical hit text says +2, the PSR table beside it +4 (both versions).
+   Built: +2.
+2. A quad Micro-Mech with four legs: BattleMech -2 on Piloting Skill Rolls? The texts are silent. Built: yes.
+Also: the TW pages were read in the 2022 printing extract, not the 11th; confirm the page numbers at home.
+
+Next, one chunk per session:
+- **Micro-Mech Chunk G (Fable 5.2)**: Alpha Strike ruleset. Design, then bring it to the owner before building (plan
+  Step 3). Read the Chunk A to F ledger entries first. In a cloud session `npm ci` first.
+- Then Chunk H (Sonnet 5.5); Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
+
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk E done (record sheet, print, roster, #173)
 
 Micro-Mech plan Chunk E is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `6afd8f7`
 (needs merging into `beta`, with Chunks A to D). `npm run check` green in the cloud (build last).
@@ -22,7 +50,7 @@ Next, one chunk per session:
 - Then Chunk G (Fable 5.2), H (Sonnet 5.5); Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
 - Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
 
-# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk D done (creator, saves, menus, #173)
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk D done (creator, saves, menus, #173)
 
 Micro-Mech plan Chunk D is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `b0b6b55`
 (needs merging into `beta`, with Chunks A to C): the creator pages in `src/ui/pages/classic-battletech/micro-mech-creator/`
