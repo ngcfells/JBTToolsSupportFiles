@@ -1,4 +1,4 @@
-# START HERE (2026-11-13, cloud session): Custom Homebrew batch, Chunk 4 done (Micro-Mech plan); next needs the owner
+# START HERE (2026-11-13, cloud session): Custom Homebrew batch, Chunk 4 done (Micro-Mech plan, owner rulings in)
 
 **This block was written in a cloud session. The home machine's copy of this file may be newer for 2026-11-12
 (Chunks 1 to 3 of the batch): if so, keep that block too and put this one above it.** The block below this one is
@@ -18,19 +18,23 @@ Done on 2026-11-13, all on branch `ccr-a9f89a38-ormt9v` of each repo (a cloud se
 
 What Chunk 4 decided: a Micro-Mech is a **unit type of its own**, after the ProtoMech's pattern, not a 'Mech type
 (one torso, 2/3/12-slot tables, kilogram weights, no heat scale, launchers by the tube, its own BV1-based Battle
-Value). Six chunks, A to F, one per session. The four sample designs' weights were recomputed from the rules and
+Value). One chunk per session. The four sample designs' weights were recomputed from the rules and
 agree with the document; the Tunnel Rat's printed mass, cost and BV are corrupt.
 
-**Waiting on the owner: the eight questions at the top of the Micro-Mech plan** (credit wording, Battle Value,
-no Alpha Strike card, shipping the samples, heat sink rounding, where ranges come from, dates, no play mode).
-Chunk A of that plan should not start before they are answered.
+**The owner answered all eight questions on 2026-11-13; the rulings are at the top of the Micro-Mech plan.** In
+short: also make a provisional BV2 of ours; write an Alpha Strike ruleset; ship the samples; heat sinks by the rules
+text; book ranges or extrapolate; no chassis date limit; build play mode. The plan now has eight chunks, A to H.
+
+Still open, ruling 1: the owner recalls Micro-Mechs as a magazine or fanzine article. It is in no held extract. One
+lead, not read because the cloud network blocks the site: "Micro-Mechs for BattleTech, Part 1" by Solarmech on
+DeviantArt. Reading it is Step 0 of the plan's Chunk A.
 
 Next, in the batch plan's order:
 - **Chunk 5, Compact 'Mechs (#172): read, design, plan. Model: Fable 5.2.** It needs the Future Wars fanzine PDF.
   In a cloud clone the JBTIICRework PDFs are Git LFS pointers: check for a text extract in `ResourceLibrary/text`
   first, or do this chunk on the home machine.
 - Chunk 6 (five Reddit items) still waits for the posts to be saved into `ResourceLibrary/scrapes/reddit/`.
-- Then the Micro-Mech plan's Chunk A (Opus 5.5), once the questions are answered.
+- The Micro-Mech plan's Chunk A (Opus 5.5) is unblocked and can go before or after Chunk 5: ask the owner which.
 
 # START HERE (2026-11-11, later): #599 Tasks 1-7 and 9 complete and pushed; next is Task 8
 
