@@ -17,8 +17,11 @@ in the Best-of; the assault walker control section is 16 in #11 and 14 in the Be
 In a cloud clone, `git lfs pull --include="<path>"` in JBTIICRework fetches a PDF.
 
 Next, in batch order (one chunk per session):
-- **Compact plan Chunk A (Opus 5.5)**: the no-change slot-count refactor. Or the Micro-Mech plan's Chunk A (Opus 5.5);
-  the owner picks the order. Fanzine plan Chunks A, D, F, G, H and J can go any time (models in that plan).
+- **Micro-Mech plan Chunk A (Opus 5.5)** goes first (owner, 2026-11-13: "Micromechs first"):
+  `battletech-tools/docs/superpowers/plans/2026-11-13-micro-mechs.md`, the construction core. Read the Chunk 4
+  ledger addendum (`progress-cloud-chunk4.md`, beside the Chunk 5 one) before starting. Then the Compact plan's
+  Chunk A (Opus 5.5). Fanzine plan Chunks A, D, F, G, H and J can go any time (models in that plan).
+  Chunk A writes code and tests: at home, run them from PowerShell. In a cloud session, `npm ci` first.
 - Batch Chunk 6 still waits for the Reddit saves; Chunk 7 (rebuild and verify) after.
 Nothing was tested in the cloud: run `npm run check` after merging (only the 2026-11-13 news change touches code).
 
