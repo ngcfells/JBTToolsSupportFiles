@@ -27,9 +27,9 @@ text; book ranges or extrapolate; no chassis date limit; build play mode. The pl
 
 Ruling 1, the reference: the original author is **Solarmech** (DeviantArt post "Micro-Mechs for BattleTech, Part
 1", Apr 29, 2019; the owner saved the page, now in `ResourceLibrary/scrapes/deviantart/`). The post names no
-magazine or fanzine. **Open, for the owner:** the author's 2019 post differs from the 6.1.0.2 document (no quads;
-shielding x 1.5; half-ton jump jets and heat sinks; no head or leg weapons; torso-only ammunition; the ledger has
-the table). The plan builds 6.1.0.2, the only complete text, unless the owner says otherwise.
+magazine or fanzine. The author's 2019 post and the 6.1.0.2 document are different versions of the rules. **Owner ruling
+(2026-11-13): offer both as selectable versions.** The plan's "Versions" section has the difference table and how
+the 2019 version borrows the 6.1.0.2 equipment table, cost and Battle Value. Nothing is waiting on the owner.
 
 Next, in the batch plan's order:
 - **Chunk 5, Compact 'Mechs (#172): read, design, plan. Model: Fable 5.2.** It needs the Future Wars fanzine PDF.
