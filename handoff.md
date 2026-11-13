@@ -1,3 +1,27 @@
+# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk E done (record sheet, print, roster, #173)
+
+Micro-Mech plan Chunk E is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `6afd8f7`
+(needs merging into `beta`, with Chunks A to D). `npm run check` green in the cloud (build last).
+- Sheet: `src/ui/components/svg/micro-mech-record-sheet-svg.tsx` (one design to a page, biped and quad: armor and
+  structure circles with the rear torso and cockpit's 3, slot tables with die ranges, six pilot hits, weapons and
+  ammunition, notes, credit, NOT OFFICIAL, no heat scale). Boxes carry test ids for Chunk F (`micro-armor-<loc>-<n>`,
+  `micro-structure-...`, `micro-cockpit-<n>`, `micro-pilot-<n>`, `micro-slot-...`). Creator route `record-sheet`, side-menu
+  "Print", "View Record Sheet" on the summary.
+- Roster: `BattleMechGroup.microMechs` (save, load, BV, tons, copy ids), `roster/_microMechGroupTable.tsx`, print rows and
+  sheet pages, favorite-group rows. Older groups load unchanged.
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-e.md`
+(append after the Chunk D addendum; git-ignored folder, `git add -f`). Calls that were ours:
+- Adding is a select in the group table, not the Add-units dialog (a Micro-Mech is on no MUL list; `_addMechDialog.tsx` untouched).
+- No pilot skill in the roster yet: BV is the design's own, unadjusted; skill, C3 and TAG go with play mode.
+- No hit-location table printed (the document gives none of its own).
+Nothing waits on the owner. The Storm sheet was rendered in Chromium and read; the full print dialog was not driven.
+
+Next, one chunk per session:
+- **Micro-Mech Chunk F (Opus 5.5)**: play mode (damage, criticals, pilot, movement, skill multiplier). Read the Chunk A to E
+  ledger entries first. In a cloud session `npm ci` first if `node_modules` is missing.
+- Then Chunk G (Fable 5.2), H (Sonnet 5.5); Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
+
 # START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk D done (creator, saves, menus, #173)
 
 Micro-Mech plan Chunk D is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `b0b6b55`
