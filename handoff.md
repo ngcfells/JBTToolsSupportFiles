@@ -25,9 +25,11 @@ agree with the document; the Tunnel Rat's printed mass, cost and BV are corrupt.
 short: also make a provisional BV2 of ours; write an Alpha Strike ruleset; ship the samples; heat sinks by the rules
 text; book ranges or extrapolate; no chassis date limit; build play mode. The plan now has eight chunks, A to H.
 
-Still open, ruling 1: the owner recalls Micro-Mechs as a magazine or fanzine article. It is in no held extract. One
-lead, not read because the cloud network blocks the site: "Micro-Mechs for BattleTech, Part 1" by Solarmech on
-DeviantArt. Reading it is Step 0 of the plan's Chunk A.
+Ruling 1, the reference: the original author is **Solarmech** (DeviantArt post "Micro-Mechs for BattleTech, Part
+1", Apr 29, 2019; the owner saved the page, now in `ResourceLibrary/scrapes/deviantart/`). The post names no
+magazine or fanzine. **Open, for the owner:** the author's 2019 post differs from the 6.1.0.2 document (no quads;
+shielding x 1.5; half-ton jump jets and heat sinks; no head or leg weapons; torso-only ammunition; the ledger has
+the table). The plan builds 6.1.0.2, the only complete text, unless the owner says otherwise.
 
 Next, in the batch plan's order:
 - **Chunk 5, Compact 'Mechs (#172): read, design, plan. Model: Fable 5.2.** It needs the Future Wars fanzine PDF.
