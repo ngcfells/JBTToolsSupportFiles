@@ -1,4 +1,27 @@
-# START HERE (2026-11-13, cloud session, latest): Chunk 5 done, owner rulings in, three plans ready
+# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk A done (construction core, #173)
+
+Micro-Mech plan Chunk A is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v` (needs
+merging into `beta`): `src/data/micro-mech-construction.ts` (both versions' rules in `MICRO_MECH_VERSION_RULES`,
+structure table, slots), `src/classes/micro-mech.ts` (`MicroMech`, chassis only, and `normalizeMicroMechExport`),
+`src/classes/micro-mech.test.ts` (41 tests). `npm run check` green in the cloud (typecheck, lint, 281 unit files / 4,217 tests passed, 5 skipped; build).
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-a.md`
+(append after the Chunk 5 addendum). It lists 12 calls that were ours; the ones to glance at:
+- 6.1.0.2 ICE = twice the shielded Micro-Mech fusion engine (rating 70: 5,000 kg), not twice the table weight.
+- 2019 ICE: the post gives none; the BattleMech ICE weight (table ICE column), unshielded.
+- Armor: an odd point count is an issue (not whole kg); a count not a multiple of 4 is only a note (the samples
+  buy 2-point steps).
+- A quad's front legs take leg structure (quad record sheet, Slayer); the Hillman's printed "Arm: 2" is a slip.
+- The save keeps `format: 1` for the save format and `version` for the rules text.
+Not built yet (in the version record, not offered): 2019 industrial fusion / industrial ICE / fuel cell engines and
+industrial armor (need the TechManual weights read).
+
+Next, one chunk per session:
+- **Micro-Mech Chunk B (Sonnet 5.5)**: equipment table, mounts, ammunition, heat sinks. Read the Chunk A ledger
+  entry first. In a cloud session `npm ci` first.
+- Then the Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
+
+# EARLIER (2026-11-13, cloud session): Chunk 5 done, owner rulings in, three plans ready
 
 The owner answered all six Chunk 5 questions (2026-11-13): Flint's "Alternate Rules for Building Mechs" IS #172; walkers
 are a unit type of their own, planned now; the two printings (*Future Wars* #11 and the Best-of) are editions; any
