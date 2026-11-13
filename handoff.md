@@ -1,4 +1,27 @@
-# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk A done (construction core, #173)
+# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk B done (equipment table, #173)
+
+Micro-Mech plan Chunk B is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v` (needs merging
+into `beta`, with Chunk A): `src/data/micro-mech-equipment-custom.ts` (the 6.1.0.2 table: 119 rows, 94 ammunition
+rows, generated from the raw text so every value is as printed), and `MicroMech` mounts, ammunition lots, extra heat
+sinks and power amplifiers. The four samples come to their printed totals with no issues; the Storm fills 25 of 26
+slots. `npm run check` green in the cloud (282 unit files / 4,270 tests passed, 5 skipped; build).
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-b.md`
+(append after the Chunk A addendum; the folder is git-ignored, so `git add -f`). 13 calls were ours; the ones to glance at:
+- One ammunition slot holds up to 1,000 kg for one weapon, any type (6.1.0.2's LB-5X example); the 2019 version
+  keeps one type a slot, and counts part-ton shots as the post's fraction of a ton (SRM 2 at .75 t = 37).
+- A fifth weapon is mounted and reported; a mount or lot with no slot is refused. Under 2019, weapons (not equipment)
+  are refused in the head and legs and ammunition outside the torso; a switched design keeps them and reports.
+- Ranges for rows we lack: Combat Equipment p.111 (recoilless rifles, light/heavy mortar, heavy grenade launcher);
+  Maximum Tech for the Heavy Flamer (2/4/6, our catalog's later 2/3/4 not used); odd tube sizes and the Thunderbolt
+  OS (Unbound) extrapolated from their family, said in the notes.
+
+Next, one chunk per session:
+- **Micro-Mech Chunk C (Fable 5.2)**: cost and Battle Value. Read the Chunk A and B ledger entries first. In a cloud
+  session `npm ci` first if `node_modules` is missing.
+- Then the Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
+
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk A done (construction core, #173)
 
 Micro-Mech plan Chunk A is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v` (needs
 merging into `beta`): `src/data/micro-mech-construction.ts` (both versions' rules in `MICRO_MECH_VERSION_RULES`,
