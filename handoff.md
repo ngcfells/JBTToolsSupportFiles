@@ -1,3 +1,37 @@
+# START HERE (2026-11-13, cloud session): Custom Homebrew batch, Chunk 4 done (Micro-Mech plan); next needs the owner
+
+**This block was written in a cloud session. The home machine's copy of this file may be newer for 2026-11-12
+(Chunks 1 to 3 of the batch): if so, keep that block too and put this one above it.** The block below this one is
+from 2026-11-11 and is out of date: the repo shows #599's verdict rounds and batch Chunks 1 to 3 landed after it.
+
+Batch plan: `battletech-tools/docs/superpowers/plans/2026-11-12-custom-homebrew-batch.md`.
+
+Done on 2026-11-13, all on branch `ccr-a9f89a38-ormt9v` of each repo (a cloud session can push nowhere else), so
+**each needs merging into `beta` / `main`**:
+- battletech-tools `3e9d5a5`: news fixed (two "November 12th" entries merged into one; an October 17th entry added).
+- battletech-tools: **Chunk 4, the Micro-Mech plan**, `docs/superpowers/plans/2026-11-13-micro-mechs.md`. No code.
+- ResourceLibrary: the Chunk 4 ledger entry (rules summary, sample checks, every call that was ours), at
+  `Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-chunk4.md`.
+  Append it to the home ledger `progress.md`.
+- Not run in the cloud: any test (`node_modules` is not installed there). Run `npm run check` after merging; the
+  news change touches `src/ui/pages/home.tsx` (`home.test.ts`).
+
+What Chunk 4 decided: a Micro-Mech is a **unit type of its own**, after the ProtoMech's pattern, not a 'Mech type
+(one torso, 2/3/12-slot tables, kilogram weights, no heat scale, launchers by the tube, its own BV1-based Battle
+Value). Six chunks, A to F, one per session. The four sample designs' weights were recomputed from the rules and
+agree with the document; the Tunnel Rat's printed mass, cost and BV are corrupt.
+
+**Waiting on the owner: the eight questions at the top of the Micro-Mech plan** (credit wording, Battle Value,
+no Alpha Strike card, shipping the samples, heat sink rounding, where ranges come from, dates, no play mode).
+Chunk A of that plan should not start before they are answered.
+
+Next, in the batch plan's order:
+- **Chunk 5, Compact 'Mechs (#172): read, design, plan. Model: Fable 5.2.** It needs the Future Wars fanzine PDF.
+  In a cloud clone the JBTIICRework PDFs are Git LFS pointers: check for a text extract in `ResourceLibrary/text`
+  first, or do this chunk on the home machine.
+- Chunk 6 (five Reddit items) still waits for the posts to be saved into `ResourceLibrary/scrapes/reddit/`.
+- Then the Micro-Mech plan's Chunk A (Opus 5.5), once the questions are answered.
+
 # START HERE (2026-11-11, later): #599 Tasks 1-7 and 9 complete and pushed; next is Task 8
 
 Owner chose option (a) (keep the cited fix). Done: `npm run build:bundled` (about 22 minutes, 7,677 files
