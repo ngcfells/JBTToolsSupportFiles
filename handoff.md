@@ -10,12 +10,16 @@ did Chunk H and the news but left no handoff; this block records it from git:
   `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress.md`, with a Chunk H
   note; batch Chunks 4 and 5 are ticked.
 
-**Still open for the owner (none blocks anything):**
-1. Link to the 6.1.0.2 document: search Scribd, archive.org, solaris7.com, bg.battletech.com, sarna.net,
-   deviantart.com; put it under "Where to Read the Rules Texts" in `docs/lore/micro-mechs-tro.md`.
-2. Hide the heat scale and "OV: 0" on Alpha Strike cards of type MM?
-3. Upper Leg Actuator hit +2 or +4 on Piloting (built +2); quad -2 (built: yes).
-4. Close #173?
+**Later on 2026-11-14 (owner answers, all built; `npm run check` green, 4,433 tests):** `beta` local is 2 ahead of
+origin, NOT pushed, NOT deployed:
+- `4284edd40`: the 6.1.0.2 rules are on Sarna (`files/download/docs/rules/alternate/micro_mechs_6_1_0_2.zip`), linked in
+  the TRO; the on-screen AS card leaves the heat scale / OV off type MM (as official vehicle cards do).
+- `84a6df66d`: Micro-Mech Bay (75 t, 15,000 C-bills, DropShip / Small Craft / capital ship at Custom Homebrew);
+  Upper Leg +4 (the PSR table); `src/data/micro-mech-other-games.ts` stubs the RPG and BattleForce 2 appendices
+  and the bay's emergency rule for future separate tools (owner: RPG, BF2 and AT2 get tools of their own, as
+  Classic and Alpha Strike have). Plan rulings 12 to 14.
+- Asked the owner: push + `git deploy-beta`; file an issue for the RPG / BF2 / AT2 tools; then close #173 (its
+  remaining appendices move to that issue). Still unasked: the quad -2 (built: yes).
 
 Next, one chunk per session:
 - **Compact plan's Chunk A (Opus 5.5)**: `docs/superpowers/plans/2026-11-13-compact-mechs.md`. Read the Chunk 5 entry
