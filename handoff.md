@@ -1,6 +1,9 @@
 # START HERE (2026-11-14, home, latest): Walkers plan Chunk A done; next is Walkers Chunk B (Opus 5.5)
 
-battletech-tools beta = origin/beta = a159d5ced (one commit past deployed 2a75dd7ca). NOT deployed (nothing user-facing yet).
+battletech-tools beta = origin/beta = 68b4ae96c (two commits past deployed 2a75dd7ca). NOT deployed (nothing user-facing yet).
+- **Owner ruling (later 2026-11-14): industrial walkers allowed**, ours, "Inspired by" Flint and the IndustrialMech rules.
+  Built in `68b4ae96c` (industrial structure 20 percent, fusion/ICE/fuel cell/fission, standard gyro, IndustrialMech
+  cockpit with optional Advanced Fire Control). The plan's "Ours" lists what Chunks B to H owe them; read it for B.
 - `src/data/walker-construction.ts`, `src/classes/walker.ts` (+ test): ten locations, structure table, armor cap,
   standard / variant slots per edition, turret, 'Mech engine and gyro data, control section, save format. `"walker"`
   is a `RulesEditionUnitType` (Total Warfare only). `npm run check` green: 4,604 passed, 10 skipped.
