@@ -27,9 +27,12 @@ origin, NOT pushed, NOT deployed:
   buttons / Ko-fi checked). Issue **#635** filed (future RolePlaying, BattleForce 2, AeroTech 2 sections; the
   Micro-Mech stubs are its first content). **#173 closed** with a summary comment.
 - Owner answers on the Aces questions: MM repairs at half Size, kept; quad Micro-Mech keeps the -2, kept.
-  `16890cb03` (beta only, NOT pushed, NOT deployed; check green, 4,449 tests): a campaign "Custom units" switch
-  (Custom Homebrew, off by default, saved) lets advanced force creation take MM and lets a Named Pilot be MM.
-  Ask the owner before push + deploy.
+  `16890cb03`: a campaign "Custom units" switch (Custom Homebrew, off by default, saved) lets advanced force
+  creation take MM and lets a Named Pilot be MM. `72d2a9ec6`: the Nov 14 news entry now lists the bay, MMT#, the AS
+  card, Aces items; its "not built" line names only the RPG and BF2 appendices.
+- **DONE 11:50:** `beta` = `master` = origin = `72d2a9ec6`, `git deploy-beta` (gh-pages `cd3548d6f`, BETA title /
+  buttons / Ko-fi checked). Check: typecheck, lint, build clean; full vitest had 2 timeouts under load
+  (roster/home.test.tsx, bundled-mechs-build.test.ts) that pass when re-run alone.
 
 Next, one chunk per session:
 - **Compact plan's Chunk A (Opus 5.5)**: `docs/superpowers/plans/2026-11-13-compact-mechs.md`. Read the Chunk 5 entry
