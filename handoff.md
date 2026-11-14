@@ -21,8 +21,13 @@ origin, NOT pushed, NOT deployed:
 - `5078fdd6f`: `MMT#` (Micro-Mech Transport, ours, after MT#/PT#) on DropShips, Small Craft and capital ships, with
   the emergency rule in its text. DropShips / Small Craft now also print the canon unit-bay codes (AT, ST, MT, PT,
   VTM, VTH, VTS with doors), which they lacked. Plan ruling 15. `beta` is 3 ahead of origin.
-- Asked the owner: push + `git deploy-beta`; file an issue for the RPG / BF2 / AT2 tools; then close #173 (its
-  remaining appendices move to that issue). Still unasked: the quad -2 (built: yes).
+- `e652511a5`: Aces: a Micro-Mech's Engine Hit by MCR (also a Weapon Hit, or no weapon attacks with ENE; second
+  destroys); MM in the to-hit calculator.
+- **DONE 11:25:** `beta` = `master` = origin = `e652511a5`, `git deploy-beta` (gh-pages `62a9b86cb`, BETA title /
+  buttons / Ko-fi checked). Issue **#635** filed (future RolePlaying, BattleForce 2, AeroTech 2 sections; the
+  Micro-Mech stubs are its first content). **#173 closed** with a summary comment.
+- Owner choices not asked yet, built as the Aces book reads: an Aces Advanced campaign force refuses MM (only BM,
+  BA, CV, CI); no named pilots for MM; MM repairs at half Size (as every non-BattleMech). Also the quad -2 (built: yes).
 
 Next, one chunk per session:
 - **Compact plan's Chunk A (Opus 5.5)**: `docs/superpowers/plans/2026-11-13-compact-mechs.md`. Read the Chunk 5 entry
