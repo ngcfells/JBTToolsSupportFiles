@@ -18,6 +18,9 @@ origin, NOT pushed, NOT deployed:
   Upper Leg +4 (the PSR table); `src/data/micro-mech-other-games.ts` stubs the RPG and BattleForce 2 appendices
   and the bay's emergency rule for future separate tools (owner: RPG, BF2 and AT2 get tools of their own, as
   Classic and Alpha Strike have). Plan rulings 12 to 14.
+- `5078fdd6f`: `MMT#` (Micro-Mech Transport, ours, after MT#/PT#) on DropShips, Small Craft and capital ships, with
+  the emergency rule in its text. DropShips / Small Craft now also print the canon unit-bay codes (AT, ST, MT, PT,
+  VTM, VTH, VTS with doors), which they lacked. Plan ruling 15. `beta` is 3 ahead of origin.
 - Asked the owner: push + `git deploy-beta`; file an issue for the RPG / BF2 / AT2 tools; then close #173 (its
   remaining appendices move to that issue). Still unasked: the quad -2 (built: yes).
 
