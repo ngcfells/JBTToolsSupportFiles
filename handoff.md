@@ -1,4 +1,19 @@
-# START HERE (2026-11-14, home, latest): Walkers plan Chunk A done; next is Walkers Chunk B (Opus 5.5)
+# START HERE (2026-11-14, home, latest): Walkers plan Chunk B done; next is Walkers Chunk C (Fable 5.2)
+
+battletech-tools beta = origin/beta = 2bfed0cc8 (three commits past deployed 2a75dd7ca). NOT deployed (nothing user-facing yet).
+- `2bfed0cc8` Walker equipment: `getEquipmentOffer`, `addEquipment(tag, location, inTurret?)` (returns the refusal reason),
+  `removeEquipment`, `getEquipment`, `getAmmo`, `getHeat`; Flint's center-torso rule (MG / small laser / flamer only,
+  anti-infantry; Best-of p.36, #11 p.26, read on the page images); turret items below the turret mechanism; heat sinks
+  as on a 'Mech (single / double; the ones the engine cannot hold placed automatically); jump jets placed automatically
+  in the legs and outer torsos (ours); power amplifiers; the IndustrialMech limits. Saves carry all of it.
+- Tests `src/classes/walker-equipment.test.ts` (23). `npm run check` green: 4,635 passed, 10 skipped; build clean.
+- Ledger (git-ignored) `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-13-future-wars-walkers/progress.md`:
+  the refused item kinds and 15 rulings. **One worth asking the owner:** an item is never split between locations, so
+  a Gauss Rifle (7 slots) or AC/20 (10) fits almost nowhere on a standard-slot walker (6-slot legs and outer torsos).
+  Should big weapons split across adjacent locations as on a 'Mech?
+Next: Walkers Chunk C (Fable 5.2, cost and BV); fanzine plan Chunks A, D, J (Sonnet) and F, G, H (Fable) any time. Batch Chunk 6 waits for Reddit saves.
+
+# EARLIER (2026-11-14, home): Walkers plan Chunk A done
 
 battletech-tools beta = origin/beta = 68b4ae96c (two commits past deployed 2a75dd7ca). NOT deployed (nothing user-facing yet).
 - **Owner ruling (later 2026-11-14): industrial walkers allowed**, ours, "Inspired by" Flint and the IndustrialMech rules.
