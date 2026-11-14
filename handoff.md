@@ -1,4 +1,29 @@
-# START HERE (2026-11-14, cloud session, latest): Micro-Mech Chunks A to G are on `beta` and `master`; DEPLOY STILL TO DO
+# START HERE (2026-11-14, home, latest): Micro-Mechs done and DEPLOYED; next is Compact plan Chunk A
+
+**State.** battletech-tools `beta` = `master` = origin = `f199b8569`. Deployed to beta 2026-11-14 10:25 with
+`git deploy-beta` (gh-pages `7f32c07aa`; checked: BETA title, issue/idea buttons, Ko-fi all present). A home session
+did Chunk H and the news but left no handoff; this block records it from git:
+- `f786b5e11` Micro-Mech sample designs (`src/data/micro-mech-samples.ts`, loadable from the creator home).
+- `f199b8569` News entry for Micro-Mechs; TW 11th printing and AS:CE page numbers confirmed in the spec.
+- #173 comment posted (Chunks A to H on beta); issue left open.
+- The cloud ledger entries (Chunk 4, 5, Micro A to G) are now appended to the home ledger
+  `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress.md`, with a Chunk H
+  note; batch Chunks 4 and 5 are ticked.
+
+**Still open for the owner (none blocks anything):**
+1. Link to the 6.1.0.2 document: search Scribd, archive.org, solaris7.com, bg.battletech.com, sarna.net,
+   deviantart.com; put it under "Where to Read the Rules Texts" in `docs/lore/micro-mechs-tro.md`.
+2. Hide the heat scale and "OV: 0" on Alpha Strike cards of type MM?
+3. Upper Leg Actuator hit +2 or +4 on Piloting (built +2); quad -2 (built: yes).
+4. Close #173?
+
+Next, one chunk per session:
+- **Compact plan's Chunk A (Opus 5.5)**: `docs/superpowers/plans/2026-11-13-compact-mechs.md`. Read the Chunk 5 entry
+  in the home ledger first.
+- Fanzine plan Chunks A, D, F, G, H, J any time. Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
+- Untracked, left alone: `JBTToolsSupportFiles/pages-for-ruling/`, `battletech-tools/docs/superpowers/plans/battletech-tools.code-workspace`.
+
+# EARLIER (2026-11-14, cloud session): Micro-Mech Chunks A to G are on `beta` and `master`; deploy was still to do
 
 **State.** battletech-tools `beta` = `master` = origin = `dda9e2b` (fast-forwarded from `f6f4d64` on 2026-11-14 at the
 owner's word; 18 commits: the news fix, Custom Homebrew Chunk 5, Micro-Mech Chunks A to G). `npm run check` green on
