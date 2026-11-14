@@ -1,191 +1,275 @@
-# START HERE (2026-11-12): beta = master = 84078ba80, pushed and deployed; 29 'Mechs open
+# START HERE (2026-11-14, cloud session, latest): Micro-Mech Chunks A to G are on `beta` and `master`; DEPLOY STILL TO DO
 
-Next session model: **Fable** (root-cause reading against rule pages).
+**State.** battletech-tools `beta` = `master` = origin = `dda9e2b` (fast-forwarded from `f6f4d64` on 2026-11-14 at the
+owner's word; 18 commits: the news fix, Custom Homebrew Chunk 5, Micro-Mech Chunks A to G). `npm run check` green on
+that commit in the cloud (291 unit files / 4,411 tests passed, 5 skipped; build). The cloud branch
+`ccr-a9f89a38-ormt9v` is the same commit.
 
-## State
+**FIRST THING AT HOME: deploy.** The owner said deploy on 2026-11-14. It was NOT done: `git deploy-beta` is a local
+alias whose script (`.git/beta/inject-issues-button.cjs`) exists only on the home machine, and a plain
+`npm run deploy-dev` would drop the beta buttons, the BETA name and the Ko-fi box from the live site. At home:
+`git pull` in `C:/repo/battletech-tools-master` (beta) and `C:/repo/battletech-tools` (master), then `git deploy-beta`.
+No news entry was written for the Micro-Mechs: ask the owner whether to add one (Chunk H's Step 4 asks about shipping).
 
-- Worktree C:/repo/battletech-tools-master, branch beta, clean. beta = master = origin = 84078ba80 (news entry
-  for November 12th on top of f61af6e8c, the nine round 3b verdicts). The owner asked for commit, push, news,
-  master fast-forward, a #599 comment and then the beta deploy; all done. The beta site serves 84078ba80.
-  Ask again before the next deploy, master fast-forward or #599 comment.
-- npm run check exit 0 on 84078ba80. News: November 11th carries that day's counts, November 12th today's. The
-  days between the November 4th and 10th entries were checked against the commit log; nothing was missing.
-- #599 comment posted 2026-11-12 (issuecomment-6825970632). Issue #632 (Primitive engine) closed with a comment naming fa8c60dc2.
-- Owner rulings (2026-11-11 and 12): a published record sheet (or the publication's write-up) that prints our value
-  may stand as the citation for a "list questioned" verdict; match sheets by edition and go with the 2022 printing.
-  The Improved Gauss Rifle is explosive because the Clan Gauss Rifle is (TM p.302, TW p.135): no change. CASE II
-  covers the Blue Shield because a hit on it is an explosion (TO:AUE p.108): no change, Hercules verdict written.
-- Round 3b wrote nine verdicts: Hercules HRC-LS-9004, Buccaneer BCN-6PX 'Pan', Kraken XR, Savage Coyote Z,
-  Gladiator GLD-1R (Keller), Wolfhound WLF-2X, Turkina U, Xanthos XNT-6O, Malak C-MK-OS Caelestis.
-  Deep Lord RCL-Z1M stays open (no 2022 sheet; 2012 prints ours, 2011 the list's, 2020 a third value).
-- The accuracy page describes "list questioned" as the rule read on the page; 18 verdicts rest on a record sheet
-  or write-up instead. Flagged to the owner, not changed.
-- **Ask the owner before the next deploy, master fast-forward or #599 comment.**
-- Ledger (git-ignored), sections "Round 3" and "Round 3b" have every lead and page reference:
-  `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md`.
-  `probe2/` beside it is the current probe of the open units.
-- Local tools in `src/zz-local/` (git-ignored, skipped unless their environment variable is set):
-  `bv-probe.test.ts` (`PROBE_OUT`, optional `PROBE_ONLY`), `one.test.ts` (`ONE_FILE`, `ONE_OUT`).
+**What Chunk G added** (ledger `progress-cloud-micro-g.md`, spec `docs/superpowers/specs/2026-11-14-micro-mech-alpha-strike.md`):
+- Our Alpha Strike ruleset for Micro-Mechs, NOT OFFICIAL, approved by the owner (ruling 11 in the plan): type `MM`,
+  Size 1, 2 inches a Walking MP, armor / 30 rounded, Structure 1, no Overheat, one ability `MCR`, BattleMech Point Value.
+- `MicroMech.getAlphaStrikeStats()` / `getAlphaStrikeUnit()`; the creator's card page with MM and MCR explained under
+  it; an Alpha Strike block on the summary; saved Micro-Mechs on the Alpha Strike roster's add page; `MCR` in the
+  special abilities reference.
+- TRO - JBT entry `docs/lore/micro-mechs-tro.md` (route `tro-jbt/micro-mechs`): credits, what a Micro-Mech is in our
+  words, the Alpha Strike rules, every code a card can print, the four samples. The owner read it and changed one line
+  ("the fault lies with NGCFells"). The TRO reader now renders `[text](https://...)` links.
+- Samples: Storm PV 11, Tunnel Rat 14, Hillman 14, Slayer 13.
 
-## Counts ('Mechs)
+**For the owner (none blocks Chunk H):**
+1. **Link to the 6.1.0.2 document.** The readout links Solarmech's DeviantArt post (URL from our saved scrape; not
+   opened live). No public copy of 6.1.0.2 was found by web search. Scribd, archive.org, solaris7.com,
+   bg.battletech.com, sarna.net and deviantart.com were NOT searched: the cloud network blocks them. Search them at
+   home, then put the link under "Where to Read the Rules Texts" in the readout (it now says no copy is known).
+2. The card draws the heat scale and "OV: 0" for a Micro-Mech, as for every unit type; `MCR` says they do not apply.
+   Hide them for type MM?
+3. From Chunk F: Upper Leg Actuator hit +2 or +4 on Piloting (built +2); a four-legged quad's -2 (built: yes).
+4. Confirm at home: the TW page numbers (11th printing) and the AS:CE page numbers in the spec.
 
-3,940 match the Master Unit List, 103 differ, 366 not compared (120 import failures, 246 with no list entry).
-Of the 103: 73 "Master Unit List questioned" (55 by rule, 18 by record sheet or write-up), 1 import fault (Griffin GRF-1RG), **29 open**.
-`MECH_MATCHED_FLOOR` is 3940; the bundle keeps 3,701 designs.
+Next, one chunk per session:
+- **Micro-Mech Chunk H (Sonnet 5.5)**: `src/data/micro-mech-samples.ts` (the four designs, after `pam-samples.ts`),
+  verify no bundled design changed, comment on #173, ask about shipping and a news entry. The readout already prints
+  the samples' figures (two tests pin them to the class): link the designs from it. Read the Chunk A to G ledger
+  entries first. Work on `beta`. In a cloud session `npm ci` first if `node_modules` is missing.
+- Then Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
 
-## What round 3 did (commit `fa8c60dc2`)
+Also pushed 2026-11-14: JBTToolsSupportFiles `main` and ResourceLibrary's default branch, fast-forwarded to their
+cloud branches (handoff and ledger commits only). The cloud ledger entries (`progress-cloud-*.md`) still need
+appending to the home `progress.md`.
 
-- Fault of ours fixed test-first, issue #632: a Primitive 'Mech's MegaMek file gives the engine installed (1.2 times
-  the movement rating, IO:AE p.117); the converter passed it as the movement rating. Commando COM-1AK now matches
-  the list and joins the bundle. Three Primitive files stopped failing to import (Mackie MSK-5S, MSK-6S, Banshee
-  BNC-1E; all three duplicate a kept design).
-- Verdict: Griffin GRF-1RG `import` (the file has fewer armor points than the published record sheet).
-- New evidence source: the library's record sheets print BV and are searchable (method in the ledger).
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk F done (play mode, #173)
 
-## Questions for the owner
+Micro-Mech plan Chunk F is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `4d77bef`
+(needs merging into `beta`, with Chunks A to E). `npm run check` green in the cloud (290 unit files / 4,386 tests
+passed, 5 skipped; build).
+- `MicroMech` in-play state saved with the roster (`inPlay`): damage with transfer to the torso and the cockpit (half
+  under 6.1.0.2, all under 2019), critical slots and rolls, ammunition explosions with CASE, engine / gyro / sensor /
+  arm / leg effects on movement, Piloting and to-hit, pilot hits, shots per lot, destroyed. Gunnery and Piloting on the
+  unit; the roster BV takes the 'Mech skill multiplier.
+- `roster/_microMechPlay.tsx` (the panel), wired in `roster/play.tsx`; skill selects in `_microMechGroupTable.tsx`.
+  Jump jets are now placed in slots (legs first, then torso) on the sheet, the creator and in play.
+- Played in Chromium: a Storm through a lost leg (Walk 1, Run 0, Jump 5, Piloting +4) and two engine hits (destroyed,
+  kept after a reload). No console errors.
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-f.md`
+(append after the Chunk E addendum; git-ignored folder, `git add -f`). 14 calls were ours, all listed there.
 
-All earlier questions are answered (rulings under State). Two things wait for the owner:
+**Two owner questions (nothing waits on them; built as below):**
+1. Upper Leg Actuator hit on Piloting: the critical hit text says +2, the PSR table beside it +4 (both versions).
+   Built: +2.
+2. A quad Micro-Mech with four legs: BattleMech -2 on Piloting Skill Rolls? The texts are silent. Built: yes.
+Also: the TW pages were read in the 2022 printing extract, not the 11th; confirm the page numbers at home.
 
-1. **Deploy.** Nothing waits: everything through 84078ba80 is deployed. Ask before the next `git deploy-beta`, and
-   before any later master fast-forward or #599 comment.
-2. **Accuracy page wording** (flagged, not asked for): "list questioned" is described as the rule read on the page
-   cited, while 18 verdicts cite a record sheet or write-up.
+Next, one chunk per session:
+- **Micro-Mech Chunk G (Fable 5.2)**: Alpha Strike ruleset. Design, then bring it to the owner before building (plan
+  Step 3). Read the Chunk A to F ledger entries first. In a cloud session `npm ci` first.
+- Then Chunk H (Sonnet 5.5); Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
 
-## Next step
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk E done (record sheet, print, roster, #173)
 
-The 29 open 'Mechs, same method (`node scripts/bv-miss-groups.mjs`; the ledger's "Round 3b" lists what was tried
-on each). Record sheets are exhausted: `rs-open2.py` found no further sheet or write-up printing our value. Leads:
+Micro-Mech plan Chunk E is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `6afd8f7`
+(needs merging into `beta`, with Chunks A to D). `npm run check` green in the cloud (build last).
+- Sheet: `src/ui/components/svg/micro-mech-record-sheet-svg.tsx` (one design to a page, biped and quad: armor and
+  structure circles with the rear torso and cockpit's 3, slot tables with die ranges, six pilot hits, weapons and
+  ammunition, notes, credit, NOT OFFICIAL, no heat scale). Boxes carry test ids for Chunk F (`micro-armor-<loc>-<n>`,
+  `micro-structure-...`, `micro-cockpit-<n>`, `micro-pilot-<n>`, `micro-slot-...`). Creator route `record-sheet`, side-menu
+  "Print", "View Record Sheet" on the summary.
+- Roster: `BattleMechGroup.microMechs` (save, load, BV, tons, copy ids), `roster/_microMechGroupTable.tsx`, print rows and
+  sheet pages, favorite-group rows. Older groups load unchanged.
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-e.md`
+(append after the Chunk D addendum; git-ignored folder, `git add -f`). Calls that were ours:
+- Adding is a select in the group table, not the Add-units dialog (a Micro-Mech is on no MUL list; `_addMechDialog.tsx` untouched).
+- No pilot skill in the roster yet: BV is the design's own, unadjusted; skill, C3 and TAG go with play mode.
+- No hit-location table printed (the document gives none of its own).
+Nothing waits on the owner. The Storm sheet was rendered in Chromium and read; the full print dialog was not driven.
 
-- Clan 'Mech Mortar ammunition: Antlion LK-3D, Woodsman D, Crossbow D all sit a few points under the list; no rule
-  found. Likeliest common cause, possibly ours.
-- Thunderbolt IIC 2 (list = ours with the improved heavy large laser's 3 slots charged; mixed Clan chassis).
-- Starslayer STY-2C-EC (list = ours without the 7 of Streak ammunition) and Emperor EMP-6A-EC (diff 45, no fit).
-- Skinwalker A and C (138 and 132 over, Machina Domini cockpit x1.3, gyroless, TSM).
-- Small ones with two fits each: BattleMaster BLR-3M (Rogers) 1, Goshawk II RISC 2 (is the RISC Emergency Coolant
-  System explosive? read IO:AE p.190), Trebuchet 'Merida' 4.
-- No fit yet: Celerity 'Rajah' (list = our sum x 0.97), Patron LoaderMech (ours / 0.75), Fennec FEC-5CM, Thug
-  (Jose), Valkyrie VLK-QW5, Grand Titan N13M, Stealth STH-5X, Prey Seeker, Trebuchet TBT-K7R, the FrankenMechs.
+Next, one chunk per session:
+- **Micro-Mech Chunk F (Opus 5.5)**: play mode (damage, criticals, pilot, movement, skill multiplier). Read the Chunk A to E
+  ledger entries first. In a cloud session `npm ci` first if `node_modules` is missing.
+- Then Chunk G (Fable 5.2), H (Sonnet 5.5); Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
 
-Then Combat Vehicles under a new plan, then Rekikire's Aces feedback (file or extend an issue before building).
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk D done (creator, saves, menus, #173)
 
----
+Micro-Mech plan Chunk D is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `b0b6b55`
+(needs merging into `beta`, with Chunks A to C): the creator pages in `src/ui/pages/classic-battletech/micro-mech-creator/`
+(home with saves, chassis, equipment, summary; the summary shows the cost and Battle Value breakdowns and the document's
+printed figures), `microMechSaves` / `currentMicroMech` in `dataSaves.ts` and the app globals (backup, restore with a
+message per cleaned value), and the menu links. `npm run check` green in the cloud (285 unit files / 4,333 tests passed,
+5 skipped; build). The Storm was also built by hand in a real browser through the pages: 10,975 kg, 25 of 26 slots,
+legal, 695,853 C-bills, saved and reopened at the Standard level.
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-d.md`
+(append after the Chunk C addendum; the folder is git-ignored, so `git add -f`). 9 calls were ours; the ones to glance at:
+- The menu link (top menu, Classic BattleTech home) shows at Custom Homebrew or above, **or when the user holds a saved
+  Micro-Mech**, so their design stays reachable below the level. The routes open at every level.
+- A new ammunition lot goes beside its weapon if a slot is free, else the torso (as the Storm's readout has it); each lot
+  has a location select.
+- Not built, to keep to the plan: no Technical Readout step, no MegaMek/BLK import (plan constraint), no record sheet
+  or Alpha Strike page. Nothing waits on the owner.
 
-# EARLIER BLOCK (2026-11-11, late): #599 round 2 is live; next is the 57 open 'Mechs
+Next, one chunk per session:
+- **Micro-Mech Chunk E (Sonnet 5.5)**: record sheet, print, roster. Read the Chunk A to D ledger entries first. In a
+  cloud session `npm ci` first if `node_modules` is missing.
+- Then the Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
 
-Next session model: **Fable** (root-cause reading against rule pages). Sonnet is enough for a bundle rebuild check.
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk C done (cost and Battle Value, #173)
 
-## State
+Micro-Mech plan Chunk C is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `1707b8b`
+(needs merging into `beta`, with Chunks A and B): `src/data/calc-steps-micro-mech.ts` (cited step tables for cost,
+the document's Battle Value and our provisional BV2), and on `MicroMech`: `getCostBreakdown`, `getCBillCost`,
+`getBattleValueBreakdown(edition)`, `getBattleValue(edition)`, `isBattleValueProvisional`. A BV1 edition gets the
+document's figure, a BV2 edition ours. `npm run check` green in the cloud (282 unit files / 4,312 tests passed,
+5 skipped; build).
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-c.md`
+(append after the Chunk B addendum; the folder is git-ignored, so `git add -f`). 17 calls were ours, and the BV2
+conversions are listed one by one there.
 
-- Worktree `C:/repo/battletech-tools-master`, branch `beta`, working tree clean.
-  `beta` = `master` = origin = `3c4cab6ba`, deployed to the beta site with `git deploy-beta` (owner said go).
-- News entry for November 11th is in `src/ui/pages/home.tsx`. The #599 round 2 comment is posted
-  (issuecomment-6807371256).
-- `npm run check` exit 0 on the round's code (4147 passed, 6 skipped); the two edits after it (a lint-only change
-  and the news entry) were type-checked and linted, and the `src/data` + `src/utils` suites rerun.
-- **Ask the owner before the next deploy, master fast-forward or #599 comment.** Commit and push to `beta` are
-  approved.
-- Ledger with the open units' leads (git-ignored):
-  `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-10-cited-bv-and-cost-mechs/progress.md`.
-  **The `probe/` folder there is from before round 2's fixes; rebuild the probe before trusting a file in it for
-  a design with machine gun arrays, two launcher sizes of one family, or torpedo launchers.**
+**Both owner questions below were answered on 2026-11-13: (1) yes, round up and count the ammunition; (2) keep the
+rules text, and our BV2 stays as built. They are rulings 9 and 10 in the Micro-Mech plan. Nothing waits on the owner.**
 
-## Counts ('Mechs)
+The two questions, as asked:
+- **Cost rounding.** All three sound samples come to their printed cost (Storm 695,853; Hillman 852,898; Slayer
+  1,073,387), but only when each fraction is rounded up and the ammunition carried is counted. Neither text says
+  either. Rounding to the nearest would put the Storm one C-bill under. Confirm, or rule otherwise.
+- **Battle Value of two samples.** The Slayer comes to its printed 531. The Storm comes to 223 (printed 217) and the
+  Hillman to 339 (printed 352). Nothing was tuned. Both carry ammunition and the figures part at the ammunition
+  steps; the Hillman's readout also prints 27 structure points where the document's table gives 31. No one reading
+  of the appendix gives both printed figures. The breakdown shows "The document prints N" beside ours. Keep the
+  rules text (as now), or rule otherwise.
 
-3,939 match the Master Unit List, 104 differ, 369 not compared (123 import failures, 246 with no list entry).
-Of the 104: 47 are recorded "Master Unit List questioned" with a citation in `src/data/bv-verdicts.ts`; **57 are
-open**. `MECH_MATCHED_FLOOR` is 3939; the bundle keeps 3,700 designs (pinned in `src/data/bundled-mechs.test.ts`).
+Also to know:
+- The calculation was written before its tests this time, not test-first.
+- Not built: special munitions costs; C3 and TAG force values and the skill multiplier (roster, Chunk E).
+- TechManual pages were not re-read for the BV2 steps: they cite what the #599 ledger records.
 
-## What round 2 did (commit `590244641`)
+Next, one chunk per session:
+- **Micro-Mech Chunk D (Sonnet 5.5)**: creator pages, saves, menus. Read the Chunk A to C ledger entries first. In a
+  cloud session `npm ci` first if `node_modules` is missing.
+- Then the Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
 
-Faults of ours fixed, test first (15 designs now match):
-- MegaMek's Clan heavy machine gun array resolved to the Inner Sphere array on a mixed-tech lookup (alt name moved).
-- Several machine gun arrays in one location each counted the same guns (TM p.228). **The same fault is in
-  `src/classes/vehicle.ts` near line 3137, left for the Combat Vehicle plan.**
-- The MegaMek file converter lost which launcher size a ton of ammunition was for (TM p.303): the converter now
-  writes `feeds="<tag>"` and the import reads it.
-- Torpedo launchers with Artemis IV had no catalog record. Owner's ruling during the round: **"Torpedos use the same
-  rules as the correct sized missile launchers."** 14 records are derived at the end of
-  `src/data/equipment-missile.ts` (TM p.207, p.230).
-- Three designs not on the list changed BV because of the launcher-size fix (Corsair COR-6R 1630 to 1636, Sun
-  Spider C 2525 to 2541, Sun Spider Vanguard 2030 to 2044). Reported to the owner, who then approved the deploy.
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk B done (equipment table, #173)
 
-18 new verdicts (list figure the rules do not support): Skinwalker B, D, Prime and Parash 3 (gyroless interface
-cockpit, ioae 187); Seraph x3 (TSM blade damage, tm 317 + toaue 195); Raider JL-3B (tm 303); Triskelion (ioae 188);
-Pwwka, Waneta, Screamer LAM (ioae 186); Alpha Wolf A (coolant pod, toaue 193); Grand Dragon Emory and Hunchback
-Shakir (prototype weapon values, ioae 186 + 189); Super Griffin GRF-2N-X (prototype improved jump jet heat,
-ioae 97); Cataphract George (prototype double heat sinks, ioae 65 + 189); Osprey OSP-36 (XL engine modifier,
-tm 302 + 315).
+Micro-Mech plan Chunk B is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v` (needs merging
+into `beta`, with Chunk A): `src/data/micro-mech-equipment-custom.ts` (the 6.1.0.2 table: 119 rows, 94 ammunition
+rows, generated from the raw text so every value is as printed), and `MicroMech` mounts, ammunition lots, extra heat
+sinks and power amplifiers. The four samples come to their printed totals with no issues; the Storm fills 25 of 26
+slots. `npm run check` green in the cloud (282 unit files / 4,270 tests passed, 5 skipped; build).
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-b.md`
+(append after the Chunk A addendum; the folder is git-ignored, so `git add -f`). 13 calls were ours; the ones to glance at:
+- One ammunition slot holds up to 1,000 kg for one weapon, any type (6.1.0.2's LB-5X example); the 2019 version
+  keeps one type a slot, and counts part-ton shots as the post's fraction of a ton (SRM 2 at .75 t = 37).
+- A fifth weapon is mounted and reported; a mount or lot with no slot is refused. Under 2019, weapons (not equipment)
+  are refused in the head and legs and ammunition outside the torso; a switched design keeps them and reports.
+- Ranges for rows we lack: Combat Equipment p.111 (recoilless rifles, light/heavy mortar, heavy grenade launcher);
+  Maximum Tech for the Heavy Flamer (2/4/6, our catalog's later 2/3/4 not used); odd tube sizes and the Thunderbolt
+  OS (Unbound) extrapolated from their family, said in the notes.
 
-## Next step: the 57 open 'Mechs (same method)
+Next, one chunk per session:
+- **Micro-Mech Chunk C (Fable 5.2)**: cost and Battle Value. Read the Chunk A and B ledger entries first. In a cloud
+  session `npm ci` first if `node_modules` is missing.
+- Then the Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
 
-1. `node scripts/bv-miss-groups.mjs` prints the groups (needs the MegaMek, SSW and mordel design folders).
-2. For a unit, get the steps: load the design file and call `getBattleValueBreakdown("total-warfare")`.
-3. Read the rule on the page (ResourceLibrary, `python library_search.py`, run from `C:/repo/ResourceLibrary`;
-   TechManual PDF page = printed + 2, TO:AUE = printed + 1, IO:AE = printed + 2). The `text/*.raw.txt` files keep
-   table rows in order; the other extracts jumble tables. No citation from memory.
-4. Decide: `mul-suspect` (needs `cites`), `our-bug` (needs `issue`; fix test-first), or `import`. The owner's ruling
-   for close calls: **the page means what it says**; confirm against other printings and errata.
-5. A fix of ours: failing test first, `npx vitest run --project unit src/classes src/data src/utils` (PowerShell),
-   `npm run build:bundled` (about 22 minutes), the match count must rise and no kept design's BV or record sheet
-   value may change, else stop for the owner. Raise `MECH_MATCHED_FLOOR` and the pinned design count. Then
-   `npm run check`, commit, push `beta`. A new equipment record also needs its tag in
-   `src/data/__fixtures__/tech-lists.json`.
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk A done (construction core, #173)
 
-The 57 (ours minus the list): Gestalt D2X-G -63; Antlion LK-3D -5; Anzu ZU-G60 +17; Archangel Comminus -4;
-Archer ARC-5R -2; Bandersnatch Horus -3; BattleMaster Rogers +1; Buccaneer 'Pan' -106; Celerity 'Rajah' -6;
-Commando COM-1AK +16; Crossbow D -10; Deep Lord -2; Demeter MOD +5; Emperor EMP-6A-EC +45; Fennec FEC-5CM +53;
-Gargoyle T +3; Gladiator Keller +36; Goshawk II RISC +2; Grand Crusader GRN-D-01-X -26; Grand Titan -20;
-Griffin GRF-1RG -26; Hercules +1; Hierofalcon A -10; Ice Ferret J -32; Jackalope +8; Kraken XR +161;
-Lumberjack LM4/C +25; Malak Caelestis -4; Merlin MLN-1P +1; Pariah US -10; Patron LoaderMech -24;
-Poseidon PSD-V2 -320; Prey Seeker +18; Regent A +7; Rhino -68; Savage Coyote Z -54; Savage Wolf Prime -100;
-Scarecrow -41; Schwerer Gustav -153; Shogun SHG-3E -10; Skinwalker A +138 and C +132; Starslayer STY-2C-EC +12;
-Stealth STH-5X -85; Temax Cat Ninjabolt +6; Templar III TLR2-OB +1; Thug Jose +52; Thunderbolt IIC 2 +3;
-Trebuchet 'Merida' -4; Trebuchet TBT-K7R +7; Turkina U +42; Valkyrie VLK-QW5 -12; Vision Quest +221;
-Warhammer 'The Lich' -22; Wolfhound WLF-2X +25; Woodsman D -6; Xanthos XNT-6O +20.
+Micro-Mech plan Chunk A is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v` (needs
+merging into `beta`): `src/data/micro-mech-construction.ts` (both versions' rules in `MICRO_MECH_VERSION_RULES`,
+structure table, slots), `src/classes/micro-mech.ts` (`MicroMech`, chassis only, and `normalizeMicroMechExport`),
+`src/classes/micro-mech.test.ts` (41 tests). `npm run check` green in the cloud (typecheck, lint, 281 unit files / 4,217 tests passed, 5 skipped; build).
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-a.md`
+(append after the Chunk 5 addendum). It lists 12 calls that were ours; the ones to glance at:
+- 6.1.0.2 ICE = twice the shielded Micro-Mech fusion engine (rating 70: 5,000 kg), not twice the table weight.
+- 2019 ICE: the post gives none; the BattleMech ICE weight (table ICE column), unshielded.
+- Armor: an odd point count is an issue (not whole kg); a count not a multiple of 4 is only a note (the samples
+  buy 2-point steps).
+- A quad's front legs take leg structure (quad record sheet, Slayer); the Hillman's printed "Arm: 2" is a slip.
+- The save keeps `format: 1` for the save format and `version` for the rules text.
+Not built yet (in the version record, not offered): 2019 industrial fusion / industrial ICE / fuel cell engines and
+industrial armor (need the TechManual weights read).
 
-Leads, none settled: Kraken XR (list = ours less one Rotary AC/2; both files have four); Commando COM-1AK,
-Gladiator Keller, Wolfhound WLF-2X (list = ours without the gyro; no rule found); Grand Crusader and Savage
-Coyote Z (list halves one fewer weapon); Vision Quest (about half the Improved Gauss); Fennec and Thug Jose (no
-single-step fit); Turkina U (carries a coolant pod; no clean fit); Skinwalker A and C (not the plain gyro case);
-the 1 to 10 point units mostly have only an explosive-slot or CASE lead.
+Next, one chunk per session:
+- **Micro-Mech Chunk B (Sonnet 5.5)**: equipment table, mounts, ammunition, heat sinks. Read the Chunk A ledger
+  entry first. In a cloud session `npm ci` first.
+- Then the Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
 
-After the open 'Mechs: Combat Vehicles under a new plan, then Rekikire's Aces feedback.
+# EARLIER (2026-11-13, cloud session): Chunk 5 done, owner rulings in, three plans ready
 
-## Owner rulings (standing)
+The owner answered all six Chunk 5 questions (2026-11-13): Flint's "Alternate Rules for Building Mechs" IS #172; walkers
+are a unit type of their own, planned now; the two printings (*Future Wars* #11 and the Best-of) are editions; any
+equipment that makes sense; bring in everything else in the fanzine; bring in the HMP designs too.
 
-- Close calls: **the page means what it says**; confirm against other printings and errata.
-- **Torpedo launchers use the same rules as the missile launcher of their size** (2026-11-11).
-- **Coolant Pod behind CASE II: spare it, unless another canon ruling says otherwise** (2026-11-11). This is what the
-  code does today (TO:AUE p.193), so nothing changes; the question is closed.
+Plans (battletech-tools, branch `ccr-a9f89a38-ormt9v`, needs merging into `beta`; no code yet):
+- `docs/superpowers/plans/2026-11-13-compact-mechs.md`: the construction ruleset (two rulesets, one per edition). A-E.
+- `docs/superpowers/plans/2026-11-13-future-wars-walkers.md`: Walker unit type. A-H. Its A needs Compact B first.
+- `docs/superpowers/plans/2026-11-13-best-of-future-wars.md`: equipment, play-rule rulesets, Power Armor and DropShip
+  (read-and-plan chunks), a Game Management "Future Wars" section, the #33 and #32 designs. A-L.
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-chunk5.md`
+(append to the home `progress.md` after the Chunk 4 addendum). Every call that was ours is listed there.
 
-## Settled this session (do not redo)
+Found on the #11 page images: its zero is a slashed "Ø" that looks like 8. The anti-infantry to-hit is 0 in #11 and 8
+in the Best-of; the assault walker control section is 16 in #11 and 14 in the Best-of. Both are edition rules.
+In a cloud clone, `git lfs pull --include="<path>"` in JBTIICRework fetches a PDF.
 
-- The 29 verdicts and their pages: M-Pod x7 and Chaff Pod x1 (toaue 195), B-Pod x3 (tm 317), split Heavy Gauss x7
-  and Improved Gauss x2 (tm 302-303), physical weapon with TSM x5 (tm 317 footnote, toaue 195), heat efficiency
-  of zero or less x2 (tm 303-304), Smart Robotic Control x1 (ioae 187), Awesome AWS-11V (toaue 193-194: a PPC with
-  a capacitor is marked "treat as Gauss weapon", and CASE II spares Gauss weapons; same in the 2008 printing, the
-  2019 errata and the 7th printing).
-- Final review's deferred minors are in the ledger ("Final: minor"); none is fixed. Worth a small issue or a
-  cleanup pass: raw floats in step text, the stale sentence at `step1.tsx:262`, the unused Artemis and Apollo
-  citations.
-- Missing sources: the IO:AE p.189-190 tables are jumbled in the text extract; page images are needed to confirm
-  the Dark Age armor multipliers and the Improved Gauss row.
+Next, in batch order (one chunk per session):
+- **Micro-Mech plan Chunk A (Opus 5.5)** goes first (owner, 2026-11-13: "Micromechs first"):
+  `battletech-tools/docs/superpowers/plans/2026-11-13-micro-mechs.md`, the construction core. Read the Chunk 4
+  ledger addendum (`progress-cloud-chunk4.md`, beside the Chunk 5 one) before starting. Then the Compact plan's
+  Chunk A (Opus 5.5). Fanzine plan Chunks A, D, F, G, H and J can go any time (models in that plan).
+  Chunk A writes code and tests: at home, run them from PowerShell. In a cloud session, `npm ci` first.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 (rebuild and verify) after.
+Nothing was tested in the cloud: run `npm run check` after merging (only the 2026-11-13 news change touches code).
 
-## After the open 'Mechs
+# EARLIER (2026-11-13, cloud session): Custom Homebrew batch, Chunk 4 done (Micro-Mech plan, owner rulings in)
 
-Combat Vehicles under a new plan (same design spec), then Rekikire's Aces feedback (file or extend an issue before
-building).
+**This block was written in a cloud session. The home machine's copy of this file may be newer for 2026-11-12
+(Chunks 1 to 3 of the batch): if so, keep that block too and put this one above it.** The block below this one is
+from 2026-11-11 and is out of date: the repo shows #599's verdict rounds and batch Chunks 1 to 3 landed after it.
 
-## Standing rules
+Batch plan: `battletech-tools/docs/superpowers/plans/2026-11-12-custom-homebrew-batch.md`.
 
-- BattleTech only: do not review, report on or change `C:/repo/testingUtility`.
-- No Ollama or other local-model offload; Claude subagents on a named model only; the `astech` agent is not used.
-- Do not run `taskkill` on `node.exe`. GitHub MCP fails to connect: use `gh` (repo `ngcfells/battletech-tools`).
-- Run vitest and `npm run check` from PowerShell, not Git Bash. A Bash heredoc with an apostrophe is blocked by a
-  hook: write the script with the Write tool and run it.
-- Public repo: no rulebook text beyond short labels, no MegaMek, SSW or mordel numbers. `upstream/*` never touched.
+Done on 2026-11-13, all on branch `ccr-a9f89a38-ormt9v` of each repo (a cloud session can push nowhere else), so
+**each needs merging into `beta` / `main`**:
+- battletech-tools `3e9d5a5`: news fixed (two "November 12th" entries merged into one; an October 17th entry added).
+- battletech-tools: **Chunk 4, the Micro-Mech plan**, `docs/superpowers/plans/2026-11-13-micro-mechs.md`. No code.
+- ResourceLibrary: the Chunk 4 ledger entry (rules summary, sample checks, every call that was ours), at
+  `Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-chunk4.md`.
+  Append it to the home ledger `progress.md`.
+- Not run in the cloud: any test (`node_modules` is not installed there). Run `npm run check` after merging; the
+  news change touches `src/ui/pages/home.tsx` (`home.test.ts`).
 
-# EARLIER (2026-11-11, later): #599 Tasks 1-7 and 9 complete and pushed; next is Task 8
+What Chunk 4 decided: a Micro-Mech is a **unit type of its own**, after the ProtoMech's pattern, not a 'Mech type
+(one torso, 2/3/12-slot tables, kilogram weights, no heat scale, launchers by the tube, its own BV1-based Battle
+Value). One chunk per session. The four sample designs' weights were recomputed from the rules and
+agree with the document; the Tunnel Rat's printed mass, cost and BV are corrupt.
+
+**The owner answered all eight questions on 2026-11-13; the rulings are at the top of the Micro-Mech plan.** In
+short: also make a provisional BV2 of ours; write an Alpha Strike ruleset; ship the samples; heat sinks by the rules
+text; book ranges or extrapolate; no chassis date limit; build play mode. The plan now has eight chunks, A to H.
+
+Ruling 1, the reference: the original author is **Solarmech** (DeviantArt post "Micro-Mechs for BattleTech, Part
+1", Apr 29, 2019; the owner saved the page, now in `ResourceLibrary/scrapes/deviantart/`). The post names no
+magazine or fanzine. The author's 2019 post and the 6.1.0.2 document are different versions of the rules. **Owner ruling
+(2026-11-13): offer both as selectable versions.** The plan's "Versions" section has the difference table and how
+the 2019 version borrows the 6.1.0.2 equipment table, cost and Battle Value. Nothing is waiting on the owner.
+
+Next, in the batch plan's order:
+- **Chunk 5, Compact 'Mechs (#172): read, design, plan. Model: Fable 5.2.** It needs the Future Wars fanzine PDF.
+  In a cloud clone the JBTIICRework PDFs are Git LFS pointers: check for a text extract in `ResourceLibrary/text`
+  first, or do this chunk on the home machine.
+- Chunk 6 (five Reddit items) still waits for the posts to be saved into `ResourceLibrary/scrapes/reddit/`.
+- The Micro-Mech plan's Chunk A (Opus 5.5) is unblocked and can go before or after Chunk 5: ask the owner which.
+
+# START HERE (2026-11-11, later): #599 Tasks 1-7 and 9 complete and pushed; next is Task 8
 
 Owner chose option (a) (keep the cited fix). Done: `npm run build:bundled` (about 22 minutes, 7,677 files
 re-prepared), checked, committed, `npm run check` green, pushed. origin/beta = local `beta` = `3f42a7383`, working
