@@ -1,42 +1,48 @@
-# START HERE (2026-11-14, cloud session, latest): Micro-Mech Chunk G done (Alpha Strike, #173)
+# START HERE (2026-11-14, cloud session, latest): Micro-Mech Chunks A to G are on `beta` and `master`; DEPLOY STILL TO DO
 
-Micro-Mech plan Chunk G is designed, approved by the owner and built, on battletech-tools branch
-`ccr-a9f89a38-ormt9v`, commit `968eaa4` (needs merging into `beta`, with Chunks A to F). `npm run check` green in the
-cloud (291 unit files / 4,410 tests passed, 5 skipped; build).
-- The ruleset is ours and NOT OFFICIAL: `docs/superpowers/specs/2026-11-14-micro-mech-alpha-strike.md`. Type `MM`,
-  Size 1, 2 inches a Walking MP, armor / 30 rounded, Structure 1, no Overheat, one new ability `MCR` for the play rules,
-  Point Value on the BattleMech lines. Owner rulings of 2026-11-14 are ruling 11 in the plan.
-- Built: `MicroMech.getAlphaStrikeStats()` / `getAlphaStrikeUnit()`; the creator's card page (`print-as`) with MM and
-  MCR explained under the card; an Alpha Strike block on the summary; saved Micro-Mechs on the Alpha Strike roster's
-  add page; `MCR` in the special abilities reference (a new "Custom Homebrew" ability type).
-- **New, at the owner's word: a TRO - JBT entry**, `docs/lore/micro-mechs-tro.md` (route `tro-jbt/micro-mechs`):
-  credits (Solarmech; the unnamed 6.1.0.2 editor; Discord), what a Micro-Mech is in our own words, the Alpha Strike
-  rules, a table of every code a card can print, the four samples' figures. The rules texts are not reproduced.
-- Samples: Storm 12"j 2/1 1/0*/0 PV 11; Tunnel Rat 8"j 2/1 1/1/0 PV 14; Hillman 10" 2/1 1/1/1 PV 14; Slayer 10"j 2/1
-  2/1/0 PV 13. Seen in Chromium: the card, the rules under it and the readout's five pages; no console errors.
-Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-g.md`
-(append after the Chunk F addendum; git-ignored folder, `git add -f`). 7 design calls and 10 build calls were ours.
+**State.** battletech-tools `beta` = `master` = origin = `dda9e2b` (fast-forwarded from `f6f4d64` on 2026-11-14 at the
+owner's word; 18 commits: the news fix, Custom Homebrew Chunk 5, Micro-Mech Chunks A to G). `npm run check` green on
+that commit in the cloud (291 unit files / 4,411 tests passed, 5 skipped; build). The cloud branch
+`ccr-a9f89a38-ormt9v` is the same commit.
 
-**For the owner (nothing waits on these):**
-1. Read the TRO - JBT entry's wording, the credits above all, before it ships.
-2. The card still draws the heat scale and "OV: 0" for a Micro-Mech, as it does for every unit type; `MCR` says they
-   do not apply. Hide them for type MM?
-3. Still open from Chunk F: Upper Leg Actuator hit +2 or +4 on Piloting (built +2); a four-legged quad's -2 on
-   Piloting Skill Rolls (built: yes).
+**FIRST THING AT HOME: deploy.** The owner said deploy on 2026-11-14. It was NOT done: `git deploy-beta` is a local
+alias whose script (`.git/beta/inject-issues-button.cjs`) exists only on the home machine, and a plain
+`npm run deploy-dev` would drop the beta buttons, the BETA name and the Ko-fi box from the live site. At home:
+`git pull` in `C:/repo/battletech-tools-master` (beta) and `C:/repo/battletech-tools` (master), then `git deploy-beta`.
+No news entry was written for the Micro-Mechs: ask the owner whether to add one (Chunk H's Step 4 asks about shipping).
+
+**What Chunk G added** (ledger `progress-cloud-micro-g.md`, spec `docs/superpowers/specs/2026-11-14-micro-mech-alpha-strike.md`):
+- Our Alpha Strike ruleset for Micro-Mechs, NOT OFFICIAL, approved by the owner (ruling 11 in the plan): type `MM`,
+  Size 1, 2 inches a Walking MP, armor / 30 rounded, Structure 1, no Overheat, one ability `MCR`, BattleMech Point Value.
+- `MicroMech.getAlphaStrikeStats()` / `getAlphaStrikeUnit()`; the creator's card page with MM and MCR explained under
+  it; an Alpha Strike block on the summary; saved Micro-Mechs on the Alpha Strike roster's add page; `MCR` in the
+  special abilities reference.
+- TRO - JBT entry `docs/lore/micro-mechs-tro.md` (route `tro-jbt/micro-mechs`): credits, what a Micro-Mech is in our
+  words, the Alpha Strike rules, every code a card can print, the four samples. The owner read it and changed one line
+  ("the fault lies with NGCFells"). The TRO reader now renders `[text](https://...)` links.
+- Samples: Storm PV 11, Tunnel Rat 14, Hillman 14, Slayer 13.
+
+**For the owner (none blocks Chunk H):**
+1. **Link to the 6.1.0.2 document.** The readout links Solarmech's DeviantArt post (URL from our saved scrape; not
+   opened live). No public copy of 6.1.0.2 was found by web search. Scribd, archive.org, solaris7.com,
+   bg.battletech.com, sarna.net and deviantart.com were NOT searched: the cloud network blocks them. Search them at
+   home, then put the link under "Where to Read the Rules Texts" in the readout (it now says no copy is known).
+2. The card draws the heat scale and "OV: 0" for a Micro-Mech, as for every unit type; `MCR` says they do not apply.
+   Hide them for type MM?
+3. From Chunk F: Upper Leg Actuator hit +2 or +4 on Piloting (built +2); a four-legged quad's -2 (built: yes).
 4. Confirm at home: the TW page numbers (11th printing) and the AS:CE page numbers in the spec.
-5. **Links to the rules texts (asked 2026-11-14).** The readout links Solarmech's DeviantArt post (the URL in our saved
-   scrape; not opened live). No public copy of 6.1.0.2 was found: a web search found none, and the cloud network blocks
-   archive.org, Scribd, bg.battletech.com, sarna.net, deviantart.com and solaris7.com, so those sites were NOT searched.
-   Search them from home (or allow the hosts), then put the link in `docs/lore/micro-mechs-tro.md` under "Where to Read
-   the Rules Texts". Later commits on the branch: `a039718` (fault lies with NGCFells), then the links commit (branch tip).
-Not deployed, no news entry, nothing merged: all wait for the owner's word.
 
 Next, one chunk per session:
-- **Micro-Mech Chunk H (Sonnet 5.5)**: `micro-mech-samples.ts` (the four designs), verify, comment on #173, ask about
-  shipping. The readout already prints the samples' figures; link the designs from it. Read the Chunk A to G ledger
-  entries first. In a cloud session `npm ci` first if `node_modules` is missing.
+- **Micro-Mech Chunk H (Sonnet 5.5)**: `src/data/micro-mech-samples.ts` (the four designs, after `pam-samples.ts`),
+  verify no bundled design changed, comment on #173, ask about shipping and a news entry. The readout already prints
+  the samples' figures (two tests pin them to the class): link the designs from it. Read the Chunk A to G ledger
+  entries first. Work on `beta`. In a cloud session `npm ci` first if `node_modules` is missing.
 - Then Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
 - Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
+
+Also pushed 2026-11-14: JBTToolsSupportFiles `main` and ResourceLibrary's default branch, fast-forwarded to their
+cloud branches (handoff and ledger commits only). The cloud ledger entries (`progress-cloud-*.md`) still need
+appending to the home `progress.md`.
 
 # EARLIER (2026-11-13, cloud session): Micro-Mech Chunk F done (play mode, #173)
 
