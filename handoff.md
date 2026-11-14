@@ -1,4 +1,76 @@
-# START HERE (2026-11-14, home, latest): Compact plan Chunk A done; next is Compact Chunk B (Opus 5.5)
+# START HERE (2026-11-14, home, latest): Walkers plan Chunk A done; next is Walkers Chunk B (Opus 5.5)
+
+battletech-tools beta = origin/beta = a159d5ced (one commit past deployed 2a75dd7ca). NOT deployed (nothing user-facing yet).
+- `src/data/walker-construction.ts`, `src/classes/walker.ts` (+ test): ten locations, structure table, armor cap,
+  standard / variant slots per edition, turret, 'Mech engine and gyro data, control section, save format. `"walker"`
+  is a `RulesEditionUnitType` (Total Warfare only). `npm run check` green: 4,604 passed, 10 skipped.
+- Plan corrected: 3 x 1.25 rounds up to 4 (only .25 is dropped); the rear torso is a location (Best-of's list omits it).
+- Ledger (new, git-ignored): `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-13-future-wars-walkers/progress.md`,
+  11 rulings and a "For Chunk B" note.
+- Home has no `pdftoppm`: render pages with PyMuPDF (`python -I` script, `page.get_pixmap(dpi=..., clip=...)`).
+Next: Walkers Chunk B (Opus 5.5); fanzine plan Chunks A, D, J (Sonnet) and F, G, H (Fable) any time. Batch Chunk 6 waits for Reddit saves.
+
+# EARLIER (2026-11-14, home): Compact 'Mechs SHIPPED
+
+beta = master = origin = 2a75dd7ca. git deploy-beta ran (gh-pages 29ab8ac71; BETA title and Ko-fi present). News merged into the Nov 14 entry (home.test allows one entry per date). #172 shipped comment posted, issue open.
+Next: fanzine plan Chunks A, D, F, G, H, J; Walkers plan Chunk A. Batch Chunk 6 waits for Reddit saves.
+
+# START HERE (2026-11-14, home, latest): Compact plan Chunk E done; waiting on the owner about shipping
+
+battletech-tools beta = origin/beta (one docs commit past 0c21097de). npm run check green, bundled data unchanged. #172 comment posted (stays open). NOT deployed, master NOT fast-forwarded, no news entry: ask the owner first (plan Step 3).
+Next: fanzine plan Chunks A, D, F, G, H, J any time; walkers plan A after Compact B (now met). Batch Chunk 6 waits for Reddit saves.
+
+# START HERE (2026-11-14, home, latest): Compact plan Chunk D done; next is Compact Chunk E (Sonnet 5.5)
+
+**State.** battletech-tools `beta` = origin/beta = `0c21097de` (5 commits past deployed `72d2a9ec6`). NOT deployed,
+`master` NOT fast-forwarded (ask the owner first).
+- Chunk D: `src/utils/critical-tables.ts` puts a location's slots in tables of six; the record sheet, the play-mode
+  table and both critical rolls read it. Canon 6/12-slot locations are unchanged (snapshot tests of three standard
+  sheets). Under Flint's rules: 3 tables 1-2 / 3-4 / 5-6, 4 tables 1 / 2 / 3 / 4 with 5-6 re-rolled (ours; in the
+  ruleset description). The sheet stacks each column and shrinks the type to fit (`getCritSheetLayout`); an assault
+  'Mech's middle column prints at about 0.58 size.
+- 35, 60 and 100 t sheets rendered in Chromium with the local playwright package (the MCP still fails) and read.
+- `npm run check` green: 4,523 passed, 10 skipped; build clean. Ledger has 5 Chunk D rulings.
+
+Next, one chunk per session:
+- **Compact plan Chunk E (Sonnet 5.5)**: verify, comment on #172, ask the owner about shipping (deploy, master, news).
+- Fanzine plan Chunks A, D, F, G, H, J any time. Batch Chunk 6 waits for the Reddit saves; Chunk 7 after.
+
+# EARLIER (2026-11-14, home): Compact plan Chunk C done
+
+**State.** battletech-tools `beta` = origin/beta = `55cc39459` (4 commits past deployed `72d2a9ec6`). NOT deployed, `master` NOT fast-forwarded (ask the owner first).
+- Chunk C: step 2 has the heavy 4-ton cockpit and extra sensors / life support (only under the ruleset); step 4 head armor range reads getMaxHeadArmor(); step 6 refusal text is getSlotFitMessage; the cost / BV breakdown prints its notes. Tests: mech-creator/step-future-wars.test.tsx.
+- NOT done: the plan hand-build of a 35 t and a 100 t Mech in the running app (playwright MCP would not connect). Do it in Chunk D, which prints both anyway.
+- `npm run check`: 4,494 passed; 2 timeouts under load (ssw-battle-value Zeus, bundled-mechs Ares tripods) pass alone. Build clean.
+- Ledger: C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-13-compact-mechs/progress.md (Chunk C entry lists the UI sites left for D).
+
+Next, one chunk per session:
+- **Compact plan Chunk D (Opus 5.5)**: record sheet and play mode (svg crit table, _criticalHitTable.tsx, roster/play.tsx numberCritSlots).
+- Fanzine plan Chunks A, D, F, G, H, J any time. Batch Chunk 6 waits for the Reddit saves; Chunk 7 after.
+
+# START HERE (2026-11-14, home, latest): Compact plan Chunk B done; next is Compact Chunk C (Sonnet 5.5)
+
+**State.** battletech-tools `beta` = origin/beta = `4928cc06e` (3 commits past the deployed `72d2a9ec6`). NOT deployed,
+`master` NOT fast-forwarded (ask the owner first). Nothing changes for a 'Mech without the new ruleset.
+- `4928cc06e`: two Special Rulesets, `best-of-future-wars-construction` and `future-wars-11-construction` (Custom
+  Homebrew, exclusive via `changes: ["mechConstruction"]`). Under one, a biped of up to 100 t gets Flint's slots by
+  class, head structure 3-6 with head armor at most 2x, his cockpit (heavy may take the 4-ton one), 2 sensor slots,
+  extra sensors / life support (+1 slot, +0.5 t), engine CT slots by engine weight, gyro one slot a ton. Tables in
+  `src/data/future-wars-construction.ts`; tests `src/classes/battlemech-future-wars.test.ts`.
+- Issues (quad etc. refused, unlisted ruleset, head armor over cap, items that no longer fit) appear through
+  `getChassisEquipmentViolations`. Items that no longer fit become unallocated; nothing is deleted.
+- One change for every 'Mech: an item can no longer be placed past the end of a location (before, it could be cut
+  off silently). Bundle tests unchanged (28/28).
+- `npm run check` green: 4,487 passed, 10 skipped; build clean. Page images pp.35-36 agree with the plan's table.
+- Ledger (git-ignored): `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-13-compact-mechs/progress.md` has
+  11 rulings for Chunk B and a "For Chunk C" note (UI hooks: `getSlotFitMessage`, large cockpit, extras, head armor
+  max, breakdown `notes`, the 6/12 UI sites from Chunk A).
+
+Next, one chunk per session:
+- **Compact plan Chunk C (Sonnet 5.5)**: the creator. Read the ledger's Chunk A and B entries first.
+- Fanzine plan Chunks A, D, F, G, H, J any time. Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
+
+# EARLIER (2026-11-14, home): Compact plan Chunk A done
 
 **State.** battletech-tools `beta` = origin/beta = `caa79b0f6` (2 commits past the deployed `72d2a9ec6`). NOT deployed,
 `master` NOT fast-forwarded (ask the owner first; no user-facing change in these commits).
