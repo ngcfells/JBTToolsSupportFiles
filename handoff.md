@@ -1,4 +1,25 @@
-# START HERE (2026-11-14, home, latest): Micro-Mechs done and DEPLOYED; next is Compact plan Chunk A
+# START HERE (2026-11-14, home, latest): Compact plan Chunk A done; next is Compact Chunk B (Opus 5.5)
+
+**State.** battletech-tools `beta` = origin/beta = `caa79b0f6` (2 commits past the deployed `72d2a9ec6`). NOT deployed,
+`master` NOT fast-forwarded (ask the owner first; no user-facing change in these commits).
+- `06d048997` refactor: `BattleMech.getLocationSlotCount(location)` gives every location's slot count (head/legs 6,
+  torsos/arms 12, QuadVee leg 2, 0 for a location the type lacks or an armless 'Mech's arms). `_calcCriticals`,
+  `_trimCriticals`, `_moveItemToArea`, `criticalCanBePlaced` read it. Test: `src/classes/battlemech-slots.test.ts`.
+- One change, on an invalid move only: placing an item in a location the 'Mech lacks (a quad's arm) is refused; it
+  used to grow a phantom table. Bundle tests 40/40 unchanged; unit 3,808 pass; `npm run check` had the known
+  `roster/home.test.tsx` 5 s timeout under load (passes alone, 29/29); build clean.
+- `caa79b0f6`: the plan marks Chunk A done.
+- Plan ledger (git-ignored): `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-13-compact-mechs/progress.md`:
+  the site list, 4 rulings, and the UI sites left for Chunks C and D (`roster/play.tsx` numberCritSlots,
+  `_criticalHitTable.tsx`, `svg/crit-allocation-table-svg.tsx`).
+
+Next, one chunk per session:
+- **Compact plan Chunk B (Opus 5.5)**: the ruleset. Read the plan ledger above and the batch ledger's Chunk 5 entry
+  first. Note from Chunk A: the centre-torso engine/gyro placement (`_calcCriticals`, about l.5005-5030, slots 1-3 /
+  4-6 / 7-9) is by fixed index; Chunk B's tables must replace it.
+- Fanzine plan Chunks A, D, F, G, H, J any time. Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
+
+# EARLIER (2026-11-14, home): Micro-Mechs done and DEPLOYED
 
 **State.** battletech-tools `beta` = `master` = origin = `f199b8569`. Deployed to beta 2026-11-14 10:25 with
 `git deploy-beta` (gh-pages `7f32c07aa`; checked: BETA title, issue/idea buttons, Ko-fi all present). A home session
