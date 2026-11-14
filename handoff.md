@@ -24,6 +24,11 @@ Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.sup
 3. Still open from Chunk F: Upper Leg Actuator hit +2 or +4 on Piloting (built +2); a four-legged quad's -2 on
    Piloting Skill Rolls (built: yes).
 4. Confirm at home: the TW page numbers (11th printing) and the AS:CE page numbers in the spec.
+5. **Links to the rules texts (asked 2026-11-14).** The readout links Solarmech's DeviantArt post (the URL in our saved
+   scrape; not opened live). No public copy of 6.1.0.2 was found: a web search found none, and the cloud network blocks
+   archive.org, Scribd, bg.battletech.com, sarna.net, deviantart.com and solaris7.com, so those sites were NOT searched.
+   Search them from home (or allow the hosts), then put the link in `docs/lore/micro-mechs-tro.md` under "Where to Read
+   the Rules Texts". Later commits on the branch: `a039718` (fault lies with NGCFells), then the links commit (branch tip).
 Not deployed, no news entry, nothing merged: all wait for the owner's word.
 
 Next, one chunk per session:
