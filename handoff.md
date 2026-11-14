@@ -1,4 +1,35 @@
-# START HERE (2026-11-13, cloud session, latest): Micro-Mech Chunk F done (play mode, #173)
+# START HERE (2026-11-14, cloud session, latest): Micro-Mech Chunk G designed, waiting for the owner (Alpha Strike, #173)
+
+Micro-Mech plan Chunk G, Steps 1 to 3: the Alpha Strike ruleset is written and was put to the owner on 2026-11-14.
+**Nothing is built. Do not build until the owner has answered.**
+- The ruleset: `docs/superpowers/specs/2026-11-14-micro-mech-alpha-strike.md` on battletech-tools branch
+  `ccr-a9f89a38-ormt9v`, commit `7ec9f51` (needs merging into `beta`, with Chunks A to F). No code changed, so
+  `npm run check` was not run.
+- In short: type MM, Size 1, 2 inches a Walking MP, armor / 30 rounded, Structure 1, no Overheat, damage by the
+  Companion's sums, one new ability `MCR` for the play rules, Point Value on the BattleMech lines.
+  Storm 12"j 2/1 1/0*/- PV 11; Tunnel Rat 8"j 2/1 1/1/- PV 14; Hillman 10" 2/1 1/1/1 PV 14; Slayer 10"j 2/1 2/1/- PV 13.
+Ledger: `ResourceLibrary/Custom/cloud-handoff/battletech-tools-master/local/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress-cloud-micro-g.md`
+(append after the Chunk F addendum; git-ignored folder, `git add -f`). 7 calls were ours, all in the spec.
+
+**Asked of the owner (the build waits on these):** approve the ruleset as written, or change
+1. armor by Alpha Strike's rule (Storm and Hillman 2) or the document's BattleForce figure (1);
+2. one ability `MCR` holding the play rules, or a code for each;
+3. the first Engine Hit: an `ENE` unit stops firing, any other takes a Weapon Hit;
+4. the type code `MM`.
+If the answer is in this file or the session's first message, record it in the spec's status line and build.
+
+**Still open from Chunk F (nothing waits on them):** Upper Leg Actuator hit +2 or +4 on Piloting (built +2); a
+four-legged quad's -2 on Piloting Skill Rolls (built: yes). Also confirm at home: the TW page numbers (11th printing)
+and the AS:CE page numbers in the spec.
+
+Next, one chunk per session:
+- **Micro-Mech Chunk G, Steps 4 and 5 (Fable 5.2)**: tests first, then `getAlphaStrikeStats()` / `getAlphaStrikeUnit()`,
+  `print-as.tsx`, the card, the roster add page. Read the spec and the Chunk A to G ledger entries first. In a cloud
+  session `npm ci` first if `node_modules` is missing.
+- Then Chunk H (Sonnet 5.5); Compact plan's Chunk A (Opus 5.5); fanzine plan Chunks A, D, F, G, H, J any time.
+- Batch Chunk 6 still waits for the Reddit saves; Chunk 7 after.
+
+# EARLIER (2026-11-13, cloud session): Micro-Mech Chunk F done (play mode, #173)
 
 Micro-Mech plan Chunk F is built, tested and pushed on battletech-tools branch `ccr-a9f89a38-ormt9v`, commit `4d77bef`
 (needs merging into `beta`, with Chunks A to E). `npm run check` green in the cloud (290 unit files / 4,386 tests
