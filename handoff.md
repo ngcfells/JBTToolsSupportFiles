@@ -26,8 +26,10 @@ origin, NOT pushed, NOT deployed:
 - **DONE 11:25:** `beta` = `master` = origin = `e652511a5`, `git deploy-beta` (gh-pages `62a9b86cb`, BETA title /
   buttons / Ko-fi checked). Issue **#635** filed (future RolePlaying, BattleForce 2, AeroTech 2 sections; the
   Micro-Mech stubs are its first content). **#173 closed** with a summary comment.
-- Owner choices not asked yet, built as the Aces book reads: an Aces Advanced campaign force refuses MM (only BM,
-  BA, CV, CI); no named pilots for MM; MM repairs at half Size (as every non-BattleMech). Also the quad -2 (built: yes).
+- Owner answers on the Aces questions: MM repairs at half Size, kept; quad Micro-Mech keeps the -2, kept.
+  `16890cb03` (beta only, NOT pushed, NOT deployed; check green, 4,449 tests): a campaign "Custom units" switch
+  (Custom Homebrew, off by default, saved) lets advanced force creation take MM and lets a Named Pilot be MM.
+  Ask the owner before push + deploy.
 
 Next, one chunk per session:
 - **Compact plan's Chunk A (Opus 5.5)**: `docs/superpowers/plans/2026-11-13-compact-mechs.md`. Read the Chunk 5 entry
