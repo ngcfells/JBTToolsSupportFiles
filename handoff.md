@@ -1,4 +1,21 @@
-# START HERE (2026-11-14, home, latest): Walkers plan Chunk C done; next is Walkers Chunk D (Sonnet 5.5)
+# START HERE (2026-11-15, home, latest): Walkers plan Chunk D done; next is Walkers Chunk E (Sonnet 5.5)
+
+battletech-tools beta = origin/beta = a8d208070 (six commits past deployed 2a75dd7ca), working tree clean. NOT deployed,
+no news (the creator link shows only at Custom Homebrew or for a user holding a saved Walker; ask the owner before
+shipping, as in the plan's Chunk H).
+- `a8d208070` Walker creator: `src/ui/pages/classic-battletech/walker-creator/` (home with saves, chassis, equipment,
+  criticals, summary), `walkerSaves` / `currentWalker` in app-router, app-unit-classes, dataSaves (backup, restore,
+  storage), `walker-offer.ts`, `WalkerCreatorSideMenu`, top-menu and Classic home links after the Micro-Mech's.
+- Tests: `walker-creator/creator.test.tsx` (12), `ui/components/walker-offer.test.tsx` (6), `src/walker-saves.test.ts` (7).
+  `npm run check` green: 4,679 passed, 10 skipped; build clean.
+- Built a 50-ton walker with a turret by hand in Chromium (local playwright package against `vite preview`, base
+  `/battletech-tools/`; no console errors; the MCP still fails to connect). Saved, reloaded, listed.
+- Ledger (git-ignored) `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-13-future-wars-walkers/progress.md`:
+  10 Chunk D rulings and a "For Chunk E" note. The plan's Chunk D is ticked, with a "For Chunk E" note.
+Next: Walkers Chunk E (Sonnet 5.5; record sheet, print, roster, TRO; add `record-sheet` to the side menu and router);
+fanzine plan Chunks A, D, J (Sonnet) and F, G, H (Fable) any time. Batch Chunk 6 waits for Reddit saves.
+
+# EARLIER (2026-11-14, home): Walkers plan Chunk C done; next is Walkers Chunk D (Sonnet 5.5)
 
 battletech-tools beta = origin/beta = f94c9ec54 (five commits past deployed 2a75dd7ca), working tree clean. NOT deployed,
 no news (nothing user-facing yet).
