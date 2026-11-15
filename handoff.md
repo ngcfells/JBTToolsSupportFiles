@@ -1,6 +1,9 @@
 # START HERE (2026-11-14, home, latest): Walkers plan Chunk B done; next is Walkers Chunk C (Fable 5.2)
 
-battletech-tools beta = origin/beta = 2bfed0cc8 (three commits past deployed 2a75dd7ca). NOT deployed (nothing user-facing yet).
+battletech-tools beta = origin/beta = 4bbb09ebf (four commits past deployed 2a75dd7ca). NOT deployed (nothing user-facing yet).
+- **Owner ruling (later 2026-11-14), built in `4bbb09ebf`:** big items split into ONE adjacent location, only with room.
+  Adjacency ours (`WALKER_ADJACENT_LOCATIONS`); the control section and turret items never split. `npm run check` 4,640
+  passed. The question below is answered; the ledger has 4 more rulings.
 - `2bfed0cc8` Walker equipment: `getEquipmentOffer`, `addEquipment(tag, location, inTurret?)` (returns the refusal reason),
   `removeEquipment`, `getEquipment`, `getAmmo`, `getHeat`; Flint's center-torso rule (MG / small laser / flamer only,
   anti-infantry; Best-of p.36, #11 p.26, read on the page images); turret items below the turret mechanism; heat sinks
