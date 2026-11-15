@@ -1,4 +1,43 @@
-# START HERE (2026-11-15, home, latest): Walkers plan Chunk E done; next is Walkers Chunk F (Opus 5.5)
+# START HERE (2026-11-15, home, latest): Walkers Chunk G DESIGNED, waiting on the owner; then build it (Fable 5.2)
+
+battletech-tools beta = origin/beta = one docs commit past d0acf9c98 ("Docs: Walker Alpha Strike ruleset design"),
+working tree clean. NOT deployed, no news. No code changed, no test run this session.
+- Spec `docs/superpowers/specs/2026-11-15-walker-alpha-strike.md` (status: design, nothing built): type BM / IM with
+  one ability `WLK`; Size by tonnage; Move 2" a four-legged Walking MP; armor / 30; structure from the 'Mech table;
+  damage line = everything but the rear and center torso; `REAR` (rear torso), `TUR(...)` (turret), `AIF#` (center-torso
+  anti-infantry weapons, ours: an extra attack in base contact, target number 6 Best-of / -2 #11); industrial specials;
+  BattleMech PV lines; a worked 50-ton walker (PV 27, by hand).
+- **Four questions are with the owner** (asked in chat 2026-11-15): (1) BM / IM + `WLK`, or a type of its own;
+  (2) side weapons on the one damage line, or a card with arcs; (3) `AIF#` and the two printings' to-hit;
+  (4) structure from the 'Mech table, and Flint's +3 read as the Companion's -2. **Do not build before the answer.**
+  If the answer is in this file or in chat, record it in the spec's Status line and build.
+- Ledger: a "Chunk G: DESIGN ONLY" section with 8 proposed rulings and a note for the build session.
+- Found: `BattleMech.calcAlphaStrike` types every 'Mech "BM" and writes no IM / BFC / EE / FC for an IndustrialMech
+  (no issue filed; ask the owner).
+Next: the owner's answer, then build Walkers Chunk G (Fable 5.2; tests first, the spec's "Build" section), then
+Chunk H (Sonnet 5.5). Fanzine plan Chunks A, D, J (Sonnet) and F, G, H (Fable) any time. Batch Chunk 6 waits for
+Reddit saves.
+
+# EARLIER (2026-11-15, home): Walkers plan Chunk F done; next was Walkers Chunk G (Fable 5.2)
+
+battletech-tools beta = origin/beta = d0acf9c98 (eight commits past deployed 2a75dd7ca), working tree clean. NOT deployed,
+no news (ask the owner before shipping, as in the plan's Chunk H).
+- `d0acf9c98` Walker play mode: the play section of `walker.ts` (skills and skill-adjusted BV, play state saved with the
+  roster, hit location by attack direction, damage transfer, 'Mech critical hits with industrial +2 and the End Phase
+  check, ammo explosions and CASE, working legs, x1.25 / biped / crawl movement, -3 piloting with four legs, kicks, the
+  #11 knock-over rule, firing arcs); `WALKER_ATTACK_DIRECTIONS`, `readWalkerHitCell`, `WALKER_DAMAGE_TRANSFER`,
+  `WALKER_LOCATION_ARCS` in walker-construction.ts; `roster/_walkerPlay.tsx` wired into `play.tsx`; the roster group
+  table has Gunnery / Piloting and the adjusted BV, and the group total uses it.
+- #11's hit table was compared cell by cell: it matches. The "six arcs" were the attack directions; firing arcs are #11
+  p.27's four (F, RS, R, LS) and the turret.
+- Tests: walker-play (95), play panel (5), group table (+2). Unit run 4,093 passed, 5 skipped; `npm run check` exit 0.
+  Played a 50-ton walker through two lost legs in Chromium (4 legs 5/8 -3 kicks; 3 legs 4/6, no kicks; 2 legs Crawl 1,
+  +5; the same after a reload; no page errors).
+- Ledger: 17 Chunk F rulings (each with its cost if wrong) and a "For Chunk G" note; the plan's Chunk F is ticked.
+Next: Walkers Chunk G (Fable 5.2; Alpha Strike: design, then bring it to the owner);
+fanzine plan Chunks A, D, J (Sonnet) and F, G, H (Fable) any time. Batch Chunk 6 waits for Reddit saves.
+
+# EARLIER (2026-11-15, home): Walkers plan Chunk E done; next was Walkers Chunk F (Opus 5.5)
 
 battletech-tools beta = origin/beta = e416776a7 (seven commits past deployed 2a75dd7ca), working tree clean. NOT deployed,
 no news (ask the owner before shipping, as in the plan's Chunk H).
