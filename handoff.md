@@ -6,6 +6,9 @@ in the working tree of `C:/repo/battletech-tools-master`, NOT committed** (do no
 - new `src/classes/walker-cost-bv.test.ts` (14 tests, **13 pass**);
 - `src/data/battle-value.ts` (`walker` in `BV_RULES` via `asWalker`); `src/classes/walker.ts` (`getCostBreakdown`,
   `getCBillCost`, `isBattleValueProvisional`, `getBattleValueBreakdown`, `getBattleValue`, BV2 and BV1).
+**Owner ruling (later 2026-11-14): the turret costs 7,500 C-bills a mechanism ton** (midway between the 'Mech turret's
+10,000 and the vehicle's 5,000). Already changed in walker.ts, calc-steps-walker.ts and the test (22,500 for 3 tons),
+NOT yet run; the ledger's turret ruling still says 10,000, correct it when closing the chunk.
 To finish, in order:
 1. Fix the one failing test (a TEST bug): the Clan walker test mounts `"machine-gun"`, unknown on a Clan walker. Take the
    Clan machine gun and its ammo from `getEquipmentOffer()` instead.
