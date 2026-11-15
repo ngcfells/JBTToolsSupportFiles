@@ -1,4 +1,23 @@
-# START HERE (2026-11-15, home, latest): Walkers plan Chunk D done; next is Walkers Chunk E (Sonnet 5.5)
+# START HERE (2026-11-15, home, latest): Walkers plan Chunk E done; next is Walkers Chunk F (Opus 5.5)
+
+battletech-tools beta = origin/beta = e416776a7 (seven commits past deployed 2a75dd7ca), working tree clean. NOT deployed,
+no news (ask the owner before shipping, as in the plan's Chunk H).
+- `e416776a7` Walker record sheet and roster: `ui/components/svg/walker-record-sheet-svg.tsx` (plan view of the ten
+  locations, circles, critical tables in sixes with die numbers, hit location table, six firing arcs, heat scale, pilot
+  boxes, weapons, credit, NOT OFFICIAL), creator `record-sheet` (side menu "Print", summary button), `roster/_walkerGroupTable.tsx`,
+  `BattleMechGroup.walkers` (save, load, BV, tons, tech, copy ids), roster print and favorites rows, and the Technical
+  Readout step (`WALKER_TRO`, `walkerParts` in `unit-tro.ts`, routes `technical-readout` / `print-tro`; side menu Step 6).
+- `WALKER_HIT_TABLE` (walker-construction.ts) is the Best-of p.36 table as printed, read on the page image; #11's was not
+  compared cell by cell. The firing-arc diagram is ours (#11 p.27 marks F / RS / R / LS / T on a hex field).
+- Tests: svg (9), group (5), roster table (4), shared TRO config (7). `npm run check` green: 4,704 passed, 10 skipped;
+  build clean. A 25-ton and a 100-ton sheet rendered in Chromium and read (no full print dialog driven).
+- Built implementation-first, then tests (plan Step 1 says tests first); the ledger says so.
+- Ledger (git-ignored) `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-13-future-wars-walkers/progress.md`:
+  8 Chunk E rulings and a "For Chunk F" note (sheet test ids; the hit table holds printed text; roster BV unadjusted).
+Next: Walkers Chunk F (Opus 5.5; play mode: read the play rules on both pages again, #11 p.27 arcs, damage transfer);
+fanzine plan Chunks A, D, J (Sonnet) and F, G, H (Fable) any time. Batch Chunk 6 waits for Reddit saves.
+
+# EARLIER (2026-11-15, home): Walkers plan Chunk D done; next was Walkers Chunk E (Sonnet 5.5)
 
 battletech-tools beta = origin/beta = a8d208070 (six commits past deployed 2a75dd7ca), working tree clean. NOT deployed,
 no news (the creator link shows only at Custom Homebrew or for a user holding a saved Walker; ask the owner before
