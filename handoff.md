@@ -1,4 +1,24 @@
-# START HERE (2026-11-14, home, latest): Walkers plan Chunk B done; next is Walkers Chunk C (Fable 5.2)
+# START HERE (2026-11-14, home, latest): Walkers Chunk C HALF DONE, uncommitted; finish it (Fable 5.2)
+
+battletech-tools beta = origin/beta = 4bbb09ebf, unchanged. The session ran out of usage mid-chunk. **Chunk C's work is
+in the working tree of `C:/repo/battletech-tools-master`, NOT committed** (do not `git clean` / `checkout --`):
+- new `src/data/calc-steps-walker.ts` (every 'Mech cost / BV2 / BV1 step as `walker.<id>`, provisional, + `walker.cost.turret`);
+- new `src/classes/walker-cost-bv.test.ts` (14 tests, **13 pass**);
+- `src/data/battle-value.ts` (`walker` in `BV_RULES` via `asWalker`); `src/classes/walker.ts` (`getCostBreakdown`,
+  `getCBillCost`, `isBattleValueProvisional`, `getBattleValueBreakdown`, `getBattleValue`, BV2 and BV1).
+To finish, in order:
+1. Fix the one failing test (a TEST bug): the Clan walker test mounts `"machine-gun"`, unknown on a Clan walker. Take the
+   Clan machine gun and its ammo from `getEquipmentOffer()` instead.
+2. From **PowerShell** (Git Bash breaks vitest): `npx vitest run --project unit src/classes src/data src/utils`, then
+   `npm run check`. Neither has been run on this work: expect lint on unused imports in walker.ts, and possibly a test
+   that enumerates `BV_RULES` unit types.
+3. Tick the plan's Chunk C steps + "Done / For Chunk D" note (no skill-adjusted BV yet; step ids are `walker.*`).
+4. Commit `Custom Homebrew: Walker cost and Battle Value (#172)`, push beta. No deploy, no news (nothing user-facing).
+5. Ledger: the `## Chunk C (IN PROGRESS...)` section already holds the 13 rulings; retitle it and add the
+   `Task C: complete (...)` line. Then rewrite this block (next: Walkers Chunk D, Sonnet 5.5).
+Also: fanzine plan Chunks A, D, J (Sonnet) and F, G, H (Fable) any time. Batch Chunk 6 waits for Reddit saves.
+
+# EARLIER (2026-11-14, home): Walkers plan Chunk B done; next is Walkers Chunk C (Fable 5.2)
 
 battletech-tools beta = origin/beta = 4bbb09ebf (four commits past deployed 2a75dd7ca). NOT deployed (nothing user-facing yet).
 - **Owner ruling (later 2026-11-14), built in `4bbb09ebf`:** big items split into ONE adjacent location, only with room.
