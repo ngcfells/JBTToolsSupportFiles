@@ -1,4 +1,20 @@
-# START HERE (2026-11-14, home, latest): Walkers Chunk C HALF DONE, uncommitted; finish it (Fable 5.2)
+# START HERE (2026-11-14, home, latest): Walkers plan Chunk C done; next is Walkers Chunk D (Sonnet 5.5)
+
+battletech-tools beta = origin/beta = f94c9ec54 (five commits past deployed 2a75dd7ca), working tree clean. NOT deployed,
+no news (nothing user-facing yet).
+- `f94c9ec54` Walker cost and Battle Value: `src/data/calc-steps-walker.ts` (every 'Mech cost / BV2 / BV1 step as
+  `walker.<id>`, all provisional, + `walker.cost.turret`); `walker` in `BV_RULES` (`asWalker`); on `Walker`:
+  `getCostBreakdown`, `getCBillCost`, `isBattleValueProvisional`, `getBattleValueBreakdown(edition?)`,
+  `getBattleValue(edition?)`. A BV2 edition gets the TechManual steps, the Master Rules editions BV1, older ones none.
+- **Owner ruling: the turret mechanism costs 7,500 C-bills a ton** (built, tested, in the plan and the ledger).
+- Tests `src/classes/walker-cost-bv.test.ts` (14). `npm run check` green: 4,654 passed, 10 skipped; build clean.
+- Ledger (git-ignored) `C:/repo/battletech-tools-master/.superpowers/sdd/2026-11-13-future-wars-walkers/progress.md`:
+  13 Chunk C rulings. The plan's Chunk C has a "For Chunk D" note: step ids are `walker.*`; show the breakdowns with
+  their notes; there is no skill-adjusted BV yet (the roster / play chunks owe it).
+Next: Walkers Chunk D (Sonnet 5.5; creator, saves, menus); fanzine plan Chunks A, D, J (Sonnet) and F, G, H (Fable) any
+time. Batch Chunk 6 waits for Reddit saves.
+
+# EARLIER (2026-11-14, home): Walkers Chunk C HALF DONE, uncommitted (finished above)
 
 battletech-tools beta = origin/beta = 4bbb09ebf, unchanged. The session ran out of usage mid-chunk. **Chunk C's work is
 in the working tree of `C:/repo/battletech-tools-master`, NOT committed** (do not `git clean` / `checkout --`):
