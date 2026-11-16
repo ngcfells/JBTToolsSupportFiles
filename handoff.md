@@ -26,10 +26,13 @@ Older sessions: `handoff-archive.md` (everything before 2026-11-16, unedited).
 - Swing Fire lore APPROVED (torpedo line covers UMU swimmers, 9b9dbcb8d). Lore written for every other fanzine record
   (Chunk A + B) and Chunk A play text moved to `rules` (commit after 9b9dbcb8d). Check: 5124 pass.
 
+- Lore APPROVED. `equipment-lore-rules` fast-forwarded into beta and PUSHED (origin/beta 1f474b5ec). Not deployed,
+  no news line; origin/master still 1778f0118.
+
 ## NEXT, in order
-1. Owner reviews the new lore; then merge `equipment-lore-rules` into beta and push when the owner OKs.
-3. Fanzine Chunk C (play effects of A and B; carry list in the ledger, incl. a crit on a booster's slot takes the weapon).
-4. Batch Chunk 6: five Reddit posts saved, UNTRACKED, in `C:/repo/ResourceLibrary/scrapes/reddit/` (1hqnzwy PPC-X,
+1. Deploy + news line (Chunk B and Lore/Rules) only when the owner asks.
+2. Fanzine Chunk C (play effects of A and B; carry list in the ledger, incl. a crit on a booster's slot takes the weapon).
+3. Batch Chunk 6: five Reddit posts saved, UNTRACKED, in `C:/repo/ResourceLibrary/scrapes/reddit/` (1hqnzwy PPC-X,
    1bhfssf Superheavy PPC, 1mhvhwp Fusion Lance, 1jamkvn Tandem Charge SRM, 1iky8lg RFE). Credits in each CREDITS line:
    PPC-X asker u/Distinct-Duck-7120, stat line u/Severe_Ad_5022, idea u/Omega_Chris_8352; Fusion Lance u/Magical_Savior
    + u/sokttocs; RFE u/Bookwyrm517 + u/FweeCom + u/MasonStonewall. Tandem Charge SRM = alternate rule for existing ammo.
