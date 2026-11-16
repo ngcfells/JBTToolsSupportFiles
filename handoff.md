@@ -30,7 +30,7 @@ Older sessions: `handoff-archive.md` (everything before 2026-11-16, unedited).
   no news line; origin/master still 1778f0118.
 
 ## NEXT, in order
-1. Deploy + news line (Chunk B and Lore/Rules) only when the owner asks.
+1. DONE: readout carries the lore (8ef159e14, a test keeps it in step), news line added, beta pushed and DEPLOYED.
 2. Fanzine Chunk C (play effects of A and B; carry list in the ledger, incl. a crit on a booster's slot takes the weapon).
 3. Batch Chunk 6: five Reddit posts saved, UNTRACKED, in `C:/repo/ResourceLibrary/scrapes/reddit/` (1hqnzwy PPC-X,
    1bhfssf Superheavy PPC, 1mhvhwp Fusion Lance, 1jamkvn Tandem Charge SRM, 1iky8lg RFE). Credits in each CREDITS line:
