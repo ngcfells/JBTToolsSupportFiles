@@ -23,9 +23,11 @@ Older sessions: `handoff-archive.md` (everything before 2026-11-16, unedited).
   "ours" rulings, rules = play text, lore = Swing Fire draft only). 243f8132d sets vitest `testTimeout: 20000` (owner
   request) so the 3 heavy-load tests stop timing out. `npm run check`: 5122 pass, 0 fail.
 
+- Swing Fire lore APPROVED (torpedo line covers UMU swimmers, 9b9dbcb8d). Lore written for every other fanzine record
+  (Chunk A + B) and Chunk A play text moved to `rules` (commit after 9b9dbcb8d). Check: 5124 pass.
+
 ## NEXT, in order
-1. Owner reviews the Swing Fire lore draft; then lore for the other fanzine items (Chunk A too) and a Rules split for
-   Chunk A records. Then merge `equipment-lore-rules` into beta and push when the owner OKs.
+1. Owner reviews the new lore; then merge `equipment-lore-rules` into beta and push when the owner OKs.
 3. Fanzine Chunk C (play effects of A and B; carry list in the ledger, incl. a crit on a booster's slot takes the weapon).
 4. Batch Chunk 6: five Reddit posts saved, UNTRACKED, in `C:/repo/ResourceLibrary/scrapes/reddit/` (1hqnzwy PPC-X,
    1bhfssf Superheavy PPC, 1mhvhwp Fusion Lance, 1jamkvn Tandem Charge SRM, 1iky8lg RFE). Credits in each CREDITS line:
