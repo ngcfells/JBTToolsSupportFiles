@@ -37,7 +37,11 @@ DONE (Chunk R2, plan `docs/superpowers/plans/2026-11-17-future-wars-printing-alt
   ruleset; first-printing ammo branches skip the Power Armor pilot line; BT2-BT4 every-bin rule vs LR Flamer fuel.
 Penitrator cost CLOSED (2026-11-18, 1eeea46d7, deployed): missiles keep the author's 250,000 C-bills a ton (NGCFells
 tried "Tandem-Charge doubled" = 270,000 and kept the original as lower); notes and readout say so.
-OPEN for NGCFells: Hellborer booster row not built (no Hellborer item).
+OPEN for NGCFells: Hellborer booster row not built (no Hellborer item). SEARCHED 2026-11-18: no held issue defines
+it. Only mentions: FW #14 p.46 Power Booster row (heat 5 / dmg 20 / range 8) and FW #22 letters (Jon M. Pehrson asks
+for the Hellborer and Gatling Laser stats; no answer printed). Every extract (MWT #1-2, FW #3-#41) searched, image-only
+pages of FW #3-#10 + MWT OCR'd (FW #9/#10 even pages are blank versos). Likely on FW #14's lost printed pp.39-42 or
+never published. FW #8 pp.5, 7, 9, 35 now transcribed into the ResourceLibrary extract.
 NEXT: the QUEUED Lopunny entry, then G / H / K + K2 (Kin = alternate universe unless an article references the Far
 Country birds; own TRO) / COIL-alt.
 
