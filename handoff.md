@@ -12,9 +12,13 @@ Tech Discord", name the server, ask NGCFells for a post link if one exists):
      Thunderbolt launcher, as a torpedo launcher, OR simply an alternate (torpedo) ammo type for the standard launcher
      doing the same. Lopunny's note: "It astounds me how there aren't alternate thunderbolt ammos since you have so
      much space to work with, as well as working really cool as big torpedo's".
-  Look up Heat-Seeking LRM and torpedo (LRT/SRT) rules in the catalogs before building; NGCFells decides launcher vs ammo.
+  NGCFells RULED (2026-11-18): Thunderbolt TORPEDO LAUNCHERS are their own launchers, separate from the Thunderbolt
+  missile launchers, as LRTs are separate from LRMs ("mechanically missiles are very different from torpedos... one
+  needs venting to get rid of exhaust, the other needs pressurized air to launch initially"). If Lopunny comes back
+  with lore that explains it differently, go with Lopunny's lore. Look up Heat-Seeking LRM and LRT/SRT rules in the
+  catalogs before building; NGCFells decides launcher vs ammo.
 
-STATE. beta = origin/beta = 17c1404d5, deployed (`git deploy-beta`, also ships ce575521c). `npm run check` green (5541
+STATE. beta = origin/beta = 1eeea46d7 (Penitrator cost note), deployed (`git deploy-beta`, also ships ce575521c). `npm run check` green (5541
 unit + 28 data, build OK, 3 known lint warnings). Nov 17 news bullet "Future Wars originals (issue #172)" rewritten to
 say both printings can now be chosen. ResourceLibrary pushed: c696eae2a, 1e33809f2 (FW #17 pp.37, 38, 40), ee94cb87b
 (FW #12 pp.12-13). Plan workspace `.superpowers/sdd/2026-11-17-future-wars-printing-alternates/` deleted after review.
@@ -31,7 +35,9 @@ DONE (Chunk R2, plan `docs/superpowers/plans/2026-11-17-future-wars-printing-alt
   target. TRO - JBT Best of Future Wars readout ends with "Two printings".
 - Final review (fresh Opus): 1 Important + 3 re-graded minors fixed TDD. Deferred minors: BV1 follows the equipment
   ruleset; first-printing ammo branches skip the Power Armor pilot line; BT2-BT4 every-bin rule vs LR Flamer fuel.
-OPEN for NGCFells: Penitrator "$250,000 per ton" cost (record 0); Hellborer booster row not built (no Hellborer item).
+Penitrator cost CLOSED (2026-11-18, 1eeea46d7, deployed): missiles keep the author's 250,000 C-bills a ton (NGCFells
+tried "Tandem-Charge doubled" = 270,000 and kept the original as lower); notes and readout say so.
+OPEN for NGCFells: Hellborer booster row not built (no Hellborer item).
 NEXT: the QUEUED Lopunny entry, then G / H / K + K2 (Kin = alternate universe unless an article references the Far
 Country birds; own TRO) / COIL-alt.
 
