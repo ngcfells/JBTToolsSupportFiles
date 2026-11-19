@@ -1,4 +1,34 @@
-# START HERE (2026-11-18, Opus 5.5, latest): LOPUNNY'S THUNDERBOLTS DONE, HS LRM DATE FIXED, DEPLOYED
+# START HERE (2026-11-19, Opus 5.5, latest): FUTURE WARS CHUNK G (DROPSHIPS) READ AND PLANNED; 6 QUESTIONS OPEN
+
+FIRST: check memory (MEMORY.md and every file it links), the standing rules and the guidelines (repo
+`.claude/rules/*.md`, plan conventions, NGCFells naming, OCR-correct-from-PNG, no heredocs, verify against catalogs,
+era-honest dating, vitest in PowerShell only) before doing anything else.
+
+STATE. beta = origin/beta = baa4449b7 (plan docs only on top of ba6f78dee; nothing to deploy). ResourceLibrary
+e6a9e49f9 pushed (DS&JS extract: Leopard/Union/Overlord fuel and armor tonnages restored from the page images).
+ResourceLibrary has an UNCOMMITTED change to `text/future-wars-08-Qyhm8x.txt` that predates this session (probably the
+FW #8 pp.5, 7, 9, 35 transcription from 2026-11-18): check it against the page images, then commit or drop it.
+DONE (Chunk G of `2026-11-17-future-wars-originals.md`, steps ticked; ledger "Future Wars Chunk G" at the end of
+`.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress.md`):
+- Read from page images: Stock FW #16 pp.32-36 (+ Pioneer sheet), Eid FW #25 pp.6-7, Reese FW #36 pp.14-21 (+ his
+  UNION-12, THUNDERWOLF, GOLIATH-R sheets), Houseman FW #36 pp.22-23, Best-of p.7, DS&JS Leopard/Union/Overlord.
+- Best-of prints Stock's rules unchanged (only wording): ONE Stock ruleset, no printing twin.
+- Canon test: no method rebuilds the Leopard, Union or Overlord at canon tonnage (Stock + Eid closest: 88 / 268 /
+  1,146 t over). Methods get built as written; the readout will print the table.
+- Findings: Pioneer sheet engine 990 t vs Stock's own rule 780 t; DS&JS prints the Union's 12 'Mech cubicles as 600 t
+  (Leopard and Overlord price 150 t each); Reese's UNION-12 "First Introduced 3008 EII Industries, UR System" ties to
+  Ellena Industries (FW #24).
+- Build plan written: `docs/superpowers/plans/2026-11-19-future-wars-dropships.md` (5 tasks: rulesets + tables, the
+  four methods as pure functions, SmallCraft integration on the Primitive pattern, creator/sheet, values/samples/
+  readout/news).
+OPEN, ASKED IN CHAT (the plan's "Questions for NGCFells"): Q1 Stock's "look in DS/JS" values: nearest-ship table or
+player types them; Q2 Pioneer engine as printed or to the rule; Q3 Houseman integrity above 8: extend 3% a point or
+cap at 8; Q4 Reese's model-volume tonnage calculator; Q5 bring in the six sample designs; Q6 BV/cost by edition
+rules on the design as built.
+NEXT: write NGCFells's answers into the DropShip plan, then build it (Task 1 can start now: rulesets, Eid/Reese/
+Houseman tables, FW #25/#36 years). Or H / K + K2 (Kin = alternate universe; own TRO) / COIL-alt while G waits.
+
+# Previous (2026-11-18, Opus 5.5): LOPUNNY'S THUNDERBOLTS DONE, HS LRM DATE FIXED, DEPLOYED
 
 FIRST: check memory (MEMORY.md and every file it links), the standing rules and the guidelines (CLAUDE.md, plan
 conventions, NGCFells naming, OCR-correct-from-PNG, no heredocs, verify against catalogs, era-honest dating, vitest in
