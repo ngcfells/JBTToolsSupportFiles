@@ -42,6 +42,10 @@ it. Only mentions: FW #14 p.46 Power Booster row (heat 5 / dmg 20 / range 8) and
 for the Hellborer and Gatling Laser stats; no answer printed). Every extract (MWT #1-2, FW #3-#41) searched, image-only
 pages of FW #3-#10 + MWT OCR'd (FW #9/#10 even pages are blank versos). Likely on FW #14's lost printed pp.39-42 or
 never published. FW #8 pp.5, 7, 9, 35 now transcribed into the ResourceLibrary extract.
+WEB 2026-11-18: no Hellborer stats online (Sarna, BG forums, Solaris7; btechwep.doc fan list). Sarna Future Wars page
+lists Power Booster only under Best of FW. Unrelated later uses: "Intek Hellborer" medium laser = canon brand name on
+the Shadow Hawk SHD-5D (Project Phoenix era, ResourceLibrary OperationPhoenix.txt); "Hellborer 120mm" in Toastrider's
+HGB-6X Hobgoblin forum design (Sarna forums, 2002). Neither is the 1989 FW weapon.
 NEXT: the QUEUED Lopunny entry, then G / H / K + K2 (Kin = alternate universe unless an article references the Far
 Country birds; own TRO) / COIL-alt.
 
