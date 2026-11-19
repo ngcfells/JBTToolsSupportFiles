@@ -1,10 +1,29 @@
-# START HERE (2026-11-17, Opus 5.5, latest): CHUNK R2 DONE (FUTURE WARS PRINTING ALTERNATES), DEPLOYED
+# START HERE (2026-11-18, Opus 5.5, latest): LOPUNNY'S THUNDERBOLTS DONE, HS LRM DATE FIXED, DEPLOYED
 
 FIRST: check memory (MEMORY.md and every file it links), the standing rules and the guidelines (CLAUDE.md, plan
 conventions, NGCFells naming, OCR-correct-from-PNG, no heredocs, verify against catalogs, era-honest dating, vitest in
 PowerShell only) before doing anything else.
 
-QUEUED (NGCFells, 2026-11-17, after Chunk R2): new entry from Lopunny (Queer Tech Discord; credit "Lopunny, Queer
+STATE. beta = origin/beta = 561abe262, deployed (`git deploy-beta`). `npm run check` green (5557 unit + 28 data, build OK,
+3 known lint warnings). News entry "November 18th, 2026 - Heat-Seeking Thunderbolts and Thunderbolt torpedoes".
+DONE (561abe262; test `src/data/lopunny-thunderbolt.test.ts`):
+- Heat-Seeking Thunderbolt 5/10/15/20 ammo (`ammo-is-thunderbolt-N-heat-seeking`, ammo-custom.ts generator): intro 3082,
+  TO:AUE p.181 rules, shots a ton = the standard round's (Lopunny's change; canon HS halves them), cost x2 and
+  battleValueMultiplier 1.5 (canon HS factors, NGCFells's since Lopunny gave none), rating E.
+- Thunderbolt Torpedo 5/10/15/20 (`custom-thunderbolt-torpedo-N`, missile-custom.ts) + ammo
+  `ammo-is-thunderbolt-torpedo-N-standard`: every figure copied from the canon Thunderbolt records, intro 3082, water-only
+  torpedo rule, AS notes TOR. Missile and torpedo ammo do not cross (tested).
+- TRO - JBT sections: "Thunderbolt: Heat-Seeking Ammo" (ammunition-tro.md, intro line no longer says "built by
+  NGCFells") and "Thunderbolt Torpedoes" (homebrew-equipment-tro.md); test checks their figures against the catalog.
+- FIX (NGCFells, 2026-11-18): `ammo-lrm-heat-seeking` introduced 2430 / prototype 2390 was a transposition; now
+  introduced 2340 (TO:AUE p.181 and tables, every TacOps printing, IO:AE table), prototype removed (none printed).
+OPEN for NGCFells: (1) a post link for Lopunny's entry, if one exists (records say "no post link"); (2) server spelling:
+these records say "Queer Tech Discord" (the handoff's form), Xenosama's say "QueerTech Discord" - pick one.
+NEXT: G / H / K + K2 (Kin = alternate universe unless an article references the Far Country birds; own TRO) / COIL-alt.
+
+# Previous (2026-11-17, Opus 5.5): CHUNK R2 DONE (FUTURE WARS PRINTING ALTERNATES), DEPLOYED
+
+QUEUED (DONE 2026-11-18, see above) (NGCFells, 2026-11-17, after Chunk R2): new entry from Lopunny (Queer Tech Discord; credit "Lopunny, Queer
 Tech Discord", name the server, ask NGCFells for a post link if one exists):
   1. Heat-Seeking Thunderbolt ammo, intro 3082. Rules: the same rules as Heat-Seeking LRM ammo, but NO ammo-tonnage
      change (shots per ton stay the Thunderbolt's).
