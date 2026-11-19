@@ -17,8 +17,8 @@ DONE (561abe262; test `src/data/lopunny-thunderbolt.test.ts`):
   NGCFells") and "Thunderbolt Torpedoes" (homebrew-equipment-tro.md); test checks their figures against the catalog.
 - FIX (NGCFells, 2026-11-18): `ammo-lrm-heat-seeking` introduced 2430 / prototype 2390 was a transposition; now
   introduced 2340 (TO:AUE p.181 and tables, every TacOps printing, IO:AE table), prototype removed (none printed).
-OPEN for NGCFells: (1) a post link for Lopunny's entry, if one exists (records say "no post link"); (2) server spelling:
-these records say "Queer Tech Discord" (the handoff's form), Xenosama's say "QueerTech Discord" - pick one.
+SETTLED (NGCFells, 2026-11-18; ba6f78dee, deployed): Discord items have no link; the server is "QueerTech Discord"
+(one word). Lopunny's records, readouts and news now say so (memory tro-jbt-link-sources).
 NEXT: G / H / K + K2 (Kin = alternate universe unless an article references the Far Country birds; own TRO) / COIL-alt.
 
 # Previous (2026-11-17, Opus 5.5): CHUNK R2 DONE (FUTURE WARS PRINTING ALTERNATES), DEPLOYED
