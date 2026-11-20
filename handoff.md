@@ -1,4 +1,39 @@
-# START HERE (2026-11-20, Opus 5.5, latest): CAMPAIGN PLAY: E2c DONE (M5, M7, M10, M13); NEXT IS E2d (LAST MINORS)
+# START HERE (2026-11-20, Opus 5.5, latest): CAMPAIGN PLAY: E2d DONE (M2, M9, M14, M15, M12 ruling); NEXT IS E2e
+
+FIRST: check memory, rules and guidelines before anything else.
+
+RULE (NGCFells, 2026-11-20): minors are NOT deferred. Fix them in small batches before batch F (ship).
+
+BATCH DONE THIS SESSION: E2d. HEAD of work/2026-11-19 = 4fa62fae6 "Campaigns: review minors M2, M9, M14, M15".
+- M2: 1987 destroyed lines keep salary, supplies and morale (p.50: the MechWarrior "would become Dispossessed") but make
+  no support SP, earn no reputation and are not contract squads (p.38: "useless", no maintenance). New
+  `IMh1987MonthlyCosts.fieldSquads`; mh1987SignContract uses it; 1987 Readings note says so. Both pages read on the
+  page images. New Ruling line in the ledger.
+- M9: `getFactionName(code, date)` in star-systems.ts reads new `src/data/star-systems/data/factions.json` (built by
+  new `scripts/star-systems/import_mekhq_factions.py` from MekHQ data/universe/factions + commands; name changes by
+  year; 208 of 210 owner codes named, CEI and SE shown as codes). Owner named for the campaign date, garrison for its
+  own date (Tharkad 3055 = Federated Commonwealth; 3054 garrison = Lyran Commonwealth). Log shows "Month 3" once; sites
+  empty state "None in the books checked so far." Credits file updated.
+- M14: campaign-home memoises the jump searches (useMemo above the early returns, keyed by strings).
+- M15: `CAMPAIGN_MAX_EDITION_STATE` = 2,000,000 chars of JSON; import throws; backup restore already skips it.
+- M12: Ruling line only (after-battle form not built; damage roller, Held by, Resolve month and hand ledger entries
+  cover it). ASKED NGCFells to confirm or ask for the form.
+- Tests watched fail first (the M9 log/sites assertions were not separately watched fail: the owner assertion failed
+  first; noted in the ledger). `npx vitest run src/classes/campaign src/data/campaign-editions src/data/star-systems
+  src/ui/pages/game-management src/ui/components` = 604 passed; tsc and eslint exit 0.
+- ResourceLibrary b6eec324b (local, not pushed): p.38 "iabor" -> "labor" in the 1987 scan and FanPro extracts
+  (byte-exact; the Edit tool and Git Bash sed both rewrite line endings in those mixed-ending files, so use a binary
+  Python replace there).
+- NGCFells's note (2026-11-20): any merc unit names itself, it need not be the Kell Hounds. Already so: the player's
+  unit is a side with a free-text Side name. "Kell Hounds" appears only in the 3055 Mercenary Employer table (book
+  data). Renaming a side after creation is part of M4.
+
+NEXT: batch E2e, test first: M4 setup editor (add/rename sides, rename campaign, set/change planet and start date;
+fixes the "no planet" dead end) and M8 (1987 and 3055 contract end early / breach; a completed 3055 contract adds 1 to
+"Contracts completed" in the rating inputs; check the 3055 Dragoons Rating pages first). Then the scoped re-review
+(FIX_BASE f2eeb1d72..HEAD), then batch F (ship).
+
+# Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2c DONE (M5, M7, M10, M13); NEXT WAS E2d
 
 FIRST: check memory, rules and guidelines (see the blocks below) before anything else.
 
