@@ -1,6 +1,28 @@
-# START HERE (2026-11-20, Opus 5.5, latest): CAMPAIGN PLAY: E2a DONE (I1, I2, I4 FIXED); NEXT IS E2b
+# START HERE (2026-11-20, Opus 5.5, latest): CAMPAIGN PLAY: E2b DONE (I3 + 5 MINORS); NEXT IS E2c (MORE MINORS)
 
 FIRST: check memory, rules and guidelines (see the block below) before anything else.
+
+RULE (NGCFells, 2026-11-20): minors are NOT deferred. Fix them in small batches before batch F (ship).
+
+BATCH DONE THIS SESSION: E2b. HEAD of work/2026-11-19 = 3c7306b53 "Campaigns: readings note and the cheap review
+minors (I3, M1, M3, M6, M11)".
+- I3: "Readings" note in edition-mh1987.tsx (testid mh1987-readings: Rulings 46-50) and edition-mh3055.tsx
+  (mh3055-readings: Rulings 7/55, 61, 62, 63, 64). Names NGCFells, "Inspired by" wording.
+- M1 (1987 post rounds first), M3 (Grouping options "Only <combo>"), M6 (import de-duplicates rulesetIds, throws on
+  version > CAMPAIGN_EXPORT_VERSION), M11 (campaign-rules.test restores the registry), L74 (select min-width 8rem;
+  not Chromium-checked).
+- Tests watched fail first. `npx vitest run src/classes/campaign src/data/campaign-editions
+  src/ui/pages/game-management src/ui/components` = 580 passed; tsc and eslint exit 0. Ledger updated (FIXED lines and
+  an OPEN line listing the rest).
+
+NEXT: batch E2c, small: the next few open minors, each test first. Open: M2 destroyed lines count as live (check
+pp.36-39), M4 setup editor, M5 stale update in useCampaign (functional setState / ref), M7 3055 months not enforced,
+M8 contract end/breach + rating count, M9 raw/repeated display text, M10 failed star-system load cached, M12
+after-battle form, M13 orphaned GM dot types / 0 value, M14 memoise jumps, M15 editionState size cap. Suggested E2c:
+M5, M7, M10, M13 (small, contained). Then the scoped re-review (FIX_BASE f2eeb1d72..HEAD) once all minors are in,
+then batch F (ship).
+
+# Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2a DONE (I1, I2, I4 FIXED); NEXT IS E2b
 
 BATCH DONE THIS SESSION: E2a. NGCFells asked for the three larger Important findings only, kept small (weekly
 budget nearly out). HEAD of work/2026-11-19 = 59200bfba "Campaigns: fixes from the final review (I1, I2, I4)".
