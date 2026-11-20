@@ -1,4 +1,66 @@
-# START HERE (2026-11-20, Opus 5.5, latest): CAMPAIGN PLAY SHIPPED TO BETA
+# START HERE (2026-11-20 late, Opus 5.5, latest): #600 VEHICLE FIXES COMMITTED, NOT SHIPPED; LRM AGENT WORK UNCOMMITTED
+
+FIRST: check memory, rules and guidelines (MEMORY.md and its links; vitest in PowerShell only; no bash heredocs with
+apostrophes; OCR-correct-from-PNG; NGCFells naming; cheapest subagent model).
+
+STATE of `C:/repo/btt-rebuild` (branch bv-gaps, 5 commits ahead of origin/beta 98a1691b6, NOT pushed, NOT deployed):
+
+- c1a97e34e Illegal flag: `BLK_ILLEGAL_AS_PRINTED` in src/data/blk-design-corrections.ts (curated, checked designs
+  only), header field `illegal` (bundled-designs.ts), `getBundledIllegal` in bundled-units-build.ts, badge
+  src/ui/components/illegal-design-badge.tsx in the roster Add Unit list. Only the two armed Brunels are listed.
+- f2a1fa5a0 Star-system credit: "the JBT star system catalog, built by NGCFells on MegaMek Data (CC BY-NC-SA 4.0)"
+  (NGCFells: vetted against our books, it is ours; the licence credit stays).
+- aee4de634 BIG FIX: vehicle-blk.ts read MegaMek engine codes with Engine's constants instead of BLKFile's
+  (0 fusion, 1 ICE, 2 XL, 3 XXL, 4 light, 5 compact, 6 fuel cell), since 2730526c1 (Oct 27). Every fusion vehicle was
+  ICE and vice versa. BV unchanged; costs changed for 828 Combat + 74 Support Vehicles (bundle rebuilt). Same commit:
+  trailer engine "none" set after chassis mods; industrial tools (onePerLocationGroup "industrial-tool") allowed on
+  vehicles (TM pp.241-247); "Cargo:SIZE:n" equipment lines become cargo bays; overweight added to
+  getSupportVehicleIssues ("X tons used of Y"). Brunels now 168.5 of 150 t (ICE) + slots: flagged.
+- a5b817fea Sponsons: 10% of both sponsons' weapons, rounded once; no equal-tonnage rule (TO:AUE p.158 corrected 7th
+  printing, page image read). getSponsonIssue now always null.
+- (last) News commit: November 20th entry has the Brunel/illegal, vehicle-engine and sponson bullets.
+
+UNCOMMITTED in btt-rebuild (the astech LRM agent's work, Sonnet; it was STILL RUNNING when the session ended):
+src/classes/battlemech.ts, battlemech-as-heat.test.ts, src/utils/alphaStrikeHeat.ts, alphaStrikeHeat.test.ts. It
+implements Alpha Strike Companion p.101 low ammo (x0.75 under 10 shots per launcher; 20 UAC, 60 RAC; one-shot x0.1;
+MML shots = both counts halved). Finding: explains 20 of 26 Clan LRM 20 MUL misses (Bowman, Mad Cat III, Scylla,
+Timber Wolf, Stalker...). BUT its first full run regressed 40 designs (rocket launchers, MML, RAC carriers); it was
+testing rule variants (src/zz-local/ammo-variants.test.ts, outputs in src/zz-local/out/). NEXT SESSION: review the
+diff, rerun `AS_CHECK=label npx vitest run --project unit src/zz-local/as-mul-check.test.ts` (PowerShell) before/after,
+keep only a reading that nets positive with no unexplained regressions, cite ASC p.101, then commit. If unsure,
+`git diff > patch` it aside and discard.
+
+THEN SHIP: `npm run check` (PowerShell), push bv-gaps HEAD to origin beta (fast-forward), `git deploy-beta`.
+
+OPEN LISTS (not flagged; each needs its book entry read before any flag or correction):
+
+- 14 Support Vehicle files with real-looking issues: Estevez MBT/AA and Trireme (CS) BAR 10 at Tech C; Crimson Streak and
+  Saturnus V Ultra-Light over BAR 5; Prometheus 31/12 slots, Debbie 23/13, Lexan Surveillance Helo 7/6, Sturmvogel
+  LB-10X/LB-2X 11/10; Air Car (ICE no fuel, BAR 10 without Armored, 42.5/40); Hi-Scout (NapFind) structure tech;
+  Jonah (unarmored locations); Outrider (seat short). Probe: src/zz-local/sv-issues-probe.test.ts (SV_ISSUES=out.tsv).
+- 4 Combat Vehicles over tonnage: Ajax Assault Tank C, Skulker C, Sokar (+0.5 each), Pandion 3140 Upgrade (+2). Probes:
+  weight-probe.test.ts (WEIGHT_PROBE=out), weights-list.test.ts (WEIGHTS_LIST="rel.blk;..." WEIGHTS_OUT=out).
+- 6 Clan LRM 20 misses not explained by ammo: Doloire DLR-OC, Highlander IIC 4, Hybrid Rifleman Sneede II, Kodiak II,
+  Tundra Wolf, Vapor Eagle 5.
+
+NGCFELLS RULINGS 2026-11-20: campaigns stay in the app, no companion app; star catalog is ours (credit kept); Brunels
+stay as printed, flagged illegal; UL-14's two dozers are front and rear (legal, BV 40); uninstall old PowerShell.
+
+OTHER PENDING:
+
+- PowerShell: 7.7.0 is installed only as MSIX (WindowsApps); the MSI 7.6.10 in C:\Program Files\PowerShell\7 is first
+  on PATH. NGCFells said uninstall the old one. 7.7.0 has no MSI. Do it when no PowerShell-hosted job is running
+  (it closes all pwsh terminals, including the Claude PowerShell tool host; the OCR runs on the 7.7.0 copy).
+- OCR re-run (ResourceLibrary): resumed on pwsh 7.7.0 at the 'new' stage (21 files, 583 pages), then redo, then index.
+  Script: session scratchpad reocr/resume2.ps1, log reocr/run.log. Push its commits when they land (text layers
+  7b8c37b6f already pushed). Never commit the other agent's files (future-wars-08 txt, SARNA-LINKS.md, scrapes/reddit,
+  records/_ocr-textlayer.jsonl outside the OCR's own commits).
+- YAML question answered: the app ships sharded JSON (1.46 MB gz total; a page loads ~230 KB). Optional: pack the
+  index as columns (packed-json) for ~20-30% less download.
+
+NEXT AFTER SHIP (NGCFells): AirMech mode in play, then close issues with NGCFells.
+
+## Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY SHIPPED TO BETA
 
 FIRST: check memory, rules and guidelines before anything else (MEMORY.md and every file it links; btt-work CLAUDE.md;
 NGCFells naming; OCR-correct-from-PNG; no heredocs with apostrophes; vitest in PowerShell only).
