@@ -1,4 +1,4 @@
-# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: TASK 14 (MH 3055) COMMITTED; NEXT IS BATCH D (CHROMIUM CHECK)
+# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: BATCH D (CHROMIUM CHECK) DONE; NEXT IS BATCH E (FINAL REVIEW)
 
 FIRST: check memory, rules and guidelines before anything else: MEMORY.md and every file it links, the repo's
 `.claude/rules/*.md` (btt-work has none; CLAUDE.md), the plan conventions, NGCFells naming, OCR-correct-from-PNG, no
@@ -7,7 +7,24 @@ heredocs, verify against catalogs, era-honest dating, vitest in PowerShell only.
 WORKING STYLE (NGCFells, 2026-11-19): small batches, with a handoff and a /clear between each. Do ONE batch below,
 update this block, commit the handoff, stop.
 
-BATCH DONE THIS SESSION: C (screen). HEAD of work/2026-11-19 = a76f6fc83 "Mercenary's Handbook 3055 edition" (A + B + C
+BATCH DONE THIS SESSION: D (Chromium check, Task 11 Step 5). HEAD of work/2026-11-19 = f2eeb1d72 "Campaigns: fixes
+from the Chromium check". Beta still 005f2972b, not merged.
+- Walked in Chromium (vite dev, port 5231): 1987 campaign on Hesperus II 3025 (squads, roll mission + employer
+  positions, negotiate, sign, advance, Resolve month, planet page areas/dots/seed, payday) and 3055 campaign on
+  Tharkad 3055 (combatants, personnel, roll offers/employer/job/support, sign, advance to completion, payday). Every
+  ledger figure hand-checked. No console errors.
+- Four bugs fixed TDD (each test watched fail): Economics payday booked as currency "C" while both editions use
+  "C-bills", so side totals left paydays out (core default + Economics now "C-bills"); planet page back links one
+  level off (relative="path"); no Campaigns entry in the Game Management section menu (added, tag
+  game-management-campaigns); tables clipped at phone width (.campaign-table scrolls under 768px, Chromium-checked).
+  Also "our books" user text reworded (naming rule).
+- `npx vitest run src/classes/campaign src/data/future-wars-economics.test.ts src/data/campaign-editions
+  src/ui/pages/game-management src/ui/components` = 586 passed; app-router + home tests pass; tsc and eslint exit 0.
+- Ledger: Task 11 Step 5 lines, plus two deferred minors (Hesperus II MegaMek 3025 population/USILR vs Handbook:
+  House Steiner p.89's 3067-era 55,000 / A-A-A-A-B; narrow selects at phone width). Hesperus II 85 C matches p.88.
+- NEXT: batch E = item 3 below (final whole-branch review, then one fix pass).
+
+EARLIER BATCH: C (screen). HEAD of work/2026-11-19 = a76f6fc83 "Mercenary's Handbook 3055 edition" (A + B + C
 in one commit). Beta still 005f2972b, not merged.
 - `src/ui/pages/game-management/campaigns/edition-mh3055.tsx`, mounted on campaign-home when editionId is mh-3055:
   unit side; Combatants (template, quality, count, SP) and Personnel (position, experience, count, anti-'Mech) tables;
@@ -66,8 +83,9 @@ NEXT BATCHES, one per session:
 - A. DONE (see above).
 - B. DONE (see above).
 - C. DONE (see above).
-- D. (NEXT) item 2 below: the Chromium check, now with both Mercenary's Handbook editions.
-- E onward: items 3-5 below (final review, ship, final message). Item 1 (Task 14) is DONE.
+- D. DONE (see above): item 2, the Chromium check.
+- E. (NEXT) item 3 below: final whole-branch review + fix pass.
+- F onward: items 4-5 below (ship, final message). Items 1 and 2 are DONE.
 
 WHERE. Worktree `C:/repo/btt-work`, branch `work/2026-11-19`; check `git branch --show-current` before every commit.
 - Plan: `docs/superpowers/plans/2026-11-19-campaign-play.md`.
