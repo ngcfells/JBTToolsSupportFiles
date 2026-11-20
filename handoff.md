@@ -1,4 +1,190 @@
-# START HERE (2026-11-19, Opus 5.5, latest): FUTURE WARS CHUNK G (DROPSHIPS) READ AND PLANNED; 6 QUESTIONS OPEN
+# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: 3055 TEST WRITTEN (RED), IMPLEMENT NEXT
+
+FIRST: check memory, rules and guidelines before anything else: MEMORY.md and every file it links, the repo's
+`.claude/rules/*.md` (btt-work has none; CLAUDE.md), the plan conventions, NGCFells naming, OCR-correct-from-PNG, no
+heredocs, verify against catalogs, era-honest dating, vitest in PowerShell only.
+
+WORKING STYLE (NGCFells, 2026-11-19): small batches, with a handoff and a /clear between each. Do ONE batch below,
+update this block, commit the handoff, stop.
+
+BATCH DONE THIS SESSION: Task 14 Step 1 (RED).
+- `src/data/campaign-editions/mercenarys-handbook-3055.test.ts` written in btt-work, 21 cases, uncommitted. It fails
+  only because `mercenarys-handbook-3055.ts` does not exist.
+- Task 14 rulings (1, 5, 6, 7, plus Marik modifiers add and Hearing 24+) are in the ledger.
+- Reading the test is the spec for the module: it imports `IMh3055Person` {id, position, quality, count, antiMech},
+  `MH3055_SALARIES`, `MH3055_EXPERIENCE` (record by quality), `MH3055_TEMPLATES` ({name, cost, support} by id such as
+  `heavy-mech`, `motorized-rifle`, `battle-suits`, `long-tom`), `MH3055_MISSIONS` ({multiplier, minMonths}),
+  `mh3055Payroll`, `mh3055Maintenance`, `mh3055SupportPoints`, `mh3055WeeklyOverhead(total, months)`,
+  `mh3055DragoonsRating`, `mh3055RatingBand`, `mh3055ContractOffers(roll, rating)`, `mh3055EmployerRoll`,
+  `mh3055MinorPowerRoll`, `mh3055JobTable(employer)`, `mh3055JobRoll(employer|"special", roll)` →
+  {missions, target?, supporting?, special?}, `mh3055EmployerMultiplier(employer, corpRoll?)`, `mh3055ContractPay`,
+  `mh3055StraightSupport` / `mh3055BattleLoss(roll, rating, employer)`, `mh3055Transport(d6, "ships"|"commercial")`,
+  `mh3055Salvage(roll, employer, vsClans)`, `mh3055ContractHearing(roll)` → {fine, banMonths, disbanded}.
+- Payment check read on the page (p.105-106 text): monthly salaries x rating x employer x mission, plus bonuses, x months.
+
+NEXT BATCHES, one per session:
+- A. Step 2: write `mercenarys-handbook-3055.ts` (pure tables and functions only) until the 21 pass; tsc + eslint.
+- B. State + hooks: `IMh3055State`, read-state, sign contract (25% advance, 5% fee; A-rated all up front +2%),
+  `onStep` (2 paydays, 4 weeks of maintenance shortfall and overhead), `MH3055_EDITION`; register in `index.ts`.
+  Tests first.
+- C. `edition-mh3055.tsx` mounted on campaign-home + a screen test in campaigns.test.tsx; then commit
+  "Mercenary's Handbook 3055 edition" and write the Task 14 complete line.
+- D onward: items 2-5 below (Chromium check, final review, ship, final message).
+
+WHERE. Worktree `C:/repo/btt-work`, branch `work/2026-11-19`; check `git branch --show-current` before every commit.
+- Plan: `docs/superpowers/plans/2026-11-19-campaign-play.md`.
+- Spec: `docs/superpowers/specs/2026-11-19-campaign-play-design.md`.
+- Ledger: `.superpowers/sdd/2026-11-19-campaign-play/progress.md`, git-ignored. Every task with a
+  "Task N: complete" line is done; do not redo it.
+- Executing with superpowers:executing-plans (Native). Commit messages go in a Write'd file and are committed with
+  `git commit -F`. Footer: "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>".
+
+STATE. HEAD = 5e3c7f1f3 "Mercenary's Handbook 1987 edition". It is not merged to beta; beta is still 005f2972b.
+- Done: Tasks 1-11 (campaign core, Future Wars Economics merged by NGCFells's decision, damage table, star-systems
+  catalog with Objectives sites and garrisons, in-app screens) and Task 13.
+- Task 13 is the Mercenary's Handbook 1987 edition:
+  - `src/data/campaign-editions/mercenarys-handbook-1987.ts` (+ test, 20 cases).
+  - Shared helpers in `src/classes/campaign/unit-campaign.ts`.
+  - Panel `src/ui/pages/game-management/campaigns/edition-mh1987.tsx`, shown on campaign-home when editionId is
+    mh-1987.
+  - An Edition select on the new-campaign form (list.tsx).
+  - `campaignDice.roll1d6` and `campaignRoll` in campaign-store.ts.
+- Tests: `npx vitest run src/ui/pages/game-management/campaigns src/data/campaign-editions` gives 33 passed. tsc and
+  eslint are clean.
+- NGCFells asked for both Mercenary's Handbook editions to be in before shipping.
+
+NEXT, in order:
+1. **Task 14: the Mercenary's Handbook 3055 edition.** The plan's Task 14 has the interfaces and test list.
+   - Every verified number (pay, Combatant Templates, support, Dragoons Rating, employer and job tables, multipliers,
+     support, transport, salvage, Contract Hearing, disbursement) is in
+     `.superpowers/sdd/2026-11-19-campaign-play/mh3055-tables.md`.
+   - The salvage table is now checked on the p.108 page image: 2-7 no rights, 8-11 exchange, 12-14 full.
+   - The tables file also has the Crimson Crusaders payroll breakdown, usable as the payroll test (salaries are
+     per person; infantry squads are 7), and the maintenance rules from pp.86-88.
+   - Nothing for Task 14 is written yet: no test, no code.
+   - The text is in `C:/repo/ResourceLibrary/text/MercenarysHandbook3055-FASA-1670-1993-Scan.txt`, form-feed pages;
+     page index i is printed page i+1.
+   - Page images: pymupdf on `C:/repo/JBTIICRework/rpg/MercenarysHandbook3055(FASA-1670)[1993]-Scan.pdf`, PDF
+     index i = printed p.i+1.
+   - Follow the 1987 pattern: test first, run it to watch it fail, then the implementation.
+     - Write `mercenarys-handbook-3055.test.ts` and `mercenarys-handbook-3055.ts`.
+     - Register the edition in `src/data/campaign-editions/index.ts`.
+     - Build `edition-mh3055.tsx` and mount it in campaign-home.
+     - Add a screen test to campaigns.test.tsx.
+   - Rulings 1, 6 and 7 are listed in that file; ledger them as Task 14 rulings.
+   - Commit "Mercenary's Handbook 3055 edition".
+2. **Task 11 Step 5: the Chromium check (deferred).**
+   - `npm start`, then open Game Management > Campaigns.
+   - Create a campaign with each edition, add squads, advance, negotiate and sign, resolve a month.
+   - Check the planet page as well.
+3. **The final whole-branch review.**
+   - Run `review-package` from superpowers:subagent-driven-development.
+   - Reviewer: the most capable model, with superpowers:requesting-code-review's code-reviewer.md.
+   - Then one fix pass: RED then GREEN for each Critical or Important finding; Minor findings go to the ledger as
+     deferred.
+4. **Task 12: ship.** Standing permission covers all of this; never touch upstream.
+   - Write a news entry for campaign play, covering Economics, star systems and both Mercenary's Handbook editions.
+     Credit with "Inspired by" where a rule is extrapolated, and name NGCFells as the decider.
+   - `npm run check` must be green.
+   - Then: merge to beta, push, `git deploy-beta`, and a new handoff.
+5. **The final message to NGCFells lists:**
+   - Every `Ruling:` line in the ledger, with its cost if wrong.
+   - Every deferred minor.
+   - Deferred work:
+     - Advanced Campaign System (1987 pp.51-53+).
+     - 1987 hirelings, profit sharing, mutiny and back pay, and the supply delivery pipeline.
+     - The 3055 per-design Combat Value import (about 650 equipment rows).
+     - Objectives sites from DC, FWL, LA, Periphery and Clans; Field Manual deployments; Major Periphery systems.
+   - Unanswered: companion app or in-app. The screens are in-app for now (Task 11 ruling).
+
+KNOWN:
+- The star-systems test that failed at Task 11 now passes: `npx vitest run src/data/star-systems` gave 13 passed
+  on 2026-11-19, after Task 6's ff55a20.
+- The Task 13 completion line was written by hand, not by task-done.
+
+RESOURCELIBRARY (`C:/repo/ResourceLibrary`, branch main):
+- Mercenary's Handbook extracts are corrected from page images:
+  - 3055: commit 3d6cf40e5.
+  - 1987 scan and reprint: commit 08ac76604.
+  - Both are recorded in `text/_corrected_pages.md`.
+- If you read more pages, correct the extract from the PNG as you go.
+- Another agent has uncommitted OCR files there (Future Wars, BattleTechnology). Stage only your own files.
+
+# Previous (2026-11-19, Opus 5.5): FUTURE WARS DROPSHIPS CLOSED
+
+FIRST: check memory, rules and guidelines (see the blocks below) before anything else.
+
+STATE. beta = master = origin = 005f2972b, deployed. Beta is checked out NOWHERE now: battletech-tools-master was switched to card-reader-exact-pixels at 12:17 by another session; battletech-tools is on master. BV round #599 merged; mordel-user-key brought up to beta (411b2167b, check green, pushed, not merged). Upstream PR #115 closed by our branch delete; replaced by PR #122 (everything, head bundle/everything-2026-11-19, never delete). `npm run check` green (5596 + 28, build OK, 3 known warnings).
+
+DECIDED (NGCFells, 2026-11-19; bc6a9ff88):
+- ECM on DropShips allowed (TM p.213 text over the p.342 table's NA; AT2R p.25 agrees). ecm-suite and
+  clan-ecm-system dropShip 1. THUNDERWOLF has its Guardian ECM back (nose); 368 t over by Reese's rule.
+- C3 never on DropShips (TM p.209; AT2 errata). Answered: no C3 master, but TAG (already allowed) designates.
+- Houseman free heat sinks = TM p.193 military rule, thrusters as engine. 480 thrust points a ton stays.
+- UNION-12 fire-factor note verified against DS&JS p.41.
+
+OPEN: none. Active probes (Beagle, Clan, Light, Bloodhound) now allowed on DropShips (1ab9f41e5), ECM precedent: TM p.204 text, AT2R p.25, TO 2008 Bloodhound "Available To: DS"; only TM p.342 table says NA. News bullet added.
+NEXT: H / K + K2 (Kin = alternate universe; own TRO) / COIL-alt.
+ResourceLibrary: another agent is active there; leave it.
+
+# Previous (2026-11-19, Opus 5.5): DROPSHIP FOLLOW-UPS DONE (Q2/Q3 since decided, see above)
+
+FIRST: check memory (MEMORY.md and every file it links), the standing rules and the guidelines (repo
+`.claude/rules/*.md`, plan conventions, NGCFells naming, OCR-correct-from-PNG, no heredocs, verify against catalogs,
+era-honest dating, vitest in PowerShell only) before doing anything else.
+
+STATE. beta = origin/beta = ff2883a02, deployed (`git deploy-beta`). `npm run check` green (5596 unit + 28 data, build
+OK, 3 known lint warnings). News: "Fixes." bullet added to the November 19th entry.
+DONE (ff2883a02), from NGCFells's answers to the flag list:
+- 1 "ours": every user-facing "ours"/"of ours" as decider now names NGCFells (special-rulesets, battlemech, micro-mech,
+  walker, ammo/energy/misc custom, equipment-energy, mech-custom-engine-types, walker-construction/samples, walker
+  creator home, best-of-FW lore). BV accuracy notes say "the JBT value" (matches the page's "JBT BV" column). Code
+  comments and internal keys (`ours:` field, source "ours") left as they are.
+- 4 Reese's "slips" = arithmetic mistakes (NGCFells: good).
+- 5 BUG fixed: Small Craft Creator home intro now covers DropShips (200-35,000 aerodyne / 100,000 spheroid) and
+  Primitive craft (IO:AE pp.119-121) plus the Future Wars methods.
+- 6 Readout "Their Own Arithmetic": UNION-12 sheet copies the book Union's fire factors (DS&JS p.41: nose 5, sides
+  6, rear sides 2, aft 2) but prints sides 2; the book matches LRM-20 counted at 12; the Compendium rule (FW #36 p.16,
+  FW #25 p.6) gives nose 7, sides 8, rear/aft 2; the sheet prints the rule's.
+- 7 ResourceLibrary: left alone. Another agent is active there (BattleTechnology-Issue-0101 OCR, _ocr_queue.log);
+  `text/future-wars-08-Qyhm8x.txt` (FW #8 page transcription) is still uncommitted and probably from this project's
+  2026-11-18 session. ocr_extract.py is no longer modified.
+WAITING ON NGCFELLS:
+- Q2 ECM/C3 on DropShips. Findings: TM p.209 bars C3 from fighters, small craft and DropShips; AT2 errata 1.2 and
+  AT2R p.25 bar C3 from all aerospace craft. ECM: AT2R (2004) p.25 says DropShips MAY carry ECM (works only on BT
+  maps); AT2 errata lists ECM for AT2 units; TM p.213 text says "Unit Restrictions: None" and "Fighters, Small Craft
+  and DropShips may only use ECM suites when interacting with ground units", BUT the TM table p.342 prints DS = NA for
+  the Guardian ECM Suite (and Beagle). Catalog follows the table (ecm-suite / clan-ecm-system dropShip -1). I briefly
+  flipped it and reverted. NGCFells to decide: table or text (or an alternate ruleset per [[reprint-vs-original]]).
+  THUNDERWOLF keeps ECM and C3 off with a note citing p.342.
+- Q3 Houseman heat sinks / fuel. Pages rendered (FW #36 pp.22-23, PDF index 21-22) and sent; extract already matches.
+  Houseman never mentions heat sinks; D. Internal Power is "a fusion plant like the ones used in mechs" (2% of mass).
+  Fuel: "3 tons of fuel for each point of thrust/day", no thrust points a ton. Current readings: heat sinks 1 t each,
+  none free; 480 thrust points a ton. TM p.193 gives military DropShips free heat sinks (engine/20 aerodyne,
+  sqrt(engine x 6.8) spheroid); fighters get engine-integral ones.
+NEXT: NGCFells's calls on Q2 and Q3, then H / K + K2 (Kin = alternate universe; own TRO) / COIL-alt.
+
+# Previous (2026-11-19, Opus 5.5): FUTURE WARS DROPSHIPS BUILT AND DEPLOYED
+
+FIRST: check memory (MEMORY.md and every file it links), the standing rules and the guidelines (repo
+`.claude/rules/*.md`, plan conventions, NGCFells naming, OCR-correct-from-PNG, no heredocs, verify against catalogs,
+era-honest dating, vitest in PowerShell only) before doing anything else.
+
+STATE. beta = origin/beta = 9572d2e8e (+ a docs commit for ledger/plan ticks), deployed (`git deploy-beta`).
+`npm run check` green (5596 unit + 28 data, build OK, 3 known lint warnings). News entry "November 19th, 2026 - Future
+Wars DropShips: four ways to build a DropShip".
+DONE: plan `docs/superpowers/plans/2026-11-19-future-wars-dropships.md`, all 5 tasks ticked; ledger "Future Wars
+DropShips built" at the end of `.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress.md`.
+FLAG FOR NGCFELLS (reported in chat, not yet decided):
+- Older Special Ruleset descriptions in `src/data/special-rulesets.ts` still say "ours" (against the credit-NGCFells rule).
+- THUNDERWOLF: ECM and C3 left off (TW forbids them on a DropShip); TAG kept. Noted on the design.
+- Houseman readings NGCFells may want to confirm: heat sinks 1 t each, none free; 480 thrust points a ton of fuel.
+- Small Craft Creator home intro text still says "100 to 200 tons" and "Primitive not built yet" (stale, pre-existing).
+- Fire factors: the book Union prints Nose 5; the Compendium rule gives 7 (not in the readout).
+- ResourceLibrary still has the pre-existing UNCOMMITTED `text/future-wars-08-Qyhm8x.txt` and `ocr_extract.py` changes.
+NEXT: H / K + K2 (Kin = alternate universe; own TRO) / COIL-alt, or whatever NGCFells picks from the flags above.
+
+# Previous (2026-11-19, Opus 5.5): FUTURE WARS CHUNK G (DROPSHIPS) READ AND PLANNED; 6 QUESTIONS OPEN
 
 FIRST: check memory (MEMORY.md and every file it links), the standing rules and the guidelines (repo
 `.claude/rules/*.md`, plan conventions, NGCFells naming, OCR-correct-from-PNG, no heredocs, verify against catalogs,
