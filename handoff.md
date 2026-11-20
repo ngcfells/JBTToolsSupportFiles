@@ -6,7 +6,7 @@ campaign-home (per side Fought/Size/Lost ticks, Area, Held by, Record battle). C
 campaign scope 606 passed; typecheck + eslint clean. Ledger M12 line FIXED; ledger markdown warnings fixed.
 NEXT: E2e (M4 setup editor, M8 contract end/breach + rating count), the scoped re-review, then batch F (ship).
 
-# Previous (2026-11-20): AFTER-BATTLE FORM (M12) HALF BUILT, UNCOMMITTED
+## Previous (2026-11-20): AFTER-BATTLE FORM (M12) HALF BUILT, UNCOMMITTED
 
 NGCFells (2026-11-20): "build the form, if it is quick and easy" (M12 after-battle form). Session ran out of tokens
 mid-build. UNCOMMITTED in btt-work (work/2026-11-19, on top of 4fa62fae6):
@@ -24,7 +24,7 @@ select; "Record battle" button calling update(c => c.recordBattle(...)). Then th
 eslint, commit "Campaigns: after-battle form (M12)", change the ledger's M12 Ruling line to FIXED, update this block.
 Then E2e (below).
 
-# Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2d DONE (M2, M9, M14, M15, M12 ruling); NEXT IS E2e
+## Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2d DONE (M2, M9, M14, M15, M12 ruling); NEXT IS E2e
 
 FIRST: check memory, rules and guidelines before anything else.
 
@@ -59,7 +59,7 @@ fixes the "no planet" dead end) and M8 (1987 and 3055 contract end early / breac
 "Contracts completed" in the rating inputs; check the 3055 Dragoons Rating pages first). Then the scoped re-review
 (FIX_BASE f2eeb1d72..HEAD), then batch F (ship).
 
-# Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2c DONE (M5, M7, M10, M13); NEXT WAS E2d
+## Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2c DONE (M5, M7, M10, M13); NEXT WAS E2d
 
 FIRST: check memory, rules and guidelines (see the blocks below) before anything else.
 
@@ -81,7 +81,7 @@ M14 memoise jumps, M15 editionState size cap, M9 raw/repeated display text, M12 
 or ask NGCFells), M4 setup editor, M8 contract end/breach + rating count. M4 and M8 are the larger two; split them
 into E2e if the batch gets big. Then the scoped re-review (FIX_BASE f2eeb1d72..HEAD), then batch F (ship).
 
-# Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2b DONE (I3 + 5 MINORS); NEXT WAS E2c
+## Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2b DONE (I3 + 5 MINORS); NEXT WAS E2c
 
 BATCH DONE THIS SESSION: E2b. HEAD of work/2026-11-19 = 3c7306b53 "Campaigns: readings note and the cheap review
 minors (I3, M1, M3, M6, M11)".
@@ -101,7 +101,7 @@ after-battle form, M13 orphaned GM dot types / 0 value, M14 memoise jumps, M15 e
 M5, M7, M10, M13 (small, contained). Then the scoped re-review (FIX_BASE f2eeb1d72..HEAD) once all minors are in,
 then batch F (ship).
 
-# Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2a DONE (I1, I2, I4 FIXED); NEXT IS E2b
+## Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2a DONE (I1, I2, I4 FIXED); NEXT IS E2b
 
 BATCH DONE THIS SESSION: E2a. NGCFells asked for the three larger Important findings only, kept small (weekly
 budget nearly out). HEAD of work/2026-11-19 = 59200bfba "Campaigns: fixes from the final review (I1, I2, I4)".
@@ -125,7 +125,7 @@ NEXT: batch E2b, small.
   E2b after I3, or have NGCFells waive it.
 - Then batch F (ship) as below.
 
-# Previous (2026-11-19, Opus 5.5): CAMPAIGN PLAY: BATCH E1 (FINAL REVIEW) DONE; NEXT IS E2 (FIX PASS)
+## Previous (2026-11-19, Opus 5.5): CAMPAIGN PLAY: BATCH E1 (FINAL REVIEW) DONE; NEXT IS E2 (FIX PASS)
 
 FIRST: check memory, rules and guidelines before anything else: MEMORY.md and every file it links, the repo's
 `.claude/rules/*.md` (btt-work has none; CLAUDE.md), the plan conventions, NGCFells naming, OCR-correct-from-PNG, no
@@ -325,7 +325,7 @@ RESOURCELIBRARY (`C:/repo/ResourceLibrary`, branch main):
 - If you read more pages, correct the extract from the PNG as you go.
 - Another agent has uncommitted OCR files there (Future Wars, BattleTechnology). Stage only your own files.
 
-# Previous (2026-11-19, Opus 5.5): FUTURE WARS DROPSHIPS CLOSED
+## Previous (2026-11-19, Opus 5.5): FUTURE WARS DROPSHIPS CLOSED
 
 FIRST: check memory, rules and guidelines (see the blocks below) before anything else.
 
@@ -342,7 +342,7 @@ OPEN: none. Active probes (Beagle, Clan, Light, Bloodhound) now allowed on DropS
 NEXT: H / K + K2 (Kin = alternate universe; own TRO) / COIL-alt.
 ResourceLibrary: another agent is active there; leave it.
 
-# Previous (2026-11-19, Opus 5.5): DROPSHIP FOLLOW-UPS DONE (Q2/Q3 since decided, see above)
+## Previous (2026-11-19, Opus 5.5): DROPSHIP FOLLOW-UPS DONE (Q2/Q3 since decided, see above)
 
 FIRST: check memory (MEMORY.md and every file it links), the standing rules and the guidelines (repo
 `.claude/rules/*.md`, plan conventions, NGCFells naming, OCR-correct-from-PNG, no heredocs, verify against catalogs,
@@ -379,7 +379,7 @@ WAITING ON NGCFELLS:
   sqrt(engine x 6.8) spheroid); fighters get engine-integral ones.
 NEXT: NGCFells's calls on Q2 and Q3, then H / K + K2 (Kin = alternate universe; own TRO) / COIL-alt.
 
-# Previous (2026-11-19, Opus 5.5): FUTURE WARS DROPSHIPS BUILT AND DEPLOYED
+## Previous (2026-11-19, Opus 5.5): FUTURE WARS DROPSHIPS BUILT AND DEPLOYED
 
 FIRST: check memory (MEMORY.md and every file it links), the standing rules and the guidelines (repo
 `.claude/rules/*.md`, plan conventions, NGCFells naming, OCR-correct-from-PNG, no heredocs, verify against catalogs,
@@ -399,7 +399,7 @@ FLAG FOR NGCFELLS (reported in chat, not yet decided):
 - ResourceLibrary still has the pre-existing UNCOMMITTED `text/future-wars-08-Qyhm8x.txt` and `ocr_extract.py` changes.
 NEXT: H / K + K2 (Kin = alternate universe; own TRO) / COIL-alt, or whatever NGCFells picks from the flags above.
 
-# Previous (2026-11-19, Opus 5.5): FUTURE WARS CHUNK G (DROPSHIPS) READ AND PLANNED; 6 QUESTIONS OPEN
+## Previous (2026-11-19, Opus 5.5): FUTURE WARS CHUNK G (DROPSHIPS) READ AND PLANNED; 6 QUESTIONS OPEN
 
 FIRST: check memory (MEMORY.md and every file it links), the standing rules and the guidelines (repo
 `.claude/rules/*.md`, plan conventions, NGCFells naming, OCR-correct-from-PNG, no heredocs, verify against catalogs,
@@ -429,7 +429,7 @@ rules on the design as built.
 NEXT: write NGCFells's answers into the DropShip plan, then build it (Task 1 can start now: rulesets, Eid/Reese/
 Houseman tables, FW #25/#36 years). Or H / K + K2 (Kin = alternate universe; own TRO) / COIL-alt while G waits.
 
-# Previous (2026-11-18, Opus 5.5): LOPUNNY'S THUNDERBOLTS DONE, HS LRM DATE FIXED, DEPLOYED
+## Previous (2026-11-18, Opus 5.5): LOPUNNY'S THUNDERBOLTS DONE, HS LRM DATE FIXED, DEPLOYED
 
 FIRST: check memory (MEMORY.md and every file it links), the standing rules and the guidelines (CLAUDE.md, plan
 conventions, NGCFells naming, OCR-correct-from-PNG, no heredocs, verify against catalogs, era-honest dating, vitest in
@@ -452,7 +452,7 @@ SETTLED (NGCFells, 2026-11-18; ba6f78dee, deployed): Discord items have no link;
 (one word). Lopunny's records, readouts and news now say so (memory tro-jbt-link-sources).
 NEXT: G / H / K + K2 (Kin = alternate universe unless an article references the Far Country birds; own TRO) / COIL-alt.
 
-# Previous (2026-11-17, Opus 5.5): CHUNK R2 DONE (FUTURE WARS PRINTING ALTERNATES), DEPLOYED
+## Previous (2026-11-17, Opus 5.5): CHUNK R2 DONE (FUTURE WARS PRINTING ALTERNATES), DEPLOYED
 
 QUEUED (DONE 2026-11-18, see above) (NGCFells, 2026-11-17, after Chunk R2): new entry from Lopunny (Queer Tech Discord; credit "Lopunny, Queer
 Tech Discord", name the server, ask NGCFells for a post link if one exists):
@@ -499,7 +499,7 @@ HGB-6X Hobgoblin forum design (Sarna forums, 2002). Neither is the 1989 FW weapo
 NEXT: the QUEUED Lopunny entry, then G / H / K + K2 (Kin = alternate universe unless an article references the Far
 Country birds; own TRO) / COIL-alt.
 
-# Previous (2026-11-17, Opus 5.5): CHUNK R DONE (FUTURE WARS ORIGINALS), DEPLOYED
+## Previous (2026-11-17, Opus 5.5): CHUNK R DONE (FUTURE WARS ORIGINALS), DEPLOYED
 
 STATE. beta = origin/beta = e3fda3ae6, deployed (`git deploy-beta`). `npm run check` green (5509 unit + 28 data, build
 OK, 3 known lint warnings). News bullet "Future Wars originals (issue #172)" in the November 17th entry.
@@ -532,7 +532,7 @@ original in each of these:
 NEXT: apply NGCFells's answers (failing test first, note says "the original's"), then G / H / K + K2 (Kin = alternate
 universe unless an article references the Far Country birds) / COIL-alt.
 
-# Previous (2026-11-17, Opus 5.5): POWER ARMOR CHUNK F DONE, HOME TOOLS SECTION, KO-FI BUTTON TEXT, DEPLOYED
+## Previous (2026-11-17, Opus 5.5): POWER ARMOR CHUNK F DONE, HOME TOOLS SECTION, KO-FI BUTTON TEXT, DEPLOYED
 
 STATE. beta = origin/beta = 8bbe7e8b0, deployed. `npm run check` exit 0; after the home edit, tsc + home test green.
 DONE:
@@ -541,7 +541,7 @@ DONE:
 - Ko-fi button text "Tip" -> "Assist with development costs" (NGCFells request) in the UNTRACKED deploy script `C:/repo/battletech-tools/.git/beta/inject-issues-button.cjs` line 72; confirmed in the published gh-pages index.html.
 NEXT: re-plan Chunk R, then G / H / K + K2 / COIL-alt.
 
-# Previous (2026-11-17, Opus 5.5): TRO CATEGORIES + CONTENTS, VTOLAM/PAM READOUTS, NGCFELLS NAMING, NEWS CONDENSED, DEPLOYED
+## Previous (2026-11-17, Opus 5.5): TRO CATEGORIES + CONTENTS, VTOLAM/PAM READOUTS, NGCFELLS NAMING, NEWS CONDENSED, DEPLOYED
 
 STATE. beta = origin/beta = 494d804a9, deployed, working tree clean. `npm run check` green (5508 unit + 28 data, build OK, 3 known lint warnings).
 DONE (user request, 2026-11-17):
@@ -554,7 +554,7 @@ OPEN QUESTION (ask NGCFells when it comes up): do custom designs of non-CGL unit
 FOLLOW-UP OFFERED (not requested yet): audit existing readouts and equipment notes for sources with no link (Solaris7 items; Discord-sourced items should name the server).
 NEXT: Power Armor Chunk F (below), then re-plan R, then G / H / K + K2 / COIL-alt. Any new readout needs `category` (and `pageCategories` for pages filed elsewhere).
 
-# Previous (2026-11-17, Opus 5.5): POWER ARMOR CHUNK E DONE, DEPLOYED
+## Previous (2026-11-17, Opus 5.5): POWER ARMOR CHUNK E DONE, DEPLOYED
 
 STATE. beta = origin/beta = 62466f77a, deployed (`git deploy-beta`). News bullet "Sample Power Armor." added to the November 17th entry. `npm run check` green (5496 unit + 28 data, build OK, 3 known lint warnings); after the news line, tsc + src/ui/pages tests green.
 DONE (Chunk E, plan box ticked; ledger "Chunk E" section in `.superpowers/sdd/2026-11-17-future-wars-power-armor/progress.md`):
@@ -565,7 +565,7 @@ DONE (Chunk E, plan box ticked; ledger "Chunk E" section in `.superpowers/sdd/20
 - Chromium (dev server port 5199): IPA-2 loaded via the replace dialog, step 6 no issues, slots as the sheet; TRO page renders, no console errors, no overflow.
 NEXT: Power Armor Chunk F (verify and report: `npm run check`, no bundled design changed, comment on #172 — needs the GitHub connection or `gh`), then re-plan Chunk R, then G / H / K + K2 / COIL-alt.
 
-# Previous (2026-11-17, Opus 5.5): POWER ARMOR CHUNK D DONE, DEPLOYED
+## Previous (2026-11-17, Opus 5.5): POWER ARMOR CHUNK D DONE, DEPLOYED
 
 STATE. beta = origin/beta = 08cb1ceee (two plan-only commits on top of 3f522fc0e, which is deployed) (`git deploy-beta`). News bullet "Power Armor values and readout." in the November 17th entry. `npm run check` green before the news line (5474 unit + 28 data, build OK, 3 known lint warnings); after it, typecheck + src/ui/pages tests green.
 OWNER RULING (Alpha Strike): converter's BattleMech card (BM, Size 1) + Custom special PWA (text `POWER_ARMOR_AS_ABILITY_TEXT`, registry source TRO - JBT: Power Armor p.6); ground PV adds +1 to the defense modifier for PWA, as STL (`alphaStrikeGroundPointValue.ts`).
@@ -576,7 +576,7 @@ DONE (Chunk D):
 - BUG FIXED: TRO - JBT cards "best-of-future-wars" and "homebrew-equipment" had no route (404). Router list now has every slug; test "gives every card a page to open". Checked in Chromium (all three open, no console errors).
 NEXT: Power Armor Chunk E (samples IPA-1..4 in `power-armor-samples.ts`; reuse the IPA-4 fixture; a TRO entry per sample could follow the walkers' pattern), then F, re-plan R, then G / H / K + K2 / COIL-alt.
 
-# Previous (2026-11-17, Opus 5.5): SPECIAL RULESETS WINDOW REFACTOR DONE, DEPLOYED
+## Previous (2026-11-17, Opus 5.5): SPECIAL RULESETS WINDOW REFACTOR DONE, DEPLOYED
 
 STATE. beta = origin/beta = fb3154065, deployed (`git deploy-beta`). News: bullet "Special Rulesets window." added to the November 17th entry (title now ends "; a new Special Rulesets window"). `npm run check` green: 5456 unit + 28 data, build OK, 3 known lint warnings outside touched files. Worktree btt-rulesets-window and branch removed.
 DONE (plan `docs/superpowers/plans/2026-11-17-special-rulesets-window.md`, commits b65b2f869..fb3154065, executed inline):
@@ -589,7 +589,7 @@ FINAL REVIEW (fresh Opus): fixed I1 ("No" left a requirement ticked), M1 (missin
 FOR LATER CHUNKS: a new ruleset sets summary, category, source.publication/tag/author, changes (+ a CHANGE_LABELS entry), excludes/requires where needed. DropShips `changes: ["dropshipConstruction"]` (category construction), Economics `["economics"]` (campaign), COIL alternates `["coilRules"]` (detail view should say it replaces our COIL rules).
 NEXT: Power Armor Chunk D (values; bring the owner the Alpha Strike proposal first: candidate a size-1 BattleMech card with a special for the +1 to hit, after `micro-mech.ts`), then E, F, re-plan R, then G / H / K + K2 / COIL-alt.
 
-# OWNER ANSWERS 2026-11-17 (second round): RULESET UI DESIGN CHOICES
+## OWNER ANSWERS 2026-11-17 (second round): RULESET UI DESIGN CHOICES
 - ORDER confirmed as suggested: UI refactor -> Power Armor D -> E -> F -> re-plan R -> G / H / K + K2.
 - LIST: grouped by CATEGORY (Construction, Play, Campaign & Economics, Setting...), collapsible with "n of m ticked"; each row carries a SOURCE TAG (e.g. "FW #36", "r/battletech").
 - ROW: name + source tag + a ONE-LINE SUMMARY (new `summary` field, written from the existing descriptions) + More info button. Full description and the Future Wars tables move into More info.
@@ -600,7 +600,7 @@ NEXT: Power Armor Chunk D (values; bring the owner the Alpha Strike proposal fir
 - DONE (d963bca01, pushed to beta, docs only): plan `battletech-tools-master/docs/superpowers/plans/2026-11-17-special-rulesets-window.md` (6 tasks: registry fields, eligibility model `getRulesetBlock`, pure list filter, list view, More info view, check/ship); round-1 answers + new chunk table (UI, COIL-alt) written into `2026-11-17-future-wars-originals.md`.
 - NEXT: owner reviews the plan and picks execution (subagent-driven or native); then build it in worktree `C:/repo/btt-rulesets-window`.
 
-# OWNER ANSWERS 2026-11-17: "I WANT THEM ALL. EVERYTHING." + RULESET UI REFACTOR
+## OWNER ANSWERS 2026-11-17: "I WANT THEM ALL. EVERYTHING." + RULESET UI REFACTOR
 
 ANSWERS. Every option below is built, each as its own alternate rule the player can click on. The recommendations are not used.
 - Q1 DropShips: all four methods (Stock, Stock+Eid, Reese, Houseman), each its own selectable ruleset. Stock and Stock+Eid exclude each other; Eid builds on Stock.
@@ -617,7 +617,7 @@ Plan it first (brainstorm, then a plan with the owner's sign-off) and build it b
 
 ORDER (suggested; confirm with the owner): Ruleset UI refactor plan -> Power Armor Chunk D (its Alpha Strike proposal is still to be asked) -> E -> F -> re-plan Chunk R -> G (DropShips, all four) / H (Economics, both) / K + K2 (all Kin).
 
-# OWNER QUESTIONS (answered above, kept for reference)
+## OWNER QUESTIONS (answered above, kept for reference)
 
 From the re-plan, `battletech-tools-master/docs/superpowers/plans/2026-11-17-future-wars-originals.md` ("Questions for the owner"). Q4 was answered yes on 2026-11-17.
 - Q1. DropShips (blocks Chunk G). The Best-of method is Stock's (FW #16). Erik Eid revised it (FW #25). Mike Reese (FW #36) says both fail to rebuild a FASA Union, wrote his own, and says FASA's masses are too low. Doug Houseman wrote a fourth (FW #36). Which method or methods do we build? Recommendation: Stock's with Eid's revision as one ruleset, checked against the canon Union, Leopard and Overlord; Reese and Houseman summarised only.
@@ -625,7 +625,7 @@ From the re-plan, `battletech-tools-master/docs/superpowers/plans/2026-11-17-fut
 - Q3. Economics (blocks Chunk H). Do we use the original's numbers (FW #5: 7, 6 and 12 million for the printed combinations), with the reprint's "double or triple" as the rule for combinations it does not list? Recommendation: yes.
 - STILL OPEN, to be asked at Chunk D: the Power Armor Alpha Strike card has no source. Chunk D brings a proposal first. Candidate: a size-1 BattleMech card with a special ability for the +1 to hit, after the Micro-Mech ruleset in `micro-mech.ts`.
 
-# START HERE (2026-11-17, Opus 5.5, latest): POWER ARMOR CHUNK C DONE, DEPLOYED
+## START HERE (2026-11-17, Opus 5.5, latest): POWER ARMOR CHUNK C DONE, DEPLOYED
 
 STATE. beta = origin/beta = efe5b7f7f, deployed (`git deploy-beta`). The news is merged into the day's entry "November 17th, 2026 - Power Armor in the 'Mech Creator, on the record sheet and in play" (home.test allows one entry per date). `npm run check` is green: 5421 unit + 28 data tests pass, the build is OK, and the 3 lint warnings are not in touched files.
 DONE (Chunk C). Commits 3a5825726 (record sheet and play) and efe5b7f7f (review fixes and news).
@@ -642,7 +642,7 @@ TEXT ONLY (no engine in the app): punches, kicks, charges, clubs, DFA on the pun
 FINAL REVIEW: Fable 5.2 needs usage credits, so the review ran on Opus 5.5. Two fixes were made. 4 minors are deferred, and one Important finding was ruled unreachable: the suit's head is full, so no ammo can sit there. Details are in the ledger's "Chunk C" section (`battletech-tools-master/.superpowers/sdd/2026-11-17-future-wars-power-armor/progress.md`).
 NEXT: Power Armor Chunk D (values; Fable 5.2 needs usage credits, so Opus otherwise; take the Alpha Strike proposal to the owner first), then E (samples including IPA-4; Sonnet), then F. Re-plan Chunk R. Owner Q1-Q3 are still open.
 
-# Previous (2026-11-17, Opus 5.5): POWER ARMOR CHUNK B DONE, DEPLOYED
+## Previous (2026-11-17, Opus 5.5): POWER ARMOR CHUNK B DONE, DEPLOYED
 
 STATE. beta = origin/beta = b492417e1, deployed (`git deploy-beta`), news entry "November 17th, 2026 - Power Armor in the 'Mech Creator". `npm run check` green (5398 + 28 data pass, build OK, 3 lint warnings not in touched files).
 DONE (Chunk B). `BattleMech.getConstructionTonnages()` -> step 1 offers 5/10/15 and clamps to nearest on ticking; 5-ton gyro list = "No Gyro" only; step 5 picker withholds non-listed weapons at 5 t (`_isEquipmentAllowedForChassis`); `_isPowerArmorWeapon` now counts "Custom Equipment" with damage > 0 (AC/15 Solaris7, Disruptor, Pile Bunker were leaking; found in Chromium); new issue: 5-ton pilot Piloting 5+; issue lines deduped (duplicate React keys). Tests: `battlemech-power-armor.test.ts` (Chunk B block), new `mech-creator/step-power-armor.test.tsx`. Played in Chromium: 65 t Thunderbolt -> 15 t on tick, waldo + No Gyro in step 2, picker Energy = Flamer/Vehicle Flamer/Small Laser, Ballistic = MG, Custom = Smoker; no console errors. Ledger: "Chunk B" section.
@@ -651,7 +651,7 @@ OTHER THIS SESSION: drafted the reply to Scott (Mordel) pointing to construction
 NOTED, NOT FIXED: weight breakdown labels engines "<name> - 0" (engine records carry rating 0; battlemech.ts ~4448; not shown in UI). Sidebar shows "Cockpit 0.5" for the waldo (Chunk C/D).
 NEXT: Power Armor Chunk C (record sheet + play; Opus), D (values; Fable 5.2, AS proposal to owner first), E (samples incl. IPA-4; Sonnet). Re-plan Chunk R. Owner Q1-Q3 still open.
 
-# Previous (2026-11-17, Opus 5.5): QUAD IMPORT REGRESSION FIXED, BUNDLE REBUILT (Batch Chunk 7 done), DEPLOYED
+## Previous (2026-11-17, Opus 5.5): QUAD IMPORT REGRESSION FIXED, BUNDLE REBUILT (Batch Chunk 7 done), DEPLOYED
 
 STATE. beta = origin/beta = 2d1031808; 949bd6057 deployed (`git deploy-beta`), 2d1031808 (Power Armor IS base) pushed only. Unit tests classes/data/utils/ui 5353 pass, 5 skipped; tsc clean.
 BUG. The uncommitted rebuild below failed the Chunk 7 gate (matched 3937 < floor 3942; import losses 83 -> 162): slot refactor 06d048997 gave quad arms 0 slots, and SSW import placed a quad's front-leg items (LA/RA) there. FIX 3afa30c97: `_sswCriticalLocation` is now an instance method that also maps LA/RA -> fll/frl via `_normalizeLocation`, used at every SSW placement site (generic, heat sinks, jump jets, armored slots, fixed armor). Test `battlemech-quad-import.test.ts` (Tarantula ZPH-1 fixture) RED -> GREEN.
@@ -660,7 +660,7 @@ OWNER RULING (2026-11-17): Power Armor is Inner Sphere BASE only: "is" and Mixed
 OWNER RULE: bugs first (memory bugs-first.md).
 NEXT: Power Armor Chunk B (Sonnet 5.5), C (Opus), D (Fable 5.2), E (Sonnet). Re-plan Chunk R (Sonnet). Owner Q1-Q3 still open.
 
-# Previous (2026-11-17, Opus 5.5): POWER ARMOR CHUNK A DONE (pushed, not deployed)
+## Previous (2026-11-17, Opus 5.5): POWER ARMOR CHUNK A DONE (pushed, not deployed)
 
 STATE then. beta = origin/beta = 4144fb7d2: d4914ff9c "Custom Homebrew: Power Armor construction (#172)" + 4144fb7d2 Chunk E rulings in the plan. NOT deployed (nothing a user can reach until Chunk B). Worktree btt-power-armor-a and branch removed.
 DONE. Ruleset `fw-power-armor` (special-rulesets.ts, Custom Homebrew, changes mechConstruction so it refuses Flint's). Tables + waldo record: `src/data/future-wars-power-armor.ts`. BattleMech: `usesPowerArmorConstruction()` (biped, 5/10/15 t) gates slot counts (6 a location, CT 12), waldo in place of the cockpit (0.5 t, 50,000 C; "Pilot" head 3-4 + CT 11-12 beside the printed Life Support / Sensors), lower arm actuators kept, head armor <= 2x head structure, 5 t: no gyro (getGyro() = "none"), H1 CT3 ST2 A1 L1, fusion shielding weight row, flamer/MG/small laser only; issues for wrong tonnage/type, armless, weapons in head/CT. Tests: `battlemech-power-armor.test.ts`, `future-wars-power-armor.test.ts` (26). Rulings + costs: ledger `battletech-tools-master/.superpowers/sdd/2026-11-17-future-wars-power-armor/progress.md`.
@@ -669,7 +669,7 @@ OWNER RULINGS (re-plan Q4 = YES; written into the plan's Chunk E): armor spread 
 (RESOLVED above) UNKNOWN WORK IN THE MAIN CHECKOUT. battletech-tools-master had UNCOMMITTED bundled-data changes (src/data/bundled/mechs*.json, mechs-report.md, ...) from a background "Rebuild the bundled data" task that finished in this session's task area but was not started in this conversation (probably Batch Chunk 7 started before /clear). Left untouched: verify (Batch Chunk 7) before committing it.
 NEXT: Power Armor Chunk B (creator; Sonnet 5.5), then C (record sheet + play; Opus), D (values, AS proposal to the owner; Fable 5.2), E (samples, rulings in hand; Sonnet). Or Batch Chunk 7 (check the uncommitted rebuild above). Re-plan Chunk R (Sonnet). Owner Q1-Q3 still open.
 
-# Previous (2026-11-17, Opus 5.5): RE-PLAN DONE, Fanzine Chunk F (Power Armor plan) DONE; Batch Chunk 7 see below
+## Previous (2026-11-17, Opus 5.5): RE-PLAN DONE, Fanzine Chunk F (Power Armor plan) DONE; Batch Chunk 7 see below
 
 STATE. beta = origin/beta = 612cd0491 (two plan commits on top of a0cff6773). Docs only, nothing to deploy.
 DONE.
@@ -687,7 +687,7 @@ NEXT (owner: "I will switch models, then clear, then get to work"):
 2. Then execute: Batch Chunk 7 (rebuild bundled data and verify; Sonnet is fine), Fanzine Chunk F (Power Armor).
 Older state follows unchanged.
 
-# Previous (2026-11-16): Batch Chunk 6 DONE; fan items complete; ERA REVIEW half done (Sonnet 5.5 session, near its limit)
+## Previous (2026-11-16): Batch Chunk 6 DONE; fan items complete; ERA REVIEW half done (Sonnet 5.5 session, near its limit)
 
 STATE. beta = origin/beta holds everything below, deployed (`git deploy-beta`). `npm run check` green. Ledger: batch `progress.md`, the four "Batch Chunk 6" sections (first pass, derived values, completion pass, era rulings).
 
@@ -743,7 +743,7 @@ STANDING RULES. Never use Bash heredocs (memory `no-heredocs`): write a file wit
 Era tags are "age-of-war", "star-league", "early-sw", "late-sw-lt", "late-sw-rn", "clan-inv", "civil-war", "jihad", "dark-ages" (an invalid tag silently falls back to the default).
 Tests: `npx vitest run --project unit src/data` is fast; `npm run check` before any commit.
 
-# Previous: Best of Future Wars Chunk E MERGED, pushed, DEPLOYED to beta
+## Previous: Best of Future Wars Chunk E MERGED, pushed, DEPLOYED to beta
 
 - beta = origin/beta = d0190c2ee (plan note on top of a6c68c5f4): Chunk E (e2b68f9b1 play tools, 9a9c0ab11 review fixes, a6c68c5f4 news line).
   "Future Wars Rules" panel on the roster Play page for a 'Mech carrying any of the five play rulesets: Strategic
@@ -759,7 +759,7 @@ Tests: `npx vitest run --project unit src/data` is fast; `npm run check` before 
 - Next: Fanzine Chunk F (Power Armor: read, design, write its plan; Fable 5.2 per the plan), or Batch Chunk 6
   (PPC-X is Apocryphal: bring the owner a stat table first).
 
-# Previous: Best of Future Wars Chunk D MERGED, pushed, DEPLOYED to beta
+## Previous: Best of Future Wars Chunk D MERGED, pushed, DEPLOYED to beta
 
 - beta = origin/beta = b51407670: Chunk D (656e6d22c rulesets, 0ef9c8e81 review fix, b51407670 news line). Five play
   rulesets (fw-opportunity-fire, fw-strategic-movement, fw-morale, fw-weapon-malfunctions, fw-long-range-wars) in
@@ -772,7 +772,7 @@ Tests: `npx vitest run --project unit src/data` is fast; `npm run check` before 
 - Next: Fanzine Chunk E (play tools in roster play; read the plan's Chunk D "For Chunk E" note: rulesets are per unit),
   or Batch Chunk 6 (item 3 below). Note: the top block below is the previous session's.
 
-# Previous: Best of Future Wars Chunk C MERGED, pushed, DEPLOYED to beta
+## Previous: Best of Future Wars Chunk C MERGED, pushed, DEPLOYED to beta
 
 - beta = origin/beta = 184311c57: Chunk C (3534fde1f, a479a15af) + owner follow-up 184311c57 (booster heat stacks
   with XXL, PDS count includes its magazine bins, 15-heat cap on fires, Inferno ammo heat waits for the heat phase,
