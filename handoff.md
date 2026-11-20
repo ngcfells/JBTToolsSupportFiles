@@ -1,4 +1,4 @@
-# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: 3055 TEST WRITTEN (RED), IMPLEMENT NEXT
+# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: 3055 TABLES GREEN, STATE + HOOKS NEXT (BATCH B)
 
 FIRST: check memory, rules and guidelines before anything else: MEMORY.md and every file it links, the repo's
 `.claude/rules/*.md` (btt-work has none; CLAUDE.md), the plan conventions, NGCFells naming, OCR-correct-from-PNG, no
@@ -7,9 +7,19 @@ heredocs, verify against catalogs, era-honest dating, vitest in PowerShell only.
 WORKING STYLE (NGCFells, 2026-11-19): small batches, with a handoff and a /clear between each. Do ONE batch below,
 update this block, commit the handoff, stop.
 
-BATCH DONE THIS SESSION: Task 14 Step 1 (RED).
-- `src/data/campaign-editions/mercenarys-handbook-3055.test.ts` written in btt-work, 21 cases, uncommitted. It fails
-  only because `mercenarys-handbook-3055.ts` does not exist.
+BATCH DONE THIS SESSION: A (Task 14 Step 2, pure tables).
+- `src/data/campaign-editions/mercenarys-handbook-3055.ts` written in btt-work, uncommitted (with its test; both go in
+  the batch-C commit). `npx vitest run src/data/campaign-editions` = 41 passed (20 + 21); tsc and eslint exit 0.
+- Beyond the test's names it exports, for B and C: `MH3055_ID` ("mh-3055"), `Mh3055Position`, `MH3055_SUPPORT_POSITIONS`,
+  `MH3055_SUPPORT_POINTS`, `IMh3055Template` {name, group, cost, support}, `IMh3055Unit` {id, template, quality,
+  count}, `IMh3055RatingInputs`, `Mh3055Rating`, `MH3055_RATING_OFFER` / `_PAY`, `Mh3055Employer` / `House` /
+  `MinorPower`, `MH3055_EMPLOYER_NAMES`, `MH3055_CORPORATIONS` (2D6 from 2), `MH3055_MINOR_PERIPHERY` (1D6 from 1),
+  `MH3055_MERCENARY_EMPLOYERS` (RangeTable), `Mh3055Mission`, `MH3055_MISSION_NAMES`, `IMh3055Job`, `IMh3055PayInputs`,
+  `IMh3055Hearing`. `mh3055JobTable` returns null for Rasalhague and St. Ives (fixed jobs, Ruling 5).
+- No new rulings.
+
+PREVIOUS BATCH: Task 14 Step 1 (RED).
+- `src/data/campaign-editions/mercenarys-handbook-3055.test.ts` written in btt-work, 21 cases, uncommitted.
 - Task 14 rulings (1, 5, 6, 7, plus Marik modifiers add and Hearing 24+) are in the ledger.
 - Reading the test is the spec for the module: it imports `IMh3055Person` {id, position, quality, count, antiMech},
   `MH3055_SALARIES`, `MH3055_EXPERIENCE` (record by quality), `MH3055_TEMPLATES` ({name, cost, support} by id such as
@@ -23,7 +33,7 @@ BATCH DONE THIS SESSION: Task 14 Step 1 (RED).
 - Payment check read on the page (p.105-106 text): monthly salaries x rating x employer x mission, plus bonuses, x months.
 
 NEXT BATCHES, one per session:
-- A. Step 2: write `mercenarys-handbook-3055.ts` (pure tables and functions only) until the 21 pass; tsc + eslint.
+- A. DONE (see above).
 - B. State + hooks: `IMh3055State`, read-state, sign contract (25% advance, 5% fee; A-rated all up front +2%),
   `onStep` (2 paydays, 4 weeks of maintenance shortfall and overhead), `MH3055_EDITION`; register in `index.ts`.
   Tests first.
