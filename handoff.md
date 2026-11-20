@@ -1,4 +1,30 @@
-# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: BATCH E1 (FINAL REVIEW) DONE; NEXT IS E2 (FIX PASS)
+# START HERE (2026-11-20, Opus 5.5, latest): CAMPAIGN PLAY: E2a DONE (I1, I2, I4 FIXED); NEXT IS E2b
+
+FIRST: check memory, rules and guidelines (see the block below) before anything else.
+
+BATCH DONE THIS SESSION: E2a. NGCFells asked for the three larger Important findings only, kept small (weekly
+budget nearly out). HEAD of work/2026-11-19 = 59200bfba "Campaigns: fixes from the final review (I1, I2, I4)".
+- I1: campaign-home.tsx ledger has an Add entry row per side (Reason, Amount; rule "Entered by hand") and a
+  Remove button on those hand entries only. Test "the GM adds a ledger entry by hand and removes it again".
+- I2: `IMh1987Contract.resolvedStep` (read back by mh1987ReadState); Resolve month refuses a second resolve in the
+  same step and the button is disabled with a note. The 1987 screen test now clicks twice and expects one log line.
+- I4: mh1987SignContract posts "Transport hired" (-transportFee) before "Transport reimbursement". ComStar test
+  updated.
+- Each test watched fail first. `npx vitest run src/classes/campaign src/data/campaign-editions
+  src/ui/pages/game-management src/ui/components` = 577 passed; tsc and eslint exit 0. Ledger lines I1, I2, I4
+  marked FIXED.
+
+NEXT: batch E2b, small.
+- I3: a "Readings" note in each edition panel (edition-mh1987.tsx, edition-mh3055.tsx) saying Rulings 7, 61, 62, 63
+  (two paydays a month, fee on the first draw only, 7% up-front charge, upkeep draw on 2-6 month contracts) are
+  NGCFells's readings, "Inspired by" wording. Test first.
+- Minor findings M1-M15 to the ledger as "Minor (deferred)" (report:
+  `C:/repo/btt-work/.superpowers/sdd/2026-11-19-campaign-play/final-review-report.md`).
+- Skipped this session to save budget: the scoped re-review of the fix range (FIX_BASE f2eeb1d72..HEAD). Do it in
+  E2b after I3, or have NGCFells waive it.
+- Then batch F (ship) as below.
+
+# Previous (2026-11-19, Opus 5.5): CAMPAIGN PLAY: BATCH E1 (FINAL REVIEW) DONE; NEXT IS E2 (FIX PASS)
 
 FIRST: check memory, rules and guidelines before anything else: MEMORY.md and every file it links, the repo's
 `.claude/rules/*.md` (btt-work has none; CLAUDE.md), the plan conventions, NGCFells naming, OCR-correct-from-PNG, no
