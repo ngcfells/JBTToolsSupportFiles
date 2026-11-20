@@ -1,17 +1,20 @@
-# START HERE (2026-11-20 evening, Opus 5.5, latest): POWERSHELL 7.6.10 REMOVED; OCR REDO RESUMED
+# START HERE (2026-11-20 evening, Opus 5.5, latest): POWERSHELL 7.6.10 REMOVED; OCR REDO STOPPED, AWAITING GO
 
 - PowerShell 7.6.10 (MSI, C:\Program Files\PowerShell\7) uninstalled 16:42 (MSI log C:\Users\chris\ps-uninstall.log,
-  "Removal completed successfully", exit 0). Only 7.7.0 (MSIX, WindowsApps) is left on PATH. VS Code terminals
-  reopen on 7.7.0.
-- OCR redo resumed 16:44, running detached (minimized pwsh 7.7.0 window). Wrapper:
-  C:\Users\chris\AppData\Local\Temp\claude\cc76df7b0911cfa7\d28c6a3f-ebb2-4e0e-8568-98dc6640f209\scratchpad\reocr\resume3.ps1
-  (log run.log, queue redo.log, textlayer.log in the same folder). Stages: `ocr_queue.py --redo` (skips the 35 done) ->
+  "Removal completed successfully", exit 0). Verified after NGCFells closed everything and restarted: `where pwsh` =
+  WindowsApps only, 7.7.0, Appx Microsoft.PowerShell 7.7.0.0 Status Ok, C:\Program Files\PowerShell gone.
+- OCR redo: started 16:44, then STOPPED when NGCFells closed everything (~16:50). NGCFells: do NOT start the OCR until
+  told to. Durable copy of the wrapper: C:\repo\JBTToolsSupportFiles\ocr-resume\resume3.ps1 (+ helpers.py,
+  redo-offset.txt = 205120, the queue-log size where part 1 ended, so the part-2 commit covers every book since; logs
+  run.log, redo.log, textlayer.log are written next to it). Start, when told:
+  `pwsh -NoProfile -ExecutionPolicy Bypass -File C:\repo\JBTToolsSupportFiles\ocr-resume\resume3.ps1`. Stages: `ocr_queue.py --redo` (skips the 35 done) ->
   commit "OCR redo, part 2" (helpers.py commit-queue, NOT pushed) -> `ocr_textlayer.py --redo` -> `extract_rulebooks.py`
   -> `build_index.py` -> `library_search.py build`. The text-layer and extract stages are NOT committed by the
   wrapper: review `git status` in ResourceLibrary and commit them by hand (never the other agent's files: future-wars-08
   txt, SARNA-LINKS.md, scrapes/reddit, INDEX.md). Push ResourceLibrary after. About 41,000 pages / ~76 h.
 
-STILL OPEN: OCR redo (running), then commit and push its results.
+STILL OPEN: OCR redo (waiting for NGCFells's go), then commit and push its results. Model for that: Sonnet (launch,
+watch, commit by hand); Opus is not needed.
 
 ## Previous (2026-11-20 late afternoon, Opus 5.5): ATM ALPHA STRIKE DAMAGE; OCR PAUSED
 
