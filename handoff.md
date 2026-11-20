@@ -1,4 +1,36 @@
-# START HERE (2026-11-20 late, Opus 5.5, latest): #600 VEHICLE FIXES COMMITTED, NOT SHIPPED; LRM AGENT WORK UNCOMMITTED
+# START HERE (2026-11-20 evening, Opus 5.5, latest): SHIPPED; AIRMECH DONE; ISSUE REVIEW DONE
+
+FIRST: check memory, rules and guidelines (MEMORY.md and its links; vitest in PowerShell only; no bash heredocs with
+apostrophes; OCR-correct-from-PNG; NGCFells naming; cheapest subagent model).
+
+SHIPPED: `C:/repo/btt-rebuild` bv-gaps = origin/beta = 1fdaa3be2, `git deploy-beta` Published. `npm run check` green.
+- c5d8aaaed Alpha Strike low ammunition (ASC p.101 + errata v1.6 shots per weapon): x0.75 under 10 shots (UAC 20,
+  RAC 60); one-shot x0.1; rocket launchers unmodified; MML bin = average of its LRM and SRM counts. The LRM agent's
+  "halve the summed bins" MML reading was wrong (5/19 vs 18/19) and rocket launchers were wrongly x0.1. MUL check:
+  3008/3476 cards match (was 2852): +165, -9. The 9 lost apply the printed rule where the MUL does not (Hammerhands
+  HMH-6D, Argus AGS-4D, Marauder MAD-5T: RAC/5 under 60 a weapon; Inferno INF-NOR, Deimos E, Conjurer 4, Shiro SH-2P:
+  under 10 a weapon; Shrike 2, Epimetheus Prime: UAC/10 under 20). Outputs: src/zz-local/out/as-check-base.tsv,
+  as-check-fix.tsv, ammo-lost.txt (probe src/zz-local/ammo-lost-probe.test.ts).
+- 71497495f AirMech mode in play (#634, closed): IO:AE pp.102-103, 106 read on the page images. Walk x0.33 up, Run
+  x1.5 up, Cruise (Jump x3), Flank (x1.5 up), no jump; attacker +1/+2/+3/+4 (getAttackerMovementModifier, now used by
+  getTargetToHitFromWeapon for every 'Mech); airborne +1 TMM; heat MP/3; airMechElevation 1-25 saved; physical attacks
+  allowed in AirMech mode with the airborne rules as a note. Movement modes "c"/"f". Not modelled: AirMech MP on the
+  space map; hex-map costs (take-off, hover, elevation) are a note, as the roster has no map.
+- 1fdaa3be2 news bullets for both.
+- ResourceLibrary 34c104f8b (pushed): IO:AE printed pp.102, 103, 105, 106 corrected from the page images in both IO:AE
+  extracts; the 2021 corrected printing differs (Landing: gyro or hip only; no Space bullet). OCR commit 368289718
+  pushed with it.
+
+ISSUES (NGCFells: "close all that can be closed because work is done"): all 481 open issues reviewed by 6 Sonnet
+agents, each DONE call checked before closing. Closed with evidence comments: 146, 147, 249, 253, 379, 380, 381, 621,
+634. Everything else is open or partial. Partial, with what is left: 171, 172, 175, 227, 228, 241, 250, 298-301, 100,
+101, 103, 105, 118, 119, 148, 157, 165, 170, 592, 599, 600, 601, 612. All "Lead -" issues (311-588) are untouched
+templates.
+
+STILL OPEN FROM THE BLOCK BELOW: the 14 Support Vehicle issues, 4 overweight Combat Vehicles, 6 Clan LRM 20 misses not
+explained by ammo, PowerShell 7.6.10 uninstall, the OCR re-run's later stages (redo, index).
+
+## Previous (2026-11-20 late, Opus 5.5): #600 VEHICLE FIXES COMMITTED, NOT SHIPPED; LRM AGENT WORK UNCOMMITTED
 
 FIRST: check memory, rules and guidelines (MEMORY.md and its links; vitest in PowerShell only; no bash heredocs with
 apostrophes; OCR-correct-from-PNG; NGCFells naming; cheapest subagent model).
