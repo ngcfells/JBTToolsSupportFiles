@@ -1,13 +1,44 @@
-# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: BATCH D (CHROMIUM CHECK) DONE; NEXT IS BATCH E (FINAL REVIEW)
+# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: BATCH E1 (FINAL REVIEW) DONE; NEXT IS E2 (FIX PASS)
 
 FIRST: check memory, rules and guidelines before anything else: MEMORY.md and every file it links, the repo's
 `.claude/rules/*.md` (btt-work has none; CLAUDE.md), the plan conventions, NGCFells naming, OCR-correct-from-PNG, no
 heredocs, verify against catalogs, era-honest dating, vitest in PowerShell only.
 
 WORKING STYLE (NGCFells, 2026-11-19): small batches, with a handoff and a /clear between each. Do ONE batch below,
-update this block, commit the handoff, stop.
+update this block, commit the handoff, stop. NGCFells split batch E: the review (E1) and the fix pass (E2) are
+separate sessions.
 
-BATCH DONE THIS SESSION: D (Chromium check, Task 11 Step 5). HEAD of work/2026-11-19 = f2eeb1d72 "Campaigns: fixes
+BATCH DONE THIS SESSION: E1 (final whole-branch review). No code changed; HEAD of work/2026-11-19 is still f2eeb1d72.
+- Reviewer: Opus, superpowers code-reviewer.md, range 005f2972b..f2eeb1d72 (code only; generated star-systems JSON left
+  out). Verdict: "With fixes". 0 Critical, 4 Important, 15 Minor.
+- Full report (read it first): `C:/repo/btt-work/.superpowers/sdd/2026-11-19-campaign-play/final-review-report.md`.
+  The ledger has a "Final review" line for each Important finding, all OPEN.
+- The Important findings:
+  - I1: the ledger in campaign-home.tsx is read-only, so a GM can't add or remove an entry. Rulings 50, 64 and 65
+    say some entries are "entered by hand", and repair bills need it too. Fix: an Add entry row and Remove on GM
+    entries.
+  - I2: in edition-mh1987.tsx, `resolve` (Resolve month) can be clicked many times in one month, booking plunder,
+    reputation and morale again each time. Fix: a `resolvedStep` on the contract, and refuse a second resolve in
+    that month.
+  - I3: the builder's rule readings (Rulings 7, 61, 62, 63: two paydays a month, the fee on the first draw only,
+    the 7% up-front charge, the upkeep draw on 2-6 month contracts) are shown as the book's rules with no note.
+    Fix: a "Readings" note in each edition panel saying these are NGCFells's readings ("Inspired by" wording).
+  - I4: `mh1987SignContract` books the transport reimbursement as income but never books the transport cost, so
+    the balance is too high. Fix: post a matching "Transport hired" cost, or relabel the field.
+- Ledger triage by the reviewer: none of the earlier deferred or parked lines has to be fixed before merge.
+- origin/beta has moved to 2b688df18, 4 commits ahead of base 005f2972b, so batch F will be a merge, not a
+  fast-forward. The reviewer says those 4 commits touch none of this branch's files. Run `npm run check` in
+  PowerShell after the merge.
+
+NEXT: batch E2, the fix pass, one session.
+- For each Important finding (I1-I4): write the failing test first and watch it fail (RED), then fix it (GREEN).
+- Minor findings M1-M15 go to the ledger as "Minor (deferred)", with no fix.
+- Then one scoped re-review of the fix range. Use the skill's re-review-prompt.md and the review-package script on
+  FIX_BASE..HEAD. Rule on anything left over and record it in the ledger (no second fix wave).
+- Commit message: "Campaigns: fixes from the final review".
+- Then update this block, commit the handoff and stop. Batch F (ship) follows in its own session.
+
+EARLIER BATCH: D (Chromium check, Task 11 Step 5). HEAD of work/2026-11-19 = f2eeb1d72 "Campaigns: fixes
 from the Chromium check". Beta still 005f2972b, not merged.
 - Walked in Chromium (vite dev, port 5231): 1987 campaign on Hesperus II 3025 (squads, roll mission + employer
   positions, negotiate, sign, advance, Resolve month, planet page areas/dots/seed, payday) and 3055 campaign on
@@ -84,7 +115,8 @@ NEXT BATCHES, one per session:
 - B. DONE (see above).
 - C. DONE (see above).
 - D. DONE (see above): item 2, the Chromium check.
-- E. (NEXT) item 3 below: final whole-branch review + fix pass.
+- E1. DONE (see above): item 3's final whole-branch review.
+- E2. (NEXT) item 3's fix pass (see above).
 - F onward: items 4-5 below (ship, final message). Items 1 and 2 are DONE.
 
 WHERE. Worktree `C:/repo/btt-work`, branch `work/2026-11-19`; check `git branch --show-current` before every commit.
