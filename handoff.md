@@ -1,4 +1,22 @@
-# START HERE (2026-11-20 night, Opus 5.5, latest): #639 ALL CONTRACT FORMS SHIPPED
+# START HERE (2026-11-20 midday, Opus 5.5, latest): 4 OVERWEIGHT COMBAT VEHICLES SHIPPED
+
+`C:/repo/btt-rebuild` bv-gaps = origin/beta = 46584250a, `git deploy-beta` Published. The pre-/clear session did this
+work but left it uncommitted and out of the handoff; this session verified and shipped it.
+
+- Laser insulators take 1 heat off their laser (TO:AUE p.134): Pandion 3140 Upgrade 20 t. Heavy flamers need no power
+  amplifiers on ICE (Sokar, TRO: Prototypes p.73). IS-chassis Mixed Tech can take weightless Clan CASE (TM p.210):
+  Skulker C (BLK clcase; Creator option). OmniVehicle turret fixed at the base chassis weight, holds 10x (TM p.108;
+  BLK basechassisturretweight; Creator step 1). Ajax Assault Tank C flagged illegal (92.5 of 90 t) in
+  BLK_ILLEGAL_AS_PRINTED; getBundledIllegal now covers Combat Vehicles.
+- Bundle rebuilt: BV unchanged everywhere; costs changed for the three fixed designs and 30 OmniVehicles. custom-units.json
+  also picked up the AS low-ammo values (c5d8aaaed) for MegaMek-only 'Mechs. News bullet "Vehicle weights".
+- Checks: full `npm run check` hit 18 timeouts under load (OCR + bundle build running); all passed when rerun by file,
+  plus typecheck, lint, test:data, build. Killed a stale `find / -iname "Alpha Strike Companion.pdf"` (since 07:23).
+
+STILL OPEN: the 14 Support Vehicle issues, 6 Clan LRM 20 misses not explained by ammo, PowerShell 7.6.10 uninstall
+(not while the OCR runs), the OCR re-run's redo and index stages.
+
+## Previous (2026-11-20 night, Opus 5.5): #639 ALL CONTRACT FORMS SHIPPED
 
 `C:/repo/btt-rebuild` bv-gaps = origin/beta = 0fb96c16a, `git deploy-beta` Published, #639 (closed) has a follow-up
 comment. `npm run check` green (the 3 lint warnings predate it). ResourceLibrary 42f24a45e + 5c18f2df2 pushed.
