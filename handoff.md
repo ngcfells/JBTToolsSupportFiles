@@ -1,4 +1,26 @@
-# START HERE (2026-11-20, Opus 5.5, latest): M12 FORM DONE (b6219479e); E2e IN PROGRESS
+# START HERE (2026-11-20, Opus 5.5, latest): CAMPAIGN PLAY SHIPPED TO BETA
+
+FIRST: check memory, rules and guidelines before anything else (MEMORY.md and every file it links; btt-work CLAUDE.md;
+NGCFells naming; OCR-correct-from-PNG; no heredocs with apostrophes; vitest in PowerShell only).
+
+DONE (mordel-sync session, picking up the campaign handoff):
+
+- E2e: M4 Setup editor (dfa1804b6), M8 contract end/breach + Dragoons Rating count (ea3c19756). 3055 pp.100, 109-111
+  and 1987 pp.18, 43 read on the page images; extracts fixed and logged (ResourceLibrary 61311ce1c, e08f7e575, pushed).
+- Scoped re-review (Sonnet, f2eeb1d72..ea3c19756): all findings ADDRESSED. Its 4 new minors FIXED in a2e919df3
+  (unreadable stored campaign listed/explained instead of a crash; stale Resolve month says so; distinct Remove labels;
+  removed GM combinations leave area groupings). FC "Alliance" name checked against the books: canon, no change.
+- Batch F: origin/beta merged in (400f29c10, clean), news "November 20th, 2026 - Campaigns: planets, star systems
+  and mercenary contracts" + Available Tools "Campaigns" + #600 Support Vehicle BV bullet (98a1691b6); FW originals plan
+  Chunk H Economics ticked. `npm run check` green (5784 unit + 31 data, build OK, 3 known lint warnings); beta fast-forwarded to 98a1691b6, pushed (ls-remote checked), `git deploy-beta` Published.
+- Ledger: `C:/repo/btt-work/.superpowers/sdd/2026-11-19-campaign-play/progress.md` (all Ruling lines with their cost if
+  wrong; Final review CLOSED).
+
+NEXT (from the plan's "Later plans"): Aces onto the campaign core; planet editions (BattleForce 2, BattleForce 1987,
+Reese's Planetary Assault, Interstellar Operations); further unit editions (Field Manual: Mercenaries, Chaos Campaign,
+Campaign Operations, Mercenaries 2025). Each gets its own brainstorm and plan with NGCFells's sign-off.
+
+## Previous (2026-11-20, Opus 5.5): M12 FORM DONE (b6219479e); E2e IN PROGRESS
 
 M12 DONE by the mordel-sync session (picked up this handoff; NGCFells: "pick it up and finish the work"). HEAD of
 work/2026-11-19 = b6219479e "Campaigns: after-battle form (M12)": recordBattle + "After a battle" section on
