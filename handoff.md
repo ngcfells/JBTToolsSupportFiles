@@ -1,4 +1,4 @@
-# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: 3055 TABLES GREEN, STATE + HOOKS NEXT (BATCH B)
+# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: 3055 STATE + HOOKS GREEN, SCREEN NEXT (BATCH C)
 
 FIRST: check memory, rules and guidelines before anything else: MEMORY.md and every file it links, the repo's
 `.claude/rules/*.md` (btt-work has none; CLAUDE.md), the plan conventions, NGCFells naming, OCR-correct-from-PNG, no
@@ -7,7 +7,23 @@ heredocs, verify against catalogs, era-honest dating, vitest in PowerShell only.
 WORKING STYLE (NGCFells, 2026-11-19): small batches, with a handoff and a /clear between each. Do ONE batch below,
 update this block, commit the handoff, stop.
 
-BATCH DONE THIS SESSION: A (Task 14 Step 2, pure tables).
+BATCH DONE THIS SESSION: B (state + hooks), uncommitted in btt-work like A.
+- Added to `mercenarys-handbook-3055.ts`: `IMh3055Contract` {id, employer, mission, vsClans, months, startStep, total,
+  drawn, completed}, `IMh3055State` {sideId, roster, personnel, rating (IMh3055RatingInputs), contract},
+  `mh3055ReadState`, `IMh3055Signing` {employer, mission, vsClans, months, employerMultiplier, bonuses, advancePct,
+  upFront}, `mh3055SignContract(c, state, signing)` (prices with mh3055ContractPay from the state's payroll and Dragoons
+  Rating), `MH3055_EDITION` (onStep + `rating` hook → {value: points, label: "Dragoons Rating X"}). Registered in
+  `index.ts` (the new-campaign Edition select now lists it too).
+- onStep: "Payday 1 of 2" / "Payday 2 of 2"; log "Maintenance short N SP a week for 4 weeks (...)"; while a contract
+  runs "Overhead (4 weeks)", then "Upkeep draw" (2-6 months) or "Monthly draw (i of n)" (>6), and at the end
+  "Contract completed: balance paid". Signing posts "Contract advance (N%)" or "Contract paid in full up front" plus
+  "Bonding Commission handling fee (5% | 7%)".
+- Tests: 31 in the 3055 test (10 new hooks cases); `npx vitest run src/data/campaign-editions
+  src/ui/pages/game-management/campaigns` = 64 passed. tsc and eslint exit 0.
+- Four new Task 14 rulings in the ledger (fee on the advance only; up front 7%; 2-6 month upkeep draw; overhead only
+  under contract, shortfall logged in SP).
+
+EARLIER BATCH: A (Task 14 Step 2, pure tables).
 - `src/data/campaign-editions/mercenarys-handbook-3055.ts` written in btt-work, uncommitted (with its test; both go in
   the batch-C commit). `npx vitest run src/data/campaign-editions` = 41 passed (20 + 21); tsc and eslint exit 0.
 - Beyond the test's names it exports, for B and C: `MH3055_ID` ("mh-3055"), `Mh3055Position`, `MH3055_SUPPORT_POSITIONS`,
@@ -34,10 +50,8 @@ PREVIOUS BATCH: Task 14 Step 1 (RED).
 
 NEXT BATCHES, one per session:
 - A. DONE (see above).
-- B. State + hooks: `IMh3055State`, read-state, sign contract (25% advance, 5% fee; A-rated all up front +2%),
-  `onStep` (2 paydays, 4 weeks of maintenance shortfall and overhead), `MH3055_EDITION`; register in `index.ts`.
-  Tests first.
-- C. `edition-mh3055.tsx` mounted on campaign-home + a screen test in campaigns.test.tsx; then commit
+- B. DONE (see above).
+- C. (NEXT) `edition-mh3055.tsx` mounted on campaign-home + a screen test in campaigns.test.tsx; then commit
   "Mercenary's Handbook 3055 edition" and write the Task 14 complete line.
 - D onward: items 2-5 below (Chromium check, final review, ship, final message).
 
