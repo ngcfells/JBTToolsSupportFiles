@@ -1,4 +1,12 @@
-# START HERE (2026-11-20, Opus 5.5, latest): AFTER-BATTLE FORM (M12) HALF BUILT, UNCOMMITTED; THEN E2e
+# START HERE (2026-11-20, Opus 5.5, latest): M12 FORM DONE (b6219479e); E2e IN PROGRESS
+
+M12 DONE by the mordel-sync session (picked up this handoff; NGCFells: "pick it up and finish the work"). HEAD of
+work/2026-11-19 = b6219479e "Campaigns: after-battle form (M12)": recordBattle + "After a battle" section on
+campaign-home (per side Fought/Size/Lost ticks, Area, Held by, Record battle). Class + screen tests watched fail;
+campaign scope 606 passed; typecheck + eslint clean. Ledger M12 line FIXED; ledger markdown warnings fixed.
+NEXT: E2e (M4 setup editor, M8 contract end/breach + rating count), the scoped re-review, then batch F (ship).
+
+# Previous (2026-11-20): AFTER-BATTLE FORM (M12) HALF BUILT, UNCOMMITTED
 
 NGCFells (2026-11-20): "build the form, if it is quick and easy" (M12 after-battle form). Session ran out of tokens
 mid-build. UNCOMMITTED in btt-work (work/2026-11-19, on top of 4fa62fae6):
