@@ -1,4 +1,32 @@
-# START HERE (2026-11-20 evening, Opus 5.5, latest): SHIPPED; AIRMECH DONE; ISSUE REVIEW DONE
+# START HERE (2026-11-20 night, Opus 5.5, latest): #639 ALL CONTRACT FORMS SHIPPED
+
+`C:/repo/btt-rebuild` bv-gaps = origin/beta = 0fb96c16a, `git deploy-beta` Published, #639 (closed) has a follow-up
+comment. `npm run check` green (the 3 lint warnings predate it). ResourceLibrary 42f24a45e + 5c18f2df2 pushed.
+
+- Form versions (NGCFells: "do the other versions and allow the user to select"): catalog
+  src/classes/campaign/contract-sheet-versions.ts (CONTRACT_FORMS; record sheets share a layout and differ in Common
+  Costs/Pay; contracts/worksheet are blocks of text with inline blanks {f}, boxes {c}, areas, negotiation rows,
+  tables). IContractSheet gained versionId (unknown/missing = hs-draconis-reach), fields, checks. Forms: DR p.203,
+  DR Mallory's World p.204, Hinterlands p.151 corrected (errata v2.41) and first printing, Mercenaries rulebook p.33,
+  Contract of Mercenary Employment "Command" (HL p.152 = DR p.205) and "Unit" (Mercenaries p.35), Mercenary's
+  Handbook 1987 contract, FM:M(R) worksheet pp.187-188 (= Mercenaries Supplemental). Each prints at the book's page
+  count (checked as PDFs; local script src/zz-local/contract-forms-shot.mjs). Link renamed "Contract sheets".
+- Library survey: no other contract forms in the text extracts (MH 3055, Campaign Operations, Chaos Campaign have none;
+  Chaos Campaign has a Warchest Campaign Record Sheet, a campaign tracker, not built). The file named
+  "Hot-Spots-Hinterlands-...-2010-2nd-Printing" is the corrected 2024 printing (its sheet has the errata's change).
+- Extracts fixed from the page images (NGCFells: update extracts so images need not be pulled again), logged in
+  text/_corrected_pages.md. Watch line endings: replace_page-style edits must keep a CRLF file CRLF.
+- OCR redo stage (ResourceLibrary): 11:13 file 19 of 219, 1,759 of 44,689 pages, ~6 s a page, ~3 days left.
+
+- #639 Mercenary Contract Record Sheet (Hot Spots: Draconis Reach, PDF page index 204 = unnumbered p.203, read on the
+  page image): route campaigns/:id/contract-sheet, linked from the campaign page. Model
+  src/classes/campaign/contract-sheet.ts (IContractSheet, 23 printed lines, max 200, text capped at 500);
+  Campaign.contractSheets (optional in ICampaignExport; old saves load with []). UI contract-sheet.tsx/.scss: every
+  blank an input, debounced save, Add 23 lines, Delete, Print sheet + print icon (window.print; print CSS = one Letter
+  page, white background). News bullet in the November 20th entry. Visual check script (local, gitignored):
+  src/zz-local/contract-sheet-shot.mjs (needs `npx vite --port 5181`).
+
+## Previous (2026-11-20 evening, Opus 5.5): SHIPPED; AIRMECH DONE; ISSUE REVIEW DONE
 
 FIRST: check memory, rules and guidelines (MEMORY.md and its links; vitest in PowerShell only; no bash heredocs with
 apostrophes; OCR-correct-from-PNG; NGCFells naming; cheapest subagent model).
