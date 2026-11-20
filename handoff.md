@@ -1,4 +1,22 @@
-# START HERE (2026-11-20, Opus 5.5, latest): CAMPAIGN PLAY: E2d DONE (M2, M9, M14, M15, M12 ruling); NEXT IS E2e
+# START HERE (2026-11-20, Opus 5.5, latest): AFTER-BATTLE FORM (M12) HALF BUILT, UNCOMMITTED; THEN E2e
+
+NGCFells (2026-11-20): "build the form, if it is quick and easy" (M12 after-battle form). Session ran out of tokens
+mid-build. UNCOMMITTED in btt-work (work/2026-11-19, on top of 4fa62fae6):
+- campaign.test.ts: new test "records a battle: logs it, marks losses, sets who holds the area and runs the
+  edition's hook" (pushes a test edition onto CAMPAIGN_EDITIONS, restores it). Watched fail (recordBattle missing).
+- campaign.ts: `Campaign.recordBattle(result: ICampaignBattleResult)` written: log line "Battle at <area>: A (size)
+  vs B (size, lost X); <side> hold the ground", lost force units' status "Lost in battle, month N", area controller set
+  + seized when it changes hands, then edition.control, edition.afterBattle, each ruleset's afterBattle.
+- campaign-rules.ts: `ICampaignRuleHooks.afterBattle?` added.
+- NOT YET RUN: the test (GREEN unverified), tsc, eslint.
+TO FINISH: run `npx vitest run src/classes/campaign` (PowerShell); then the form on campaign-home.tsx, test first in
+campaigns.test.tsx: an "After a battle" section with, per side, a Fought tick + Size select (lance/company/
+battalion/regiment) + Lost ticks for that side's force units; an Area select (planet areas, optional); Held by
+select; "Record battle" button calling update(c => c.recordBattle(...)). Then the full campaign test scope + tsc +
+eslint, commit "Campaigns: after-battle form (M12)", change the ledger's M12 Ruling line to FIXED, update this block.
+Then E2e (below).
+
+# Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2d DONE (M2, M9, M14, M15, M12 ruling); NEXT IS E2e
 
 FIRST: check memory, rules and guidelines before anything else.
 
