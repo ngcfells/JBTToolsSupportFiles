@@ -1,4 +1,4 @@
-# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: 3055 STATE + HOOKS GREEN, SCREEN NEXT (BATCH C)
+# START HERE (2026-11-19, Opus 5.5, latest): CAMPAIGN PLAY: TASK 14 (MH 3055) COMMITTED; NEXT IS BATCH D (CHROMIUM CHECK)
 
 FIRST: check memory, rules and guidelines before anything else: MEMORY.md and every file it links, the repo's
 `.claude/rules/*.md` (btt-work has none; CLAUDE.md), the plan conventions, NGCFells naming, OCR-correct-from-PNG, no
@@ -7,7 +7,21 @@ heredocs, verify against catalogs, era-honest dating, vitest in PowerShell only.
 WORKING STYLE (NGCFells, 2026-11-19): small batches, with a handoff and a /clear between each. Do ONE batch below,
 update this block, commit the handoff, stop.
 
-BATCH DONE THIS SESSION: B (state + hooks), uncommitted in btt-work like A.
+BATCH DONE THIS SESSION: C (screen). HEAD of work/2026-11-19 = a76f6fc83 "Mercenary's Handbook 3055 edition" (A + B + C
+in one commit). Beta still 005f2972b, not merged.
+- `src/ui/pages/game-management/campaigns/edition-mh3055.tsx`, mounted on campaign-home when editionId is mh-3055:
+  unit side; Combatants (template, quality, count, SP) and Personnel (position, experience, count, anti-'Mech) tables;
+  payroll / maintenance vs Support Points preview (testid mh3055-costs); Dragoons Rating inputs and band
+  (mh3055-rating); New contract: Roll offers, Employer select + Roll employer (minor power, corporation name + pay roll,
+  Minor Periphery state, mercenary employer), Mission select + Roll job (Special table, two-mission choice picks the
+  first, Clans target ticks Against the Clans), months (default = mission minimum), bonuses, pay preview (mh3055-pay),
+  Roll support/transport/salvage (shown, not booked), advance %, up front (A only), Sign contract. Active contract
+  shows total and drawn. Contract Hearing is not on the screen (function exists).
+- 2 screen tests in campaigns.test.tsx (watched fail first). `npx vitest run src/ui/pages/game-management/campaigns
+  src/data/campaign-editions` = 66 passed; tsc and eslint exit 0.
+- Ledger: one new ruling (support/transport/salvage rolls shown, not booked) and "Task 14: complete".
+
+EARLIER BATCH: B (state + hooks).
 - Added to `mercenarys-handbook-3055.ts`: `IMh3055Contract` {id, employer, mission, vsClans, months, startStep, total,
   drawn, completed}, `IMh3055State` {sideId, roster, personnel, rating (IMh3055RatingInputs), contract},
   `mh3055ReadState`, `IMh3055Signing` {employer, mission, vsClans, months, employerMultiplier, bonuses, advancePct,
@@ -51,9 +65,9 @@ PREVIOUS BATCH: Task 14 Step 1 (RED).
 NEXT BATCHES, one per session:
 - A. DONE (see above).
 - B. DONE (see above).
-- C. (NEXT) `edition-mh3055.tsx` mounted on campaign-home + a screen test in campaigns.test.tsx; then commit
-  "Mercenary's Handbook 3055 edition" and write the Task 14 complete line.
-- D onward: items 2-5 below (Chromium check, final review, ship, final message).
+- C. DONE (see above).
+- D. (NEXT) item 2 below: the Chromium check, now with both Mercenary's Handbook editions.
+- E onward: items 3-5 below (final review, ship, final message). Item 1 (Task 14) is DONE.
 
 WHERE. Worktree `C:/repo/btt-work`, branch `work/2026-11-19`; check `git branch --show-current` before every commit.
 - Plan: `docs/superpowers/plans/2026-11-19-campaign-play.md`.
