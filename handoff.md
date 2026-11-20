@@ -1,8 +1,26 @@
-# START HERE (2026-11-20, Opus 5.5, latest): CAMPAIGN PLAY: E2b DONE (I3 + 5 MINORS); NEXT IS E2c (MORE MINORS)
+# START HERE (2026-11-20, Opus 5.5, latest): CAMPAIGN PLAY: E2c DONE (M5, M7, M10, M13); NEXT IS E2d (LAST MINORS)
 
-FIRST: check memory, rules and guidelines (see the block below) before anything else.
+FIRST: check memory, rules and guidelines (see the blocks below) before anything else.
 
 RULE (NGCFells, 2026-11-20): minors are NOT deferred. Fix them in small batches before batch F (ship).
+
+BATCH DONE THIS SESSION: E2c. HEAD of work/2026-11-19 = d1ef09883 "Campaigns: review minors M5, M7, M10, M13".
+- M5: campaign-store.ts useCampaigns keeps the newest list in a ref (`latest`); useCampaign.update builds on it.
+  New hook test campaign-store.test.tsx.
+- M7: `mh3055ContractMonths(mission, months)` in mercenarys-handbook-3055.ts (objective raid at most 2, others at
+  least their minimum, pp.104-105); mh3055SignContract and the panel's pay preview use it.
+- M10: `cacheUntilRejected<T>()` in star-systems.ts; index, detail shards and sites use it (failed load is retried).
+- M13: planet.tsx GmTables Remove also drops the type's dots and the GM combinations that need it; value 0 is kept.
+- Each test watched fail first. `npx vitest run src/classes/campaign src/data/campaign-editions src/data/star-systems
+  src/ui/pages/game-management src/ui/components` = 597 passed; tsc and eslint exit 0. Ledger has FIXED lines and
+  the OPEN line trimmed.
+
+NEXT: batch E2d, small, test first: the rest of the open minors. M2 destroyed lines count as live (check pp.36-39),
+M14 memoise jumps, M15 editionState size cap, M9 raw/repeated display text, M12 after-battle form (record a ruling
+or ask NGCFells), M4 setup editor, M8 contract end/breach + rating count. M4 and M8 are the larger two; split them
+into E2e if the batch gets big. Then the scoped re-review (FIX_BASE f2eeb1d72..HEAD), then batch F (ship).
+
+# Previous (2026-11-20, Opus 5.5): CAMPAIGN PLAY: E2b DONE (I3 + 5 MINORS); NEXT WAS E2c
 
 BATCH DONE THIS SESSION: E2b. HEAD of work/2026-11-19 = 3c7306b53 "Campaigns: readings note and the cheap review
 minors (I3, M1, M3, M6, M11)".
