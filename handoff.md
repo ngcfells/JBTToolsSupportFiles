@@ -1,4 +1,29 @@
-# START HERE (2026-11-20 midday, Opus 5.5, latest): 4 OVERWEIGHT COMBAT VEHICLES SHIPPED
+# START HERE (2026-11-20 afternoon, Opus 5.5, latest): SUPPORT VEHICLE ISSUES RESOLVED AND SHIPPED
+
+`C:/repo/btt-rebuild` bv-gaps = origin/beta = e8bd61a75, `git deploy-beta` Published, `npm run check` green (3 old lint
+warnings). All 15 Support Vehicle files the probe listed were checked against their books (page images read; extracts
+fixed, ResourceLibrary 9e6984bb4 pushed, search index rebuilt). News bullet "Support Vehicle checks". Bundle: Estevez
+MBT/AA now kept (match MUL 647/571); NapFind now left out (BV 10 vs MUL 11: the MUL counts the file's stray armor point,
+book prints 0 armor, BV N/A). Debbie, Saturnus V, Crimson Streak are listed illegal but sit outside the bundle (BV/import),
+so bundled-units.test.ts compares only the listed designs the bundle keeps.
+
+- Rule fixes (tests in vehicle-support.test.ts, each watched fail): bridgelayers take 1 SV slot (TM p.344 table;
+  catalog had the 'Mech 2/4/12); BAR 10 armor takes IS Ferro-Fibrous space at armor Tech Rating E and Clan at F,
+  "respectively" (errata v8.0; MegaMek same; was keyed on tech base) in vehicle.ts and aerospace-fighter.ts; SV ammo:
+  one bin per ammo family, slug + cluster together (TM p.136; MegaMek same); Small SV with no fire control: 1 gunner
+  per weapon (TM p.131 table, Outrider, MegaMek; TM p.136 text says Crew value: same-book conflict, followed MegaMek;
+  vehicle-support-equipment.test.ts updated 3 -> 2); a drone OS gives construction crew 0 (TO:AUE p.117) and on a
+  Small SV its 10% is weighed in kg (TRO 3039 p.71: 800 and 750 kg).
+- Cleared by those: Prometheus, Lexan, both Sturmvogels, Outrider. Corrected files (blk-design-corrections.ts): NapFind
+  (Tech D, 0 armor, no seat), PathTrak (no seat), Trireme (CS) (armor Tech E: record sheet prints no rating, chassis E),
+  Debbie (BAR 5, fuel 0.5), both Estevez (BAR 8). Flagged illegal as printed: Air Car (MW1e RPG vehicle), Estevez MBT and
+  AA (BAR 8 at C), Debbie (23/13 slots, BAR 5 at B unarmored), Saturnus V and Crimson Streak (Ultra-Light over BAR 5),
+  Jonah (5 points over Naval max 4).
+
+STILL OPEN: 6 Clan LRM 20 misses not explained by ammo, PowerShell 7.6.10 uninstall (OCR redo still running 13:00),
+the OCR re-run's redo and index stages.
+
+## Previous (2026-11-20 midday, Opus 5.5): 4 OVERWEIGHT COMBAT VEHICLES SHIPPED
 
 `C:/repo/btt-rebuild` bv-gaps = origin/beta = 46584250a, `git deploy-beta` Published. The pre-/clear session did this
 work but left it uncommitted and out of the handoff; this session verified and shipped it.
