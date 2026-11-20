@@ -1,4 +1,45 @@
-# START HERE (2026-11-20 afternoon, Opus 5.5, latest): SUPPORT VEHICLE ISSUES RESOLVED AND SHIPPED
+# START HERE (2026-11-20 evening, Opus 5.5, latest): POWERSHELL 7.6.10 REMOVED; OCR REDO RESUMED
+
+- PowerShell 7.6.10 (MSI, C:\Program Files\PowerShell\7) uninstalled 16:42 (MSI log C:\Users\chris\ps-uninstall.log,
+  "Removal completed successfully", exit 0). Only 7.7.0 (MSIX, WindowsApps) is left on PATH. VS Code terminals
+  reopen on 7.7.0.
+- OCR redo resumed 16:44, running detached (minimized pwsh 7.7.0 window). Wrapper:
+  C:\Users\chris\AppData\Local\Temp\claude\cc76df7b0911cfa7\d28c6a3f-ebb2-4e0e-8568-98dc6640f209\scratchpad\reocr\resume3.ps1
+  (log run.log, queue redo.log, textlayer.log in the same folder). Stages: `ocr_queue.py --redo` (skips the 35 done) ->
+  commit "OCR redo, part 2" (helpers.py commit-queue, NOT pushed) -> `ocr_textlayer.py --redo` -> `extract_rulebooks.py`
+  -> `build_index.py` -> `library_search.py build`. The text-layer and extract stages are NOT committed by the
+  wrapper: review `git status` in ResourceLibrary and commit them by hand (never the other agent's files: future-wars-08
+  txt, SARNA-LINKS.md, scrapes/reddit, INDEX.md). Push ResourceLibrary after. About 41,000 pages / ~76 h.
+
+STILL OPEN: OCR redo (running), then commit and push its results.
+
+## Previous (2026-11-20 late afternoon, Opus 5.5): ATM ALPHA STRIKE DAMAGE; OCR PAUSED
+
+`C:/repo/btt-rebuild` bv-gaps = origin/beta = a9bb34591, `git deploy-beta` Published, `npm run check` green (5834
+tests, 3 old lint warnings). ResourceLibrary fc3efee45 + 96a41b411 pushed (rewritten from 3e5d0dff1 + 259e6ffc3).
+
+- ATM / iATM Alpha Strike damage now uses the unrounded ASC Weapon Conversion Table (pp.109-110, page images read;
+  iATM 6 Long 0.6 per errata v1.6): ATM 3/6/9/12 = 0.6/0.4/0.2/0.2, 1.5/1/0.5/0.5, 2.1/1.4/0.7/0.7, 3/2/1/1; iATM
+  0.9/0.6/0.3/0.3, 1.8/1.2/0.6/0.6, 2.7/1.8/0.9/0.9, 3.6/2.4/1.2/1.2 (MegaMek same). The catalog had rounded
+  single-weapon "card" values (ATM 6 = 2/1/1). MUL check 3008 -> 3074 (+67, -1); ATM 'Mechs 12/88 -> 78/88 match.
+  Only loss Matador 2: its MUL S 7 needs ATM 9 = 3 (the old rounded value); left. Test equipment-registry.test.ts
+  (watched fail). Bundle: custom-units.json Axman AXM-5S only. News bullet "Alpha Strike: ATM damage". Outputs
+  src/zz-local/out/as-check-atmbase.tsv, as-check-atmfix.tsv, atm-diff.txt.
+- The 6 Clan LRM 20 misses: Tundra Wolf and Highlander IIC 4 now match (ATM). The other 4 (Doloire DLR-OC, Sneede II,
+  Kodiak II, Vapor Eagle 5) differ on OV/heat; MegaMek's converter code (ASDamageConverter heat, jump heat
+  max(3, jump"/2), OV = roundUp(raw M) - roundUp(adjusted M)) gives OUR values for Kodiak II and Vapor Eagle 5, so the
+  MUL cards disagree with MegaMek too. Not a rules gap; left.
+- Extract: ResourceLibrary text/Alpha-Strike-Companion.txt index 110 (p.109) rewritten from the page image (names and
+  values had slipped; ATM 6 read 3/0.6); logged in _corrected_pages.md; commit 96a41b411.
+- OCR PAUSED at the owner's request after book 35/219 of the --redo (15:13). The wrapper (resume2.ps1) then
+  committed the 35 extracts (fc3efee45, message corrected to "OCR redo, part 1: 35 of 219", force-pushed) and rebuilt the
+  search index. RESUME LATER: from ResourceLibrary, `py -3.11 ocr_queue.py c:\repo\JBTIICRework --redo` (skips done
+  books), then `ocr_textlayer.py LIB --redo`, `extract_rulebooks.py`, `build_index.py LIB`, `library_search.py build`.
+  About 41,000 pages / ~76 h left. PowerShell 7.6.10 uninstall can be done now while the OCR is paused.
+
+STILL OPEN: OCR redo resume (above); PowerShell 7.6.10 uninstall.
+
+## Previous (2026-11-20 afternoon, Opus 5.5): SUPPORT VEHICLE ISSUES RESOLVED AND SHIPPED
 
 `C:/repo/btt-rebuild` bv-gaps = origin/beta = e8bd61a75, `git deploy-beta` Published, `npm run check` green (3 old lint
 warnings). All 15 Support Vehicle files the probe listed were checked against their books (page images read; extracts
