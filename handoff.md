@@ -1,4 +1,30 @@
-# START HERE (2026-11-20 evening, Opus 5.5, latest): POWERSHELL 7.6.10 REMOVED; OCR REDO STOPPED, AWAITING GO
+# START HERE (2026-11-20 evening, Opus 5.5, latest): SMALL ISSUES #625, #215, #205 CLOSED; NEXT #206, #135, #225
+
+NGCFELLS RULING 2026-11-20: "If it is there we are building it": every open issue gets built; none is closed as
+won't-do (memory open-issues-get-built.md).
+
+`C:/repo/btt-rebuild` bv-gaps = origin/beta = 4d3846346, `git deploy-beta` Published, `npm run check` green (5845
+unit + 32 data, 3 old lint warnings); browser suite 18/18.
+
+- #625 (36c78b82e): MUL search `role:`/`tech:` terms (squashed names, tech:is), short/medium/long ranges, unknown
+  word:value terms left out and named under the search box (getMULSearchWarnings). Home help updated.
+- #215 (2b79dac01): SanitizedHTML raw mode runs DOMPurify 3.4.17 (pinned: 3.4.18 was 6 days old); SVG purified inside
+  an `<svg>`. Tested only in the browser project: happy-dom garbles DOMPurify output (drops the first element, keeps a
+  script after it).
+- #205: already done in e7d00e87b; closed with evidence.
+- News bullets "Unit search terms", "Safer unit text" (November 20th entry).
+
+NEXT SMALL ISSUES:
+
+- #206 Battledroids heat sink placement: BD p.25 "Heat sinks occupy [one] space on the table each", the Merlin's 18
+  "divided among all 8 hit locations" (all heat sinks, the engine's 10 included, go on the chart). buildPrintedDroid
+  (src/classes/printed-droid.ts) places weapons only. Read each printed droid's record sheet (page images; write the
+  extract back per memory) for its heat sink places, add them to IPrintedDroid, place them; Ral Partha conversions
+  (Custom Homebrew, no sheet) need a placement rule.
+- #135 CASE ammo critical on vehicles: find the rule (TW vehicle criticals), then sheet text or a cited no-rule.
+- #225 Git LFS budget: overlaps #601; JBTIICRework still has branch backup/pre-lfs-strip and 203 uncommitted changes.
+
+## Previous (2026-11-20 evening, Opus 5.5): POWERSHELL 7.6.10 REMOVED; OCR REDO STOPPED, AWAITING GO
 
 - PowerShell 7.6.10 (MSI, C:\Program Files\PowerShell\7) uninstalled 16:42 (MSI log C:\Users\chris\ps-uninstall.log,
   "Removal completed successfully", exit 0). Verified after NGCFells closed everything and restarted: `where pwsh` =
