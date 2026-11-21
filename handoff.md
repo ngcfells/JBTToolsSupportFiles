@@ -1,4 +1,127 @@
-# START HERE (2026-11-20 late night, Opus 5.5, latest): PLEIADES BATCH (#640, #641) DESIGN APPROVED; NEXT = PLAN + BUILD
+# START HERE (2026-11-21 morning; written 2026-11-20 ~22:00, Opus 5.5): E-WAR PHASE 0 PAUSED MID-AUDIT (TASK 8 FIX ROUND NEXT)
+
+FIRST, in this order:
+
+1. **OCR redo** (NGCFells: "run until 0600"): started 21:46, stopped at 06:00 by `ocr-resume/stop-at.ps1` (queue stage
+   only). Check `C:\repo\JBTToolsSupportFiles\ocr-resume\run.log` (last lines say how it stopped) and `redo.log`. Then in
+   ResourceLibrary: `git status` (only OCR-written extracts; NEVER INDEX.md, text/future-wars-08-Qyhm8x.txt, SARNA-LINKS.md,
+   scrapes/reddit), commit with `py -3.11 C:\repo\JBTToolsSupportFiles\ocr-resume\helpers.py commit-queue 205120 "OCR redo,
+   part 2 (partial, to 06:00): ..."`, push. Hand-corrected pages logged in text/_corrected_pages.md are kept by the OCR;
+   spot-check the E-War pages written back last night (Task 8b report lists them) survived. Restart the OCR only when
+   NGCFells says (same resume3.ps1; it skips done books).
+2. **E-War Phase 0, resume subagent-driven execution** (NGCFells chose subagent-driven). Skill
+   superpowers:subagent-driven-development; plan `C:/repo/btt-rebuild/docs/superpowers/plans/2026-11-20-ewar-phase-0.md`;
+   ledger `C:/repo/btt-rebuild/.superpowers/sdd/2026-11-20-ewar-phase-0/progress.md` (read it first: rulings 1-6, every
+   task's state). Briefs/reports/reviews in the same folder; audit procedure = `audit-brief.md` + `audit-addendum.md`
+   (binding controller rulings, incl. the two new owner rules below) + `common.md`.
+
+STATE (bv-gaps, 16 commits ahead of origin/beta 8a0bbf0a3, NOT pushed, NOT deployed; issue #642):
+
+- Tasks 1-7 COMPLETE, each reviewed clean: `src/utils/ewar-play.ts` (EWarKind, getEWarKind, IEWarGear, IEWarPlayState,
+  IEWarCarrier, IEWarBoard, applyEWarBoard, setEWarOverride, rule functions returning [] in Phase 0); edition tables
+  (`IEWarPlayRules` / `getEWarPlayRules`, Alpha Strike `ewarRules` / `getAlphaStrikeEWarRules` in rules-editions.ts);
+  `getEWarGear()` + `ewarPlay` save on all 12 unit classes; force board on BattleMechForce (`ewarBoard`,
+  `setEWarBoardEntry`, `setEWarNarcPods`, `getEWarUnits`). Commits df2ea024f..cec5c8642.
+- Task 8 (audit: missiles and defenses) DONE (c0b866735 catalog fix: Narc-capable ammo in BTC; 250844063 table entries for
+  BTC, BTC:RoW, BMR, BMR(R), TW, BMM, CRB + design doc Appendix A). Review 1 open Important: **BMM `editions` lists APDS
+  (and others) that BMM does not print -> fix with test.** Fix round 1 NOT yet sent.
+- Task 8b (write back ~40 pages Task 8 read from images but left unwritten: BTC 1990, BTC:RoW, BMR 1998, Maximum Tech
+  1999 + other printings; and read CityTech 2nd Ed + ClanTroops for the family): PAUSED by the controller at ~22:00.
+  Its report `task-8b-report.md` says which pages and gap reads are done and which are left. Finish what is left
+  first (fresh astech/Sonnet worker with that report), then Task 8 fix round 1.
+- Task 8 fix round 1 must include (owner rule below): Maximum Tech E-War items (Laser AMS, Artemis V, Streak LRM, Bola
+  pods, and any other MT item in the family) get `master-rules` and `master-rules-revised` in `editions`,
+  `editionLevels` 3 and `editionStats` from MT (pattern: MT targeting systems, equipment-misc.ts ~458), each with a test.
+  Then a scoped re-review, then Tasks 9 (ECM/probes), 10 (stealth), 11 (C3 and the rest; also classify BA `is-c3-system`),
+  12 (Alpha Strike), 13 (ship: Opus final review, npm run check, deploy-beta, news bullet, #642 comment; also check every
+  audit report's page list against _corrected_pages.md).
+
+NGCFELLS RULINGS THIS SESSION (all saved in memory):
+
+- "Every edition. On everything. Everytime." (every-edition-every-rule.md); includes the expansions (CityTech, AeroTech,
+  BattleTroops, ClanTroops, CT2, AT2, AT2R) and Alpha Strike "where gaps exist" (Phase 5).
+- "A and C combo": shared rules module + force E-War board, hand overrides per field.
+- Every page image read goes back into the extracts, every printing, logged, pushed (extracts-from-page-images.md);
+  write each page back as it is read.
+- "If we have a book that offers it for an edition it is then available for that edition"
+  (book-offers-item-for-edition.md); posted on #612 for the non-E-War Maximum Tech content.
+
+OPEN FOR NGCFELLS: none blocking. Model: Opus for the controller is fine but costly; Sonnet can run the controller
+loop from the ledger; use Opus for Task 13's final review.
+
+## Previous (2026-11-20 late night, Opus 5.5, latest): E-WAR DESIGN APPROVED, PHASE 0 PLAN WRITTEN; NEXT = BUILD PHASE 0
+
+NGCFELLS RULINGS (2026-11-20): "Every edition. On everything. Everytime." (new memory every-edition-every-rule.md);
+approaches "A and C combo" (one shared rules module + a force E-War board, hand overrides per field); Alpha Strike
+"Yes where gaps exist" (Alpha Strike play lists E-War specials as text only, so Phase 5 adds them).
+
+- Issue #642 (phase checklist in its body). `C:/repo/btt-rebuild` bv-gaps: 8acef5829 design, 756f90783 Phase 0 plan
+  (local commits, NOT pushed; docs only). Before them, bv-gaps = origin/beta = 8a0bbf0a3 (Pleiades deferred minors).
+- Design: `docs/superpowers/specs/2026-11-20-ewar-play-design.md` (builder check done; its "Calls made in design"
+  list: own defenses work in the take-damage dialog; own stealth shows "+N to attacks against this unit"; enemy targets
+  are ticks; attacker's edition governs its attack, defender's its defenses; board v hand override per field; C3
+  becomes network records in Phase 3; Phase 0 catalog fixes may move BV).
+- Plan: `docs/superpowers/plans/2026-11-20-ewar-phase-0.md`, 13 tasks: 1-2 module `src/utils/ewar-play.ts` + edition
+  tables; 3-6 `getEWarGear()` + `ewarPlay` state on all 12 unit classes; 7 force board data (panel waits for Phase 1);
+  8-12 catalog audit per family across every edition (page images; matrix appended to the design doc as Appendix A);
+  13 ship. Phases 1-5 each get their own plan after Phase 0 ships.
+- OCR REDO RUNNING (NGCFells, 2026-11-20 21:46, "run until 0600"): resume3.ps1 wrapper + stop-at.ps1 stopper (both in
+  ocr-resume/) kill it at 2026-11-21 06:00, after the queue stage only. Then: commit what it re-read with
+  `py -3.11 C:\repo\JBTToolsSupportFiles\ocr-resume\helpers.py commit-queue 205120 "OCR redo, part 2 (partial): ..."` from
+  ResourceLibrary (check `git status` first: only OCR files), push, and log in run.log how far it got. Restart later the
+  same way (it skips done books).
+- Execution: subagent-driven (NGCFells). Ledger: btt-rebuild/.superpowers/sdd/2026-11-20-ewar-phase-0/progress.md
+  (Tasks 1-7 done; Task 8 audit done + 8b write-back running; rulings 1-6 there).
+- NEXT (old line): NGCFells picks execution (subagent-driven recommended), then build. Model: Sonnet for Tasks 1-7 and the
+  audits, Opus for the final review.
+
+## Previous (2026-11-20 night, Sonnet 5.5): PLEIADES BATCH (#640, #641) SHIPPED AND CLOSED; NEXT = E-WAR LAYER
+
+NGCFELLS ORDER (2026-11-20): 1. Pleiades batch -> DONE. 2. E-War layer in roster play (all of it) -> 3. #600.
+Standing rule (memory condense-and-extend.md): reuse and extend existing files, no new file per item.
+
+**1. Pleiades batch: DONE.** `C:/repo/btt-rebuild` bv-gaps = origin/beta = d0a129471, `git deploy-beta` Published, `npm run check`
+green (5904 unit + 32 data, 3 old lint warnings), #640 and #641 closed with evidence. astech (Opus) final review done; its 4
+Important findings fixed (stale cockpit flags, Pilot Suit pick with no rules level, panel hidden below Custom, Blue Saviour turn count).
+- Plan: `docs/superpowers/plans/2026-11-20-pleiades-mechworks.md`; design: `docs/superpowers/specs/2026-11-20-pleiades-mechworks-design.md`.
+- Where things are: AC/12 + munitions + Boosted rounds `ammo-custom.ts` / `ballistic-custom.ts` (Boosted ammo tags `ammo-ac-N-boosted`,
+  `ammo-custom-ac-12-boosted`, `IAmmoProfile.extraHeat`); Personal ECM and Blue Saviour `misc-custom.ts`; Pilot Suit cockpit in
+  `customCockpitTypes` (mech-cockpit-types.ts, kept apart from the official list; built as the interface family via `_pilotSuitCockpit`);
+  Blue Saviour play rules in `src/utils/future-wars-play.ts` + `BattleMech` (`futureWarsPlay.blueSaviour`: on / next / started /
+  activeTurns / failed / exploded) + panel block in `_futureWarsPlay.tsx` + take-damage energy checkbox and attack-row halving in `play.tsx`;
+  Hardsuits `src/data/battle-armor-samples.ts` (new file: no BA sample file existed) + `sample-mul.ts` records + `_addMechDialog.tsx` BA `bundled` hook.
+- Rulings: Blue Saviour 7th-turn target = 3; End Phase choice holds from the next turn (on before the first Next Turn is immediate);
+  Boosted rounds join the shared AC ammo family by tag prefix; Pilot Suit BV via -1/-1 skills, cost 1,500,000 as Interface; Hardsuit
+  sheets print BV/PV (63/9, 84/12): our PV 9 and 12 match, our BV 55 and 63 do not (shipped as ours); VTOL Hardsuit ships as printed though
+  our creator weighs it 450 kg v 400 (flagged); era ilClan is the first with the 3151 prototypes.
+- Deferred minors: skipped Blue Saviour roll is lost (panel default 7); outgoing halving only on single-number damage; patchwork
+  Reflective not read; explosive flag BV cost not in notes; explosion ignores heat-only ammo-crit editions; CASE test cannot tell CASE;
+  Pilot Suit Piloting -1 has no caller (getPilotingSkillModifier unused, as for EI/tripod); ResourceLibrary files
+  `scrapes/reddit/pleiades-64{0,1}-*.md` (post text from the issues) are saved locally, NOT committed or pushed.
+- Reminders waiting for E-War: Blue Saviour "treat missiles as AMS" and "inside hostile ECM"; Personal ECM own-hex effect.
+
+**2. E-War layer in roster play (NGCFells: "Do it all if we are missing it... Include all E-War items and rules").**
+Not designed yet; brainstorm + design doc next. Agreed so far:
+- Roster play today has NO E-War for any unit: no ECM, AMS, Artemis, Narc, C3, probes, Stealth/Null-Sig to-hit.
+  Only 'Mechs use getTargetToHitFromWeapon; vehicles, BA, protos, fighters etc. have their own play views.
+- Approach agreed: ONE shared E-War rules module (condensed; extend existing files) used by every unit type's play
+  view; per-unit state (own ECM mode, inside enemy ECM, Narc/iNarc pods, TAGged, C3 network) + per-attack "enemy ECM
+  on this line of fire" tick (no map; like the woods/smoke counts); a force-level C3 network panel.
+- Phases, each its own plan + beta deploy: 0 catalog audit vs TW/TO:AUE/TM/IO:AE (catalog already has most items;
+  Void-Signature and some BA E-War gear look missing); 1 missiles (AMS, Laser AMS, APDS, Artemis, Apollo,
+  Narc/iNarc, semi-guided + TAG, ECM cancelling); 2 stealth + sensors (Stealth, Null-Sig, Void, Chameleon, Mimetic,
+  probes, ECCM, Angel, Watchdog); 3 C3 networks + the rest (ghost targets, EW Equipment, communications, aero ECM).
+  Then hook in Personal ECM + Blue Saviour's AMS/ECM. Open an issue for it when designing.
+
+**3. #600 then.** Left per the issue: round 4b fighters (untouched), "remaining unit types", Tonbo (189 v MUL 233)
+and Bishop (171 v 199) left out, UL-14 two bulldozers v TM p.242 one-in-Front, both armed Brunels over item slots
+(flagged illegal).
+
+Unchanged: library LFS push from 12/1 (block below); OCR redo still waits for NGCFells's go.
+
+## Previous (Pleiades design, superseded by the block above)
+
+# Previous START HERE (2026-11-20 late night, Opus 5.5, latest): PLEIADES BATCH (#640, #641) DESIGN APPROVED; NEXT = PLAN + BUILD
 
 NGCFELLS ORDER (2026-11-20): 1. Pleiades batch (#640, #641) -> 2. E-War layer in roster play (all of it) -> 3. #600.
 "Do the small stuff first." NEW STANDING RULE (memory condense-and-extend.md): keep it condensed, reuse and EXTEND
