@@ -54,7 +54,9 @@ NEW (2026-11-20 ~22:15): issue #643, Vehrec's (Star League Discord, 2026-11-19) 
 MetalStorm-style single-use-barrel autocannon, coolant-jacketed RAC. NGCFells: "If we can get those in quickly do
 them"; credit Vehrec (records' notes, credits page, news). Concepts only, no stats: each needs a short brainstorm for
 stats/rules, so not quick. NGCFells: AFTER E-War Phase 0 ships (order: E-War Phase 0 -> #643 -> rest of E-War / #600 as
-before).
+before). Also #644: Ryan DesCastris's (Star League Discord) laser sail highway (JumpShip sail tech as laser-pushed
+light sails; concept only, needs a design; credit him). NGCFells: "Another add potentially" - queued with #643, after
+E-War Phase 0; confirm its place in the order with NGCFells.
 
 OPEN FOR NGCFELLS: none blocking. Model: Opus for the controller is fine but costly; Sonnet can run the controller
 loop from the ledger; use Opus for Task 13's final review.
