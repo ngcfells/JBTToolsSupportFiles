@@ -50,6 +50,11 @@ NGCFELLS RULINGS THIS SESSION (all saved in memory):
 - "If we have a book that offers it for an edition it is then available for that edition"
   (book-offers-item-for-edition.md); posted on #612 for the non-E-War Maximum Tech content.
 
+NEW (2026-11-20 ~22:15): issue #643, Vehrec's (Star League Discord, 2026-11-19) concepts: Pelican aerodyne SeaDropship,
+MetalStorm-style single-use-barrel autocannon, coolant-jacketed RAC. NGCFells: "If we can get those in quickly do
+them"; credit Vehrec (records' notes, credits page, news). Concepts only, no stats: each needs a short brainstorm for
+stats/rules, so not quick; slot it in after the current E-War task finishes or ask NGCFells where it goes in the order.
+
 OPEN FOR NGCFELLS: none blocking. Model: Opus for the controller is fine but costly; Sonnet can run the controller
 loop from the ledger; use Opus for Task 13's final review.
 
