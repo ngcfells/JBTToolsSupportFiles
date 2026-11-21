@@ -1,5 +1,8 @@
 # START HERE (2026-11-21, written ~early morning, Opus 5.5): E-WAR PHASE 0, TASKS 8-9 DONE; NEXT = TASK 10 (STEALTH), INLINE
 
+**START THE NEXT SESSION ON SONNET** (NGCFells, 2026-11-21): Tasks 10-12 inline on Sonnet; only Task 13's final
+whole-branch review goes to an Opus subagent.
+
 NGCFELLS (2026-11-21): "move to Native for the rest unless there is a need for subagents" (memory
 native-over-subagents.md). Do the remaining tasks INLINE in the session (skill superpowers:executing-plans, not
 subagent-driven), small chunks (one task, or one part of a task, per session), handoff before budget runs low. A
