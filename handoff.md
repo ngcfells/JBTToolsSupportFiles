@@ -1,4 +1,20 @@
-# START HERE (2026-11-20 night, Opus 5.5, latest): #206 AND #135 CLOSED; #225 WAITS ON NGCFELLS
+# START HERE (2026-11-20 night, Opus 5.5, latest): #206 AND #135 CLOSED; LIBRARY LFS PUSH SCHEDULED FROM 12/1
+
+NGCFELLS (2026-11-20, #225): trim, then push from 12/1 in parts; the LFS allowance is 10 GB a month, no extra budget.
+JBTIICRework, committed locally, NOT pushed (origin/main = 51a41fdd):
+
+- 6a5ef84d part 1 of 2: renames, 37 removals, 12 modified, all new files except unsorted/Sourcebook (1,140 LFS
+  pointers, 8.74 GB). ON OR AFTER 2026-12-01: `git push origin 6a5ef84d:main` (from C:/repo/JBTIICRework).
+- 7a580923 part 2 of 2: unsorted/Sourcebook (57 files, 2.63 GB). ON OR AFTER 2027-01-01: `git push origin main`.
+- .gitignore keeps local: *.mobi, *.azw, *.azw3, *.mp4 and unsorted/Hairbrained Schemes/BATTLETECH-OST_wav.zip (3.15
+  GB, over LFS's 2 GB file limit). Any new library files before then: commit them as a later part, sized to fit.
+- After both pushes: delete branch backup/pre-lfs-strip, close #225; #601 still needs the rename_library.py rulebooks
+  pilot `--apply` (not applied; renames of pushed LFS files re-use the uploaded objects).
+- Issue comments on #225 and #601 say the same.
+
+The #225 lines in the block just below are superseded by this.
+
+## Previous (2026-11-20 night, Opus 5.5): #206 AND #135 CLOSED; #225 WAITS ON NGCFELLS
 
 `C:/repo/btt-rebuild` bv-gaps = origin/beta = d5274c8a0, `git deploy-beta` Published, `npm run check` green (5850
 unit + 32 data, 3 old lint warnings).
