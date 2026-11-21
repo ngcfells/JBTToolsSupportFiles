@@ -26,9 +26,13 @@ STATE (bv-gaps, 16 commits ahead of origin/beta 8a0bbf0a3, NOT pushed, NOT deplo
   BTC, BTC:RoW, BMR, BMR(R), TW, BMM, CRB + design doc Appendix A). Review 1 open Important: **BMM `editions` lists APDS
   (and others) that BMM does not print -> fix with test.** Fix round 1 NOT yet sent.
 - Task 8b (write back ~40 pages Task 8 read from images but left unwritten: BTC 1990, BTC:RoW, BMR 1998, Maximum Tech
-  1999 + other printings; and read CityTech 2nd Ed + ClanTroops for the family): PAUSED by the controller at ~22:00.
-  Its report `task-8b-report.md` says which pages and gap reads are done and which are left. Finish what is left
-  first (fresh astech/Sonnet worker with that report), then Task 8 fix round 1.
+  1999 + other printings; and read CityTech 2nd Ed + ClanTroops for the family): PAUSED at ~22:10, PARTIAL.
+  DONE: 37 pages rewritten in .txt and .raw.txt of BTC 1990, BTC:RoW 3rd, BMR 1998, Maximum Tech 1999 (+ BTC scan
+  .ocr.txt), ResourceLibrary f7b11c400 pushed. LEFT: Maximum Tech Revised scan .ocr.txt (indices 40, 72, 75, 81-83) and
+  its PDF-version pages beyond 41 and 83; CityTech 2nd Ed and ClanTroops gap read NOT started (hits listed in
+  `task-8b-report.md`; CT2 footers disagree with its contents page: AMS p.66, Narc p.71, take printed pages from the
+  images); Appendix A rows for them. Check after the OCR stop that the 8b pages survived (only the BTC scan .ocr.txt
+  was touched). Finish these first (fresh astech/Sonnet worker with that report), then Task 8 fix round 1.
 - Task 8 fix round 1 must include (owner rule below): Maximum Tech E-War items (Laser AMS, Artemis V, Streak LRM, Bola
   pods, and any other MT item in the family) get `master-rules` and `master-rules-revised` in `editions`,
   `editionLevels` 3 and `editionStats` from MT (pattern: MT targeting systems, equipment-misc.ts ~458), each with a test.
