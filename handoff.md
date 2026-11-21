@@ -53,7 +53,8 @@ NGCFELLS RULINGS THIS SESSION (all saved in memory):
 NEW (2026-11-20 ~22:15): issue #643, Vehrec's (Star League Discord, 2026-11-19) concepts: Pelican aerodyne SeaDropship,
 MetalStorm-style single-use-barrel autocannon, coolant-jacketed RAC. NGCFells: "If we can get those in quickly do
 them"; credit Vehrec (records' notes, credits page, news). Concepts only, no stats: each needs a short brainstorm for
-stats/rules, so not quick; slot it in after the current E-War task finishes or ask NGCFells where it goes in the order.
+stats/rules, so not quick. NGCFells: AFTER E-War Phase 0 ships (order: E-War Phase 0 -> #643 -> rest of E-War / #600 as
+before).
 
 OPEN FOR NGCFELLS: none blocking. Model: Opus for the controller is fine but costly; Sonnet can run the controller
 loop from the ledger; use Opus for Task 13's final review.
