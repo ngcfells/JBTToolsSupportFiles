@@ -1,4 +1,19 @@
-# START HERE (2026-11-20 evening, Opus 5.5, latest): SMALL ISSUES #625, #215, #205 CLOSED; NEXT #206, #135, #225
+# START HERE (2026-11-20 night, Opus 5.5, latest): #206 CLOSED; NEXT #135, #225
+
+`C:/repo/btt-rebuild` bv-gaps = origin/beta = dd38fe830, `git deploy-beta` Published, `npm run check` green (5849
+unit + 32 data, 3 old lint warnings).
+
+- #206 (dd38fe830): printed droids load with every heat sink on the chart. Page images read: only the Merlin's chart
+  (BD p.25) prints places (RA 3, HD 1, LA 2, RT 2, CT 2, LT 4, RL 2, LL 2) -> IPrintedDroid.heatSinkPlaces. BD
+  pp.16-17, Game News #3 and the TCI kit backs print none, so the rest go one to each location in chart order (RA, HD,
+  LA, RT, CT, LT, RL, LL), round after round (placeHeatSinks in printed-droid.ts). getUnallocatedCriticals drops null
+  slots. News bullet "Battledroids heat sinks".
+- ResourceLibrary 5f9df3303 (pushed): BD extract indices 16, 26, 33, 34 (pp.16, 17, 24, 25) rewritten from the images,
+  logged; search index rebuilt.
+
+NEXT: #135 CASE ammo critical on vehicles, then #225 Git LFS budget (details below).
+
+## Previous (2026-11-20 evening, Opus 5.5): SMALL ISSUES #625, #215, #205 CLOSED; NEXT #206, #135, #225
 
 NGCFELLS RULING 2026-11-20: "If it is there we are building it": every open issue gets built; none is closed as
 won't-do (memory open-issues-get-built.md).
