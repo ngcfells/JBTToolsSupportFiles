@@ -1,4 +1,52 @@
-# START HERE (2026-11-21 morning; written 2026-11-20 ~22:00, Opus 5.5): E-WAR PHASE 0 PAUSED MID-AUDIT (TASK 8 FIX ROUND NEXT)
+# START HERE (2026-11-21, written ~early morning, Opus 5.5): E-WAR PHASE 0, TASKS 8-9 DONE; NEXT = TASK 10 (STEALTH), INLINE
+
+NGCFELLS (2026-11-21): "move to Native for the rest unless there is a need for subagents" (memory
+native-over-subagents.md). Do the remaining tasks INLINE in the session (skill superpowers:executing-plans, not
+subagent-driven), small chunks (one task, or one part of a task, per session), handoff before budget runs low. A
+subagent only for a real need (Task 13's final whole-branch review on Opus). Sonnet is enough for the inline audits.
+
+FIRST:
+
+1. Read the ledger `C:/repo/btt-rebuild/.superpowers/sdd/2026-11-20-ewar-phase-0/progress.md` (rulings 1-9, every
+   task's state, deferred minors, carry items). Plan `C:/repo/btt-rebuild/docs/superpowers/plans/2026-11-20-ewar-phase-0.md`
+   (Tasks 8-12 audit section + Task 13); audit procedure = `audit-brief.md` + `audit-addendum.md` + `common.md` in the
+   same folder.
+2. Task 10 (stealth): resume from `task-10-report.md` (PARTIAL: page map for every item, catalog findings, to-view
+   list; ~50 pages were seen but nothing written back, so view each again). No Task 10 commits exist.
+
+STATE: btt-rebuild bv-gaps HEAD e0b37c363, ahead of origin/beta 8a0bbf0a3, NOT pushed, NOT deployed (issue #642).
+ResourceLibrary main pushed (last 3f556b03a).
+
+- Tasks 1-9 COMPLETE (8, 8b, 9 each reviewed clean this session).
+  - Task 8 fixes 101d14b, 5049c93: BMM drops 31 records it does not print; Maximum Tech missiles/defenses (Laser AMS,
+    Artemis V, Streak LRM, Bola, smoke and heat-seeking ammo) on master-rules / master-rules-revised L3 with MT stats.
+  - Task 8b 6b8383e + RL f7b11c400, 5fd760e82: Maximum Tech (all printings), CityTech 2nd Ed, ClanTroops pages written
+    back; Appendix A expansions section.
+  - Task 9 ce70122..e0b37c3 + RL be920b2fb, 8b1610eb4, 4f33213a2, 3f556b03a: ECM/probe table entries; Angel, Bloodhound,
+    infantry ECM suits under Maximum Tech; CRB (p.180: "items as of 3150", tables pp.248-253) and BMM trimmed record
+    by record (prototypes, Nova CEWS, improved one-shots, improved Clan launchers); `IEditionStats.clan` +
+    `getEquipmentForEdition(item, edition, techBase?)` + `getClanVariants()` mixed-tech `clan-angel-ecm` (Clan Angel
+    1.5 t under MT).
+- LESSONS for Tasks 10-12 (Task 9 needed 3 fix rounds for these): view every page BY EYE (Surya read = draft only);
+  every printing; scan written pages for OCR artifacts (mermaid/code blocks, digit runs, repeated lines); check CRB
+  and BMM `editions` record by record.
+- NEXT ORDER: Task 10 (stealth) -> Ruling 8 catalog commit (primitive-prototype-* x14, prototype-rocket-launcher-* x3,
+  ammo-*-bomb-tag: drop core-rulebook (and BMM for bombs) per CRB p.180) -> Task 11 (C3 and the rest; carry: MT p.40
+  infantry Narc +10,000 and infantry TAG +50,000 records under BMR/BMR(R); BA `is-c3-system` classify; BMM 6th
+  printings p.112 extra C3/ECM sentence and 7th printing C3 switching wording) -> Task 12 (Alpha Strike) -> Task 13
+  (ship: Opus final review subagent, npm run check, deploy-beta, news bullet, #642 comment; check every audit report's
+  page list against _corrected_pages.md, incl. the `_duplicates` ClanTroops scan set from 1991 text).
+
+OCR REDO: PAUSED 2026-11-21 02:51 by NGCFells after book 22 of 184 (Field Manual Updates); 06:00 stopper cancelled;
+part 2 committed + pushed (RL ce0e3c65d). Restart only on NGCFells's word: `ocr-resume/resume3.ps1` (skips done
+books); to pause after a book again: `ocr-resume/pause-after-book.ps1 -WrapperPid <pid>`. Do not write ResourceLibrary
+extracts while it runs.
+
+AFTER E-WAR PHASE 0: #643 (Vehrec's concepts) -> #644 (laser sail highway; confirm order) -> rest of E-War / #600.
+
+OPEN FOR NGCFELLS: none blocking.
+
+## Previous (2026-11-21 morning; written 2026-11-20 ~22:00, Opus 5.5): E-WAR PHASE 0 PAUSED MID-AUDIT (TASK 8 FIX ROUND NEXT)
 
 FIRST, in this order:
 
