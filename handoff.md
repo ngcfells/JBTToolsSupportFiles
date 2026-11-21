@@ -1,7 +1,17 @@
-# START HERE (2026-11-20 night, Opus 5.5, latest): #206 CLOSED; NEXT #135, #225
+# START HERE (2026-11-20 night, Opus 5.5, latest): #206 AND #135 CLOSED; #225 WAITS ON NGCFELLS
 
-`C:/repo/btt-rebuild` bv-gaps = origin/beta = dd38fe830, `git deploy-beta` Published, `npm run check` green (5849
+`C:/repo/btt-rebuild` bv-gaps = origin/beta = d5274c8a0, `git deploy-beta` Published, `npm run check` green (5850
 unit + 32 data, 3 old lint warnings).
+
+- #135 (d5274c8a0): rule is TW p.194 (CASE: ammo damage to the rear armor instead, excess ignored, Crew Stunned); the
+  fan sheet's "removes all rear armor" is wrong. Play mode already had it. The vehicle sheet now prints that line under
+  the Critical Hits Table when the vehicle has CASE (Clan chassis included). Vehicles build only under TW, so no
+  edition variant on the sheet. News bullet "CASE on vehicle sheets".
+- #225 / #601 (library LFS): JBTIICRework main = origin/main = 51a41fdd, 0 ahead. Pending, untouched: 37 deleted
+  names, 11 modified PDFs, 155 new paths = 1,304 files, 15.44 GB to upload to LFS; 194 .mobi/.azw/.mp4 have no LFS
+  rule (two videos over GitHub's 100 MB). Branch backup/pre-lfs-strip still there. ASKED NGCFells: push all / trim
+  (ebooks and videos stay local) / keep binaries local. Pushing costs LFS storage and bandwidth: do not push without
+  the answer.
 
 - #206 (dd38fe830): printed droids load with every heat sink on the chart. Page images read: only the Merlin's chart
   (BD p.25) prints places (RA 3, HD 1, LA 2, RT 2, CT 2, LT 4, RL 2, LL 2) -> IPrintedDroid.heatSinkPlaces. BD
