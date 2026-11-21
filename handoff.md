@@ -1,4 +1,54 @@
-# START HERE (2026-11-20 night, Opus 5.5, latest): #206 AND #135 CLOSED; LIBRARY LFS PUSH SCHEDULED FROM 12/1
+# START HERE (2026-11-20 late night, Opus 5.5, latest): PLEIADES BATCH (#640, #641) DESIGN APPROVED; NEXT = PLAN + BUILD
+
+NGCFELLS ORDER (2026-11-20): 1. Pleiades batch (#640, #641) -> 2. E-War layer in roster play (all of it) -> 3. #600.
+"Do the small stuff first." NEW STANDING RULE (memory condense-and-extend.md): keep it condensed, reuse and EXTEND
+existing files; no new file per item (a new file only when nothing fits, reason in the plan; tests in the area's
+existing test file).
+
+**1. Pleiades Mechworks batch: design APPROVED, nothing built yet.**
+- Design: `C:/repo/btt-rebuild/docs/superpowers/specs/2026-11-20-pleiades-mechworks-design.md`, commit fad5bc9fb
+  (bv-gaps, pushed to origin/beta; docs only, no deploy). Builder check (astech, Sonnet) done, answers folded in;
+  "Calls made in design" list at its end; nothing open for the owner.
+- Sources: #641 body (Blue Saviour, Boosted AC rounds, Personal ECM, AC/12, with comments) and #640 body (Pilot Suit).
+  Hardsuit post + both sheets (Hardsuit PA(L), VTOL Hardsuit): ResourceLibrary `scrapes/reddit/1rbyavi.txt`,
+  `1rbyavi-hardsuit.png`, `1rbyavi-vtol-hardsuit.webp` (ace4015f2, pushed). Reddit and i.redd.it are blocked for
+  WebFetch; the Arctic Shift archive worked before (see scrapes/reddit/reddit-scan.md) if comments are wanted.
+- NEXT STEP: invoke superpowers:writing-plans on that design (plan in `docs/superpowers/plans/`), then build it TDD
+  in `C:/repo/btt-rebuild` on bv-gaps (= origin/beta), Batch Chunk 6 pipeline (progress notes:
+  battletech-tools-master/.superpowers/sdd/2026-11-12-custom-homebrew-batch/progress.md, sections "Batch Chunk 6").
+  Plan step 1: confirm Clan VTOL is legal on a PA(L) suit in the BA creator (TM pp.164-165); if the book forbids it,
+  stop and ask NGCFells. Then astech review (Opus), `npm run check`, `git deploy-beta`, news bullet, close #640/#641
+  with evidence.
+- Code facts found: Blue Shield record `blue-shield` (equipment-misc.ts:481, spreadLocations all-but-head; BV hook
+  battlemech.ts ~1029); Interface Cockpit `interface` (mech-cockpit-types.ts ~188, no-gyro allowed, gyro "none" in
+  mech-gyro-types.ts); cockpit skill adjustment battlemech.ts ~2434-2445; play to-hit `getTargetToHitFromWeapon`
+  (utils.ts ~896) already takes range from the selected bin's `ammoProfile.range` (Boosted rounds need only a new
+  extra-heat field); fan play rules in `src/utils/future-wars-play.ts` (extend it, widen its header); play damage
+  dialog play.tsx ~1190-1225 calls `takeDamage(amount, location, rear)` (no weapon type today); BA creator already
+  has PA(L), Armored Glove, Fuel Tank, variable Mission Equipment, Clan VTOL. AC/10 munitions in ammo.ts ~2537-2729.
+- Blue Saviour's "treat as AMS" and "inside hostile ECM", and the Personal ECM's play effect, wait for the E-War
+  phases (reminder lines until then).
+
+**2. E-War layer in roster play (NGCFells: "Do it all if we are missing it... Include all E-War items and rules").**
+Not designed yet; brainstorm + design doc after the Pleiades batch ships. Agreed so far:
+- Roster play today has NO E-War for any unit: no ECM, AMS, Artemis, Narc, C3, probes, Stealth/Null-Sig to-hit.
+  Only 'Mechs use getTargetToHitFromWeapon; vehicles, BA, protos, fighters etc. have their own play views.
+- Approach agreed: ONE shared E-War rules module (condensed; extend existing files) used by every unit type's play
+  view; per-unit state (own ECM mode, inside enemy ECM, Narc/iNarc pods, TAGged, C3 network) + per-attack "enemy ECM
+  on this line of fire" tick (no map; like the woods/smoke counts); a force-level C3 network panel.
+- Phases, each its own plan + beta deploy: 0 catalog audit vs TW/TO:AUE/TM/IO:AE (catalog already has most items;
+  Void-Signature and some BA E-War gear look missing); 1 missiles (AMS, Laser AMS, APDS, Artemis, Apollo,
+  Narc/iNarc, semi-guided + TAG, ECM cancelling); 2 stealth + sensors (Stealth, Null-Sig, Void, Chameleon, Mimetic,
+  probes, ECCM, Angel, Watchdog); 3 C3 networks + the rest (ghost targets, EW Equipment, communications, aero ECM).
+  Then hook in Personal ECM + Blue Saviour's AMS/ECM. Open an issue for it when designing.
+
+**3. #600 then.** Left per the issue: round 4b fighters (untouched), "remaining unit types", Tonbo (189 v MUL 233)
+and Bishop (171 v 199) left out, UL-14 two bulldozers v TM p.242 one-in-Front, both armed Brunels over item slots
+(flagged illegal).
+
+Unchanged: library LFS push from 12/1 (block below); OCR redo still waits for NGCFells's go.
+
+## Previous (2026-11-20 night, Opus 5.5): #206 AND #135 CLOSED; LIBRARY LFS PUSH SCHEDULED FROM 12/1
 
 NGCFELLS (2026-11-20, #225): trim, then push from 12/1 in parts; the LFS allowance is 10 GB a month, no extra budget.
 JBTIICRework, committed locally, NOT pushed (origin/main = 51a41fdd):
